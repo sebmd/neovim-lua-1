@@ -1021,6 +1021,16 @@ map("i", ",/", "</<C-X><C-O>")
 --After searching, pressing escape stops the highlight
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
+-- Telescope
+-- <leader>p    Telescope find_files
+-- <leader>r    Telescope registers
+-- <leader>g    Telescope live_grep
+-- <leader>b    Telescope buffers
+-- <leader>j    Telescope help_tags
+-- <leader>f    Telescope file_browser
+-- <leader>s    Telescope spell_suggest
+-- <leader>i    Telescope git_status
+-- <leader>t    Telescope tags
 map(
   "n",
   "<leader>p",

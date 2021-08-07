@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-07 23:30:00
+-- Aktualizacja 2021-08-08 00:13:41
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -163,7 +163,7 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
-opt.updatetime = 500 -- don't give |ins-completion-menu| messages.
+opt.updatetime = 400 -- don't give |ins-completion-menu| messages.
 opt.lazyredraw = true -- lz - szybciej wykonuje makra
 opt.wrap = false -- display lines as one long line
 opt.wildmenu = true
@@ -180,8 +180,9 @@ opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
 opt.viewdir = "$HOME/.local/share/nvim/view"
 opt.directory = "~/.local/share/nvim/swap//"
 -- opt.path-="/usr/include"
--- opt.path+="**"
--- se laststatus=2
+opt.path:remove("/usr/include")
+opt.path:append("**")
+opt.laststatus = 2
 -- se complete+=kspell                                     " cpt - Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 -- se completeopt=menuone,longest,noselect                 " cot
 -- " se completeopt=menuone,noinsert,noselect                " cot
@@ -266,10 +267,10 @@ api.nvim_exec(
 )
 
 -- RgNotes
+-- Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim zmienna $NOTES_DIR ustawiona w pliku ~/.config/vars
+-- Przeszukiwanie zawartości plików
 api.nvim_exec(
   [[
-    " Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim zmienna $NOTES_DIR ustawiona w pliku ~/.config/vars
-    " Przeszukiwanie zawartości plików
     function! RgNotes(query, fullscreen)
         let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $NOTES_DIR || true'
         let initial_command = printf(command_fmt, shellescape(a:query))
@@ -281,9 +282,9 @@ api.nvim_exec(
   false
 )
 
+-- Funkcja UpdateVimrc() uruchamiana po zapisaniu pliku $MYVIMRC
 api.nvim_exec(
   [[
-    " funkcja uruchamiana po zapisaniu pliku vimrc
     function! UpdateVimrc()
         normal! ma1G0D
         normal! I-- Aktualizacja
@@ -295,9 +296,9 @@ api.nvim_exec(
   false
 )
 
+-- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp
 api.nvim_exec(
   [[
-    " przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp
     function! GP()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/gp
         redraw!
@@ -306,9 +307,9 @@ api.nvim_exec(
   false
 )
 
+-- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga
 api.nvim_exec(
   [[
-    " przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga
     function! GA()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/ga
         redraw!
@@ -317,9 +318,9 @@ api.nvim_exec(
   false
 )
 
+-- Odwraca kolor tła
 api.nvim_exec(
   [[
-    " odwraca kolor tła
     function! RevBackground()
         if &background=="light"
             set background=dark
@@ -335,8 +336,8 @@ function VimrcVersion()
   print(vimrc_version)
 end
 
-map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })
-map("n", "<leader>bb", "<cmd>lua print(vimrc_version)<cr>", { silent = false })
+-- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })
+-- map("n", "<leader>bb", "<cmd>lua print(vimrc_version)<cr>", { silent = false })
 
 cmd("abbr ga GA")
 cmd("abbr gp GP")
@@ -344,6 +345,7 @@ cmd("abbr x Write<cr>:q<cr>")
 cmd("abbr w Write<cr>")
 
 -- komendy
+cmd("command! VimrcVersion :lua VimrcVersion()<cr>")
 cmd("command! GP call GP()")
 cmd("command! GA call GA()")
 cmd("command! RevBackground call RevBackground()")

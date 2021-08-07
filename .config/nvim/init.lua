@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-07 22:12:49
+-- Aktualizacja 2021-08-07 23:30:00
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -176,11 +176,11 @@ opt.undolevels = 1000
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
 opt.showbreak = "↪"
 opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
-opt.viminfo = "'100,n$HOME/.config/nvim/viminfo/viminfo"
-opt.viewdir = "$HOME/.config/nvim/view"
-opt.directory = "~/.config/nvim/swap//"
--- opt.path-="/usr/include"                                   -- pa
--- opt.path+="**"                                             -- pa
+opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
+opt.viewdir = "$HOME/.local/share/nvim/view"
+opt.directory = "~/.local/share/nvim/swap//"
+-- opt.path-="/usr/include"
+-- opt.path+="**"
 -- se laststatus=2                                         " ls
 -- se complete+=kspell                                     " cpt - Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 -- se completeopt=menuone,longest,noselect                 " cot
@@ -197,6 +197,8 @@ g.GPGPreferSymmetric = 0
 g.GPGUseAgent = 1
 g.GPGPreferArmor = 1
 g.GPGPreferSign = 1
+-- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write
+--  swojej powłoce systemowej
 g.GPGDefaultRecipients = "[$GPG_ID]"
 g.GPGFilePattern = "*{gpg,asc,gpg.md}"
 
@@ -210,12 +212,12 @@ g.everforest_current_word = "bold"
 g.ayucolor = "mirage"
 
 -- Load the colorscheme
--- cmd([[colorscheme everforest]]) -- Put your favorite colorscheme here
+cmd([[colorscheme everforest]]) -- Put your favorite colorscheme here
 -- cmd([[colorscheme ayu]]) -- Put your favorite colorscheme here
 -- cmd([[colorscheme gotham]]) -- Put your favorite colorscheme here
-cmd([[colorscheme solarized8_flat]]) -- Put your favorite colorscheme here
+-- cmd([[colorscheme solarized8_flat]]) -- Put your favorite colorscheme here
 
-api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
+-- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
 
 -- vim.cmd([[set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*]])
 
@@ -375,8 +377,8 @@ require("kommentary.config").configure_language("rust", {
 
 -- minimap
 g.minimap_width = 10
-g.minimap_auto_start = 1
-g.minimap_auto_start_win_enter = 1
+g.minimap_auto_start = 0
+-- g.minimap_auto_start_win_enter = 1
 
 -- Plugin Pear tree
 api.nvim_exec(
@@ -450,7 +452,7 @@ require("indent_blankline").setup({
   char_list = { "|", "¦", "┆", "┊" },
   space_char_blankline = " ",
   buftype_exclude = { "terminal", "nofile" },
-  filetype_exclude = { "help", "packer" },
+  filetype_exclude = { "help", "packer", "dashboard" },
   char_highlight = "LineNr",
   show_trailing_blankline_indent = false,
   -- char_highlight_list = { "Normal", "Function", "Error" },

@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-08 00:13:41
+-- Aktualizacja 2021-08-08 00:17:00
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -931,6 +931,12 @@ map("c", "<c-l>", "<right>")
 -- map("n", "<space>", "i<space><C-c>l")
 
 map("n", "qq", ":q<cr>")
+
+map("n", "j", "gj")
+map("n", "k", "gk")
+
+map("n", "gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>')
+map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>')
 
 -- przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
 map("n", "zn", "zm")

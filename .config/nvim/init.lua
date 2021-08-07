@@ -953,7 +953,7 @@ map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
 
 map("n", "<leader>q", ":q<CR>")
 
--- Open nvimrc file
+-- Otwiera plik konfiguracyjny Neovim
 map("n", "<Leader>v", "<cmd>e $MYVIMRC<CR>")
 
 -- Source nvimrc file
@@ -1018,19 +1018,10 @@ map("v", "-", "<C-x>", { silent = true })
 --Auto close tags
 map("i", ",/", "</<C-X><C-O>")
 
---After searching, pressing escape stops the highlight
+-- ESC wyłącza wyróżnianie szukanego słowa
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
--- Telescope
--- <leader>p    Telescope find_files
--- <leader>r    Telescope registers
--- <leader>g    Telescope live_grep
--- <leader>b    Telescope buffers
--- <leader>j    Telescope help_tags
--- <leader>f    Telescope file_browser
--- <leader>s    Telescope spell_suggest
--- <leader>i    Telescope git_status
--- <leader>t    Telescope tags
+-- Telescoope
 map(
   "n",
   "<leader>p",

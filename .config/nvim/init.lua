@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-08 00:17:00
+-- Aktualizacja 2021-08-08 02:42:59
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -38,7 +38,11 @@ require("paq-nvim")({
   "ggandor/lightspeed.nvim",
   "lukas-reineke/indent-blankline.nvim",
   "rmagatti/auto-session",
+  --
+  -- vim-repeat
   "tpope/vim-repeat",
+  --
+  -- vim-surround
   "tpope/vim-surround",
   "wellle/targets.vim",
   --
@@ -236,7 +240,7 @@ cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true, timeout = 150}")
 -- ustawienia }}}
 -- {{{ funkcje, komendy
--- UpdateVimrc
+-- Funkcja Write()
 api.nvim_exec(
   [[
     function! Write()
@@ -974,6 +978,15 @@ map("n", "<leader>sp", ":norm ysip")
 map("n", "<leader>ss", ":norm yss")
 map("n", "<leader>sd", ":norm ds")
 
+map("n", "<leader>vs", "<cmd>vs<cr>")
+map("n", "<leader>sp", "<cmd>sp<cr>")
+
+-- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
+map("n", "<c-h>", "<c-w><c-h>")
+map("n", "<c-j>", "<c-w><c-j>")
+map("n", "<c-k>", "<c-w><c-k>")
+map("n", "<c-l>", "<c-w><c-l>")
+
 -- map("n", "<Enter>", "o<Esc>")
 -- map("n", "<space>", "i<space><C-c>l")
 
@@ -1050,10 +1063,15 @@ map("i", ":", ":<c-g>u")
 -- Keep search results centred
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
+
+-- łączy linie pozostawiając kursor w obecnej pozycji
 map("n", "J", "mzJ`z")
 
--- Make Y yank to end of the line
+-- kopiuje tekst od kursora do końca linii
 map("n", "Y", "y$")
+
+-- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
+map("n", "<leader>a", "=ip gqap")
 
 -- Line bubbling
 -- Use these two if you don't have prettier

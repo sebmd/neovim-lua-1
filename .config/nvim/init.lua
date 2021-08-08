@@ -19,8 +19,6 @@ require("paq-nvim")({
   "hrsh7th/vim-vsnip",
   -- "L3MON4D3/LuaSnip",
   -- automatyczne zamykanie nawiasów i cudzysłowiów
-  -- "jiangmiao/auto-pairs",
-  -- "steelsojka/pears.nvim",
   "tmsvg/pear-tree",
   --
   -- polecenia systemu Linux
@@ -110,7 +108,6 @@ end
 opt.timeoutlen = 200 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.showtabline = 0 -- don't show tabs - 2 always show tabs
 opt.conceallevel = 0 -- so that `` is visible in markdown files
--- opt.colorcolumn = "99999" -- fixes indentline for now
 opt.textwidth = 100
 opt.colorcolumn = "+1"
 opt.cursorline = true -- highlight the current line
@@ -129,6 +126,8 @@ opt.fileformat = "unix"
 opt.backspace = { "indent", "eol", "start" }
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.completeopt = { "menuone", "noselect" }
+-- se completeopt=menuone,longest,noselect
+-- se completeopt=menuone,noinsert,noselect
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.expandtab = true -- Use spaces instead of tabs
 opt.foldcolumn = "1"
@@ -137,7 +136,7 @@ opt.foldmethod = "marker"
 -- opt.foldmethod = "indent"
 -- opt.foldenable = false
 -- opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-opt.whichwrap = "b,s,<,>,h,l"
+opt.whichwrap:append("<,>,h,l")
 opt.formatoptions = "l"
 opt.hidden = true -- required to keep multiple buffers and open multiple buffers
 opt.hlsearch = true -- Highlight found searches
@@ -168,7 +167,7 @@ opt.lazyredraw = true -- lz - szybciej wykonuje makra
 opt.wrap = false -- display lines as one long line
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
--- " se wildmode=list:longest,full
+-- opt.wildmode = "list:longest,full"
 -- opt.undodir = CACHE_PATH .. "/undo" -- set an undo directory
 -- opt.undodir = "$HOME/.config/nvim/undo" -- set an undo directory
 opt.undofile = true -- enable persistent undo
@@ -183,9 +182,8 @@ opt.directory = "~/.local/share/nvim/swap//"
 opt.path:remove("/usr/include")
 opt.path:append("**")
 opt.laststatus = 2
--- se complete+=kspell                                     " cpt - Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
--- se completeopt=menuone,longest,noselect                 " cot
--- " se completeopt=menuone,noinsert,noselect                " cot
+opt.complete:append("kspell") -- Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
+
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*"
 
@@ -198,8 +196,7 @@ g.GPGPreferSymmetric = 0
 g.GPGUseAgent = 1
 g.GPGPreferArmor = 1
 g.GPGPreferSign = 1
--- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write
---  swojej powłoce systemowej
+-- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write swojej powłoce systemowej
 g.GPGDefaultRecipients = "[$GPG_ID]"
 g.GPGFilePattern = "*{gpg,asc,gpg.md}"
 
@@ -213,14 +210,12 @@ g.everforest_current_word = "bold"
 g.ayucolor = "mirage"
 
 -- Load the colorscheme
-cmd([[colorscheme everforest]]) -- Put your favorite colorscheme here
--- cmd([[colorscheme ayu]]) -- Put your favorite colorscheme here
--- cmd([[colorscheme gotham]]) -- Put your favorite colorscheme here
--- cmd([[colorscheme solarized8_flat]]) -- Put your favorite colorscheme here
+cmd([[colorscheme everforest]])
+-- cmd([[colorscheme ayu]])
+-- cmd([[colorscheme gotham]])
+-- cmd([[colorscheme solarized8_flat]])
 
 -- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
-
--- vim.cmd([[set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*]])
 
 -- Use spelling for markdown files ‘]s’ to find next, ‘[s’ for previous, 'z=‘ for suggestions when on one.
 -- Source: http:--thejakeharding.com/tutorial/2012/06/13/using-spell-check-in-vim.html
@@ -229,7 +224,7 @@ api.nvim_exec(
     augroup markdownSpell
         autocmd!
         autocmd FileType markdown,md,txt setlocal spell
-        autocmd BufRead,BufNewFile *.md,*.txt,*.markdown setlocal spell
+        autocmd BufRead,BufNewFile *.md,*.gpg.md,*.txt,*.markdown setlocal spell
     augroup END
 ]],
   false
@@ -328,6 +323,46 @@ api.nvim_exec(
             set background=light
         endif
     endfunction
+]],
+  false
+)
+
+-- Funkcja DestractionFree()
+api.nvim_exec(
+  [[
+    let g:DestractionFree=""
+    let g:List=""
+    function! DestractionFree()
+        if g:DestractionFree == "" || g:DestractionFree == 0
+            let g:DestractionFree=1
+            set nonumber
+            set norelativenumber
+            set nocursorline
+            set colorcolumn=
+            set signcolumn=no
+            set foldcolumn=0
+            execute 'IndentBlanklineDisable'
+        elseif g:DestractionFree == 1
+            let g:DestractionFree=0
+            set number
+            set relativenumber
+            set cursorline
+            set colorcolumn=+1
+            set signcolumn=yes
+            set foldcolumn=1
+            execute 'IndentBlanklineEnable'
+        endif
+    
+        if &list || g:List == 1
+            let g:List=1
+        else
+            let g:List=0
+        endif
+    
+        if g:List == 1
+            set list!
+        endif
+endfunction
 ]],
   false
 )
@@ -927,6 +962,18 @@ map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
+-- Obsługa pluginu vim-surround
+-- <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
+-- <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
+-- <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
+-- <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
+-- <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
+map("n", "<leader>sw", ":norm ysiw")
+map("n", "<leader>sW", ":norm ysiW")
+map("n", "<leader>sp", ":norm ysip")
+map("n", "<leader>ss", ":norm yss")
+map("n", "<leader>sd", ":norm ds")
+
 -- map("n", "<Enter>", "o<Esc>")
 -- map("n", "<space>", "i<space><C-c>l")
 
@@ -951,6 +998,8 @@ map("n", "dl", "d$")
 
 map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
+
+map("n", "<leader>d", "<cmd>bdelete<cr>")
 
 map("n", "<leader>;", ":", { silent = false })
 map("n", "<leader>th", ":nohl<cr>", { silent = true })
@@ -986,8 +1035,8 @@ map("v", "y", "ygv<Esc>")
 map("n", "<Leader>w", "<cmd>:Write<CR>")
 
 -- Tab to switch buffers in Normal mode
--- map("n", "<Tab>", ":bnext<CR>")
--- map("n", "<S-Tab>", ":bprevious<CR>")
+-- map("n", "<Tab>", "<cmd>bnext<CR>")
+-- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 map("n", "<Tab>", "<cmd>e #<CR>")
 
 -- More molecular undo of text

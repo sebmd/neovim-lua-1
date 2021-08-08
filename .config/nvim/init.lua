@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-08 02:42:59
+-- Aktualizacja 2021-08-08 22:21:49
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -378,10 +378,15 @@ end
 -- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })
 -- map("n", "<leader>bb", "<cmd>lua print(vimrc_version)<cr>", { silent = false })
 
-cmd("abbr ga GA")
-cmd("abbr gp GP")
-cmd("abbr x Write<cr>:q<cr>")
-cmd("abbr w Write<cr>")
+-- cmd("abbr ga GA")
+-- cmd("abbr gp GP")
+-- cmd("abbr x Write<cr>:q<cr>")
+-- cmd("abbr w Write<cr>")
+
+map("c", "gp", "GP")
+map("c", "ga", "GA")
+map("c", "x", "Write<cr>:q<cr>")
+map("c", "w", "Write<cr>")
 
 -- komendy
 cmd("command! VimrcVersion :lua VimrcVersion()<cr>")

@@ -2,64 +2,74 @@
 vimrc_version = "Wersja init.lua: v1.1"
 -- {{{ pluginy
 require("paq-nvim")({
-  --
   -- menadżer pluginów
   "savq/paq-nvim",
-  --
+
   -- git
   "lewis6991/gitsigns.nvim", -- integracja git
   -- "rhysd/git-messenger.vim",
-  --
+
   -- menadżer plików
   "ms-jpq/chadtree",
-  --
+  -- "kyazdani42/nvim-tree.lua",
+
   -- komentarze
   "b3nj5m1n/kommentary",
+
+  -- automatyczne uzupełnianie
   "hrsh7th/nvim-compe",
   "hrsh7th/vim-vsnip",
   -- "L3MON4D3/LuaSnip",
+
   -- automatyczne zamykanie nawiasów i cudzysłowiów
   "steelsojka/pears.nvim",
-  --
+
   -- polecenia systemu Linux
   "tpope/vim-eunuch",
-  --
+
   -- formatowanie kodu
   "mhartington/formatter.nvim",
-  --
+
   -- wyszukiwanie
   "junegunn/fzf",
   "junegunn/fzf.vim",
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-fzy-native.nvim",
+
   "nvim-treesitter/nvim-treesitter",
-  --
+
   -- szybkie poruszanie się po pliku
   "ggandor/lightspeed.nvim",
+
   "lukas-reineke/indent-blankline.nvim",
+
   "rmagatti/auto-session",
-  --
+
   -- vim-repeat
   "tpope/vim-repeat",
-  --
+
   -- vim-surround
   "tpope/vim-surround",
+
   "wellle/targets.vim",
-  --
+
   -- minimapa :!cargo install --locked code-minimap
   { "wfxr/minimap.vim", run = "cargo install --locked code-minimap" },
-  --
+
   -- undotree
   "mbbill/undotree",
-  --
-  -- menadżer plików
-  -- "kyazdani42/nvim-tree.lua",
+
   -- "tibabit/vim-templates",
+
   -- "vim-scripts/YankRing.vim",
+
   "hoob3rt/lualine.nvim",
+
   "glepnir/dashboard-nvim",
+
   -- szyfrowanie
   "jamessan/vim-gnupg",
+
   -- markdown
   "junegunn/goyo.vim",
   "junegunn/limelight.vim",
@@ -70,13 +80,13 @@ require("paq-nvim")({
   "junegunn/vim-markdown-toc",
   -- automatyczne podpowiedzi
   -- "vim-scripts/AutoComplPop",
-  --
+
   -- biblioteki, dodatki
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",
   "kyazdani42/nvim-web-devicons",
   "ryanoasis/vim-devicons",
-  --
+
   -- kolory
   "rakr/vim-one",
   "lifepillar/vim-solarized8",

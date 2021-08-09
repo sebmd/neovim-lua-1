@@ -19,7 +19,7 @@ require("paq-nvim")({
   "hrsh7th/vim-vsnip",
   -- "L3MON4D3/LuaSnip",
   -- automatyczne zamykanie nawiasów i cudzysłowiów
-  -- "tmsvg/pear-tree",
+  "steelsojka/pears.nvim",
   --
   -- polecenia systemu Linux
   "tpope/vim-eunuch",
@@ -426,14 +426,6 @@ g.minimap_width = 10
 g.minimap_auto_start = 0
 -- g.minimap_auto_start_win_enter = 1
 
--- Plugin Pear tree
--- api.nvim_exec(
--- [[
--- let g:pear_tree_pairs = { '('  : {'closer': ')'}, '['  : {'closer': ']'}, '{'  : {'closer': '}'}, "'"  : {'closer': "'"}, '"'  : {'closer': '"'}, '`'  : {'closer': '`'}  }
--- ]],
--- false
--- )
-
 -- vimwiki
 api.nvim_exec(
   [[
@@ -504,10 +496,10 @@ require("indent_blankline").setup({
   -- char_highlight_list = { "Normal", "Function", "Error" },
 })
 
---[[ require("pears").setup(function(conf)
+require("pears").setup(function(conf)
   conf.pair("{", "}")
   conf.expand_on_enter(false)
-end) ]]
+end)
 
 -- luasnip
 -- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'

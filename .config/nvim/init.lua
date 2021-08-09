@@ -1,5 +1,5 @@
--- Aktualizacja 2021-08-08 22:32:22
-vimrc_version = "Wersja init.lua: v1.1"
+-- Aktualizacja 2021-08-09 18:54:26
+vimrc_version = "Wersja init.lua: v1.2"
 -- {{{ pluginy
 require("paq-nvim")({
   -- menadżer pluginów
@@ -291,6 +291,16 @@ api.nvim_exec(
   false
 )
 
+-- Funkcja Tme() wyświetla bieżącą datę i godzinę
+api.nvim_exec(
+  [[
+function! Time()
+    echom strftime("- Teraz jest: %F %T -")
+endfunction
+]],
+  false
+)
+
 -- Funkcja UpdateVimrc() uruchamiana po zapisaniu pliku $MYVIMRC
 api.nvim_exec(
   [[
@@ -406,6 +416,7 @@ cmd("command! RevBackground call RevBackground()")
 cmd("command! UpdateVimrc call UpdateVimrc()")
 cmd("command! PI PaqInstall")
 cmd("command! Write call Write()")
+cmd("command! Time call Time()")
 cmd("command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)")
 -- cmd('command! VimrcVersion :echo "Wersja vimrc:  . g:vimrc_version"')
 -- command! VimrcVersion :echo "Wersja vimrc: " . g:vimrc_version

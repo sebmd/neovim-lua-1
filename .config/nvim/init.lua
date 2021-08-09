@@ -19,7 +19,7 @@ require("paq-nvim")({
   "hrsh7th/vim-vsnip",
   -- "L3MON4D3/LuaSnip",
   -- automatyczne zamykanie nawiasów i cudzysłowiów
-  "tmsvg/pear-tree",
+  -- "tmsvg/pear-tree",
   --
   -- polecenia systemu Linux
   "tpope/vim-eunuch",
@@ -356,13 +356,13 @@ api.nvim_exec(
             set foldcolumn=1
             execute 'IndentBlanklineEnable'
         endif
-    
+
         if &list || g:List == 1
             let g:List=1
         else
             let g:List=0
         endif
-    
+
         if g:List == 1
             set list!
         endif
@@ -427,12 +427,12 @@ g.minimap_auto_start = 0
 -- g.minimap_auto_start_win_enter = 1
 
 -- Plugin Pear tree
-api.nvim_exec(
-  [[
-let g:pear_tree_pairs = { '('  : {'closer': ')'}, '['  : {'closer': ']'}, '{'  : {'closer': '}'}, "'"  : {'closer': "'"}, '"'  : {'closer': '"'}, '`'  : {'closer': '`'}  }
-]],
-  false
-)
+-- api.nvim_exec(
+-- [[
+-- let g:pear_tree_pairs = { '('  : {'closer': ')'}, '['  : {'closer': ']'}, '{'  : {'closer': '}'}, "'"  : {'closer': "'"}, '"'  : {'closer': '"'}, '`'  : {'closer': '`'}  }
+-- ]],
+-- false
+-- )
 
 -- vimwiki
 api.nvim_exec(
@@ -519,16 +519,48 @@ end) ]]
 -- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
+local sorters, actions, previewers =
+  require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
+
+-- Load Telescope extensions
+require("telescope").load_extension("fzy_native")
 -- Telescope Global remapping
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    prompt_prefix = " ❯ ",
+    initial_mode = "insert",
+    file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
+    color_devicons = true,
+    winblend = 20,
+    file_sorter = sorters.get_fzy_sorter,
+    generic_sorter = sorters.get_fzy_sorter,
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     mappings = {
       i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
         ["<esc>"] = actions.close,
       },
+    },
+  },
+  extensions = {
+    -- Fast, fast, really fast sorter
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
     },
   },
   pickers = {

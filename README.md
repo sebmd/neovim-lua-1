@@ -123,3 +123,24 @@ git submodule update --init --recursive
 | `<leader>s` | Telescope spell_suggest |
 | `<leader>i` | Telescope git_status    |
 | `<leader>t` | Telescope tags          |
+
+## Neuron.nvim
+
+| skrót | opis                                                   |
+|-------|--------------------------------------------------------|
+| `gzn` | nowa notatka                                           |
+| `gzz` | wyszukiwanie notatek                                   |
+| `gzZ` | wstawia id znlezionej notatki                          |
+| `gzb` | znajduje odnośniki do bieżącej notatki                 |
+| `gzB` | wstawia id znalezionego odnośnika do bieżącej notatki  |
+| `gzt` | wyszukuje wszystkie tagi i jest wstawia                |
+| `gzs` | uruchamia serwer WWW pod adresem http://127.0.0.1:8200 |
+| `gz]` | przechodzi do następnego linku                         |
+| `gz[` | przechodzi do poprzedniego linku                         |
+
+
+
+" go to next [[my_link]] or [[[my_link]]]
+nnoremap <buffer> gz] <cmd>lua require'neuron'.goto_next_extmark()<CR>
+" go to previous
+nnoremap <buffer> gz[ <cmd>lua require'neuron'.goto_prev_extmark()<CR>]]

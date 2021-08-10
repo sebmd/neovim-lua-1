@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-10 21:11:07
+-- Aktualizacja 2021-08-10 22:02:57
 vimrc_version = "Wersja init.lua: v1.3"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -67,11 +67,14 @@ require("paq-nvim")({
   -- "vim-scripts/YankRing.vim",
 
   "hoob3rt/lualine.nvim",
+  "akinsho/nvim-bufferline.lua",
 
   "glepnir/dashboard-nvim",
 
   -- szyfrowanie
   "jamessan/vim-gnupg",
+
+  "oberblastmeister/neuron.nvim",
 
   -- markdown
   "junegunn/goyo.vim",
@@ -123,7 +126,7 @@ end
 -- {{{ ustawienia ·
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.showtabline = 0 -- don't show tabs - 2 always show tabs
+opt.showtabline = 1 -- 0 nie pokazuje; 1 pokazuje jeśli są karty (tab), 2 zawsze pokazuje górną belkę
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.textwidth = 100
 opt.colorcolumn = "+1"
@@ -463,6 +466,89 @@ cmd(
 -- command! VimrcVersion :echo "Wersja vimrc: " . g:vimrc_version
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
+-- neuron
+require("neuron").setup({
+  virtual_titles = true,
+  mappings = true,
+  run = nil, -- function to run when in neuron dir
+  neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+  leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+})
+
+-- luatab
+-- vim.o.tabline = "%!v:lua.require'luatab'.tabline()"
+
+-- bufferline
+-- require("bufferline").setup({})
+
+require("bufferline").setup({
+  options = {
+    numbers = buff_id, -- "none" | "ordinal" | "buffer_id" | "both",
+    number_style = { "none", "subscript" }, -- "superscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
+    mappings = true, -- true | false,
+    close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+    middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+    -- NOTE: this plugin is designed with this icon in mind,
+    -- and so changing this is NOT recommended, this is intended
+    -- as an escape hatch for people who cannot bear it for whatever reason
+    indicator_icon = "▎",
+    buffer_close_icon = "",
+    modified_icon = "●",
+    close_icon = "",
+    left_trunc_marker = "",
+    right_trunc_marker = "",
+    --- name_formatter can be used to change the buffer's label in the bufferline.
+    --- Please note some names can/will break the
+    --- bufferline so use this at your discretion knowing that it has
+    --- some limitations that will *NOT* be fixed.
+    name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+      -- remove extension from markdown files for example
+      if buf.name:match("%.md") then
+        return vim.fn.fnamemodify(buf.name, ":t:r")
+      end
+    end,
+    max_name_length = 18,
+    max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+    tab_size = 18,
+    diagnostics = false, -- false | "nvim_lsp",
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      return "(" .. count .. ")"
+    end,
+    -- NOTE: this will be called a lot so don't do any heavy processing here
+    custom_filter = function(buf_number)
+      -- filter out filetypes you don't want to see
+      if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+        return true
+      end
+      -- filter out by buffer name
+      if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+        return true
+      end
+      -- filter out based on arbitrary rules
+      -- e.g. filter out vim wiki buffer from tabline in your work repo
+      if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+        return true
+      end
+    end,
+    -- offsets = {{filetype = "NvimTree", text = "File Explorer" | function , text_align = "left" | "center" | "right"}},
+    offsets = { { filetype = "NvimTree", text = "File Explorer" } },
+    show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
+    show_buffer_close_icons = true, -- true | false,
+    show_close_icon = true, -- true | false,
+    show_tab_indicators = true, -- true | false,
+    persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+    -- can also be a table containing 2 custom separators
+    -- [focused and unfocused]. eg: { '|', '|' }
+    separator_style = "thick", -- "slant" | "thick" | "thin" | { 'any', 'any' },
+    enforce_regular_tabs = false, -- false | true,
+    always_show_bufferline = true, -- true | false,
+    sort_by = "id", -- 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+    -- return buffer_a.modified > buffer_b.modified
+    -- end,
+  },
+})
 
 -- cursoline highlight
 vim.g.cursorword_highlight = true

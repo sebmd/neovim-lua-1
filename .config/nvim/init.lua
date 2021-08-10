@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-10 15:37:16
+-- Aktualizacja 2021-08-10 20:27:30
 vimrc_version = "Wersja init.lua: v1.2"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -224,10 +224,11 @@ g.everforest_current_word = "bold"
 g.ayucolor = "mirage"
 
 -- Load the colorscheme
-cmd([[colorscheme everforest]])
+-- cmd([[colorscheme everforest]])
 -- cmd([[colorscheme ayu]])
 -- cmd([[colorscheme gotham]])
 -- cmd([[colorscheme solarized8_flat]])
+api.nvim_exec([[colorscheme everforest]], false)
 
 -- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
 
@@ -271,6 +272,38 @@ api.nvim_exec(
             echo "Utworzyłem" expand("%:p")
         endif
     endfunction
+]],
+  false
+)
+
+-- Funkcja InsertDiaryHeader() wstawia nagłówej # i bieżący czas
+api.nvim_exec(
+  [[
+    function! InsertDiaryHeader()
+        normal! o# <temat> <data>
+        execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
+        normal! 0f<d7l
+        normal! kdd
+        normal! 02l
+        execute ':startinsert'
+    endfunction
+]],
+  false
+)
+
+-- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
+-- InsertDiaryHeader
+api.nvim_exec(
+  [[
+" funkcję uruchamia skrót <leader>e
+function! DiaryNotes()
+    if filereadable(expand("$NOTES_DIR/diary/".strftime("%F").".md"))
+        execute ":e "(expand("$NOTES_DIR/diary/".strftime("%F").".md"))""
+    else
+        execute ":e $NOTES_DIR/diary/".strftime("%F").".md"
+        call InsertDiaryHeader()
+    endif
+endfunction
 ]],
   false
 )
@@ -409,6 +442,8 @@ end
 -- map("c", "w", "Write<cr>")
 
 -- komendy
+cmd("command! InsertDiaryHeader call InsertDiaryHeader()")
+cmd("command! DiaryNotes call DiaryNotes()")
 cmd("command! VimrcVersion :lua VimrcVersion()<cr>")
 cmd("command! GP call GP()")
 cmd("command! GA call GA()")
@@ -418,6 +453,9 @@ cmd("command! PI PaqInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
 cmd("command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)")
+cmd(
+  "command! -bang -nargs=? -complete=dir Notes call fzf#vim#files('$NOTES_DIR', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--prompt=Notes> ']}), <bang>0)"
+)
 -- cmd('command! VimrcVersion :echo "Wersja vimrc:  . g:vimrc_version"')
 -- command! VimrcVersion :echo "Wersja vimrc: " . g:vimrc_version
 -- funkcje, komendy }}}
@@ -1024,6 +1062,57 @@ map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
+api.nvim_exec(
+  [[
+    autocmd Filetype help nnoremap <c-n> :cnext<cr>
+    autocmd Filetype help nnoremap <c-p> :cprevious<cr>
+    autocmd Filetype help nnoremap <leader>l <c-]>
+    autocmd Filetype help nnoremap <leader>h <c-t>
+    autocmd Filetype help nnoremap q :quit<cr>
+]],
+  false
+)
+
+-- przeniesienie bieżącej linii do pliku
+map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
+map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map("n", "<leader>sn", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>")
+
+-- przeniesienie zaznaczenia do pliku
+map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
+map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map(
+  "v",
+  "<leader>sn",
+  ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>"
+)
+
+-- edycja wybranych plików
+map("n", "<leader>ei", ":e $NOTES_DIR/index.md<cr>")
+map("n", "<leader>ed", ":e $NOTES_DIR/done.md<cr>")
+map("n", "<leader>en", ":e $NOTES_DIR/notatki.md<cr>")
+
+-- dodaje nowy plik dziennika
+map("n", "<leader>ej", ":DiaryNotes<cr>")
+
+-- wyszukiwanie plików w katalogu $NOTES_DIR
+map("n", "<leader>ee", ":Notes<cr>")
+
+-- przeszukiwanie plików w katalogu $NOTES_DIR
+map("n", "<leader>er", ":RgNotes<cr>")
+
+-- automatycznie odświerza pliki
+api.nvim_exec(
+  [[
+    autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md set autoread
+    autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md :checktime
+]],
+  false
+)
+
+-- ustawia podzielone okno na główne (full screen)
+map("n", "<leader>o", ':only<cr>:echom "There Can Be Only One"<cr>"')
+
 -- Obsługa pluginu vim-surround
 -- <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
 -- <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
@@ -1060,8 +1149,8 @@ map("n", "qq", ":q<cr>")
 map("n", "j", "gj")
 map("n", "k", "gk")
 
-map("n", "gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>')
-map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>')
+map("n", "<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
+map("n", "<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 
 -- przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
 map("n", "zn", "zm")

@@ -1,5 +1,5 @@
--- Aktualizacja 2021-08-10 20:27:30
-vimrc_version = "Wersja init.lua: v1.2"
+-- Aktualizacja 2021-08-10 21:11:07
+vimrc_version = "Wersja init.lua: v1.3"
 -- {{{ pluginy
 require("paq-nvim")({
   -- menadżer pluginów
@@ -23,6 +23,9 @@ require("paq-nvim")({
 
   -- automatyczne zamykanie nawiasów i cudzysłowiów
   "steelsojka/pears.nvim",
+
+  -- podświetlanie identycznych słów
+  "yamatsum/nvim-cursorline",
 
   -- polecenia systemu Linux
   "tpope/vim-eunuch",
@@ -460,6 +463,11 @@ cmd(
 -- command! VimrcVersion :echo "Wersja vimrc: " . g:vimrc_version
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
+
+-- cursoline highlight
+vim.g.cursorword_highlight = true
+vim.g.cursorline_timeout = 1000
+
 -- kommentary
 vim.g.kommentary_create_default_mappings = false
 

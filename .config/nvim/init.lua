@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-09 18:54:26
+-- Aktualizacja 2021-08-10 15:37:16
 vimrc_version = "Wersja init.lua: v1.2"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -119,7 +119,7 @@ end
 -- aliasy }}}
 -- {{{ ustawienia ·
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-opt.timeoutlen = 200 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.showtabline = 0 -- don't show tabs - 2 always show tabs
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.textwidth = 100
@@ -176,7 +176,7 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
-opt.updatetime = 400 -- don't give |ins-completion-menu| messages.
+opt.updatetime = 300 -- don't give |ins-completion-menu| messages.
 opt.lazyredraw = true -- lz - szybciej wykonuje makra
 opt.wrap = false -- display lines as one long line
 opt.wildmenu = true
@@ -1011,6 +1011,14 @@ lualine.setup(config)
 -- Map leader to space
 g.mapleader = " "
 
+-- wejście do trybu COMMAND
+map("n", "<leader>;", ":", { silent = false })
+
+map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
+map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
+map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
+map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
+
 map("c", "<c-j>", "<down>")
 map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
@@ -1028,8 +1036,15 @@ map("n", "<leader>sp", ":norm ysip")
 map("n", "<leader>ss", ":norm yss")
 map("n", "<leader>sd", ":norm ds")
 
+-- podział okna pionowy i poziomy
 map("n", "<leader>vs", "<cmd>vs<cr>")
 map("n", "<leader>sp", "<cmd>sp<cr>")
+
+-- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
+map("i", "<c-h>", "<left>")
+map("i", "<c-j>", "<down>")
+map("i", "<c-k>", "<up>")
+map("i", "<c-l>", "<right>")
 
 -- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
 map("n", "<c-h>", "<c-w><c-h>")
@@ -1064,7 +1079,6 @@ map("n", "<leader>.", "<cmd>bnext<cr>")
 
 map("n", "<leader>d", "<cmd>bdelete<cr>")
 
-map("n", "<leader>;", ":", { silent = false })
 map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 

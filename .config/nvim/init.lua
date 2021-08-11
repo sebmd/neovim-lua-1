@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-11 21:28:19
+-- Aktualizacja 2021-08-11 22:27:40
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -328,6 +328,30 @@ api.nvim_exec(
 ]],
   false
 )
+
+-- Wyszukiwanie telescope w katalogu $NOTES_DIR
+search_notes_dir = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< Notatki >",
+    cwd = "$NOTES_DIR",
+  })
+end
+
+-- Przeszukiwanie telescope w katalogu $NOTES_DIR
+grep_notes_dir = function()
+  require("telescope.builtin").live_grep({
+    prompt_title = "< Notatki >",
+    cwd = "$NOTES_DIR",
+  })
+end
+
+-- Wyszukiwanie telescope w katalogu dotfiles
+search_dotfiles = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< dot.files >",
+    cwd = "$HOME/git/github/dotfiles/",
+  })
+end
 
 -- Funkcja Tme() wyświetla bieżącą datę i godzinę
 api.nvim_exec(
@@ -677,12 +701,13 @@ end)
 -- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
+-- telescope setup
 local sorters, actions, previewers =
   require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
 
 -- Load Telescope extensions
 require("telescope").load_extension("fzy_native")
--- Telescope Global remapping
+
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
@@ -1208,17 +1233,21 @@ map("n", "<leader>ej", ":DiaryNotes<cr>")
 -- przeszukiwanie plików w katalogu $NOTES_DIR
 -- map("n", "<leader>er", ":RgNotes<cr>")
 
-map(
-  "n",
-  "<leader>ee",
-  '<cmd>lua require"telescope.builtin".find_files({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
-)
+-- map(
+-- "n",
+-- "<leader>ee",
+-- '<cmd>lua require"telescope.builtin".find_files({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
+-- )
 
-map(
-  "n",
-  "<leader>er",
-  '<cmd>lua require("telescope.builtin").live_grep({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
-)
+-- map(
+-- "n",
+-- "<leader>er",
+-- '<cmd>lua require("telescope.builtin").live_grep({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
+-- )
+
+map("n", "<leader>ee", "<cmd>lua search_notes_dir()<cr>")
+
+map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 
 -- automatycznie odświerza pliki
 api.nvim_exec(
@@ -1394,4 +1423,6 @@ map(
   '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
+
+map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 -- mapowanie klawiszy }}}

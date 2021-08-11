@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-11 22:27:40
+-- Aktualizacja 2021-08-11 23:02:16
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -746,9 +746,13 @@ require("telescope").setup({
       override_file_sorter = true,
     },
   },
+  find_files = {
+    theme = "dropdown",
+  },
   pickers = {
     buffers = {
       sort_lastused = true,
+      theme = "dropdown",
       mappings = {
         i = {
           ["<C-w>"] = "delete_buffer",
@@ -1299,6 +1303,8 @@ map("n", "k", "gk")
 
 map("n", "<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 map("n", "<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
+map("n", "gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
+map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 
 -- przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
 map("n", "zn", "zm")

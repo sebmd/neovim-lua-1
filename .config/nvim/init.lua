@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-10 22:54:31
+-- Aktualizacja 2021-08-11 21:28:19
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -198,7 +198,6 @@ opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
 opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
 opt.viewdir = "$HOME/.local/share/nvim/view"
 opt.directory = "~/.local/share/nvim/swap//"
--- opt.path-="/usr/include"
 opt.path:remove("/usr/include")
 opt.path:append("**")
 opt.laststatus = 2
@@ -301,15 +300,15 @@ api.nvim_exec(
 -- InsertDiaryHeader
 api.nvim_exec(
   [[
-" funkcję uruchamia skrót <leader>e
-function! DiaryNotes()
-    if filereadable(expand("$NOTES_DIR/diary/".strftime("%F").".md"))
-        execute ":e "(expand("$NOTES_DIR/diary/".strftime("%F").".md"))""
-    else
-        execute ":e $NOTES_DIR/diary/".strftime("%F").".md"
-        call InsertDiaryHeader()
-    endif
-endfunction
+    " funkcję uruchamia skrót <leader>e
+    function! DiaryNotes()
+        if filereadable(expand("$NOTES_DIR/diary/".strftime("%F").".md"))
+            execute ":e "(expand("$NOTES_DIR/diary/".strftime("%F").".md"))""
+        else
+            execute ":e $NOTES_DIR/diary/".strftime("%F").".md"
+            call InsertDiaryHeader()
+        endif
+    endfunction
 ]],
   false
 )
@@ -333,9 +332,9 @@ api.nvim_exec(
 -- Funkcja Tme() wyświetla bieżącą datę i godzinę
 api.nvim_exec(
   [[
-function! Time()
-    echom strftime("- Teraz jest: %F %T -")
-endfunction
+    function! Time()
+        echom strftime("- Teraz jest: %F %T -")
+    endfunction
 ]],
   false
 )
@@ -1204,10 +1203,22 @@ map("n", "<leader>en", ":e $NOTES_DIR/notatki.md<cr>")
 map("n", "<leader>ej", ":DiaryNotes<cr>")
 
 -- wyszukiwanie plików w katalogu $NOTES_DIR
-map("n", "<leader>ee", ":Notes<cr>")
+-- map("n", "<leader>ee", ":Notes<cr>")
 
 -- przeszukiwanie plików w katalogu $NOTES_DIR
-map("n", "<leader>er", ":RgNotes<cr>")
+-- map("n", "<leader>er", ":RgNotes<cr>")
+
+map(
+  "n",
+  "<leader>ee",
+  '<cmd>lua require"telescope.builtin".find_files({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
+)
+
+map(
+  "n",
+  "<leader>er",
+  '<cmd>lua require("telescope.builtin").live_grep({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
+)
 
 -- automatycznie odświerza pliki
 api.nvim_exec(

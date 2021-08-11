@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-11 23:02:16
+-- Aktualizacja 2021-08-11 23:45:50
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -313,22 +313,6 @@ api.nvim_exec(
   false
 )
 
--- RgNotes
--- Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim zmienna $NOTES_DIR ustawiona w pliku ~/.config/vars
--- Przeszukiwanie zawartości plików
-api.nvim_exec(
-  [[
-    function! RgNotes(query, fullscreen)
-        let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $NOTES_DIR || true'
-        let initial_command = printf(command_fmt, shellescape(a:query))
-        let reload_command = printf(command_fmt, '{q}')
-        let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-        call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-    endfunction
-]],
-  false
-)
-
 -- Wyszukiwanie telescope w katalogu $NOTES_DIR
 search_notes_dir = function()
   require("telescope.builtin").find_files({
@@ -481,12 +465,6 @@ cmd("command! UpdateVimrc call UpdateVimrc()")
 cmd("command! PI PaqInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
-cmd("command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)")
-cmd(
-  "command! -bang -nargs=? -complete=dir Notes call fzf#vim#files('$NOTES_DIR', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--prompt=Notes> ']}), <bang>0)"
-)
--- cmd('command! VimrcVersion :echo "Wersja vimrc:  . g:vimrc_version"')
--- command! VimrcVersion :echo "Wersja vimrc: " . g:vimrc_version
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- instant-markdown
@@ -1231,24 +1209,6 @@ map("n", "<leader>en", ":e $NOTES_DIR/notatki.md<cr>")
 -- dodaje nowy plik dziennika
 map("n", "<leader>ej", ":DiaryNotes<cr>")
 
--- wyszukiwanie plików w katalogu $NOTES_DIR
--- map("n", "<leader>ee", ":Notes<cr>")
-
--- przeszukiwanie plików w katalogu $NOTES_DIR
--- map("n", "<leader>er", ":RgNotes<cr>")
-
--- map(
--- "n",
--- "<leader>ee",
--- '<cmd>lua require"telescope.builtin".find_files({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
--- )
-
--- map(
--- "n",
--- "<leader>er",
--- '<cmd>lua require("telescope.builtin").live_grep({ cwd = "$NOTES_DIR", prompt_title = "< Notatki >" }, require("telescope.themes").get_dropdown({}))<cr>'
--- )
-
 map("n", "<leader>ee", "<cmd>lua search_notes_dir()<cr>")
 
 map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
@@ -1415,6 +1375,7 @@ map(
   "<leader>g",
   '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
 )
+map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map(

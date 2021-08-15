@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-11 23:45:50
+-- Aktualizacja 2021-08-14 09:56:19
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -83,7 +83,9 @@ require("paq-nvim")({
   "vimwiki/vimwiki",
   "junegunn/vim-markdown-toc",
   "instant-markdown/vim-instant-markdown",
-  "junegunn/vim-markdown-toc",
+
+  -- "liuchengxu/vim-which-key",
+
   -- automatyczne podpowiedzi
   -- "vim-scripts/AutoComplPop",
 
@@ -92,8 +94,13 @@ require("paq-nvim")({
   "nvim-lua/popup.nvim",
   "kyazdani42/nvim-web-devicons",
   "ryanoasis/vim-devicons",
+  "xolox/vim-misc",
 
   -- kolory
+  "Taverius/vim-colorscheme-manager",
+  "xolox/vim-colorscheme-switcher",
+  "chriskempson/base16-vim",
+  "flazz/vim-colorschemes",
   "rakr/vim-one",
   "lifepillar/vim-solarized8",
   "ayu-theme/ayu-vim",
@@ -481,6 +488,9 @@ g.instant_markdown_autostart = 1
 -- g.instant_markdown_port = 8888
 -- g.instant_markdown_python = 1
 
+-- vim-colorscheme-manager
+g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
+
 -- neuron
 require("neuron").setup({
   virtual_titles = true,
@@ -829,7 +839,7 @@ local sessionopts = {
   auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
   auto_session_enabled = true,
   auto_save_enabled = true,
-  auto_restore_enabled = true,
+  auto_restore_enabled = false,
   auto_session_suppress_dirs = nil,
 }
 
@@ -1186,6 +1196,13 @@ api.nvim_exec(
 ]],
   false
 )
+
+-- zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
+map("n", "<f8>", ":NextColorScheme<cr>") -- f8
+map("n", "<f20>", ":PrevColorScheme<cr>") -- shift f8
+map("n", "<f32>", ":RandomColorScheme<cr>") -- ctrl f8
+map("n", "<f9>", ":BlacklistAddColorScheme<cr>") -- f9
+map("n", "<f21>", ":colo<cr>") -- shift f9
 
 -- przeniesienie bieżącej linii do pliku
 map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")

@@ -1378,6 +1378,7 @@ map("n", "J", "mzJ`z")
 -- kopiuje tekst od kursora do końca linii
 map("n", "Y", "y$")
 
+-- kopiuje cały plik
 map("n", "ya", "ggVGy")
 
 -- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'

@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-14 09:56:19
+-- Aktualizacja 2021-08-22 09:56:15
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -300,6 +300,30 @@ api.nvim_exec(
         execute ':startinsert'
     endfunction
 ]],
+  false
+)
+
+api.nvim_exec(
+  [[
+    function! Doku2MD()
+        echom "-- Doku2MD --"
+        execute '%s/^====== /# /'
+        execute '%s/.*\zs ======/'
+        execute '%s/^===== /## /'
+        execute '%s/.*\zs =====/'
+        execute '%s/^==== /### /'
+        execute '%s/.*\zs ====/'
+        execute '%s/^=== /#### /'
+        execute '%s/.*\zs ===/'
+        execute '%s/^== /##### /'
+        execute '%s/.*\zs ==/'
+        execute '%s/^= /###### /'
+        execute '%s/.*\zs =/'
+        execute '%s/<code>/```/'
+        execute '%s/<\/code>/```/'
+        echom "== Doku2MD =="
+    endfunction
+    ]],
   false
 )
 
@@ -1308,10 +1332,10 @@ map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
 map("n", "<leader>q", ":q<CR>")
 
 -- Otwiera plik konfiguracyjny Neovim
-map("n", "<Leader>v", "<cmd>e $MYVIMRC<CR>")
+map("n", "<leader>v", "<cmd>e $MYVIMRC<CR>")
 
 -- Source nvimrc file
-map("n", "<Leader>sv", ":luafile $MYVIMRC<CR>")
+map("n", "<leader>sv", ":luafile $MYVIMRC<CR>")
 
 -- Quick new file
 -- map("n", "<Leader>n", "<cmd>enew<CR>")
@@ -1320,16 +1344,16 @@ map("n", "<Leader>sv", ":luafile $MYVIMRC<CR>")
 -- map("n", "<Leader>n", "<cmd>NvimTreeToggle<CR>")
 
 -- Menadzęr plików CHADtree
-map("n", "<Leader>n", "<cmd>CHADopen<CR>")
+map("n", "<leader>n", "<cmd>CHADopen<CR>")
 
 -- Easy select all of file
-map("n", "<Leader>sa", "ggVG<c-$>")
+map("n", "<leader>sa", "ggVG<c-$>")
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
 
 -- Zapisanie pliku
-map("n", "<Leader>w", "<cmd>:Write<CR>")
+map("n", "<leader>w", "<cmd>:Write<CR>")
 
 -- Tab to switch buffers in Normal mode
 -- map("n", "<Tab>", "<cmd>bnext<CR>")
@@ -1353,6 +1377,8 @@ map("n", "J", "mzJ`z")
 
 -- kopiuje tekst od kursora do końca linii
 map("n", "Y", "y$")
+
+map("n", "ya", "ggVGy")
 
 -- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
 map("n", "<leader>a", "=ip gqap")

@@ -1,4 +1,4 @@
--- Aktualizacja 2021-08-22 09:56:15
+-- Aktualizacja 2021-08-25 21:07:03
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -308,17 +308,13 @@ api.nvim_exec(
     function! Doku2MD()
         echom "-- Doku2MD --"
         execute '%s/^====== /# /'
-        execute '%s/.*\zs ======/'
         execute '%s/^===== /## /'
-        execute '%s/.*\zs =====/'
         execute '%s/^==== /### /'
-        execute '%s/.*\zs ====/'
         execute '%s/^=== /#### /'
-        execute '%s/.*\zs ===/'
         execute '%s/^== /##### /'
-        execute '%s/.*\zs ==/'
         execute '%s/^= /###### /'
-        execute '%s/.*\zs =/'
+        -- usuwa wszystkie linie końcące się na ' =*'
+        %s/\s* =\+\s*$//
         execute '%s/<code>/```/'
         execute '%s/<\/code>/```/'
         echom "== Doku2MD =="
@@ -496,6 +492,7 @@ cmd("command! UpdateVimrc call UpdateVimrc()")
 cmd("command! PI PaqInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
+cmd("command! Doku2MD call Doku2MD()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- instant-markdown
@@ -1380,6 +1377,9 @@ map("n", "Y", "y$")
 
 -- kopiuje cały plik
 map("n", "ya", "ggVGy")
+
+-- kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
+map("n", "yh", "0f lv$hy")
 
 -- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
 map("n", "<leader>a", "=ip gqap")

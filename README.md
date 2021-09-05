@@ -9,13 +9,6 @@ git clone --depth=1 https://github.com/savq/paq-nvim.git \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
 ```
 
-## Pobranie fzy-lua-native
-
-```
-cd "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/telescope-fzy-native.nvim/
-git submodule update --init --recursive
-```
-
 ## Instalacja pluginów
 
 ```
@@ -28,10 +21,33 @@ git submodule update --init --recursive
 :CHADdeps
 ```
 
+## Pobranie fzy-lua-native
+
+```
+cd "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/telescope-fzy-native.nvim/
+git submodule update --init --recursive
+```
+
+## Instalacja Prettier
+
+```
+npm install --save-dev --save-exact prettiernpm install --save-dev --save-exact prettier
+```
+
+## Instalacja Neuron
+
+- https://github.com/srid/neuron
+
+```
+curl -sfLo ~/bin/neuron.tgz https://github.com/srid/neuron/releases/download/1.0.1.0/neuron-1.0.1.0-linux.tar.gz
+tar zxf ~/bin/neuron.tgz -C ~/bin
+rm ~/bin/neuron.tgz
+```
+
 ## Skróty klawiszowe
 
 | skrót        | opis                                                                        |
-|--------------|-----------------------------------------------------------------------------|
+| ------------ | --------------------------------------------------------------------------- |
 | `<spacja>`   | klawisz **LEADER**                                                          |
 | `<leader>;`  | wejście do trybu **COMMAND**                                                |
 | `<leader>vs` | dzieli okno pionowo                                                         |
@@ -46,20 +62,34 @@ git submodule update --init --recursive
 | `gh`         | przechodzi na początek linii                                                |
 | `gl`         | przechodzi na koniec linii                                                  |
 | `dh`         | usuwa wszystko od kursora do początku linii                                 |
-| `dl`         | usuwa wslystko od kursora do końca linii                                    |
+| `dl`         | usuwa wszystko od kursora do końca linii                                    |
+| `d<spacja>`  | usuwa od kursora do pierwszego wystąpienia znaku spacji                     |
 | `<leaader>,` | przechodzi do poprzedniego bufora                                           |
 | `<leaader>.` | przechodzi do następnego bufora                                             |
 | `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi bbuforami                     |
 | `<leader>d`  | usuwa bufor `:bd`                                                           |
-| `<leader>b`  | lista otwartych buforów `Telescope buffers`                                 |
 | `<leader>n`  | otwiera / zamyka menadżer plików CHADtree                                   |
 | `<leader>ss` | zapisuje sesję                                                              |
 | `<leader>sl` | odtwarza zapisaną sesję                                                     |
+| `<leader>p`  | Telescope find_files                                                        |
+| `<leader>r`  | Telescope registers                                                         |
+| `<leader>g`  | Telescope live_grep                                                         |
+| `<leader>b`  | lista otwartych buforów `Telescope buffers`                                 |
+| `<leader>j`  | Telescope help_tags                                                         |
+| `<leader>f`  | Telescope file_browser                                                      |
+| `<leader>s`  | Telescope spell_suggest                                                     |
+| `<leader>i`  | Telescope git_status                                                        |
+| `<leader>t`  | Telescope tags                                                              |
+| `<leader>sw` | czeka na wprowadzenie znaku, którym otoczy wyraz - vim-surround             |
+| `<leader>sW` | czeka na wprowadzenie znaku, którym otoczy WYRAZ - vim-surround             |
+| `<leader>sp` | czeka na wprowadzenie znaku, który otoczy paragraf - vim-surround           |
+| `<leader>ss` | czeka na wprowadzenie znaku, którym otoczy linię - vim-surround             |
+| `<leader>sd` | czeka na wprowadzenie znaku, którym zostanie usunięty - vim-surround        |
 
 ## Poruszanie się po pliku pomocy Vim
 
 | skrót       | opis                                                                                        |
-|-------------|---------------------------------------------------------------------------------------------|
+| ----------- | ------------------------------------------------------------------------------------------- |
 | `<ctrl-n>`  | przechodzi do następnego szukanego wyrażenia, przydatne przy użyciu polecenia `:helpgrep`   |
 | `<ctrl-p>`  | przechodzi do poprzedniego szukanego wyrażenia, przydatne przy użyciu polecenia `:helpgrep` |
 | `<leader>l` | przechodzi do linku pod kursorem                                                            |
@@ -68,10 +98,10 @@ git submodule update --init --recursive
 
 ## Skróty klawiszowe CHADtree
 
-  * https://github.com/ms-jpq/chadtree/blob/chad/docs/KEYBIND.md
+- https://github.com/ms-jpq/chadtree/blob/chad/docs/KEYBIND.md
 
 | skrót      | opis                                                                   |
-|------------|------------------------------------------------------------------------|
+| ---------- | ---------------------------------------------------------------------- |
 | `q`        | zamyka CHADtree                                                        |
 | `<enter>`  | otwiera plik / katalog pod znajdujący się pod kursorem                 |
 | `-`        | zmniejsza szerokość okna CHADtree                                      |
@@ -100,34 +130,10 @@ git submodule update --init --recursive
 | `t`        | przenosi plik do kosza, wymaga programu `trash-cli`                    |
 | `.`        | pokazuje lub chowa ukryte pliki `.`                                    |
 
-## Skróty klawiszowe vim-surround
-
-| skrót        | opis                                                  |
-|--------------|-------------------------------------------------------|
-| `<leader>sw` | czeka na wprowadzenie znaku, którym otoczy wyraz      |
-| `<leader>sW` | czeka na wprowadzenie znaku, którym otoczy WYRAZ      |
-| `<leader>sp` | czeka na wprowadzenie znaku, który otoczy paragraf    |
-| `<leader>ss` | czeka na wprowadzenie znaku, którym otoczy linię      |
-| `<leader>sd` | czeka na wprowadzenie znaku, którym zostanie usunięty |
-
-## Skróty klawiszowe Telescope
-
-| skrót       | polecenie               |
-|-------------|-------------------------|
-| `<leader>p` | Telescope find_files    |
-| `<leader>r` | Telescope registers     |
-| `<leader>g` | Telescope live_grep     |
-| `<leader>b` | Telescope buffers       |
-| `<leader>j` | Telescope help_tags     |
-| `<leader>f` | Telescope file_browser  |
-| `<leader>s` | Telescope spell_suggest |
-| `<leader>i` | Telescope git_status    |
-| `<leader>t` | Telescope tags          |
-
 ## Neuron.nvim
 
 | skrót | opis                                                   |
-|-------|--------------------------------------------------------|
+| ----- | ------------------------------------------------------ |
 | `gzn` | nowa notatka                                           |
 | `gzz` | wyszukiwanie notatek                                   |
 | `gzZ` | wstawia id znlezionej notatki                          |

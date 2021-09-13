@@ -1,4 +1,4 @@
--- Aktualizacja 2021-09-04 05:24:47
+-- Aktualizacja 2021-09-13 20:30:35
 vimrc_version = "Wersja init.lua: v1.4"
 -- {{{ pluginy
 require("paq-nvim")({
@@ -101,7 +101,7 @@ require("paq-nvim")({
   "Taverius/vim-colorscheme-manager",
   "xolox/vim-colorscheme-switcher",
   "chriskempson/base16-vim",
-  "flazz/vim-colorschemes",
+  -- "flazz/vim-colorschemes",
   "rakr/vim-one",
   "lifepillar/vim-solarized8",
   "ayu-theme/ayu-vim",
@@ -114,6 +114,7 @@ require("paq-nvim")({
   "srcery-colors/srcery-vim",
   "zekzekus/menguless",
   "whatyouhide/vim-gotham",
+  "marko-cerovac/material.nvim",
 })
 -- pluginy }}}
 -- {{{ aliasy
@@ -242,6 +243,51 @@ g.ayucolor = "mirage"
 -- cmd([[colorscheme gotham]])
 -- cmd([[colorscheme solarized8_flat]])
 api.nvim_exec([[colorscheme everforest]], false)
+
+-- api.nvim_exec([[colorscheme material]], false)
+
+g.material_style = "deep ocean"
+-- g.material_style = "lighter"
+-- g.material_style = "palenight"
+-- g.material_style = "deep ocean"
+-- g.material_style = "ocanic"
+-- g.material_style = "darker"
+
+require("material").setup({
+
+  contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
+  borders = false, -- Enable borders between verticaly split windows
+
+  italics = {
+    comments = false, -- Enable italic comments
+    keywords = false, -- Enable italic keywords
+    functions = false, -- Enable italic functions
+    strings = false, -- Enable italic strings
+    variables = false, -- Enable italic variables
+  },
+
+  contrast_windows = { -- Specify which windows get the contrasted (darker) background
+    "terminal", -- Darker terminal background
+    "packer", -- Darker packer background
+    "qf", -- Darker qf list background
+  },
+
+  text_contrast = {
+    lighter = false, -- Enable higher contrast text for lighter style
+    darker = false, -- Enable higher contrast text for darker style
+  },
+
+  disable = {
+    background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
+    term_colors = false, -- Prevent the theme from setting terminal colors
+    eob_lines = false, -- Hide the end-of-buffer lines
+  },
+  -- Overwrite highlights with your own
+  --[[ custom_highlights = {
+    CursorLine = "#0000FF",
+    LineNr = "#FF0000",
+  }, ]]
+})
 
 -- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
 
@@ -514,13 +560,13 @@ g.instant_markdown_autostart = 1
 g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
 
 -- neuron
-require("neuron").setup({
-  virtual_titles = true,
-  mappings = true,
-  run = nil, -- function to run when in neuron dir
-  neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-  leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
-})
+-- require("neuron").setup({
+--   virtual_titles = true,
+--   mappings = true,
+--   run = nil, -- function to run when in neuron dir
+--   neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+--   leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+-- })
 
 -- luatab
 -- vim.o.tabline = "%!v:lua.require'luatab'.tabline()"

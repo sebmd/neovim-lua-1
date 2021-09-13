@@ -2,17 +2,17 @@
 
 ![neovim lua](https://raw.githubusercontent.com/hattori-hanz0/neovim-config/main/img/neovim-lua.png)
 
-## Instalacja menadżera pluginów paq-nvim
+## Instalacja menadżera pluginów packer.nvim
 
 ```
-git clone --depth=1 https://github.com/savq/paq-nvim.git \
-    "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
 ## Instalacja pluginów
 
 ```
-:PaqInstall
+:PackerInstall
 ```
 
 ## Instalacja zależności dla menadżera plików CHADtree

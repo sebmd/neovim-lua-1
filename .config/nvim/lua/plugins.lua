@@ -2,6 +2,16 @@ return require("packer").startup(function()
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
 
+  use({
+    "sudormrfbin/cheatsheet.nvim",
+
+    requires = {
+      { "nvim-telescope/telescope.nvim" },
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+  })
+
   -- git
   use("lewis6991/gitsigns.nvim") -- integracja git
   -- use "rhysd/git-messenger.vim"

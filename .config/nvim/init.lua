@@ -1,4 +1,4 @@
--- Aktualizacja 2021-09-13 23:35:29
+-- Aktualizacja 2021-09-14 00:36:01
 vimrc_version = "Wersja init.lua: v1.5"
 -- Pluginy ~/.config/nvim/lua/plugins.lua
 require("plugins")
@@ -433,6 +433,19 @@ cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
+-- cheatsheet.nvim
+require("cheatsheet").setup({
+  -- For generic cheatsheets like default, unicode, nerd-fonts, etc
+  bundled_cheatsheets = true,
+
+  -- For plugin specific cheatsheets
+  bundled_plugin_cheatsheets = true,
+
+  -- For bundled plugin cheatsheets, do not show a sheet if you
+  -- don't have the plugin installed (searches runtimepath for
+  -- same directory name)
+  include_only_installed_plugins = true,
+})
 -- instant-markdown
 g.instant_markdown_browser = "firefox --new-window"
 g.instant_markdown_slow = 1

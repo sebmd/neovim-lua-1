@@ -1,122 +1,7 @@
--- Aktualizacja 2021-09-13 20:30:35
-vimrc_version = "Wersja init.lua: v1.4"
--- {{{ pluginy
-require("paq-nvim")({
-  -- menadżer pluginów
-  "savq/paq-nvim",
-
-  -- git
-  "lewis6991/gitsigns.nvim", -- integracja git
-  -- "rhysd/git-messenger.vim",
-
-  -- menadżer plików
-  "ms-jpq/chadtree",
-  -- "kyazdani42/nvim-tree.lua",
-
-  -- komentarze
-  "b3nj5m1n/kommentary",
-
-  -- automatyczne uzupełnianie
-  "hrsh7th/nvim-compe",
-  "hrsh7th/vim-vsnip",
-  -- "L3MON4D3/LuaSnip",
-
-  -- automatyczne zamykanie nawiasów i cudzysłowiów
-  "steelsojka/pears.nvim",
-
-  -- podświetlanie identycznych słów
-  "yamatsum/nvim-cursorline",
-
-  -- polecenia systemu Linux
-  "tpope/vim-eunuch",
-
-  -- formatowanie kodu
-  "mhartington/formatter.nvim",
-
-  -- wyszukiwanie
-  "junegunn/fzf",
-  "junegunn/fzf.vim",
-  "nvim-telescope/telescope.nvim",
-  "nvim-telescope/telescope-fzy-native.nvim",
-
-  "nvim-treesitter/nvim-treesitter",
-
-  -- szybkie poruszanie się po pliku
-  "ggandor/lightspeed.nvim",
-
-  "lukas-reineke/indent-blankline.nvim",
-
-  "rmagatti/auto-session",
-
-  -- vim-repeat
-  "tpope/vim-repeat",
-
-  -- vim-surround
-  "tpope/vim-surround",
-
-  "wellle/targets.vim",
-
-  -- minimapa :!cargo install --locked code-minimap
-  -- { "wfxr/minimap.vim", run = "cargo install --locked code-minimap" },
-
-  -- undotree
-  "mbbill/undotree",
-
-  -- "tibabit/vim-templates",
-
-  -- "vim-scripts/YankRing.vim",
-
-  "hoob3rt/lualine.nvim",
-  --  "akinsho/nvim-bufferline.lua",
-  "romgrk/barbar.nvim",
-
-  "glepnir/dashboard-nvim",
-
-  -- szyfrowanie
-  "jamessan/vim-gnupg",
-
-  -- "oberblastmeister/neuron.nvim",
-
-  -- markdown
-  "junegunn/goyo.vim",
-  "junegunn/limelight.vim",
-  "dhruvasagar/vim-table-mode",
-  "vimwiki/vimwiki",
-  "junegunn/vim-markdown-toc",
-  "instant-markdown/vim-instant-markdown",
-
-  -- "liuchengxu/vim-which-key",
-
-  -- automatyczne podpowiedzi
-  -- "vim-scripts/AutoComplPop",
-
-  -- biblioteki, dodatki
-  "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",
-  "kyazdani42/nvim-web-devicons",
-  "ryanoasis/vim-devicons",
-  "xolox/vim-misc",
-
-  -- kolory
-  "Taverius/vim-colorscheme-manager",
-  "xolox/vim-colorscheme-switcher",
-  "chriskempson/base16-vim",
-  -- "flazz/vim-colorschemes",
-  "rakr/vim-one",
-  "lifepillar/vim-solarized8",
-  "ayu-theme/ayu-vim",
-  "gruvbox-community/gruvbox",
-  "joshdick/onedark.vim",
-  "kristijanhusak/vim-hybrid-material",
-  "lighthaus-theme/vim-lighthaus",
-  "sainnhe/everforest",
-  "sainnhe/gruvbox-material",
-  "srcery-colors/srcery-vim",
-  "zekzekus/menguless",
-  "whatyouhide/vim-gotham",
-  "marko-cerovac/material.nvim",
-})
--- pluginy }}}
+-- Aktualizacja 2021-09-13 23:35:29
+vimrc_version = "Wersja init.lua: v1.5"
+-- Pluginy ~/.config/nvim/lua/plugins.lua
+require("plugins")
 -- {{{ aliasy
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
@@ -238,15 +123,12 @@ g.everforest_current_word = "bold"
 g.ayucolor = "mirage"
 
 -- Load the colorscheme
--- cmd([[colorscheme everforest]])
 -- cmd([[colorscheme ayu]])
 -- cmd([[colorscheme gotham]])
 -- cmd([[colorscheme solarized8_flat]])
 api.nvim_exec([[colorscheme everforest]], false)
-
 -- api.nvim_exec([[colorscheme material]], false)
 
-g.material_style = "deep ocean"
 -- g.material_style = "lighter"
 -- g.material_style = "palenight"
 -- g.material_style = "deep ocean"
@@ -411,6 +293,15 @@ search_dotfiles = function()
   })
 end
 
+-- Wyszukiwanie telescope w katalogu dotfiles
+search_nvim_dotfiles = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< nvim >",
+    cwd = "$HOME/.config/nvim/",
+    file_ignore_patterns = { "spell/" },
+  })
+end
+
 -- Funkcja Tme() wyświetla bieżącą datę i godzinę
 api.nvim_exec(
   [[
@@ -536,7 +427,7 @@ cmd("command! GP call GP()")
 cmd("command! GA call GA()")
 cmd("command! RevBackground call RevBackground()")
 cmd("command! UpdateVimrc call UpdateVimrc()")
-cmd("command! PI PaqInstall")
+cmd("command! PI PackerInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
@@ -1500,5 +1391,9 @@ map(
 )
 map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 
+-- map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
+-- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
+
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
+map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")
 -- mapowanie klawiszy }}}

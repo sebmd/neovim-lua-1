@@ -665,9 +665,6 @@ end)
 local sorters, actions, previewers =
   require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
 
--- Load Telescope extensions
-require("telescope").load_extension("fzy_native")
-
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
@@ -700,10 +697,13 @@ require("telescope").setup({
     },
   },
   extensions = {
-    -- Fast, fast, really fast sorter
-    fzy_native = {
-      override_generic_sorter = false,
-      override_file_sorter = true,
+    -- Fast, fast, really fast sorter (fzf native)
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
     },
   },
   find_files = {
@@ -725,7 +725,8 @@ require("telescope").setup({
   },
 })
 
-require("telescope").load_extension("fzy_native")
+-- Load Telescope extensions
+require("telescope").load_extension("fzf")
 
 -- Lightspeed remap
 api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})

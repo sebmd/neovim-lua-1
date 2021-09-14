@@ -1,5 +1,5 @@
--- Aktualizacja 2021-09-14 00:36:01
-vimrc_version = "Wersja init.lua: v1.5"
+-- Aktualizacja 2021-09-14 15:35:52
+vimrc_version = "Wersja init.lua: v1.6"
 -- Pluginy ~/.config/nvim/lua/plugins.lua
 require("plugins")
 -- {{{ aliasy

@@ -17,7 +17,7 @@ return require("packer").startup(function()
   -- use "rhysd/git-messenger.vim"
 
   -- menadżer plików
-  use("ms-jpq/chadtree")
+  use({ "ms-jpq/chadtree", run = ":CHADdeps" })
   -- use "kyazdani42/nvim-tree.lua"
 
   -- komentarze

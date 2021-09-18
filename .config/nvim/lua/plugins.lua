@@ -16,6 +16,9 @@ return require("packer").startup(function()
   use("lewis6991/gitsigns.nvim") -- integracja git
   -- use "rhysd/git-messenger.vim"
 
+  -- obsługa schowka systemowego
+  use("Jorengarenar/fauxClip")
+
   -- menadżer plików
   use({ "ms-jpq/chadtree", run = ":CHADdeps" })
   -- use "kyazdani42/nvim-tree.lua"

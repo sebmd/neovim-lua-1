@@ -1,4 +1,4 @@
--- Aktualizacja 2021-09-14 15:35:52
+-- Aktualizacja 2021-09-18 13:09:22
 vimrc_version = "Wersja init.lua: v1.6"
 -- Pluginy ~/.config/nvim/lua/plugins.lua
 require("plugins")
@@ -433,6 +433,26 @@ cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
+-- fauxClip
+g.SESSION_TYPE = vim.fn.getenv("XDG_SESSION_TYPE")
+
+if SESSION_TYPE == "wayland" then
+  g.fauxClip_copy_cmd = "wl-copy"
+  g.fauxClip_paste_cmd = "wl-paste"
+
+  g.fauxClip_always_use = 1
+else
+  -- kopiowanie
+  g.fauxClip_copy_cmd = "xclip -f -i -selection clipboard"
+  g.fauxClip_copy_primary_cmd = "xclip -f -i"
+  g.fauxClip_copy_primary_cmd = "xclip -f -i"
+  -- wklejanie
+  g.fauxClip_paste_cmd = "xclip -o -selection clipboard"
+  g.fauxClip_paste_primary_cmd = "xclip -o"
+
+  g.fauxClip_always_use = 1
+end
+
 -- cheatsheet.nvim
 require("cheatsheet").setup({
   -- For generic cheatsheets like default, unicode, nerd-fonts, etc
@@ -1327,7 +1347,7 @@ map("n", "<leader>w", "<cmd>:Write<CR>")
 -- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 map("n", "<Tab>", "<cmd>e #<CR>")
 
--- More molecular undo of text
+-- Mapowanie znaczników w trybie insert po wprowadzeniu jednego ze znaków , . ! ? ; :
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", "!", "!<c-g>u")

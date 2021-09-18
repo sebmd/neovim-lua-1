@@ -1,9 +1,13 @@
--- Aktualizacja 2021-09-18 13:18:57
+-- Aktualizacja 2021-09-18 16:27:19
 vimrc_version = "Wersja init.lua: v1.6"
 -- {{{ pluginy
 require("packer").startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
+
+  use("neoclide/coc.nvim")
+
+  use("fatih/vim-go")
 
   use({
     "sudormrfbin/cheatsheet.nvim",
@@ -23,7 +27,8 @@ require("packer").startup(function(use)
   use("Jorengarenar/fauxClip")
 
   -- menadżer plików
-  use({ "ms-jpq/chadtree", run = ":CHADdeps" })
+  -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
+  use({ "ms-jpq/chadtree" })
   -- use "kyazdani42/nvim-tree.lua"
 
   -- komentarze
@@ -569,6 +574,8 @@ cmd("command! PI PackerInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
+cmd("command! S :source %")
+cmd("command! GR :GoRun")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- fauxClip

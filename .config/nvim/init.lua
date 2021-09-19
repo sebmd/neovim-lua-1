@@ -1,148 +1,150 @@
--- Aktualizacja 2021-09-19 07:49:36
+-- Aktualizacja 2021-09-19 07:59:47
 vimrc_version = "Wersja init.lua: v1.6"
 -- {{{ pluginy
 require("packer").startup(function(use)
-	-- menadżer pluginów
-	use("wbthomason/packer.nvim")
+    -- menadżer pluginów
+    use("wbthomason/packer.nvim")
 
-	use("neoclide/coc.nvim")
+    use("neoclide/coc.nvim")
 
-	use("fatih/vim-go")
+    use("fatih/vim-go")
 
-	use({
-		"sudormrfbin/cheatsheet.nvim",
+    use({
+        "sudormrfbin/cheatsheet.nvim",
 
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-	})
+        requires = {
+            { "nvim-telescope/telescope.nvim" },
+            { "nvim-lua/popup.nvim" },
+            { "nvim-lua/plenary.nvim" },
+        },
+    })
 
-	-- git
-	use("lewis6991/gitsigns.nvim") -- integracja git
-	-- use "rhysd/git-messenger.vim"
+    -- git
+    use("lewis6991/gitsigns.nvim") -- integracja git
+    -- use "rhysd/git-messenger.vim"
 
-	-- obsługa schowka systemowego
-	use("Jorengarenar/fauxClip")
+    -- obsługa schowka systemowego
+    use("Jorengarenar/fauxClip")
 
-	-- menadżer plików
-	-- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
-	use({ "ms-jpq/chadtree" })
-	-- use "kyazdani42/nvim-tree.lua"
+    -- menadżer plików
+    -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
+    use({ "ms-jpq/chadtree" })
+    -- use "kyazdani42/nvim-tree.lua"
 
-	-- komentarze
-	use("b3nj5m1n/kommentary")
+    -- komentarze
+    use("b3nj5m1n/kommentary")
 
-	-- automatyczne uzupełnianie
-	use("hrsh7th/nvim-compe")
-	use("hrsh7th/vim-vsnip")
-	-- use "L3MON4D3/LuaSnip"
+    -- automatyczne uzupełnianie
+    use("hrsh7th/nvim-compe")
+    use("hrsh7th/vim-vsnip")
+    -- use "L3MON4D3/LuaSnip"
 
-	use("nvim-telescope/telescope-symbols.nvim")
+    use("nvim-telescope/telescope-symbols.nvim")
 
-	-- automatyczne zamykanie nawiasów i cudzysłowiów
-	use("steelsojka/pears.nvim")
+    -- automatyczne zamykanie nawiasów i cudzysłowiów
+    use("steelsojka/pears.nvim")
 
-	-- podświetlanie identycznych słów
-	use("yamatsum/nvim-cursorline")
+    -- podświetlanie identycznych słów
+    use("yamatsum/nvim-cursorline")
 
-	-- polecenia systemu Linux
-	use("tpope/vim-eunuch")
+    -- polecenia systemu Linux
+    use("tpope/vim-eunuch")
 
-	-- formatowanie kodu
-	use("mhartington/formatter.nvim")
+    -- formatowanie kodu
+    use("mhartington/formatter.nvim")
 
-	-- wyszukiwanie
-	use("junegunn/fzf")
-	use("junegunn/fzf.vim")
+    -- wyszukiwanie
+    use("junegunn/fzf")
+    use("junegunn/fzf.vim")
 
-	use("junegunn/vim-peekaboo")
+    use("junegunn/vim-peekaboo")
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/plenary.nvim" } },
+    })
 
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	use("nvim-treesitter/nvim-treesitter")
+    use "nvim-telescope/telescope-project.nvim"
 
-	-- szybkie poruszanie się po pliku
-	use("ggandor/lightspeed.nvim")
+    use("nvim-treesitter/nvim-treesitter")
 
-	use("lukas-reineke/indent-blankline.nvim")
+    -- szybkie poruszanie się po pliku
+    use("ggandor/lightspeed.nvim")
 
-	use("rmagatti/auto-session")
+    use("lukas-reineke/indent-blankline.nvim")
 
-	-- vim-repeat
-	use("tpope/vim-repeat")
+    use("rmagatti/auto-session")
 
-	-- vim-surround
-	use("tpope/vim-surround")
+    -- vim-repeat
+    use("tpope/vim-repeat")
 
-	use("wellle/targets.vim")
+    -- vim-surround
+    use("tpope/vim-surround")
 
-	-- minimapa :!cargo install --locked code-minimap
-	-- { "wfxr/minimap.vim", run = "cargo install --locked code-minimap" },
+    use("wellle/targets.vim")
 
-	-- undotree
-	use("mbbill/undotree")
+    -- minimapa :!cargo install --locked code-minimap
+    -- { "wfxr/minimap.vim", run = "cargo install --locked code-minimap" },
 
-	-- use "tibabit/vim-templates"
+    -- undotree
+    use("mbbill/undotree")
 
-	-- use "vim-scripts/YankRing.vim"
+    -- use "tibabit/vim-templates"
 
-	use("hoob3rt/lualine.nvim")
-	--  use "akinsho/nvim-bufferline.lua"
-	use("romgrk/barbar.nvim")
+    -- use "vim-scripts/YankRing.vim"
 
-	use("glepnir/dashboard-nvim")
+    use("hoob3rt/lualine.nvim")
+    --  use "akinsho/nvim-bufferline.lua"
+    use("romgrk/barbar.nvim")
 
-	-- szyfrowanie
-	use("jamessan/vim-gnupg")
+    use("glepnir/dashboard-nvim")
 
-	-- "oberblastmeister/neuron.nvim"
+    -- szyfrowanie
+    use("jamessan/vim-gnupg")
 
-	-- markdown
-	use("junegunn/goyo.vim")
-	use("junegunn/limelight.vim")
-	use("dhruvasagar/vim-table-mode")
-	use("vimwiki/vimwiki")
-	use("junegunn/vim-markdown-toc")
-	use("instant-markdown/vim-instant-markdown")
+    -- "oberblastmeister/neuron.nvim"
 
-	-- use "liuchengxu/vim-which-key"
+    -- markdown
+    use("junegunn/goyo.vim")
+    use("junegunn/limelight.vim")
+    use("dhruvasagar/vim-table-mode")
+    use("vimwiki/vimwiki")
+    use("junegunn/vim-markdown-toc")
+    use("instant-markdown/vim-instant-markdown")
 
-	-- automatyczne podpowiedzi
-	-- use "vim-scripts/AutoComplPop"
+    -- use "liuchengxu/vim-which-key"
 
-	-- biblioteki, dodatki
-	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("ryanoasis/vim-devicons")
-	use("xolox/vim-misc")
+    -- automatyczne podpowiedzi
+    -- use "vim-scripts/AutoComplPop"
 
-	-- kolory
-	use("Taverius/vim-colorscheme-manager")
-	use("xolox/vim-colorscheme-switcher")
-	use("chriskempson/base16-vim")
-	-- use "flazz/vim-colorschemes"
-	use("rakr/vim-one")
-	use("lifepillar/vim-solarized8")
-	use("ayu-theme/ayu-vim")
-	use("gruvbox-community/gruvbox")
-	use("kristijanhusak/vim-hybrid-material")
-	use("lighthaus-theme/vim-lighthaus")
-	use("sainnhe/everforest")
-	use("sainnhe/gruvbox-material")
-	use("srcery-colors/srcery-vim")
-	use("zekzekus/menguless")
-	use("whatyouhide/vim-gotham")
-	use("marko-cerovac/material.nvim")
-	-- use("joshdick/onedark.vim")
-	-- use("navarasu/onedark.nvim")
+    -- biblioteki, dodatki
+    use("nvim-lua/plenary.nvim")
+    use("nvim-lua/popup.nvim")
+    use("kyazdani42/nvim-web-devicons")
+    use("ryanoasis/vim-devicons")
+    use("xolox/vim-misc")
+
+    -- kolory
+    use("Taverius/vim-colorscheme-manager")
+    use("xolox/vim-colorscheme-switcher")
+    use("chriskempson/base16-vim")
+    -- use "flazz/vim-colorschemes"
+    use("rakr/vim-one")
+    use("lifepillar/vim-solarized8")
+    use("ayu-theme/ayu-vim")
+    use("gruvbox-community/gruvbox")
+    use("kristijanhusak/vim-hybrid-material")
+    use("lighthaus-theme/vim-lighthaus")
+    use("sainnhe/everforest")
+    use("sainnhe/gruvbox-material")
+    use("srcery-colors/srcery-vim")
+    use("zekzekus/menguless")
+    use("whatyouhide/vim-gotham")
+    use("marko-cerovac/material.nvim")
+    -- use("joshdick/onedark.vim")
+    -- use("navarasu/onedark.nvim")
 end)
 -- pluginy }}}
 -- {{{ aliasy
@@ -153,11 +155,11 @@ local opt = vim.opt -- to set options
 local api = vim.api
 
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 -- aliasy }}}
 -- {{{ ustawienia ·
@@ -280,35 +282,35 @@ api.nvim_exec([[colorscheme everforest]], false)
 
 require("material").setup({
 
-	contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
-	borders = false, -- Enable borders between verticaly split windows
+    contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
+    borders = false, -- Enable borders between verticaly split windows
 
-	italics = {
-		comments = false, -- Enable italic comments
-		keywords = false, -- Enable italic keywords
-		functions = false, -- Enable italic functions
-		strings = false, -- Enable italic strings
-		variables = false, -- Enable italic variables
-	},
+    italics = {
+        comments = false, -- Enable italic comments
+        keywords = false, -- Enable italic keywords
+        functions = false, -- Enable italic functions
+        strings = false, -- Enable italic strings
+        variables = false, -- Enable italic variables
+    },
 
-	contrast_windows = { -- Specify which windows get the contrasted (darker) background
-		"terminal", -- Darker terminal background
-		"packer", -- Darker packer background
-		"qf", -- Darker qf list background
-	},
+    contrast_windows = { -- Specify which windows get the contrasted (darker) background
+        "terminal", -- Darker terminal background
+        "packer", -- Darker packer background
+        "qf", -- Darker qf list background
+    },
 
-	text_contrast = {
-		lighter = false, -- Enable higher contrast text for lighter style
-		darker = false, -- Enable higher contrast text for darker style
-	},
+    text_contrast = {
+        lighter = false, -- Enable higher contrast text for lighter style
+        darker = false, -- Enable higher contrast text for darker style
+    },
 
-	disable = {
-		background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
-		term_colors = false, -- Prevent the theme from setting terminal colors
-		eob_lines = false, -- Hide the end-of-buffer lines
-	},
-	-- Overwrite highlights with your own
-	--[[ custom_highlights = {
+    disable = {
+        background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
+        term_colors = false, -- Prevent the theme from setting terminal colors
+        eob_lines = false, -- Hide the end-of-buffer lines
+    },
+    -- Overwrite highlights with your own
+    --[[ custom_highlights = {
     CursorLine = "#0000FF",
     LineNr = "#FF0000",
   }, ]]
@@ -319,14 +321,14 @@ require("material").setup({
 -- Use spelling for markdown files ‘]s’ to find next, ‘[s’ for previous, 'z=‘ for suggestions when on one.
 -- Source: http:--thejakeharding.com/tutorial/2012/06/13/using-spell-check-in-vim.html
 api.nvim_exec(
-	[[
+    [[
     augroup markdownSpell
         autocmd!
         autocmd FileType markdown,md,txt setlocal spell
         autocmd BufRead,BufNewFile *.md,*.gpg.md,*.txt,*.markdown setlocal spell
     augroup END
 ]],
-	false
+    false
 )
 cmd("au BufNewFile,BufReadPost *.gpg.md set filetype=markdown")
 cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
@@ -337,7 +339,7 @@ cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true, timeout = 15
 -- {{{ funkcje, komendy
 -- Funkcja Write()
 api.nvim_exec(
-	[[
+    [[
     function! Write()
         " wywołuje funkcję UpdateVimrc
         " autocmd! BufWritePost $MYVIMRC call UpdateVimrc() | source % | redraw
@@ -357,12 +359,12 @@ api.nvim_exec(
         endif
     endfunction
 ]],
-	false
+    false
 )
 
 -- Funkcja InsertDiaryHeader() wstawia nagłówej # i bieżący czas
 api.nvim_exec(
-	[[
+    [[
     function! InsertDiaryHeader()
         normal! o# <temat> <data>
         execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
@@ -372,11 +374,11 @@ api.nvim_exec(
         execute ':startinsert'
     endfunction
 ]],
-	false
+    false
 )
 
 api.nvim_exec(
-	[[
+    [[
     function! Doku2MD()
         echom "-- Doku2MD --"
         execute '%s/^====== /# /'
@@ -392,13 +394,13 @@ api.nvim_exec(
         echom "== Doku2MD =="
     endfunction
     ]],
-	false
+    false
 )
 
 -- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 -- InsertDiaryHeader
 api.nvim_exec(
-	[[
+    [[
     " funkcję uruchamia skrót <leader>e
     function! DiaryNotes()
         if filereadable(expand("$NOTES_DIR/diary/".strftime("%F").".md"))
@@ -409,55 +411,55 @@ api.nvim_exec(
         endif
     endfunction
 ]],
-	false
+    false
 )
 
 -- Wyszukiwanie telescope w katalogu $NOTES_DIR
 search_notes_dir = function()
-	require("telescope.builtin").find_files({
-		prompt_title = "< Notatki >",
-		cwd = "$NOTES_DIR",
-	})
+    require("telescope.builtin").find_files({
+        prompt_title = "< Notatki >",
+        cwd = "$NOTES_DIR",
+    })
 end
 
 -- Przeszukiwanie telescope w katalogu $NOTES_DIR
 grep_notes_dir = function()
-	require("telescope.builtin").live_grep({
-		prompt_title = "< Notatki >",
-		cwd = "$NOTES_DIR",
-	})
+    require("telescope.builtin").live_grep({
+        prompt_title = "< Notatki >",
+        cwd = "$NOTES_DIR",
+    })
 end
 
 -- Wyszukiwanie telescope w katalogu dotfiles
 search_dotfiles = function()
-	require("telescope.builtin").find_files({
-		prompt_title = "< dot.files >",
-		cwd = "$HOME/git/github/dotfiles/",
-	})
+    require("telescope.builtin").find_files({
+        prompt_title = "< dot.files >",
+        cwd = "$HOME/git/github/dotfiles/",
+    })
 end
 
 -- Wyszukiwanie telescope w katalogu dotfiles
 search_nvim_dotfiles = function()
-	require("telescope.builtin").find_files({
-		prompt_title = "< nvim >",
-		cwd = "$HOME/.config/nvim/",
-		file_ignore_patterns = { "spell/" },
-	})
+    require("telescope.builtin").find_files({
+        prompt_title = "< nvim >",
+        cwd = "$HOME/.config/nvim/",
+        file_ignore_patterns = { "spell/" },
+    })
 end
 
 -- Funkcja Tme() wyświetla bieżącą datę i godzinę
 api.nvim_exec(
-	[[
+    [[
     function! Time()
         echom strftime("- Teraz jest: %F %T -")
     endfunction
 ]],
-	false
+    false
 )
 
 -- Funkcja UpdateVimrc() uruchamiana po zapisaniu pliku $MYVIMRC
 api.nvim_exec(
-	[[
+    [[
     function! UpdateVimrc()
         normal! ma1G0D
         normal! I-- Aktualizacja
@@ -466,34 +468,34 @@ api.nvim_exec(
         normal! `a
     endfunction
 ]],
-	false
+    false
 )
 
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp
 api.nvim_exec(
-	[[
+    [[
     function! GP()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/gp
         redraw!
     endfunction
 ]],
-	false
+    false
 )
 
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga
 api.nvim_exec(
-	[[
+    [[
     function! GA()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/ga
         redraw!
     endfunction
     ]],
-	false
+    false
 )
 
 -- Odwraca kolor tła
 api.nvim_exec(
-	[[
+    [[
     function! RevBackground()
         if &background=="light"
             set background=dark
@@ -502,12 +504,12 @@ api.nvim_exec(
         endif
     endfunction
 ]],
-	false
+    false
 )
 
 -- Funkcja DestractionFree()
 api.nvim_exec(
-	[[
+    [[
     let g:DestractionFree=""
     let g:List=""
     function! DestractionFree()
@@ -542,11 +544,11 @@ api.nvim_exec(
         endif
 endfunction
 ]],
-	false
+    false
 )
 
 function VimrcVersion()
-	print(vimrc_version)
+    print(vimrc_version)
 end
 
 -- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })
@@ -582,34 +584,34 @@ cmd("command! GR :GoRun")
 g.SESSION_TYPE = vim.fn.getenv("XDG_SESSION_TYPE")
 
 if SESSION_TYPE == "wayland" then
-	g.fauxClip_copy_cmd = "wl-copy"
-	g.fauxClip_paste_cmd = "wl-paste"
+    g.fauxClip_copy_cmd = "wl-copy"
+    g.fauxClip_paste_cmd = "wl-paste"
 
-	g.fauxClip_always_use = 1
+    g.fauxClip_always_use = 1
 else
-	-- kopiowanie
-	g.fauxClip_copy_cmd = "xclip -f -i -selection clipboard"
-	g.fauxClip_copy_primary_cmd = "xclip -f -i"
-	g.fauxClip_copy_primary_cmd = "xclip -f -i"
-	-- wklejanie
-	g.fauxClip_paste_cmd = "xclip -o -selection clipboard"
-	g.fauxClip_paste_primary_cmd = "xclip -o"
+    -- kopiowanie
+    g.fauxClip_copy_cmd = "xclip -f -i -selection clipboard"
+    g.fauxClip_copy_primary_cmd = "xclip -f -i"
+    g.fauxClip_copy_primary_cmd = "xclip -f -i"
+    -- wklejanie
+    g.fauxClip_paste_cmd = "xclip -o -selection clipboard"
+    g.fauxClip_paste_primary_cmd = "xclip -o"
 
-	g.fauxClip_always_use = 1
+    g.fauxClip_always_use = 1
 end
 
 -- cheatsheet.nvim
 require("cheatsheet").setup({
-	-- For generic cheatsheets like default, unicode, nerd-fonts, etc
-	bundled_cheatsheets = true,
+    -- For generic cheatsheets like default, unicode, nerd-fonts, etc
+    bundled_cheatsheets = true,
 
-	-- For plugin specific cheatsheets
-	bundled_plugin_cheatsheets = true,
+    -- For plugin specific cheatsheets
+    bundled_plugin_cheatsheets = true,
 
-	-- For bundled plugin cheatsheets, do not show a sheet if you
-	-- don't have the plugin installed (searches runtimepath for
-	-- same directory name)
-	include_only_installed_plugins = true,
+    -- For bundled plugin cheatsheets, do not show a sheet if you
+    -- don't have the plugin installed (searches runtimepath for
+    -- same directory name)
+    include_only_installed_plugins = true,
 })
 -- instant-markdown
 g.instant_markdown_browser = "firefox --new-window"
@@ -732,8 +734,8 @@ api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
 api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
 
 require("kommentary.config").configure_language("rust", {
-	single_line_comment_string = "//",
-	multi_line_comment_strings = { "/*", "*/" },
+    single_line_comment_string = "//",
+    multi_line_comment_strings = { "/*", "*/" },
 })
 
 -- minimap
@@ -743,7 +745,7 @@ g.minimap_auto_start = 0
 
 -- vimwiki
 api.nvim_exec(
-	[[
+    [[
     " wyłącza plugin vimwiki dla innych plików markdown poza listą wiki
     let g:vimwiki_global_ext = 0
 
@@ -778,42 +780,42 @@ api.nvim_exec(
     " Zamiast 1<leader>ww można użyć zapisu 1<plug>VimwikiIndex
     " autocmd Filetype vimwiki map <leader>4 4<Plug>VimwikiIndex
 ]],
-	false
+    false
 )
 
 -- cmd("let g:vimwiki_list = [wiki, chaos, linux]")
 
 --
 require("nvim-web-devicons").setup({
-	-- your personnal icons can go here (to override)
-	-- DevIcon will be appended to `name`
-	override = {
-		zsh = {
-			icon = "",
-			color = "#428850",
-			name = "Zsh",
-		},
-	},
-	-- globally enable default icons (default to false)
-	-- will get overriden by `get_icons` option
-	default = true,
+    -- your personnal icons can go here (to override)
+    -- DevIcon will be appended to `name`
+    override = {
+        zsh = {
+            icon = "",
+            color = "#428850",
+            name = "Zsh",
+        },
+    },
+    -- globally enable default icons (default to false)
+    -- will get overriden by `get_icons` option
+    default = true,
 })
 
 require("indent_blankline").setup({
-	-- char = "┊",
-	-- char = "|",
-	char_list = { "|", "¦", "┆", "┊" },
-	space_char_blankline = " ",
-	buftype_exclude = { "terminal", "nofile" },
-	filetype_exclude = { "help", "packer", "dashboard" },
-	char_highlight = "LineNr",
-	show_trailing_blankline_indent = false,
-	-- char_highlight_list = { "Normal", "Function", "Error" },
+    -- char = "┊",
+    -- char = "|",
+    char_list = { "|", "¦", "┆", "┊" },
+    space_char_blankline = " ",
+    buftype_exclude = { "terminal", "nofile" },
+    filetype_exclude = { "help", "packer", "dashboard" },
+    char_highlight = "LineNr",
+    show_trailing_blankline_indent = false,
+    -- char_highlight_list = { "Normal", "Function", "Error" },
 })
 
 require("pears").setup(function(conf)
-	conf.pair("{", "}")
-	conf.expand_on_enter(false)
+    conf.pair("{", "}")
+    conf.expand_on_enter(false)
 end)
 
 -- luasnip
@@ -828,70 +830,71 @@ end)
 
 -- telescope setup
 local sorters, actions, previewers =
-	require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
+    require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
 
 local actions = require("telescope.actions")
 require("telescope").setup({
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-		},
-		prompt_prefix = " ❯ ",
-		initial_mode = "insert",
-		file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
-		color_devicons = true,
-		winblend = 20,
-		file_sorter = sorters.get_fzy_sorter,
-		generic_sorter = sorters.get_fzy_sorter,
-		file_previewer = previewers.vim_buffer_cat.new,
-		grep_previewer = previewers.vim_buffer_vimgrep.new,
-		qflist_previewer = previewers.vim_buffer_qflist.new,
-		sorting_strategy = "descending",
-		layout_strategy = "horizontal",
-		mappings = {
-			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
-				["<esc>"] = actions.close,
-			},
-		},
-	},
-	extensions = {
-		-- Fast, fast, really fast sorter (fzf native)
-		fzf = {
-			fuzzy = true, -- false will only do exact matching
-			override_generic_sorter = true, -- override the generic sorter
-			override_file_sorter = true, -- override the file sorter
-			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-			-- the default case_mode is "smart_case"
-		},
-	},
-	find_files = {
-		theme = "dropdown",
-	},
-	pickers = {
-		buffers = {
-			sort_lastused = true,
-			theme = "dropdown",
-			mappings = {
-				i = {
-					["<C-w>"] = "delete_buffer",
-				},
-				n = {
-					["<C-w>"] = "delete_buffer",
-				},
-			},
-		},
-	},
+    defaults = {
+        vimgrep_arguments = {
+            "rg",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+        },
+        prompt_prefix = " ❯ ",
+        initial_mode = "insert",
+        file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
+        color_devicons = true,
+        winblend = 20,
+        file_sorter = sorters.get_fzy_sorter,
+        generic_sorter = sorters.get_fzy_sorter,
+        file_previewer = previewers.vim_buffer_cat.new,
+        grep_previewer = previewers.vim_buffer_vimgrep.new,
+        qflist_previewer = previewers.vim_buffer_qflist.new,
+        sorting_strategy = "descending",
+        layout_strategy = "horizontal",
+        mappings = {
+            i = {
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<esc>"] = actions.close,
+            },
+        },
+    },
+    extensions = {
+        -- Fast, fast, really fast sorter (fzf native)
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+        },
+    },
+    find_files = {
+        theme = "dropdown",
+    },
+    pickers = {
+        buffers = {
+            sort_lastused = true,
+            theme = "dropdown",
+            mappings = {
+                i = {
+                    ["<C-w>"] = "delete_buffer",
+                },
+                n = {
+                    ["<C-w>"] = "delete_buffer",
+                },
+            },
+        },
+    },
 })
 
 -- Load Telescope extensions
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("project")
 
 -- Lightspeed remap
 api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
@@ -914,20 +917,20 @@ api.nvim_set_keymap("v", "F", "<Plug>Lightspeed_S", {})
 -- nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
 
 require("lightspeed").setup({
-	jump_to_first_match = true,
-	jump_on_partial_input_safety_timeout = 400,
-	-- This can get _really_ slow if the window has a lot of content,
-	-- turn it on only if your machine can always cope with it.
-	highlight_unique_chars = false,
-	grey_out_search_area = true,
-	match_only_the_start_of_same_char_seqs = true,
-	limit_ft_matches = 5,
-	full_inclusive_prefix_key = "<c-x>",
-	-- By default, the values of these will be decided at runtime,
-	-- based on `jump_to_first_match`.
-	labels = nil,
-	cycle_group_fwd_key = nil,
-	cycle_group_bwd_key = nil,
+    jump_to_first_match = true,
+    jump_on_partial_input_safety_timeout = 400,
+    -- This can get _really_ slow if the window has a lot of content,
+    -- turn it on only if your machine can always cope with it.
+    highlight_unique_chars = false,
+    grey_out_search_area = true,
+    match_only_the_start_of_same_char_seqs = true,
+    limit_ft_matches = 5,
+    full_inclusive_prefix_key = "<c-x>",
+    -- By default, the values of these will be decided at runtime,
+    -- based on `jump_to_first_match`.
+    labels = nil,
+    cycle_group_fwd_key = nil,
+    cycle_group_bwd_key = nil,
 })
 
 -- dashboard-nvim
@@ -935,40 +938,63 @@ vim.g.dashboard_disable_at_vimenter = 0
 vim.g.dashboard_default_executive = "telescope"
 
 -- vim.g.dashboard_custom_shortcut = {
-	-- { book_marks = "SPC k b" },
-	-- { change_colorscheme = "SPC k c" },
-	-- { find_file = "SPC k f" },
-	-- { find_history = "SPC k h" },
-	-- { find_word = "SPC k w" },
-	-- { last_session = "SPC k s" },
-	-- { new_file = "SPC k n" },
+-- { book_marks = "SPC k b" },
+-- { change_colorscheme = "SPC k c" },
+-- { find_file = "SPC k f" },
+-- { find_history = "SPC k h" },
+-- { find_word = "SPC k w" },
+-- { last_session = "SPC k s" },
+-- { new_file = "SPC k n" },
 -- }
+
+vim.g.dashboard_custom_section = {
+    a = {
+        description = { "  Find File          " },
+        command = "Telescope find_files",
+    },
+    b = {
+        description = { "  Recent Projects    " },
+        command = "Telescope projects",
+    },
+    c = {
+        description = { "  Recently Used Files" },
+        command = "Telescope oldfiles",
+    },
+    d = {
+        description = { "  Find Word          " },
+        command = "Telescope live_grep",
+    },
+    e = {
+        description = { "  Configuration      " },
+        command = ":e $MYVIMRC",
+    },
+}
 
 -- gitsigns setup
 require("gitsigns").setup({
-	numhl = true,
-	signcolumn = true,
-	keymaps = {
-		-- Default keymap options
-		noremap = true,
+    numhl = true,
+    signcolumn = true,
+    keymaps = {
+        -- Default keymap options
+        noremap = true,
 
-		["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-		["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+        ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
+        ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
 
-		["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-		["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-		["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-		["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-		["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-		["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-		["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-		-- ["n <leader>hn"] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
-		["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+        ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+        ["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+        ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+        ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+        ["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+        ["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+        ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+        -- ["n <leader>hn"] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
+        ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
 
-		-- Text objects
-		["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-		["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-	},
+        -- Text objects
+        ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+        ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+    },
 })
 
 -- Hop
@@ -982,13 +1008,13 @@ map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
  ]]
 -- Session
 local sessionopts = {
-	log_level = "info",
-	auto_session_enable_last_session = false,
-	auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
-	auto_session_enabled = true,
-	auto_save_enabled = true,
-	auto_restore_enabled = false,
-	auto_session_suppress_dirs = nil,
+    log_level = "info",
+    auto_session_enable_last_session = false,
+    auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
+    auto_session_enabled = true,
+    auto_save_enabled = true,
+    auto_restore_enabled = false,
+    auto_session_suppress_dirs = nil,
 }
 
 require("auto-session").setup(sessionopts)
@@ -1002,67 +1028,67 @@ ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
 
 -- Compe setup start
 require("compe").setup({
-	enabled = true,
-	autocomplete = true,
-	debug = false,
-	min_length = 1,
-	preselect = "enable",
-	throttle_time = 80,
-	source_timeout = 200,
-	resolve_timeout = 800,
-	incomplete_delay = 400,
-	max_abbr_width = 100,
-	max_kind_width = 100,
-	max_menu_width = 100,
-	documentation = {
-		border = { "", "", "", " ", "", "", "", " " }, -- the border option is the same as `|help nvim_open_win|`
-		winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-		max_width = 120,
-		min_width = 60,
-		max_height = math.floor(vim.o.lines * 0.3),
-		min_height = 1,
-	},
-	source = {
-		path = true,
-		buffer = true,
-		calc = true,
-		nvim_lua = true,
-		vsnip = true,
-		luasnip = true,
-	},
+    enabled = true,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = "enable",
+    throttle_time = 80,
+    source_timeout = 200,
+    resolve_timeout = 800,
+    incomplete_delay = 400,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
+    documentation = {
+        border = { "", "", "", " ", "", "", "", " " }, -- the border option is the same as `|help nvim_open_win|`
+        winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+        max_width = 120,
+        min_width = 60,
+        max_height = math.floor(vim.o.lines * 0.3),
+        min_height = 1,
+    },
+    source = {
+        path = true,
+        buffer = true,
+        calc = true,
+        nvim_lua = true,
+        vsnip = true,
+        luasnip = true,
+    },
 })
 
 local t = function(str)
-	return api.nvim_replace_termcodes(str, true, true, true)
+    return api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-	local col = vim.fn.col(".") - 1
-	if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-		return true
-	else
-		return false
-	end
+    local col = vim.fn.col(".") - 1
+    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+        return true
+    else
+        return false
+    end
 end
 
 -- Use (s-)tab to:
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t("<C-n>")
-	elseif check_back_space() then
-		return t("<Tab>")
-	else
-		return vim.fn["compe#complete"]()
-	end
+    if vim.fn.pumvisible() == 1 then
+        return t("<C-n>")
+    elseif check_back_space() then
+        return t("<Tab>")
+    else
+        return vim.fn["compe#complete"]()
+    end
 end
 _G.s_tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t("<C-p>")
-	else
-		return t("<S-Tab>")
-	end
+    if vim.fn.pumvisible() == 1 then
+        return t("<C-p>")
+    else
+        return t("<S-Tab>")
+    end
 end
 
 api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
@@ -1075,60 +1101,60 @@ api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 
 -- Prettier function for formatter
 local prettier = function()
-	return {
-		exe = "prettier",
-		args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
-		-- args = { "--stdin-filepath", api.nvim_buf_get_name(0), "--double-quote" },
-		stdin = true,
-	}
+    return {
+        exe = "prettier",
+        args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
+        -- args = { "--stdin-filepath", api.nvim_buf_get_name(0), "--double-quote" },
+        stdin = true,
+    }
 end
 
 require("formatter").setup({
-	filetype = {
-		markdown = {
-			-- prettier
-			function()
-				return {
-					exe = "prettier",
-					args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
-					stdin = true,
-				}
-			end,
-		},
-	},
+    filetype = {
+        markdown = {
+            -- prettier
+            function()
+                return {
+                    exe = "prettier",
+                    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
+                    stdin = true,
+                }
+            end,
+        },
+    },
 })
 
 require("formatter").setup({
-	logging = false,
-	filetype = {
-		javascript = { prettier },
-		typescript = { prettier },
-		html = { prettier },
-		css = { prettier },
-		scss = { prettier },
-		markdown = { prettier },
-		lua = {
-			-- Stylua
-			function()
-				return {
-					exe = "stylua",
-					args = { "--indent-width", 2, "--indent-type", "Spaces" },
-					stdin = false,
-				}
-			end,
-		},
-	},
+    logging = false,
+    filetype = {
+        javascript = { prettier },
+        typescript = { prettier },
+        html = { prettier },
+        css = { prettier },
+        scss = { prettier },
+        markdown = { prettier },
+        lua = {
+            -- Stylua
+            function()
+                return {
+                    exe = "stylua",
+                    args = { "--indent-width", 2, "--indent-type", "Spaces" },
+                    stdin = false,
+                }
+            end,
+        },
+    },
 })
 
 -- Runs Formatter on save
 api.nvim_exec(
-	[[
+    [[
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
 augroup END
 ]],
-	true
+    true
 )
 -- ustawienia pluginów }}}
 -- {{{ lualine
@@ -1137,141 +1163,141 @@ local lualine = require("lualine")
 
 -- Color table for highlights
 local colors = {
-	bg = "#202328",
-	fg = "#bbc2cf",
-	yellow = "#ECBE7B",
-	cyan = "#008080",
-	darkblue = "#081633",
-	green = "#98be65",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	blue = "#51afef",
-	red = "#ec5f67",
+    bg = "#202328",
+    fg = "#bbc2cf",
+    yellow = "#ECBE7B",
+    cyan = "#008080",
+    darkblue = "#081633",
+    green = "#98be65",
+    orange = "#FF8800",
+    violet = "#a9a1e1",
+    magenta = "#c678dd",
+    blue = "#51afef",
+    red = "#ec5f67",
 }
 
 local conditions = {
-	buffer_not_empty = function()
-		return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-	end,
-	hide_in_width = function()
-		return vim.fn.winwidth(0) > 80
-	end,
-	check_git_workspace = function()
-		local filepath = vim.fn.expand("%:p:h")
-		local gitdir = vim.fn.finddir(".git", filepath .. ";")
-		return gitdir and #gitdir > 0 and #gitdir < #filepath
-	end,
+    buffer_not_empty = function()
+        return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
+    end,
+    hide_in_width = function()
+        return vim.fn.winwidth(0) > 80
+    end,
+    check_git_workspace = function()
+        local filepath = vim.fn.expand("%:p:h")
+        local gitdir = vim.fn.finddir(".git", filepath .. ";")
+        return gitdir and #gitdir > 0 and #gitdir < #filepath
+    end,
 }
 
 -- Config
 local config = {
-	options = {
-		-- Disable sections and component separators
-		component_separators = "",
-		section_separators = "",
-		icons_enabled = true,
-		theme = {
-			-- We are going to use lualine_c an lualine_x as left and
-			-- right section. Both are highlighted by c theme .  So we
-			-- are just setting default looks o statusline
-			normal = { c = { fg = colors.fg, bg = colors.bg } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg } },
-		},
-	},
-	sections = {
-		-- these are to remove the defaults
-		lualine_a = {},
-		lualine_b = {},
-		lualine_y = {},
-		lualine_z = {},
-		-- These will be filled later
-		lualine_c = {},
-		lualine_x = {},
-	},
-	inactive_sections = {
-		-- these are to remove the defaults
-		lualine_a = {},
-		lualine_v = {},
-		lualine_y = {},
-		lualine_z = {},
-		lualine_c = {},
-		lualine_x = {},
-	},
+    options = {
+        -- Disable sections and component separators
+        component_separators = "",
+        section_separators = "",
+        icons_enabled = true,
+        theme = {
+            -- We are going to use lualine_c an lualine_x as left and
+            -- right section. Both are highlighted by c theme .  So we
+            -- are just setting default looks o statusline
+            normal = { c = { fg = colors.fg, bg = colors.bg } },
+            inactive = { c = { fg = colors.fg, bg = colors.bg } },
+        },
+    },
+    sections = {
+        -- these are to remove the defaults
+        lualine_a = {},
+        lualine_b = {},
+        lualine_y = {},
+        lualine_z = {},
+        -- These will be filled later
+        lualine_c = {},
+        lualine_x = {},
+    },
+    inactive_sections = {
+        -- these are to remove the defaults
+        lualine_a = {},
+        lualine_v = {},
+        lualine_y = {},
+        lualine_z = {},
+        lualine_c = {},
+        lualine_x = {},
+    },
 }
 
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
-	table.insert(config.sections.lualine_c, component)
+    table.insert(config.sections.lualine_c, component)
 end
 
 -- Inserts a component in lualine_x ot right section
 local function ins_right(component)
-	table.insert(config.sections.lualine_x, component)
+    table.insert(config.sections.lualine_x, component)
 end
 
 ins_left({
-	-- mode component
-	function()
-		-- auto change color according to neovims mode
-		local mode_color = {
-			n = colors.red,
-			i = colors.green,
-			v = colors.blue,
-			[""] = colors.blue,
-			V = colors.blue,
-			c = colors.violet,
-			no = colors.red,
-			s = colors.orange,
-			S = colors.orange,
-			[""] = colors.orange,
-			ic = colors.yellow,
-			R = colors.violet,
-			Rv = colors.violet,
-			cv = colors.red,
-			ce = colors.red,
-			r = colors.cyan,
-			rm = colors.cyan,
-			["r?"] = colors.cyan,
-			["!"] = colors.red,
-			t = colors.red,
-		}
-		api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
-		return "▊"
-	end,
-	color = "LualineMode",
-	left_padding = 0,
+    -- mode component
+    function()
+        -- auto change color according to neovims mode
+        local mode_color = {
+            n = colors.red,
+            i = colors.green,
+            v = colors.blue,
+            [""] = colors.blue,
+            V = colors.blue,
+            c = colors.violet,
+            no = colors.red,
+            s = colors.orange,
+            S = colors.orange,
+            [""] = colors.orange,
+            ic = colors.yellow,
+            R = colors.violet,
+            Rv = colors.violet,
+            cv = colors.red,
+            ce = colors.red,
+            r = colors.cyan,
+            rm = colors.cyan,
+            ["r?"] = colors.cyan,
+            ["!"] = colors.red,
+            t = colors.red,
+        }
+        api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+        return "▊"
+    end,
+    color = "LualineMode",
+    left_padding = 0,
 })
 
 ins_left({
-	-- filesize component
-	function()
-		local function format_file_size(file)
-			local size = vim.fn.getfsize(file)
-			if size <= 0 then
-				return ""
-			end
-			local sufixes = { "b", "k", "m", "g" }
-			local i = 1
-			while size > 1024 do
-				size = size / 1024
-				i = i + 1
-			end
-			return string.format("%.1f%s", size, sufixes[i])
-		end
-		local file = vim.fn.expand("%:p")
-		if string.len(file) == 0 then
-			return ""
-		end
-		return format_file_size(file)
-	end,
-	condition = conditions.buffer_not_empty,
+    -- filesize component
+    function()
+        local function format_file_size(file)
+            local size = vim.fn.getfsize(file)
+            if size <= 0 then
+                return ""
+            end
+            local sufixes = { "b", "k", "m", "g" }
+            local i = 1
+            while size > 1024 do
+                size = size / 1024
+                i = i + 1
+            end
+            return string.format("%.1f%s", size, sufixes[i])
+        end
+        local file = vim.fn.expand("%:p")
+        if string.len(file) == 0 then
+            return ""
+        end
+        return format_file_size(file)
+    end,
+    condition = conditions.buffer_not_empty,
 })
 
 ins_left({
-	"filename",
-	condition = conditions.buffer_not_empty,
-	color = { fg = colors.yellow, gui = "bold" },
+    "filename",
+    condition = conditions.buffer_not_empty,
+    color = { fg = colors.yellow, gui = "bold" },
 })
 
 ins_left({ "location" })
@@ -1281,53 +1307,53 @@ ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left({
-	function()
-		return "%="
-	end,
+    function()
+        return "%="
+    end,
 })
 
 -- Add components to right sections
 ins_right({
-	"o:encoding", -- option component same as &encoding in viml
-	upper = true, -- I'm not sure why it's upper case either ;)
-	condition = conditions.hide_in_width,
-	color = { fg = colors.green, gui = "bold" },
+    "o:encoding", -- option component same as &encoding in viml
+    upper = true, -- I'm not sure why it's upper case either ;)
+    condition = conditions.hide_in_width,
+    color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({
-	"fileformat",
-	upper = true,
-	icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.green, gui = "bold" },
+    "fileformat",
+    upper = true,
+    icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+    color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({
-	"branch",
-	icon = "",
-	condition = conditions.check_git_workspace,
-	color = { fg = colors.violet, gui = "bold" },
+    "branch",
+    icon = "",
+    condition = conditions.check_git_workspace,
+    color = { fg = colors.violet, gui = "bold" },
 })
 -- mod_icon = "                  "
 ins_right({
-	"diff",
-	-- Is it me or the symbol for modified us really weird
-	symbols = { added = " ", modified = " ", removed = " " },
-	color_added = colors.green,
-	color_modified = colors.orange,
-	color_removed = colors.red,
-	condition = conditions.hide_in_width,
+    "diff",
+    -- Is it me or the symbol for modified us really weird
+    symbols = { added = " ", modified = " ", removed = " " },
+    color_added = colors.green,
+    color_modified = colors.orange,
+    color_removed = colors.red,
+    condition = conditions.hide_in_width,
 })
 
 ins_right({
-	"hostname",
+    "hostname",
 })
 
 ins_right({
-	function()
-		return "▊"
-	end,
-	color = { fg = colors.blue },
-	right_padding = 0,
+    function()
+        return "▊"
+    end,
+    color = { fg = colors.blue },
+    right_padding = 0,
 })
 
 -- Now don't forget to initialize lualine
@@ -1350,15 +1376,24 @@ map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
+-- Ustawienia skrótów klawiszowych dla plików pomocy
 api.nvim_exec(
-	[[
+    [[
     autocmd Filetype help nnoremap <c-n> :cnext<cr>
     autocmd Filetype help nnoremap <c-p> :cprevious<cr>
     autocmd Filetype help nnoremap <leader>l <c-]>
     autocmd Filetype help nnoremap <leader>h <c-t>
     autocmd Filetype help nnoremap q :quit<cr>
 ]],
-	false
+    false
+)
+
+-- Jeśli jest włączony Dashboard to pojedyncze wciśnięcie q zamyka edytor
+api.nvim_exec(
+    [[
+autocmd FileType dashboard nnoremap <silent> <buffer> q :q<CR>
+]],
+    false
 )
 
 -- zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
@@ -1377,9 +1412,9 @@ map("n", "<leader>sn", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1
 map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
 map(
-	"v",
-	"<leader>sn",
-	":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>"
+    "v",
+    "<leader>sn",
+    ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>"
 )
 
 -- edycja wybranych plików
@@ -1399,11 +1434,11 @@ map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 
 -- automatycznie odświerza pliki
 api.nvim_exec(
-	[[
+    [[
     autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md set autoread
     autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md :checktime
 ]],
-	false
+    false
 )
 
 -- ustawia podzielone okno na główne (full screen)
@@ -1557,29 +1592,29 @@ map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Telescoope
 map(
-	"n",
-	"<leader>p",
-	'<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>'
+    "n",
+    "<leader>p",
+    '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
 map(
-	"n",
-	"<leader>g",
-	'<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
+    "n",
+    "<leader>g",
+    '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map(
-	"n",
-	"<leader>f",
-	'<cmd>lua require("telescope.builtin").file_browser(require("telescope.themes").get_dropdown({}))<cr>'
+    "n",
+    "<leader>f",
+    '<cmd>lua require("telescope.builtin").file_browser(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 map(
-	"n",
-	"<leader>i",
-	'<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
+    "n",
+    "<leader>i",
+    '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 

@@ -1,5 +1,7 @@
--- Aktualizacja 2021-09-19 10:30:52
+-- Aktualizacja 2021-09-19 12:13:49
 vimrc_version = "Wersja init.lua: v1.6"
+-- zn schowanie zagnieżdżeń 
+-- zm otworzenie zagnieżdżeń
 -- {{{ pluginy
 require("packer").startup(function(use)
   -- menadżer pluginów
@@ -75,7 +77,7 @@ require("packer").startup(function(use)
 
   use("lukas-reineke/indent-blankline.nvim")
 
-  use("rmagatti/auto-session")
+  -- use("rmagatti/auto-session")
 
   -- vim-repeat
   use("tpope/vim-repeat")
@@ -99,7 +101,8 @@ require("packer").startup(function(use)
   --  use "akinsho/nvim-bufferline.lua"
   use("romgrk/barbar.nvim")
 
-  use("glepnir/dashboard-nvim")
+  -- Dashboard
+  use({ "glepnir/dashboard-nvim" })
 
   -- szyfrowanie
   use("jamessan/vim-gnupg")
@@ -250,6 +253,8 @@ opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*"
 
 g.netrw_liststyle = 3 -- Tree style Netrw
 
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
+
 g.GPGPreferSymmetric = 0
 g.GPGUseAgent = 1
 g.GPGPreferArmor = 1
@@ -258,8 +263,9 @@ g.GPGPreferSign = 1
 g.GPGDefaultRecipients = "[$GPG_ID]"
 g.GPGFilePattern = "*{gpg,asc,gpg.md}"
 
--- cursoline highlight
+-- podgreśla słowo na którym znajduje się kursor
 g.cursorword_highlight = true
+-- podświetla bieżącą linię po 1000ms puszczeniu klawisza
 g.cursorline_timeout = 1000
 
 -- Colourscheme config
@@ -584,7 +590,7 @@ cmd("command! S :source %")
 cmd("command! GR :GoRun")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
--- {{{{ fauxClip
+-- {{{ fauxClip
 g.SESSION_TYPE = vim.fn.getenv("XDG_SESSION_TYPE")
 
 if SESSION_TYPE == "wayland" then
@@ -603,8 +609,8 @@ else
 
   g.fauxClip_always_use = 1
 end
--- }}}}
--- {{{{ cheatsheet.nvim
+-- }}}
+-- {{{ cheatsheet.nvim
 require("cheatsheet").setup({
   -- For generic cheatsheets like default, unicode, nerd-fonts, etc
   bundled_cheatsheets = true,
@@ -617,8 +623,8 @@ require("cheatsheet").setup({
   -- same directory name)
   include_only_installed_plugins = true,
 })
--- }}}}
--- {{{{ instant-markdown
+-- }}}
+-- {{{ instant-markdown
 g.instant_markdown_browser = "firefox --new-window"
 g.instant_markdown_slow = 1
 g.instant_markdown_autostart = 1
@@ -631,95 +637,11 @@ g.instant_markdown_autostart = 1
 -- g.instant_markdown_autoscroll = 0
 -- g.instant_markdown_port = 8888
 -- g.instant_markdown_python = 1
--- }}}}
--- {{{{ vim-colorscheme-manager
+-- }}}
+-- {{{ vim-colorscheme-manager
 g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
--- }}}}
--- {{{{ neuron
--- require("neuron").setup({
---   virtual_titles = true,
---   mappings = true,
---   run = nil, -- function to run when in neuron dir
---   neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
---   leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
--- })
--- }}}}
--- {{{{ luatab
--- vim.o.tabline = "%!v:lua.require'luatab'.tabline()"
--- }}}}
--- {{{{ bufferline
--- require("bufferline").setup({})
-
--- require("bufferline").setup({
---   options = {
---     numbers = buff_id, -- "none" | "ordinal" | "buffer_id" | "both",
---     number_style = { "none", "subscript" }, -- "superscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
---     mappings = true, -- true | false,
---     close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
---     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
---     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
---     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
---     -- NOTE: this plugin is designed with this icon in mind,
---     -- and so changing this is NOT recommended, this is intended
---     -- as an escape hatch for people who cannot bear it for whatever reason
---     indicator_icon = "▎",
---     buffer_close_icon = "",
---     modified_icon = "●",
---     close_icon = "",
---     left_trunc_marker = "",
---     right_trunc_marker = "",
---     --- name_formatter can be used to change the buffer's label in the bufferline.
---     --- Please note some names can/will break the
---     --- bufferline so use this at your discretion knowing that it has
---     --- some limitations that will *NOT* be fixed.
---     name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
---       -- remove extension from markdown files for example
---       if buf.name:match("%.md") then
---         return vim.fn.fnamemodify(buf.name, ":t:r")
---       end
---     end,
---     max_name_length = 18,
---     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
---     tab_size = 18,
---     diagnostics = false, -- false | "nvim_lsp",
---     diagnostics_indicator = function(count, level, diagnostics_dict, context)
---       return "(" .. count .. ")"
---     end,
---     -- NOTE: this will be called a lot so don't do any heavy processing here
---     custom_filter = function(buf_number)
---       -- filter out filetypes you don't want to see
---       if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
---         return true
---       end
---       -- filter out by buffer name
---       if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
---         return true
---       end
---       -- filter out based on arbitrary rules
---       -- e.g. filter out vim wiki buffer from tabline in your work repo
---       if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
---         return true
---       end
---     end,
---     -- offsets = {{filetype = "NvimTree", text = "File Explorer" | function , text_align = "left" | "center" | "right"}},
---     offsets = { { filetype = "NvimTree", text = "File Explorer" } },
---     show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
---     show_buffer_close_icons = true, -- true | false,
---     show_close_icon = true, -- true | false,
---     show_tab_indicators = true, -- true | false,
---     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
---     -- can also be a table containing 2 custom separators
---     -- [focused and unfocused]. eg: { '|', '|' }
---     separator_style = "thick", -- "slant" | "thick" | "thin" | { 'any', 'any' },
---     enforce_regular_tabs = false, -- false | true,
---     always_show_bufferline = true, -- true | false,
---     sort_by = "id", -- 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
---     -- return buffer_a.modified > buffer_b.modified
---     -- end,
---   },
--- })
--- }}}}
--- {{{{ kommentary
+-- }}}
+-- {{{ kommentary
 vim.g.kommentary_create_default_mappings = false
 
 -- api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
@@ -738,13 +660,13 @@ require("kommentary.config").configure_language("rust", {
   single_line_comment_string = "//",
   multi_line_comment_strings = { "/*", "*/" },
 })
--- }}}}
--- {{{{ minimap
+-- }}}
+-- {{{ minimap
 g.minimap_width = 10
 g.minimap_auto_start = 0
 -- g.minimap_auto_start_win_enter = 1
--- }}}}
--- {{{{ vimwiki
+-- }}}
+-- {{{ vimwiki
 api.nvim_exec(
   [[
     " wyłącza plugin vimwiki dla innych plików markdown poza listą wiki
@@ -785,8 +707,8 @@ api.nvim_exec(
 )
 
 -- cmd("let g:vimwiki_list = [wiki, chaos, linux]")
--- }}}}
--- {{{{ nvim-web-devicons
+-- }}}
+-- {{{ nvim-web-devicons
 require("nvim-web-devicons").setup({
   -- your personnal icons can go here (to override)
   -- DevIcon will be appended to `name`
@@ -801,8 +723,8 @@ require("nvim-web-devicons").setup({
   -- will get overriden by `get_icons` option
   default = true,
 })
--- }}}}
--- {{{{ indent-blankline
+-- }}}
+-- {{{ indent-blankline
 require("indent_blankline").setup({
   -- char = "┊",
   -- char = "|",
@@ -814,24 +736,14 @@ require("indent_blankline").setup({
   show_trailing_blankline_indent = false,
   -- char_highlight_list = { "Normal", "Function", "Error" },
 })
--- }}}}
--- {{{{ pears
+-- }}}
+-- {{{ pears
 require("pears").setup(function(conf)
   conf.pair("{", "}")
   conf.expand_on_enter(false)
 end)
--- }}}}
--- {{{{ luasnip
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
--- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
--- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
--- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
-
--- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- }}}}
--- {{{{ telescope setup
+-- }}}
+-- {{{ telescope setup
 local sorters, actions, previewers =
   require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
 
@@ -910,8 +822,8 @@ require("telescope").setup({
 -- Load Telescope extensions
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("project")
--- }}}}
--- {{{{ Lightspeed remap
+-- }}}
+-- {{{ Lightspeed remap
 api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
 api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
 api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_s", {})
@@ -947,10 +859,11 @@ require("lightspeed").setup({
   cycle_group_fwd_key = nil,
   cycle_group_bwd_key = nil,
 })
--- }}}}
--- {{{{ dashboard-nvim
+-- }}}
+-- {{{ dashboard-nvim
 vim.g.dashboard_disable_at_vimenter = 0
 vim.g.dashboard_default_executive = "telescope"
+vim.g.dashboard_session_enable = 0
 
 vim.g.dashboard_custom_header = { "Dashboard :•: Neovim" }
 
@@ -969,7 +882,6 @@ vim.g.dashboard_custom_section = {
     description = { "  Recently Used Files    'r'" },
     command = "Telescope oldfiles",
   },
-
   d = {
     description = { "  New File               'n'" },
     command = "DashboardNewFile",
@@ -991,7 +903,7 @@ vim.g.dashboard_custom_section = {
     command = ":e $MYVIMRC",
   },
 }
--- Mapowanie klawiszy w Dahsboard
+-- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 api.nvim_exec(
   [[
     autocmd FileType dashboard nnoremap <silent> <buffer> f :Telescope find_files<cr>
@@ -1003,11 +915,16 @@ api.nvim_exec(
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
+
+    autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66
+    autocmd FileType dashboard highlight dashboardCenter    ctermfg=109 guifg=#5CCFE6
+    autocmd FileType dashboard highlight dashboardFooter    ctermfg=240 guifg=#BBE67E
+    autocmd FileType dashboard highlight dashboardShortCut  ctermfg=245
 ]],
   false
 )
--- }}}}
--- {{{{ gitsigns setup
+-- }}}
+-- {{{ gitsigns setup
 require("gitsigns").setup({
   numhl = true,
   signcolumn = true,
@@ -1033,38 +950,15 @@ require("gitsigns").setup({
     ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
   },
 })
--- }}}}
--- {{{{ Hop
---[[ require("hop").setup({
-    reverse_distribution = true,
-})
-map("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
-map("v", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
- ]]
--- }}}}
--- {{{{ Session
-local sessionopts = {
-  log_level = "info",
-  auto_session_enable_last_session = false,
-  auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
-  auto_session_enabled = true,
-  auto_save_enabled = true,
-  auto_restore_enabled = false,
-  auto_session_suppress_dirs = nil,
-}
-
-require("auto-session").setup(sessionopts)
--- }}}}
--- {{{{ GnuPG
+-- }}}
+-- {{{ GnuPG
 local GPG_ID = os.getenv("GPG_ID")
--- }}}}
--- {{{{ Setup treesitter
+-- }}}
+-- {{{ Setup treesitter
 local ts = require("nvim-treesitter.configs")
 ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
--- }}}}
--- {{{{ Compe setup start
+-- }}}
+-- {{{ Compe setup start
 require("compe").setup({
   enabled = true,
   autocomplete = true,
@@ -1134,8 +1028,8 @@ api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
 api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
--- End Compe related setup }}}}
--- {{{{ Prettier function for formatter
+-- End Compe related setup }}}
+-- {{{ Prettier function for formatter
 local prettier = function()
   return {
     exe = "prettier",
@@ -1192,8 +1086,7 @@ augroup END
 ]],
   true
 )
--- }}}}
--- ustawienia pluginów }}}
+-- }}}
 -- {{{ lualine
 -- Eviline config for lualine
 local lualine = require("lualine")
@@ -1396,6 +1289,125 @@ ins_right({
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 --- lualine }}}
+-- {{{ luasnip
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+-- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+-- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+-- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+-- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+-- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+-- }}}
+-- {{{ Hop
+--[[ require("hop").setup({
+    reverse_distribution = true,
+})
+map("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
+map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
+map("v", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
+map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
+ ]]
+-- }}}
+-- {{{ auto-session
+-- local sessionopts = {
+-- SaveSession
+-- RestoreSession
+-- log_level = "info",
+-- auto_session_enable_last_session = false,
+-- auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
+-- auto_session_enabled = true,
+-- auto_save_enabled = true,
+-- auto_restore_enabled = false,
+-- auto_session_suppress_dirs = nil,
+-- }
+-- require("auto-session").setup(sessionopts)
+-- }}}
+-- {{{ bufferline
+-- require("bufferline").setup({})
+
+-- require("bufferline").setup({
+--   options = {
+--     numbers = buff_id, -- "none" | "ordinal" | "buffer_id" | "both",
+--     number_style = { "none", "subscript" }, -- "superscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
+--     mappings = true, -- true | false,
+--     close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+--     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+--     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+--     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+--     -- NOTE: this plugin is designed with this icon in mind,
+--     -- and so changing this is NOT recommended, this is intended
+--     -- as an escape hatch for people who cannot bear it for whatever reason
+--     indicator_icon = "▎",
+--     buffer_close_icon = "",
+--     modified_icon = "●",
+--     close_icon = "",
+--     left_trunc_marker = "",
+--     right_trunc_marker = "",
+--     --- name_formatter can be used to change the buffer's label in the bufferline.
+--     --- Please note some names can/will break the
+--     --- bufferline so use this at your discretion knowing that it has
+--     --- some limitations that will *NOT* be fixed.
+--     name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+--       -- remove extension from markdown files for example
+--       if buf.name:match("%.md") then
+--         return vim.fn.fnamemodify(buf.name, ":t:r")
+--       end
+--     end,
+--     max_name_length = 18,
+--     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+--     tab_size = 18,
+--     diagnostics = false, -- false | "nvim_lsp",
+--     diagnostics_indicator = function(count, level, diagnostics_dict, context)
+--       return "(" .. count .. ")"
+--     end,
+--     -- NOTE: this will be called a lot so don't do any heavy processing here
+--     custom_filter = function(buf_number)
+--       -- filter out filetypes you don't want to see
+--       if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+--         return true
+--       end
+--       -- filter out by buffer name
+--       if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+--         return true
+--       end
+--       -- filter out based on arbitrary rules
+--       -- e.g. filter out vim wiki buffer from tabline in your work repo
+--       if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+--         return true
+--       end
+--     end,
+--     -- offsets = {{filetype = "NvimTree", text = "File Explorer" | function , text_align = "left" | "center" | "right"}},
+--     offsets = { { filetype = "NvimTree", text = "File Explorer" } },
+--     show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
+--     show_buffer_close_icons = true, -- true | false,
+--     show_close_icon = true, -- true | false,
+--     show_tab_indicators = true, -- true | false,
+--     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+--     -- can also be a table containing 2 custom separators
+--     -- [focused and unfocused]. eg: { '|', '|' }
+--     separator_style = "thick", -- "slant" | "thick" | "thin" | { 'any', 'any' },
+--     enforce_regular_tabs = false, -- false | true,
+--     always_show_bufferline = true, -- true | false,
+--     sort_by = "id", -- 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+--     -- return buffer_a.modified > buffer_b.modified
+--     -- end,
+--   },
+-- })
+-- }}}
+-- {{{ luatab
+-- vim.o.tabline = "%!v:lua.require'luatab'.tabline()"
+-- }}}
+-- {{{ neuron
+-- require("neuron").setup({
+--   virtual_titles = true,
+--   mappings = true,
+--   run = nil, -- function to run when in neuron dir
+--   neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+--   leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+-- })
+-- }}}
+-- ustawienia pluginów }}}
 -- {{{ mapowanie klawiszy
 -- Map leader to space
 g.mapleader = " "
@@ -1431,6 +1443,14 @@ map("n", "<f20>", ":PrevColorScheme<cr>") -- shift f8
 map("n", "<f32>", ":RandomColorScheme<cr>") -- ctrl f8
 map("n", "<f9>", ":BlacklistAddColorScheme<cr>") -- f9
 map("n", "<f21>", ":colo<cr>") -- shift f9
+
+-- plugin auto-session
+-- map("n", "<leader>ss", "<cmd>SaveSession<cr>")
+-- map("n", "<leader>sl", "<cmd>RestoreSession<cr>")
+
+-- Dashboard
+-- map("n", "<leader>ss", ":<C-u>SessionSave<CR>")
+-- map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
 
 -- przeniesienie bieżącej linii do pliku
 map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
@@ -1534,9 +1554,6 @@ map("n", "<leader>d", "<cmd>bdelete<cr>")
 
 map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")
-
-map("n", "<leader>ss", ":<C-u>SessionSave<CR>")
-map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
 
 -- Otwiera plik konfiguracyjny Neovim
 map("n", "<leader>v", "<cmd>e $MYVIMRC<cr>")

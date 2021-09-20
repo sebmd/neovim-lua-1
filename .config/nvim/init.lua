@@ -1,6 +1,6 @@
--- Aktualizacja 2021-09-19 12:13:49
+-- Aktualizacja 2021-09-20 18:04:28
 vimrc_version = "Wersja init.lua: v1.6"
--- zn schowanie zagnieżdżeń 
+-- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- {{{ pluginy
 require("packer").startup(function(use)
@@ -1453,13 +1453,13 @@ map("n", "<f21>", ":colo<cr>") -- shift f9
 -- map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
 
 -- przeniesienie bieżącej linii do pliku
-map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>sn", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>")
 
 -- przeniesienie zaznaczenia do pliku
-map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map(
   "v",
   "<leader>sn",
@@ -1503,7 +1503,7 @@ map("n", "<leader>sw", ":norm ysiw")
 map("n", "<leader>sW", ":norm ysiW")
 map("n", "<leader>sp", ":norm ysip")
 map("n", "<leader>ss", ":norm yss")
-map("n", "<leader>sd", ":norm ds")
+map("n", "<leader>sdd", ":norm ds")
 
 -- podział okna pionowy i poziomy
 map("n", "<leader>vs", "<cmd>vs<cr>")
@@ -1552,7 +1552,7 @@ map("n", "<leader>.", "<cmd>bnext<cr>")
 
 map("n", "<leader>d", "<cmd>bdelete<cr>")
 
-map("n", "<leader>th", ":nohl<cr>", { silent = true })
+-- map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
 -- Otwiera plik konfiguracyjny Neovim
@@ -1667,6 +1667,8 @@ map(
   '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
 map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
+
+map("n", "<leader>P", ":Telescope project<cr>")
 
 -- map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")

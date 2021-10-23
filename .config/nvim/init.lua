@@ -1,4 +1,4 @@
--- Aktualizacja 2021-09-20 18:04:28
+-- Aktualizacja 2021-10-23 14:54:50
 vimrc_version = "Wersja init.lua: v1.6"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1680,6 +1680,9 @@ map("n", "<leader>P", ":Telescope project<cr>")
 
 -- map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
+
+-- Uruchomienie terminala w podziale poziomym
+-- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
 
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")

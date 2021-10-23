@@ -1425,6 +1425,14 @@ map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
+-- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
+api.nvim_exec(
+  [[
+    cmap <c-r>p <c-r>"
+]],
+  false
+)
+
 -- Ustawienia skrótów klawiszowych dla plików pomocy
 api.nvim_exec(
   [[

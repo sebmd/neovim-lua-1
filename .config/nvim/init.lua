@@ -1682,6 +1682,8 @@ map("n", "<leader>P", ":Telescope project<cr>")
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
 
 -- Uruchomienie terminala w podziale poziomym
+-- <c-\><c-n> przechodzi w tryb NORMAL w oknie terminala, dzięki czemu można zaznaczać tekst w
+-- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
 -- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
 
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")

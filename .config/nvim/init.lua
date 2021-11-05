@@ -255,14 +255,6 @@ g.netrw_liststyle = 3 -- Tree style Netrw
 
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
 
-g.GPGPreferSymmetric = 0
-g.GPGUseAgent = 1
-g.GPGPreferArmor = 1
-g.GPGPreferSign = 1
--- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write swojej powłoce systemowej
-g.GPGDefaultRecipients = "[$GPG_ID]"
-g.GPGFilePattern = "*{gpg,asc,gpg.md}"
-
 -- podgreśla słowo na którym znajduje się kursor
 g.cursorword_highlight = true
 -- podświetla bieżącą linię po 1000ms puszczeniu klawisza
@@ -953,6 +945,13 @@ require("gitsigns").setup({
 -- }}}
 -- {{{ GnuPG
 local GPG_ID = os.getenv("GPG_ID")
+g.GPGPreferSymmetric = 0
+g.GPGUseAgent = 1
+g.GPGPreferArmor = 1
+g.GPGPreferSign = 1
+-- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write swojej powłoce systemowej
+g.GPGDefaultRecipients = "[$GPG_ID]"
+g.GPGFilePattern = "*{gpg,asc,gpg.md}"
 -- }}}
 -- {{{ Setup treesitter
 local ts = require("nvim-treesitter.configs")

@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-07 09:32:41
+-- Aktualizacja 2021-11-07 14:18:27
 vimrc_version = "Wersja init.lua: v1.6"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -606,10 +606,10 @@ else
 end
 -- }}}
 -- {{{ vim-dotoo
+vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
+vim.g["dotoo#capture#refile"] = vim.fn.expand('~/workspace/org/refile.org')
 api.nvim_exec(
   [[
-    let g:dotoo#agenda#files = ['~/workspace/org/*.org']
-    let g:dotoo#capture#refile = expand('~/workspace/org/refile.org')
     augroup dootoft
         au!
         autocmd BufNewFile,BufRead *.org   set filetype=dotoo

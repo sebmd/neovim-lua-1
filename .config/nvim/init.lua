@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-14 13:04:11
+-- Aktualizacja 2021-11-14 16:36:01
 vimrc_version = "Wersja init.lua: v1.6"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -433,7 +433,9 @@ api.nvim_exec(
         " Katalogi
         function! FZFKolory()
             let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
-                \ 'everforest', 'gruvbox-material', 'one']
+                \ 'everforest', 'gruvbox-material', 'one', 'srcery', 'base16-atelier-savanna',
+                \ 'base16-atlas', 'base16-darktooth', 'base16-eighties', 'base16-material',
+                \ 'base16-solarized-light']
             call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
         endfunction
     ]],

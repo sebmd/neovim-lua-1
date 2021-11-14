@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-07 14:18:27
+-- Aktualizacja 2021-11-14 12:28:07
 vimrc_version = "Wersja init.lua: v1.6"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -74,6 +74,9 @@ require("packer").startup(function(use)
 
   -- szybkie poruszanie się po pliku
   use("ggandor/lightspeed.nvim")
+
+  -- hop szybkie poruszanie się po pliku
+  use("phaazon/hop.nvim")
 
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -607,7 +610,7 @@ end
 -- }}}
 -- {{{ vim-dotoo
 vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
-vim.g["dotoo#capture#refile"] = vim.fn.expand('~/workspace/org/refile.org')
+vim.g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
 api.nvim_exec(
   [[
     augroup dootoft
@@ -1317,14 +1320,18 @@ lualine.setup(config)
 -- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- }}}
 -- {{{ Hop
---[[ require("hop").setup({
-    reverse_distribution = true,
+require("hop").setup({
+  reverse_distribution = true,
 })
+-- Mapowanie
 map("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
 map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
 map("v", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
 map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
- ]]
+-- Kolory
+vim.cmd("hi HopNextKey guifg=#ff9900")
+vim.cmd("hi HopNextKey1 guifg=#ff9900")
+vim.cmd("hi HopNextKey2 guifg=#ff9900")
 -- }}}
 -- {{{ auto-session
 -- local sessionopts = {

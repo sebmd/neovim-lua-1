@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-14 12:28:07
+-- Aktualizacja 2021-11-14 13:04:11
 vimrc_version = "Wersja init.lua: v1.6"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -140,6 +140,7 @@ require("packer").startup(function(use)
   use("xolox/vim-colorscheme-switcher")
   use("chriskempson/base16-vim")
   -- use "flazz/vim-colorschemes"
+  use("EdenEast/nightfox.nvim")
   use("rakr/vim-one")
   use("lifepillar/vim-solarized8")
   use("ayu-theme/ayu-vim")
@@ -282,6 +283,10 @@ g.ayucolor = "mirage"
 api.nvim_exec([[colorscheme everforest]], false)
 -- api.nvim_exec([[colorscheme material]], false)
 
+-- Ustawienie schmatu kolorów nightfox
+-- Dostępne tematy: nordfox, palefox, dayfox, dawnfox, duskfox
+-- require('nightfox').load('nordfox')
+
 -- g.material_style = "lighter"
 -- g.material_style = "palenight"
 -- g.material_style = "deep ocean"
@@ -420,6 +425,19 @@ api.nvim_exec(
     endfunction
 ]],
   false
+)
+
+-- Lista tematów kolorystycznych FZF
+api.nvim_exec(
+    [[
+        " Katalogi
+        function! FZFKolory()
+            let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
+                \ 'everforest', 'gruvbox-material', 'one']
+            call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
+        endfunction
+    ]],
+        false
 )
 
 -- Wyszukiwanie telescope w katalogu $NOTES_DIR
@@ -586,6 +604,7 @@ cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
 cmd("command! S :source %")
 cmd("command! GR :GoRun")
+cmd("command! FZFKolory call FZFKolory()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- {{{ fauxClip

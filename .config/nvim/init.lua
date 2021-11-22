@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-16 01:10:06
+-- Aktualizacja 2021-11-20 17:20:39
 vimrc_version = "Wersja init.lua: v1.7"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -431,8 +431,7 @@ api.nvim_exec(
 -- Lista tematów kolorystycznych FZF
 api.nvim_exec(
   [[
-        " Katalogi
-        function! FZFKolory()
+        function! Kolory()
             let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
                 \ 'everforest', 'gruvbox-material', 'one', 'srcery', 'base16-atelier-savanna',
                 \ 'base16-atlas', 'base16-darktooth', 'base16-eighties', 'base16-material',
@@ -607,7 +606,7 @@ cmd("command! Time call Time()")
 cmd("command! Doku2MD call Doku2MD()")
 cmd("command! S :source %")
 cmd("command! GR :GoRun")
-cmd("command! FZFKolory call FZFKolory()")
+cmd("command! Kolory call Kolory()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- {{{ fauxClip

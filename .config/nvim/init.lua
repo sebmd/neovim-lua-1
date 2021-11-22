@@ -391,26 +391,6 @@ api.nvim_exec(
   false
 )
 
-api.nvim_exec(
-  [[
-    function! Doku2MD()
-        echom "-- Doku2MD --"
-        execute '%s/^====== /# /'
-        execute '%s/^===== /## /'
-        execute '%s/^==== /### /'
-        execute '%s/^=== /#### /'
-        execute '%s/^== /##### /'
-        execute '%s/^= /###### /'
-        -- usuwa wszystkie linie końcące się na ' =*'
-        %s/\s* =\+\s*$//
-        execute '%s/<code>/```/'
-        execute '%s/<\/code>/```/'
-        echom "== Doku2MD =="
-    endfunction
-    ]],
-  false
-)
-
 -- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 -- InsertDiaryHeader
 api.nvim_exec(

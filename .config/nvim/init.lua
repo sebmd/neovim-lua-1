@@ -1,5 +1,5 @@
--- Aktualizacja 2021-11-20 17:20:39
-vimrc_version = "Wersja init.lua: v1.7"
+-- Aktualizacja 2021-11-26 23:14:28
+vimrc_version = "Wersja init.lua: 1.9"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- {{{ pluginy
@@ -100,6 +100,7 @@ require("packer").startup(function(use)
 
   -- use "vim-scripts/YankRing.vim"
 
+  -- statusline
   use("hoob3rt/lualine.nvim")
   --  use "akinsho/nvim-bufferline.lua"
   use("romgrk/barbar.nvim")
@@ -455,11 +456,11 @@ search_nvim_dotfiles = function()
   })
 end
 
--- Funkcja Tme() wyświetla bieżącą datę i godzinę
+-- Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
 api.nvim_exec(
   [[
     function! Time()
-        echom strftime("- Teraz jest: %F %T -")
+        echom strftime("- Teraz jest: %F, %A %T -")
     endfunction
 ]],
   false
@@ -561,16 +562,6 @@ end
 
 -- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })
 -- map("n", "<leader>bb", "<cmd>lua print(vimrc_version)<cr>", { silent = false })
-
--- cmd("abbr ga GA")
--- cmd("abbr gp GP")
--- cmd("abbr x Write<cr>:q<cr>")
--- cmd("abbr w Write<cr>")
-
--- map("c", "gp", "GP")
--- map("c", "ga", "GA")
--- map("c", "x", "Write<cr>:q<cr>")
--- map("c", "w", "Write<cr>")
 
 -- komendy
 cmd("command! InsertDiaryHeader call InsertDiaryHeader()")
@@ -1245,11 +1236,11 @@ ins_left({
   condition = conditions.buffer_not_empty,
 })
 
-ins_left({
+--[[ ins_left({
   "filename",
   condition = conditions.buffer_not_empty,
   color = { fg = colors.yellow, gui = "bold" },
-})
+}) ]]
 
 ins_left({ "location" })
 
@@ -1262,6 +1253,32 @@ ins_left({
     return "%="
   end,
 })
+
+-- nazwa pliku
+ins_left({
+  "filename",
+  condition = conditions.buffer_not_empty,
+  color = { fg = colors.blue },
+})
+
+-- pełna ścieżka do pliku
+--[[ ins_left({
+  function()
+    -- local file = vim.fn.expand("%:p") -- wraz z nazwą pliku
+    local file = vim.fn.expand("%:p:h") -- bez nazwy pliku
+    return (file .. "/")
+  end,
+  condition = conditions.buffer_not_empty,
+  color = { fg = colors.grey },
+}) ]]
+
+-- wersja init.lua
+--[[ ins_left({
+  function()
+    return vimrc_version
+  end,
+  color = { fg = colors.blue },
+}) ]]
 
 -- Add components to right sections
 ins_right({
@@ -1282,7 +1299,7 @@ ins_right({
   "branch",
   icon = "",
   condition = conditions.check_git_workspace,
-  color = { fg = colors.violet, gui = "bold" },
+  color = { fg = colors.blue, gui = "bold" },
 })
 -- mod_icon = "                  "
 ins_right({
@@ -1297,6 +1314,7 @@ ins_right({
 
 ins_right({
   "hostname",
+  color = { fg = colors.yellow },
 })
 
 ins_right({

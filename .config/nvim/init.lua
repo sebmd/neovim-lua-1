@@ -295,7 +295,8 @@ api.nvim_exec([[colorscheme everforest]], false)
 -- g.material_style = "ocanic"
 -- g.material_style = "darker"
 
-require("material").setup({
+-- konfiguracja koloru material
+--[[ require("material").setup({
 
   contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
   borders = false, -- Enable borders between verticaly split windows
@@ -325,11 +326,11 @@ require("material").setup({
     eob_lines = false, -- Hide the end-of-buffer lines
   },
   -- Overwrite highlights with your own
-  --[[ custom_highlights = {
-    CursorLine = "#0000FF",
-    LineNr = "#FF0000",
-  }, ]]
-})
+  -- custom_highlights = {
+    -- CursorLine = "#0000FF",
+    -- LineNr = "#FF0000",
+  -- },
+}) ]]
 
 -- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
 
@@ -1230,16 +1231,16 @@ g.minimap_auto_start = 0
 -- nvim-tree {{{
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  ignore_ft_on_setup  = {},
-  auto_close          = false,
-  open_on_tab         = false,
-  hijack_cursor       = false,
-  update_cwd          = false,
-  update_to_buf_dir   = {
+require("nvim-tree").setup({
+  disable_netrw = true,
+  hijack_netrw = true,
+  open_on_setup = false,
+  ignore_ft_on_setup = {},
+  auto_close = false,
+  open_on_tab = false,
+  hijack_cursor = false,
+  update_cwd = false,
+  update_to_buf_dir = {
     enable = true,
     auto_open = true,
   },
@@ -1250,20 +1251,20 @@ require'nvim-tree'.setup {
       info = "",
       warning = "",
       error = "",
-    }
+    },
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
-    ignore_list = {}
+    enable = false,
+    update_cwd = false,
+    ignore_list = {},
   },
   system_open = {
-    cmd  = nil,
-    args = {}
+    cmd = nil,
+    args = {},
   },
   filters = {
     dotfiles = false,
-    custom = {}
+    custom = {},
   },
   git = {
     enable = true,
@@ -1274,20 +1275,20 @@ require'nvim-tree'.setup {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = 'left',
+    side = "left",
     auto_resize = false,
     mappings = {
       custom_only = false,
-      list = {}
+      list = {},
     },
     number = false,
-    relativenumber = false
+    relativenumber = false,
   },
   trash = {
     cmd = "trash",
-    require_confirm = true
-  }
-}
+    require_confirm = true,
+  },
+})
 -- }}}
 -- {{{ nvim-web-devicons
 require("nvim-web-devicons").setup({
@@ -1415,8 +1416,9 @@ require("telescope").setup({
     },
     project = {
       base_dirs = {
-        "~/Sync",
-        { "~/git/github", maxdepth = 2 },
+        "$HOME",
+        -- "~/Sync",
+        -- { "~/git/github", maxdepth = 2 },
         -- { "~/git/github " },
         -- { '~/git', max_depth = 2 },
         -- { path = '~/workspace' },

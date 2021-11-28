@@ -4,7 +4,7 @@
 
 - [fauxClip](Pluginy/fauxClip.md)
 - [kommentary](Pluginy/kommentary.md)
-- dhruvasagar/vim-dotoo
+- [vim-dotoo](Pluginy/vim-dotoo.md)
 - dhruvasagar/vim-table-mode
 - fatih/vim-go
 - folke/zen-mode.nvim

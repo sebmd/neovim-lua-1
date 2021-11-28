@@ -16,26 +16,26 @@ use {
 
 ## Skróty klawiszowe
 
-- `<CR>` or `o` on `..` will cd in the above directory
+- `<CR>` lub `o` na `..` przechodzi do katalogu wyżej
+- `<CR>` otwiera katalog lub plik
+- `<CR>` jeśli plik jest dowiązaniem symbolicznym przechodzi do właściwego pliku
 - `<C-]>` przechodzi do katalogu pod kursorem
-- `<BS>` will close current opened directory or parent
+- `<BS>` zamyka katalog
 - `a` tworzy nowy plik lub katalog, katalog tworzymy przez dodanie `/` na końcu. Można tworzyć całe drzewo katalogów np. qwerty/asdf/foo/bar.txt
 - `r` zmiana nazwy pliku
-- `<C-r>` to rename a file and omit the filename on input
-- `x` to add/remove file/directory to cut clipboard
-- `c` to add/remove file/directory to copy clipboard
+- `<C-r>` zmiana nazwy pliku nie uzupełnia oryginalnej nazwy pliku
+- `x` dodaje / usuwa plik lub katalog jako wycinany
+- `c` dodaje / usuwa plik lub katalog jako kopiowany
 - `y` kopiuje nazwę pliku do schowka systemowego
-- `Y` will copy relative path to system clipboard
+- `Y` kopiuje relatywną ścieżkę do schowka systemowego
 - `gy` kopiuje pełną ścieżkę pliku do schowka systemowego
-- `p` to paste from clipboard. Cut clipboard has precedence over copy (will prompt for confirmation)
+- `p` wkleja plik
 - `d` usuwa plik, wymaga potwierdzenia
-- `D` to trash a file (configured in setup())
-- `]c` to go to next git item
-- `[c` to go to prev git item
+- `D` przenosi plik do kosza, wymaga dodatkowej konfiguracji
+- `]c` przechodzi do następnego elementu repozytorium git np. zmodyfikowanego pliku
+- `[c` przechodzi do wcześniejszego elementu repozytorium git np. zmodyfikowanego pliku
 - `-` to navigate up to the parent directory of the current file/directory
 - `s` to open a file with default system application or a folder with default file manager (if you want to change the command used to do it see :h nvim-tree.setup under system_open)
-- if the file is a directory, `<CR>` will open the directory otherwise it will open the file in the buffer near the tree
-- if the file is a symlink, `<CR>` will follow the symlink (if the target is a file)
 - `<C-v>` otwiera plik w podziale pionowym
 - `<C-x>` otwiera plik w podziale poziomym
 - `<C-t>` otwiera plik w nowej zakładce

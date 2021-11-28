@@ -15,9 +15,12 @@ mkdir -p $HOME/.config/nvim
 
 git clone https://github.com/hattori-hanz0/neovim-lua $NEOVIM_LUA_DIR
 
+git clone https://github.com/sainnhe/everforest $HOME/.local/share/nvim/site/pack/packer/start
+
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua
 ln -sf $NEOVIM_LUA_DIR/.config/vars ~/.config/vars
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
+ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs
 
 ln -sf $NEOVIM_LUA_DIR/bin/gp.sh ~/bin/gp.sh
 ln -sf $NEOVIM_LUA_DIR/bin/ga.sh ~/bin/ga.sh

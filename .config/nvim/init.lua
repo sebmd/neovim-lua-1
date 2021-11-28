@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-28 20:49:57
+-- Aktualizacja 2021-11-28 22:17:43
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -7,9 +7,9 @@ require("packer").startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
 
-  use("neoclide/coc.nvim")
+  -- use("neoclide/coc.nvim")
 
-  use("fatih/vim-go")
+  -- use("fatih/vim-go")
 
   use({
     "sudormrfbin/cheatsheet.nvim",
@@ -73,10 +73,10 @@ require("packer").startup(function(use)
   use("nvim-treesitter/nvim-treesitter")
 
   -- szybkie poruszanie się po pliku
-  use("ggandor/lightspeed.nvim")
+  -- use("ggandor/lightspeed.nvim")
 
   -- hop szybkie poruszanie się po pliku
-  use("phaazon/hop.nvim")
+  -- use("phaazon/hop.nvim")
 
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -102,7 +102,7 @@ require("packer").startup(function(use)
 
   -- statusline
   use("hoob3rt/lualine.nvim")
-  --  use "akinsho/nvim-bufferline.lua"
+  -- use "akinsho/nvim-bufferline.lua"
   use("romgrk/barbar.nvim")
 
   -- Dashboard
@@ -120,7 +120,7 @@ require("packer").startup(function(use)
   use("dhruvasagar/vim-table-mode")
   use("vimwiki/vimwiki")
   use("junegunn/vim-markdown-toc")
-  use("instant-markdown/vim-instant-markdown")
+  -- use("instant-markdown/vim-instant-markdown")
 
   -- vim-dotoo
   use("dhruvasagar/vim-dotoo")
@@ -575,7 +575,6 @@ cmd("command! UpdateVimrc call UpdateVimrc()")
 cmd("command! PI PackerInstall")
 cmd("command! Write call Write()")
 cmd("command! Time call Time()")
-cmd("command! Doku2MD call Doku2MD()")
 cmd("command! S :source %")
 cmd("command! GR :GoRun")
 cmd("command! Kolory call Kolory()")
@@ -857,7 +856,7 @@ g.GPGDefaultRecipients = "[$GPG_ID]"
 g.GPGFilePattern = "*{gpg,asc,gpg.md}"
 -- gnupg }}}
 -- {{{ hop
-require("hop").setup({
+--[[require("hop").setup({
   reverse_distribution = true,
 })
 -- Mapowanie
@@ -869,6 +868,7 @@ map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
 vim.cmd("hi HopNextKey guifg=#ff9900")
 vim.cmd("hi HopNextKey1 guifg=#ff9900")
 vim.cmd("hi HopNextKey2 guifg=#ff9900")
+]]
 -- hop }}}
 -- {{{ indent-blankline
 require("indent_blankline").setup({
@@ -918,6 +918,7 @@ require("kommentary.config").configure_language("rust", {
 })
 -- kommentary }}}
 -- {{{ lightspeed
+--[[
 api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
 api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
 api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_s", {})
@@ -953,6 +954,7 @@ require("lightspeed").setup({
   cycle_group_fwd_key = nil,
   cycle_group_bwd_key = nil,
 })
+]]
 -- lightspeed }}}
 -- {{{ lualine
 -- Eviline config for lualine
@@ -1897,8 +1899,8 @@ map("n", "<leader>a", "=ip gqap")
 
 -- Line bubbling
 -- Use these two if you don't have prettier
---map('n'), '<c-j>', '<cmd>m .+1<CR>==')
---map('n,) <c-k>', '<cmd>m .-2<CR>==')
+-- map('n'), '<c-j>', '<cmd>m .+1<CR>==')
+-- map('n,) <c-k>', '<cmd>m .-2<CR>==')
 map("n", "<c-j>", "<cmd>m .+1<CR>", { silent = true })
 map("n", "<c-k>", "<cmd>m .-2<CR>", { silent = true })
 map("i", "<c-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })

@@ -2,9 +2,25 @@
 
 ## Włączone
 
+- [dashboard-nvim](Pluginy/dashboard-nvim.md)
 - [fauxClip](Pluginy/fauxClip.md)
+- [fzf.vim](Pluginy/fzf-vim.md)
+- [fzf](Pluginy/fzf.md)
+- [goyo](Pluginy/goyo.md)
 - [kommentary](Pluginy/kommentary.md)
+- [lightspeed](Pluginy/lightspeed.md)
+- [limelight](Pluginy/limelight.md)
+- [lualine](Pluginy/lualine.md)
+- [nvim-compe](Pluginy/nvim-compe.md)
 - [vim-dotoo](Pluginy/vim-dotoo.md)
+- [vim-gnupg](Pluginy/vim-gnupg.md)
+- [vim-go](Pluginy/vim-go.md)
+- [vim-instant-markdown](Pluginy/vim-instant-markdown.md)
+- [vim-markdown-toc](Pluginy/vim-markdown-toc.md)
+- [vim-peekaboo](Pluginy/vim-peekaboo.md)
+- [vim-table-mode](Pluginy/vim-table-mode.md)
+- [vim-vsnip](Pluginy/vim-vsnip.md)
+- [zen-mode.nvim](Pluginy/zen-mode-nvim.md)
 - dhruvasagar/vim-table-mode
 - fatih/vim-go
 - folke/zen-mode.nvim

@@ -5,7 +5,7 @@
 ## Instalacja
 
 ```shell
-bash -c "$(curl -s https://git.io/JMl9Y)"
+bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)"
 ```
 
 ## Instalacja zależności dla menadżera plików CHADtree

@@ -11,6 +11,7 @@ NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua
 
 mkdir -p $HOME/bin
 mkdir -p $HOME/Notes
+mkdir -p $HOME/.config/nvim
 
 git clone https://github.com/hattori-hanz0/neovim-lua $NEOVIM_LUA_DIR
 

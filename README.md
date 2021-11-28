@@ -8,12 +8,6 @@
 bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)"
 ```
 
-## Instalacja zależności dla menadżera plików CHADtree
-
-```
-:CHADdeps
-```
-
 ## Pobranie fzy-lua-native
 
 ```

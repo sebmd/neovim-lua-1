@@ -1,0 +1,3 @@
+# rose-pine
+
+- rose-pine/neovim

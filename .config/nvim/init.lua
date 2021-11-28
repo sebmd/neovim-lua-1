@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-28 15:06:55
+-- Aktualizacja 2021-11-28 20:49:57
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -156,8 +156,6 @@ require("packer").startup(function(use)
   use("zekzekus/menguless")
   use("whatyouhide/vim-gotham")
   use("marko-cerovac/material.nvim")
-  -- use("joshdick/onedark.vim")
-  -- use("navarasu/onedark.nvim")
 end)
 -- pluginy }}}
 -- {{{ aliasy
@@ -1002,7 +1000,7 @@ local config = {
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
-    disabled_filetypes = { "CHADTree" },
+    disabled_filetypes = { "CHADTree", "NvimTree" },
   },
   sections = {
     -- these are to remove the defaults
@@ -1229,6 +1227,68 @@ g.minimap_width = 10
 g.minimap_auto_start = 0
 -- g.minimap_auto_start_win_enter = 1
 -- minimap }}}
+-- nvim-tree {{{
+-- following options are the default
+-- each of these are documented in `:help nvim-tree.OPTION_NAME`
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    },
+    number = false,
+    relativenumber = false
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
+}
+-- }}}
 -- {{{ nvim-web-devicons
 require("nvim-web-devicons").setup({
   -- your personnal icons can go here (to override)
@@ -1781,7 +1841,10 @@ map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
 -- map("n", "<Leader>n", "<cmd>NvimTreeToggle<cr>")
 
 -- Menadzęr plików CHADtree
-map("n", "<leader>n", "<cmd>CHADopen<cr>")
+-- map("n", "<leader>n", "<cmd>CHADopen<cr>")
+
+-- Mendadżer plików NvimTree
+map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
 
 -- Easy select all of file
 map("n", "<leader>sa", "ggVG<c-$>")

@@ -3,6 +3,7 @@
 ## Włączone
 
 - [barbar.nvim](Pluginy/barbar-nvim.md)
+- [cheatsheet.nvim](Pluginy/cheatsheet-nvim.md)
 - [coc.nvim](Pluginy/coc-nvim.md)
 - [dashboard-nvim](Pluginy/dashboard-nvim.md)
 - [fauxClip](Pluginy/fauxClip.md)
@@ -22,69 +23,66 @@
 - [nvim-tree.lua](Pluginy/nvim-tree-lua.md)
 - [nvim-treesitter](Pluginy/nvim-treesitter.md)
 - [nvim-web-devicons](Pluginy/nvim-web-devicons.md)
+- [packer.nvim](Pluginy/packer-nvim.md)
+- [pears.nvim](Pluginy/pears-nvim.md)
 - [plenary.nvim](Pluginy/plenary-nvim.md)
 - [popup.nvim](Pluginy/popup-nvim.md)
+- [targets.vim](Pluginy/targets-vim.md)
 - [telescope-fzf-native.nvim](Pluginy/telescope-fzf-native-nvim.md)
 - [telescope-project.nvim](Pluginy/telescope-project-nvim.md)
 - [telescope-symbols.nvim](Pluginy/telescope-symbols-nvim.md)
 - [telescope.nvim](Pluginy/telescope-nvim.md)
 - [undotree](Pluginy/undotree.md)
+- [vim-devicons](Pluginy/vim-devicons.md)
 - [vim-dotoo](Pluginy/vim-dotoo.md)
 - [vim-eunuch](Pluginy/vim-eunuch.md)
 - [vim-gnupg](Pluginy/vim-gnupg.md)
 - [vim-go](Pluginy/vim-go.md)
 - [vim-instant-markdown](Pluginy/vim-instant-markdown.md)
 - [vim-markdown-toc](Pluginy/vim-markdown-toc.md)
+- [vim-misc](Pluginy/vim-misc.md)
 - [vim-peekaboo](Pluginy/vim-peekaboo.md)
+- [vim-repeat](Pluginy/vim-repeat.md)
+- [vim-surround](Pluginy/vim-surround.md)
 - [vim-table-mode](Pluginy/vim-table-mode.md)
 - [vim-vsnip](Pluginy/vim-vsnip.md)
+- [vimwiki](Pluginy/vimwiki.md)
 - [zen-mode.nvim](Pluginy/zen-mode-nvim.md)
-- ryanoasis/vim-devicons
-- steelsojka/pears.nvim
-- sudormrfbin/cheatsheet.nvim
-- tpope/vim-repeat
-- tpope/vim-surround
-- vimwiki/vimwiki
-- wbthomason/packer.nvim
-- wellle/targets.vim
-- xolox/vim-misc
 
 Kolory
 
-- Taverius/vim-colorscheme-manager
-- xolox/vim-colorscheme-switcher
-- chriskempson/base16-vim
-- rose-pine/neovim
-- EdenEast/nightfox.nvim
-- rakr/vim-one
-- lifepillar/vim-solarized8
-- ayu-theme/ayu-vim
-- gruvbox-community/gruvbox
-- kristijanhusak/vim-hybrid-material
-- lighthaus-theme/vim-lighthaus
-- sainnhe/everforest
-- sainnhe/gruvbox-material
-- srcery-colors/srcery-vim
-- zekzekus/menguless
-- whatyouhide/vim-gotham
-- marko-cerovac/material.nvim
+- [ayu-vim](Kolory/ayu-vim.md)
+- [base16-vim](Kolory/base16-vim.md)
+- [everforest](Kolory/everforest.md)
+- [gruvbox-material](Kolory/gruvbox-material.md)
+- [gruvbox](Kolory/gruvbox.md)
+- [material.nvim](Kolory/material-nvim.md)
+- [menguless](Kolory/menguless.md)
+- [nightfox.nvim](Kolory/nightfox-nvim.md)
+- [rose-pine](Kolory/rose-pine.md)
+- [srcery-vim](Kolory/srcery-vim.md)
+- [vim-colorscheme-manager](Kolory/vim-colorscheme-manager.md)
+- [vim-colorscheme-switcher](Kolory/vim-colorscheme-switcher.md)
+- [vim-gotham](Kolory/vim-gotham.md)
+- [vim-hybrid-material](Kolory/vim-hybrid-material.md)
+- [vim-lighthaus](Kolory/vim-lighthaus.md)
+- [vim-one](Kolory/vim-one.md)
+- [vim-solarized8](Kolory/vim-solarized8.md)
 
 ## Wyłączone
 
+- [auto-session](Pluginy/auto-session.md)
+- [AutoComplPop](Pluginy/autocomplpop.md)
 - [CHADTree](Pluginy/chadtree.md)
-- rhysd/git-messenger.vim
-- flazz/vim-colorschemes
-- L3MON4D3/LuaSnip
-- rmagatti/auto-session
-- wfxr/minimap.vim
-- tibabit/vim-templates
-- vim-scripts/YankRing.vim
-- akinsho/nvim-bufferline.lua
-- liuchengxu/vim-which-key
-- oberblastmeister/neuron.nvim
-- vim-scripts/AutoComplPop
+- [git-messenger.vim](Pluginy/git-messenger-vim.md)
+- [LuaSnip](Pluginy/luasnip.md)
+- [minimap.vim](Pluginy/minimap-vim.md)
+- [neuron.nvim](Pluginy/neuron-nvim.md)
+- [nvim-bufferline.lua](Pluginy/nvim-bufferline-lua.md)
+- [vim-templates](Pluginy/vim-templates.md)
+- [vim-which-key](Pluginy/vim-which-key.md)
+- [YankRing.vim](Pluginy/yankring-vim.md)
 
 Kolory
 
-- joshdick/onedark.vim
-- navarasu/onedark.nvim
+- [vim-colorschemes](Kolory/vim-colorschemes.md)

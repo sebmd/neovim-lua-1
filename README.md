@@ -18,7 +18,7 @@ git submodule update --init --recursive
 ## Instalacja Prettier
 
 ```
-npm install --save-dev --save-exact prettiernpm install --save-dev --save-exact prettier
+npm install --save-dev --save-exact prettier
 ```
 
 ## Zmienne systemowe
@@ -29,7 +29,7 @@ NOTES_DIR - /home/$USER/Notes
 
 ## Dokumentacja
 
-- [skróty](docs/Skróty.md)
-- [komendy](docs/Komendy.md)
-- [pluginy](docs/Pluginy.md)
-- [funkcje](docs/Funkcje.md)
+- [Skróty](docs/Skróty.md)
+- [Komendy](docs/Komendy.md)
+- [Pluginy](docs/Pluginy.md)
+- [Funkcje](docs/Funkcje.md)

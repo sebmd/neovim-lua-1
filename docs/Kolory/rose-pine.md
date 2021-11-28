@@ -1,3 +1,3 @@
 # rose-pine
 
-- rose-pine/neovim
+- https://github.com/rose-pine/neovim

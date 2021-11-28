@@ -2,17 +2,10 @@
 
 ![neovim lua](https://raw.githubusercontent.com/hattori-hanz0/neovim-config/main/img/neovim-lua.png)
 
-## Instalacja menadżera pluginów packer.nvim
+## Instalacja
 
-```
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-## Instalacja pluginów
-
-```
-:PackerInstall
+```shell
+bash -c "$(curl -s https://git.io/JMl9Y)"
 ```
 
 ## Instalacja zależności dla menadżera plików CHADtree
@@ -49,6 +42,8 @@ rm ~/bin/neuron.tgz
 ```
 NOTES_DIR - /home/$USER/Notes
 ```
+
+## Dokumentacja
 
 - [skróty](docs/Skróty.md)
 - [komendy](docs/Komendy.md)

@@ -30,8 +30,8 @@ require("packer").startup(function(use)
 
   -- menadżer plików
   -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
-  use({ "ms-jpq/chadtree" })
-  -- use "kyazdani42/nvim-tree.lua"
+  -- use({ "ms-jpq/chadtree" })
+  use("kyazdani42/nvim-tree.lua")
 
   -- komentarze
   use("b3nj5m1n/kommentary")
@@ -418,7 +418,7 @@ api.nvim_exec(
             let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
                 \ 'everforest', 'gruvbox-material', 'one', 'srcery', 'base16-atelier-savanna',
                 \ 'base16-atlas', 'base16-darktooth', 'base16-eighties', 'base16-material',
-                \ 'base16-solarized-light']
+                \ 'base16-solarized-light','material']
             call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
         endfunction
     ]],

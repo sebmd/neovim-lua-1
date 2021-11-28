@@ -12,19 +12,18 @@
 - [limelight](Pluginy/limelight.md)
 - [lualine](Pluginy/lualine.md)
 - [nvim-compe](Pluginy/nvim-compe.md)
+- [nvim-tree.lua](Pluginy/nvim-tree-lua.md)
 - [vim-dotoo](Pluginy/vim-dotoo.md)
+- [vim-eunuch](Pluginy/vim-eunuch.md)
 - [vim-gnupg](Pluginy/vim-gnupg.md)
 - [vim-go](Pluginy/vim-go.md)
 - [vim-instant-markdown](Pluginy/vim-instant-markdown.md)
 - [vim-markdown-toc](Pluginy/vim-markdown-toc.md)
 - [vim-peekaboo](Pluginy/vim-peekaboo.md)
 - [vim-table-mode](Pluginy/vim-table-mode.md)
+- [vim-table-mode](Pluginy/vim-table-mode.md)
 - [vim-vsnip](Pluginy/vim-vsnip.md)
 - [zen-mode.nvim](Pluginy/zen-mode-nvim.md)
-- dhruvasagar/vim-table-mode
-- fatih/vim-go
-- folke/zen-mode.nvim
-- hrsh7th/nvim-compe
 - hrsh7th/vim-vsnip
 - instant-markdown/vim-instant-markdown
 - jamessan/vim-gnupg
@@ -35,7 +34,6 @@
 - lukas-reineke/indent-blankline.nvim
 - mbbill/undotree
 - mhartington/formatter.nvim
-- ms-jpq/chadtree
 - neoclide/coc.nvim
 - nvim-lua/plenary.nvim
 - nvim-lua/popup.nvim
@@ -49,7 +47,6 @@
 - ryanoasis/vim-devicons
 - steelsojka/pears.nvim
 - sudormrfbin/cheatsheet.nvim
-- tpope/vim-eunuch
 - tpope/vim-repeat
 - tpope/vim-surround
 - vimwiki/vimwiki
@@ -80,6 +77,7 @@ Kolory
 
 ## Wyłączone
 
+- [CHADTree](Pluginy/chadtree.md)
 - rhysd/git-messenger.vim
 - flazz/vim-colorschemes
 - L3MON4D3/LuaSnip
@@ -96,4 +94,3 @@ Kolory
 
 - joshdick/onedark.vim
 - navarasu/onedark.nvim
-- kyazdani42/nvim-tree.lua

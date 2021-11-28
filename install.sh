@@ -13,10 +13,10 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/Notes
 mkdir -p $HOME/.config/nvim
 
-git clone https://github.com/hattori-hanz0/neovim-lua \
+git clone --depth 1 https://github.com/hattori-hanz0/neovim-lua \
     $NEOVIM_LUA_DIR
 
-git clone https://github.com/sainnhe/everforest \
+git clone --depth 1 https://github.com/sainnhe/everforest \
     $HOME/.local/share/nvim/site/pack/packer/start/everforest
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \

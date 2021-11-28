@@ -1,3 +1,3 @@
 # nvim-compe
 
-- hrsh7th/nvim-compe
+- https://github.com/hrsh7th/nvim-compe

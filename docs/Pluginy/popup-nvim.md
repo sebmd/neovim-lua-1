@@ -1,3 +1,3 @@
 # popup.nvim
 
-- nvim-lua/popup.nvim
+- https://github.com/nvim-lua/popup.nvim

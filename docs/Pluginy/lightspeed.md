@@ -1,3 +1,3 @@
 # lightspeed
 
-- ggandor/lightspeed.nvim
+- https://github.com/ggandor/lightspeed.nvim

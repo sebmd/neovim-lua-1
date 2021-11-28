@@ -1,3 +1,3 @@
 # vim-peekaboo
 
-- junegunn/vim-peekaboo
+- https://github.com/junegunn/vim-peekaboo

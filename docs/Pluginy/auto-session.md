@@ -1,3 +1,3 @@
 # auto-session
 
-- rmagatti/auto-session
+- https://github.com/rmagatti/auto-session

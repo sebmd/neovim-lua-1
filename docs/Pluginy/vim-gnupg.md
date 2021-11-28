@@ -1,4 +1,3 @@
 # vim-gnupg
 
-- jamessan/vim-gnupg
-
+- https://github.com/jamessan/vim-gnupg

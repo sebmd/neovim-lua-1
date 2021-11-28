@@ -1,3 +1,3 @@
 # lualine.nvim
 
-- hoob3rt/lualine.nvim
+- https://github.com/hoob3rt/lualine.nvim

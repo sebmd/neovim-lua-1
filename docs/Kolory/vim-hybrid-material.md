@@ -1,3 +1,3 @@
 # vim-hybrid-material
 
-- kristijanhusak/vim-hybrid-material
+- https://github.com/kristijanhusak/vim-hybrid-material

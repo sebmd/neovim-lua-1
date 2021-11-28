@@ -1,3 +1,3 @@
 # vim-colorscheme-manager
 
-- Taverius/vim-colorscheme-manager
+- https://github.com/Taverius/vim-colorscheme-manager

@@ -1,3 +1,3 @@
 # vim-lighthaus
 
-- lighthaus-theme/vim-lighthaus
+- https://github.com/lighthaus-theme/vim-lighthaus

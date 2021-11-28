@@ -1,3 +1,3 @@
 # menguless
 
-- zekzekus/menguless
+- https://github.com/zekzekus/menguless

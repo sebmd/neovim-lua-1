@@ -1,3 +1,3 @@
 # fzf.vim
 
-- junegunn/fzf.vim
+- https://github.com/junegunn/fzf.vim

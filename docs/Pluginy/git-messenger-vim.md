@@ -1,3 +1,3 @@
 # git-messenger.vim
 
-- rhysd/git-messenger.vim
+- https://github.com/rhysd/git-messenger.vim

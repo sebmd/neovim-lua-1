@@ -1,3 +1,3 @@
 # AutoComplPop
 
-- vim-scripts/AutoComplPop
+- https://github.com/vim-scripts/AutoComplPop

@@ -1,3 +1,3 @@
 # minimap.vim
 
-- wfxr/minimap.vim
+- https://github.com/wfxr/minimap.vim

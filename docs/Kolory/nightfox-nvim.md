@@ -1,3 +1,3 @@
 # nightfox.nvim
 
-- EdenEast/nightfox.nvim
+- https://github.com/EdenEast/nightfox.nvim

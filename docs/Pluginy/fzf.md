@@ -1,3 +1,3 @@
 # fzf
 
-- junegunn/fzf
+- https://github.com/junegunn/fzf

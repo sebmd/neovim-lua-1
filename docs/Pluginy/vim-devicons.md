@@ -1,3 +1,3 @@
 # vim-devicons
 
-- ryanoasis/vim-devicons
+- https://github.com/ryanoasis/vim-devicons

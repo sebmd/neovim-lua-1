@@ -1,3 +1,3 @@
 # vim-which-key
 
-- liuchengxu/vim-which-key
+- https://github.com/liuchengxu/vim-which-key

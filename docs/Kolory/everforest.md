@@ -1,3 +1,3 @@
 # everforest
 
-- sainnhe/everforest
+- https://github.com/sainnhe/everforest

@@ -1,3 +1,3 @@
 # vim-vsnip
 
-- hrsh7th/vim-vsnip
+- https://github.com/hrsh7th/vim-vsnip

@@ -1,3 +1,3 @@
 # goyo
 
-- junegunn/goyo.vim
+- https://github.com/junegunn/goyo.vim

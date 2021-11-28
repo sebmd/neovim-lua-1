@@ -1,3 +1,3 @@
 # coc.nvim
 
-- neoclide/coc.nvim
+- https://github.com/neoclide/coc.nvim

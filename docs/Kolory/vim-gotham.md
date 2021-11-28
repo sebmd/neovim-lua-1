@@ -1,4 +1,4 @@
 # vim-gotham
 
-- whatyouhide/vim-gotham
+- https://github.com/whatyouhide/vim-gotham
 

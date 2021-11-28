@@ -1,3 +1,3 @@
 # vim-templates
 
-- tibabit/vim-templates
+- https://github.com/tibabit/vim-templates

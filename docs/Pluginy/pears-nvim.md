@@ -1,3 +1,3 @@
 # pears.nvim
 
-- steelsojka/pears.nvim
+- https://github.com/steelsojka/pears.nvim

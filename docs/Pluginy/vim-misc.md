@@ -1,3 +1,3 @@
 # vim-misc
 
-- xolox/vim-misc
+- https://github.com/xolox/vim-misc

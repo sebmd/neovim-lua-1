@@ -1,4 +1,3 @@
 # vimwiki
 
-- vimwiki/vimwiki
-
+- https://github.com/vimwiki/vimwiki

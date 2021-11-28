@@ -1,3 +1,3 @@
 # ayu-vim
 
-- ayu-theme/ayu-vim
+- https://github.com/ayu-theme/ayu-vim

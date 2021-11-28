@@ -1,3 +1,3 @@
 # gruvbox-material
 
-- sainnhe/gruvbox-material
+- https://github.com/sainnhe/gruvbox-material

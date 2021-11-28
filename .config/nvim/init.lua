@@ -1,5 +1,5 @@
--- Aktualizacja 2021-11-26 23:14:28
-vimrc_version = "Wersja init.lua: 1.9"
+-- Aktualizacja 2021-11-28 13:54:11
+vimrc_version = "Wersja init.lua: 2.0"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- {{{ pluginy
@@ -141,6 +141,7 @@ require("packer").startup(function(use)
   use("Taverius/vim-colorscheme-manager")
   use("xolox/vim-colorscheme-switcher")
   use("chriskempson/base16-vim")
+  use("rose-pine/neovim")
   -- use "flazz/vim-colorschemes"
   use("EdenEast/nightfox.nvim")
   use("rakr/vim-one")
@@ -221,10 +222,10 @@ opt.number = true -- Show line numbers
 opt.relativenumber = false -- set relative numbered lines
 opt.numberwidth = 5 -- Make the gutter wider by default
 opt.scrolloff = 4 -- Lines of context
+opt.sidescrolloff = 8 -- Columns of context
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 4 -- Size of an indent
 opt.showmode = false -- Don't display mode
-opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes:1" -- always show signcolumns
 opt.smartcase = true -- Do not ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
@@ -241,6 +242,7 @@ opt.wildmode = "longest:full,full"
 -- opt.wildmode = "list:longest,full"
 -- opt.undodir = CACHE_PATH .. "/undo" -- set an undo directory
 -- opt.undodir = "$HOME/.config/nvim/undo" -- set an undo directory
+-- opt.undodir = utils.join_paths(get_cache_dir(), "undo"), -- set an undo directory
 opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
@@ -1146,6 +1148,7 @@ local config = {
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
+    disabled_filetypes = { 'CHADTree' },
   },
   sections = {
     -- these are to remove the defaults
@@ -1208,7 +1211,7 @@ ins_left({
     return "▊"
   end,
   color = "LualineMode",
-  left_padding = 0,
+  padding = { left = 0 }
 })
 
 ins_left({
@@ -1236,15 +1239,23 @@ ins_left({
   condition = conditions.buffer_not_empty,
 })
 
---[[ ins_left({
-  "filename",
-  condition = conditions.buffer_not_empty,
-  color = { fg = colors.yellow, gui = "bold" },
-}) ]]
-
 ins_left({ "location" })
 
-ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_left({ "progress", color = { fg = colors.fg } })
+
+ins_left({
+    function()
+      local current_line = vim.fn.line "."
+      local total_lines = vim.fn.line "$"
+      local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+      local line_ratio = current_line / total_lines
+      local index = math.ceil(line_ratio * #chars)
+      return chars[index]
+    end,
+    padding = { left = 0, right = 0 },
+    color = { fg = colors.green, bg = colors.bg },
+    cond = nil,
+})
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -1282,17 +1293,37 @@ ins_left({
 
 -- Add components to right sections
 ins_right({
-  "o:encoding", -- option component same as &encoding in viml
-  upper = true, -- I'm not sure why it's upper case either ;)
+  "o:encoding",
+  fmt = string.upper,
   condition = conditions.hide_in_width,
-  color = { fg = colors.green, gui = "bold" },
+  color = { fg = colors.green },
 })
 
 ins_right({
   "fileformat",
-  upper = true,
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, gui = "bold" },
+  icons_enabled = true,
+  color = { fg = colors.green },
+})
+
+ins_right({
+  function()
+    if not vim.api.nvim_buf_get_option(0, "expandtab") then
+      return "T" .. vim.api.nvim_buf_get_option(0, "tabstop") .. " "
+    end
+    local size = vim.api.nvim_buf_get_option(0, "shiftwidth")
+    if size == 0 then
+      size = vim.api.nvim_buf_get_option(0, "tabstop")
+    end
+    return "S" .. size
+  end,
+  cond = conditions.hide_in_width,
+  color = { fg = colors.green },
+})
+
+ins_right({
+    "filetype",
+    cond = conditions.hide_in_width,
+    color = {}
 })
 
 ins_right({
@@ -1301,11 +1332,22 @@ ins_right({
   condition = conditions.check_git_workspace,
   color = { fg = colors.blue, gui = "bold" },
 })
--- mod_icon = "                  "
+
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed,
+    }
+  end
+end
+
 ins_right({
   "diff",
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = " ", modified = " ", removed = " " },
+  source = diff_source,
+  symbols = { added = " ", modified = " ", removed = " " },
   color_added = colors.green,
   color_modified = colors.orange,
   color_removed = colors.red,
@@ -1322,7 +1364,7 @@ ins_right({
     return "▊"
   end,
   color = { fg = colors.blue },
-  right_padding = 0,
+  padding = { right = 0 }
 })
 
 -- Now don't forget to initialize lualine

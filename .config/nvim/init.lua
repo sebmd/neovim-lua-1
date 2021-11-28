@@ -1,5 +1,5 @@
--- Aktualizacja 2021-11-28 14:00:41
-vimrc_version = "Wersja init.lua: 2.0"
+-- Aktualizacja 2021-11-28 15:06:55
+vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- {{{ pluginy
@@ -55,11 +55,11 @@ require("packer").startup(function(use)
   -- formatowanie kodu
   use("mhartington/formatter.nvim")
 
+  use("junegunn/vim-peekaboo")
+
   -- wyszukiwanie
   use("junegunn/fzf")
   use("junegunn/fzf.vim")
-
-  use("junegunn/vim-peekaboo")
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -872,9 +872,9 @@ vim.g.dashboard_disable_at_vimenter = 0
 vim.g.dashboard_default_executive = "telescope"
 vim.g.dashboard_session_enable = 0
 
-vim.g.dashboard_custom_header = { "Dashboard :•: Neovim" }
+vim.g.dashboard_custom_header = { "Hattori :•: Hanzo" }
 
-vim.g.dashboard_custom_footer = { "hattori-hanz0/neovim-lua :•: " .. vimrc_version }
+vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
 
 vim.g.dashboard_custom_section = {
   a = {

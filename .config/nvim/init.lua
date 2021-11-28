@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-28 13:54:11
+-- Aktualizacja 2021-11-28 14:00:41
 vimrc_version = "Wersja init.lua: 2.0"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -874,7 +874,7 @@ vim.g.dashboard_session_enable = 0
 
 vim.g.dashboard_custom_header = { "Dashboard :•: Neovim" }
 
-vim.g.dashboard_custom_footer = { "Hattori Hanzo https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
+vim.g.dashboard_custom_footer = { "hattori-hanz0/neovim-lua :•: " .. vimrc_version }
 
 vim.g.dashboard_custom_section = {
   a = {
@@ -1148,7 +1148,7 @@ local config = {
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
-    disabled_filetypes = { 'CHADTree' },
+    disabled_filetypes = { "CHADTree" },
   },
   sections = {
     -- these are to remove the defaults
@@ -1211,7 +1211,7 @@ ins_left({
     return "▊"
   end,
   color = "LualineMode",
-  padding = { left = 0 }
+  padding = { left = 0 },
 })
 
 ins_left({
@@ -1244,17 +1244,17 @@ ins_left({ "location" })
 ins_left({ "progress", color = { fg = colors.fg } })
 
 ins_left({
-    function()
-      local current_line = vim.fn.line "."
-      local total_lines = vim.fn.line "$"
-      local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-      local line_ratio = current_line / total_lines
-      local index = math.ceil(line_ratio * #chars)
-      return chars[index]
-    end,
-    padding = { left = 0, right = 0 },
-    color = { fg = colors.green, bg = colors.bg },
-    cond = nil,
+  function()
+    local current_line = vim.fn.line(".")
+    local total_lines = vim.fn.line("$")
+    local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+    local line_ratio = current_line / total_lines
+    local index = math.ceil(line_ratio * #chars)
+    return chars[index]
+  end,
+  padding = { left = 0, right = 0 },
+  color = { fg = colors.green, bg = colors.bg },
+  cond = nil,
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -1321,9 +1321,9 @@ ins_right({
 })
 
 ins_right({
-    "filetype",
-    cond = conditions.hide_in_width,
-    color = {}
+  "filetype",
+  cond = conditions.hide_in_width,
+  color = {},
 })
 
 ins_right({
@@ -1364,7 +1364,7 @@ ins_right({
     return "▊"
   end,
   color = { fg = colors.blue },
-  padding = { right = 0 }
+  padding = { right = 0 },
 })
 
 -- Now don't forget to initialize lualine

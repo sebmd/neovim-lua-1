@@ -482,22 +482,22 @@ api.nvim_exec(
   false
 )
 
--- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp
+-- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp.sh
 api.nvim_exec(
   [[
     function! GP()
-        silent !cd $(dirname $(readlink -m %)) && ~/bin/gp
+        silent !cd $(dirname $(readlink -m %)) && ~/bin/gp.sh
         redraw!
     endfunction
 ]],
   false
 )
 
--- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga
+-- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga.sh
 api.nvim_exec(
   [[
     function! GA()
-        silent !cd $(dirname $(readlink -m %)) && ~/bin/ga
+        silent !cd $(dirname $(readlink -m %)) && ~/bin/ga.sh
         redraw!
     endfunction
     ]],
@@ -582,41 +582,75 @@ cmd("command! GR :GoRun")
 cmd("command! Kolory call Kolory()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
--- {{{ fauxClip
-g.SESSION_TYPE = vim.fn.getenv("XDG_SESSION_TYPE")
+-- {{{ barbar
+-- Set barbar's options
+vim.g.bufferline = {
+  -- Enable/disable animations
+  animation = true,
 
-if SESSION_TYPE == "wayland" then
-  g.fauxClip_copy_cmd = "wl-copy"
-  g.fauxClip_paste_cmd = "wl-paste"
+  -- Enable/disable auto-hiding the tab bar when there is a single buffer
+  auto_hide = false,
 
-  g.fauxClip_always_use = 1
-else
-  -- kopiowanie
-  g.fauxClip_copy_cmd = "xclip -f -i -selection clipboard"
-  g.fauxClip_copy_primary_cmd = "xclip -f -i"
-  g.fauxClip_copy_primary_cmd = "xclip -f -i"
-  -- wklejanie
-  g.fauxClip_paste_cmd = "xclip -o -selection clipboard"
-  g.fauxClip_paste_primary_cmd = "xclip -o"
+  -- Enable/disable current/total tabpages indicator (top right corner)
+  tabpages = true,
 
-  g.fauxClip_always_use = 1
-end
--- }}}
--- {{{ vim-dotoo
-vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
-vim.g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
-api.nvim_exec(
-  [[
-    augroup dootoft
-        au!
-        autocmd BufNewFile,BufRead *.org   set filetype=dotoo
-    augroup END
-  ]],
-  false
-)
--- let g:dotoo#agenda#files = ['~/workspace/org/*.org']
--- let g:dotoo#capture#refile = expand('~/workspace/org/refile.org')
--- }}}
+  -- Enable/disable close button
+  closable = true,
+
+  -- Enables/disable clickable tabs
+  --  - left-click: go to buffer
+  --  - middle-click: delete buffer
+  clickable = true,
+
+  -- Excludes buffers from the tabline
+  exclude_ft = { "javascript" },
+  exclude_name = { "package.json" },
+
+  -- Enable/disable icons
+  -- if set to 'numbers', will show buffer index in the tabline
+  -- if set to 'both', will show buffer index and icons in the tabline
+  icons = true,
+
+  -- If set, the icon color will follow its corresponding buffer
+  -- highlight group. By default, the Buffer*Icon group is linked to the
+  -- Buffer* group (see Highlighting below). Otherwise, it will take its
+  -- default value as defined by devicons.
+  icon_custom_colors = false,
+
+  -- Configure icons on the bufferline.
+  icon_separator_active = "▎",
+  icon_separator_inactive = "▎",
+  icon_close_tab = "",
+  icon_close_tab_modified = "●",
+  icon_pinned = "車",
+
+  -- If true, new buffers will be inserted at the start/end of the list.
+  -- Default is to insert after current buffer.
+  insert_at_end = false,
+  insert_at_start = false,
+
+  -- Sets the maximum padding width with which to surround each tab
+  maximum_padding = 1,
+
+  -- Sets the maximum buffer name length.
+  maximum_length = 30,
+
+  -- If set, the letters for each buffer in buffer-pick mode will be
+  -- assigned based on their name. Otherwise or in case all letters are
+  -- already assigned, the behavior is to assign letters in order of
+  -- usability (see order below)
+  semantic_letters = true,
+
+  -- New buffer letters are assigned in this order. This order is
+  -- optimal for the qwerty keyboard layout but might need adjustement
+  -- for other layouts.
+  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
+
+  -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
+  -- where X is the buffer number. But only a static string is accepted here.
+  no_name_title = nil,
+}
+-- barbar }}}
 -- {{{ cheatsheet.nvim
 require("cheatsheet").setup({
   -- For generic cheatsheets like default, unicode, nerd-fonts, etc
@@ -630,349 +664,8 @@ require("cheatsheet").setup({
   -- same directory name)
   include_only_installed_plugins = true,
 })
--- }}}
--- {{{ instant-markdown
-g.instant_markdown_browser = "firefox --new-window"
-g.instant_markdown_slow = 1
-g.instant_markdown_autostart = 1
--- g.instant_markdown_open_to_the_world = 1
--- g.instant_markdown_allow_unsafe_content = 1
--- g.instant_markdown_allow_external_content = 0
--- g.instant_markdown_mathjax = 1
--- g.instant_markdown_mermaid = 1
--- g.instant_markdown_logfile = "~/tmp/instant_markdown.log"
--- g.instant_markdown_autoscroll = 0
--- g.instant_markdown_port = 8888
--- g.instant_markdown_python = 1
--- }}}
--- {{{ vim-colorscheme-manager
-g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
--- }}}
--- {{{ kommentary
-vim.g.kommentary_create_default_mappings = false
-
--- api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
--- api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
--- api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
--- api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
--- api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
--- api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
-
--- api.nvim_set_keymap("n", "<leader>cc", "<Plug>kommentary_line_default", {})
-api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
--- api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_motion_default", {})
-api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
-
-require("kommentary.config").configure_language("rust", {
-  single_line_comment_string = "//",
-  multi_line_comment_strings = { "/*", "*/" },
-})
--- }}}
--- {{{ minimap
-g.minimap_width = 10
-g.minimap_auto_start = 0
--- g.minimap_auto_start_win_enter = 1
--- }}}
--- {{{ vimwiki
-api.nvim_exec(
-  [[
-    " wyłącza plugin vimwiki dla innych plików markdown poza listą wiki
-    let g:vimwiki_global_ext = 0
-
-    " wiki
-    let wiki = {}
-    let wiki.path = '~/Vimwiki/wiki'
-    let wiki.ext = '.wiki'
-    let wiki.syntax = 'markdown'
-    let wiki.nested_syntaxes = {'python': 'python', 'json': 'json', 'sh': 'sh'}
-    let wiki.auto_tags = 1
-
-    " chaos wiki
-    let chaos = {}
-    let chaos.path = '~/Vimwiki/chaos'
-    let chaos.ext = '.wiki'
-    let chaos.syntax = 'markdown'
-    let chaos.auto_tags = 1
-
-    " linux
-    let linux = {}
-    let linux.path = '~/Vimwiki/linux'
-    let linux.ext = '.wiki'
-    let linux.syntax = 'markdown'
-    let linux.auto_tags = 1
-
-    let g:vimwiki_list = [wiki, chaos, linux]
-    let g:vimwiki_listsyms = '✗○◐●✓'
-
-    autocmd Filetype vimwiki map <leader>1 1<leader>ww
-    autocmd Filetype vimwiki map <leader>2 2<leader>ww
-    autocmd Filetype vimwiki map <leader>3 3<leader>ww
-    " Zamiast 1<leader>ww można użyć zapisu 1<plug>VimwikiIndex
-    " autocmd Filetype vimwiki map <leader>4 4<Plug>VimwikiIndex
-]],
-  false
-)
-
--- cmd("let g:vimwiki_list = [wiki, chaos, linux]")
--- }}}
--- {{{ nvim-web-devicons
-require("nvim-web-devicons").setup({
-  -- your personnal icons can go here (to override)
-  -- DevIcon will be appended to `name`
-  override = {
-    zsh = {
-      icon = "",
-      color = "#428850",
-      name = "Zsh",
-    },
-  },
-  -- globally enable default icons (default to false)
-  -- will get overriden by `get_icons` option
-  default = true,
-})
--- }}}
--- {{{ indent-blankline
-require("indent_blankline").setup({
-  -- char = "┊",
-  -- char = "|",
-  char_list = { "|", "¦", "┆", "┊" },
-  space_char_blankline = " ",
-  buftype_exclude = { "terminal", "nofile" },
-  filetype_exclude = { "help", "packer", "dashboard" },
-  char_highlight = "LineNr",
-  show_trailing_blankline_indent = false,
-  -- char_highlight_list = { "Normal", "Function", "Error" },
-})
--- }}}
--- {{{ pears
-require("pears").setup(function(conf)
-  conf.pair("{", "}")
-  conf.expand_on_enter(false)
-end)
--- }}}
--- {{{ telescope setup
-local sorters, actions, previewers =
-  require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
-
-local actions = require("telescope.actions")
-require("telescope").setup({
-  defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-    },
-    prompt_prefix = " ❯ ",
-    initial_mode = "insert",
-    file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
-    color_devicons = true,
-    winblend = 20,
-    file_sorter = sorters.get_fzy_sorter,
-    generic_sorter = sorters.get_fzy_sorter,
-    file_previewer = previewers.vim_buffer_cat.new,
-    grep_previewer = previewers.vim_buffer_vimgrep.new,
-    qflist_previewer = previewers.vim_buffer_qflist.new,
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    mappings = {
-      i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<esc>"] = actions.close,
-      },
-    },
-  },
-  extensions = {
-    -- Fast, fast, really fast sorter (fzf native)
-    fzf = {
-      fuzzy = true, -- false will only do exact matching
-      override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-      -- the default case_mode is "smart_case"
-    },
-    project = {
-      base_dirs = {
-        "~/Sync",
-        { "~/git/github", maxdepth = 2 },
-        -- { "~/git/github " },
-        -- { '~/git', max_depth = 2 },
-        -- { path = '~/workspace' },
-        -- { path = '~/src', max_depth = 2 },
-      },
-      hidden_files = true, -- default: false
-      -- display_type = "full",
-    },
-  },
-  find_files = {
-    theme = "dropdown",
-  },
-  pickers = {
-    buffers = {
-      sort_lastused = true,
-      theme = "dropdown",
-      mappings = {
-        i = {
-          ["<C-w>"] = "delete_buffer",
-        },
-        n = {
-          ["<C-w>"] = "delete_buffer",
-        },
-      },
-    },
-  },
-})
-
--- Load Telescope extensions
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("project")
--- }}}
--- {{{ Lightspeed remap
-api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
-api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
-api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_s", {})
-api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_S", {})
-api.nvim_set_keymap("v", "t", "<Plug>Lightspeed_s", {})
-api.nvim_set_keymap("v", "T", "<Plug>Lightspeed_S", {})
-api.nvim_set_keymap("v", "f", "<Plug>Lightspeed_s", {})
-api.nvim_set_keymap("v", "F", "<Plug>Lightspeed_S", {})
-
--- api.nvim_set_keymap("n", "h", "<Plug>Lightspeed_s", {})
--- api.nvim_set_keymap("n", "H", "<Plug>Lightspeed_S", {})
--- api.nvim_set_keymap("v", "h", "<Plug>Lightspeed_s", {})
--- api.nvim_set_keymap("v", "H", "<Plug>Lightspeed_S", {})
-
--- nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
--- nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
--- nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
--- nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
-
-require("lightspeed").setup({
-  jump_to_first_match = true,
-  jump_on_partial_input_safety_timeout = 400,
-  -- This can get _really_ slow if the window has a lot of content,
-  -- turn it on only if your machine can always cope with it.
-  highlight_unique_chars = false,
-  grey_out_search_area = true,
-  match_only_the_start_of_same_char_seqs = true,
-  limit_ft_matches = 5,
-  full_inclusive_prefix_key = "<c-x>",
-  -- By default, the values of these will be decided at runtime,
-  -- based on `jump_to_first_match`.
-  labels = nil,
-  cycle_group_fwd_key = nil,
-  cycle_group_bwd_key = nil,
-})
--- }}}
--- {{{ dashboard-nvim
-vim.g.dashboard_disable_at_vimenter = 0
-vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_session_enable = 0
-
-vim.g.dashboard_custom_header = { "Hattori :•: Hanzo" }
-
-vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
-
-vim.g.dashboard_custom_section = {
-  a = {
-    description = { "  Find File              'f'" },
-    command = "Telescope find_files",
-  },
-  b = {
-    description = { "  Recent Projects        'p'" },
-    command = "Telescope project",
-  },
-  c = {
-    description = { "  Recently Used Files    'r'" },
-    command = "Telescope oldfiles",
-  },
-  d = {
-    description = { "  New File               'n'" },
-    command = "DashboardNewFile",
-  },
-  e = {
-    description = { "  Find Word              'w'" },
-    command = "Telescope live_grep",
-  },
-  f = {
-    description = { "  ColorScheme            's'" },
-    command = "DashboardChangeColorscheme",
-  },
-  g = {
-    description = { "  dot.files              'd'" },
-    command = ":lua search_dotfiles()",
-  },
-  h = {
-    description = { "  Configuration          'c'" },
-    command = ":e $MYVIMRC",
-  },
-}
--- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
-api.nvim_exec(
-  [[
-    autocmd FileType dashboard nnoremap <silent> <buffer> f :Telescope find_files<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> w :Telescope live_grep<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
-
-    autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66
-    autocmd FileType dashboard highlight dashboardCenter    ctermfg=109 guifg=#5CCFE6
-    autocmd FileType dashboard highlight dashboardFooter    ctermfg=240 guifg=#BBE67E
-    autocmd FileType dashboard highlight dashboardShortCut  ctermfg=245
-]],
-  false
-)
--- }}}
--- {{{ gitsigns setup
-require("gitsigns").setup({
-  numhl = true,
-  signcolumn = true,
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-
-    ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-    ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
-
-    ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-    ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-    ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-    ["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-    -- ["n <leader>hn"] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
-    ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-
-    -- Text objects
-    ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-    ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-  },
-})
--- }}}
--- {{{ GnuPG
-local GPG_ID = os.getenv("GPG_ID")
-g.GPGPreferSymmetric = 0
-g.GPGUseAgent = 1
-g.GPGPreferArmor = 1
-g.GPGPreferSign = 1
--- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write swojej powłoce systemowej
-g.GPGDefaultRecipients = "[$GPG_ID]"
-g.GPGFilePattern = "*{gpg,asc,gpg.md}"
--- }}}
--- {{{ Setup treesitter
-local ts = require("nvim-treesitter.configs")
-ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
--- }}}
--- {{{ Compe setup start
+-- cheatsheet.nvim }}}
+-- {{{ compe
 require("compe").setup({
   enabled = true,
   autocomplete = true,
@@ -1042,65 +735,226 @@ api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
 api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
--- End Compe related setup }}}
--- {{{ Prettier function for formatter
-local prettier = function()
-  return {
-    exe = "prettier",
-    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
-    -- args = { "--stdin-filepath", api.nvim_buf_get_name(0), "--double-quote" },
-    stdin = true,
-  }
-end
+-- compe }}}
+-- {{{ dashboard-nvim
+vim.g.dashboard_disable_at_vimenter = 0
+vim.g.dashboard_default_executive = "telescope"
+vim.g.dashboard_session_enable = 0
 
-require("formatter").setup({
-  filetype = {
-    markdown = {
-      -- prettier
-      function()
-        return {
-          exe = "prettier",
-          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
-          stdin = true,
-        }
-      end,
-    },
+vim.g.dashboard_custom_header = { "Hattori :•: Hanzo" }
+
+vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
+
+vim.g.dashboard_custom_section = {
+  a = {
+    description = { "  Find File              'f'" },
+    command = "Telescope find_files",
   },
-})
-
-require("formatter").setup({
-  logging = false,
-  filetype = {
-    javascript = { prettier },
-    typescript = { prettier },
-    html = { prettier },
-    css = { prettier },
-    scss = { prettier },
-    markdown = { prettier },
-    lua = {
-      -- Stylua
-      function()
-        return {
-          exe = "stylua",
-          args = { "--indent-width", 2, "--indent-type", "Spaces" },
-          stdin = false,
-        }
-      end,
-    },
+  b = {
+    description = { "  Recent Projects        'p'" },
+    command = "Telescope project",
   },
-})
-
--- Runs Formatter on save
+  c = {
+    description = { "  Recently Used Files    'r'" },
+    command = "Telescope oldfiles",
+  },
+  d = {
+    description = { "  New File               'n'" },
+    command = "DashboardNewFile",
+  },
+  e = {
+    description = { "  Find Word              'w'" },
+    command = "Telescope live_grep",
+  },
+  f = {
+    description = { "  ColorScheme            's'" },
+    command = "DashboardChangeColorscheme",
+  },
+  g = {
+    description = { "  dot.files              'd'" },
+    command = ":lua search_dotfiles()",
+  },
+  h = {
+    description = { "  Configuration          'c'" },
+    command = ":e $MYVIMRC",
+  },
+}
+-- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 api.nvim_exec(
   [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
-augroup END
+    autocmd FileType dashboard nnoremap <silent> <buffer> f :Telescope find_files<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> w :Telescope live_grep<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
+
+    autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66
+    autocmd FileType dashboard highlight dashboardCenter    ctermfg=109 guifg=#5CCFE6
+    autocmd FileType dashboard highlight dashboardFooter    ctermfg=240 guifg=#BBE67E
+    autocmd FileType dashboard highlight dashboardShortCut  ctermfg=245
 ]],
-  true
+  false
 )
--- }}}
+-- dashboard-nvim }}}
+-- {{{ fauxClip
+g.SESSION_TYPE = vim.fn.getenv("XDG_SESSION_TYPE")
+
+if SESSION_TYPE == "wayland" then
+  g.fauxClip_copy_cmd = "wl-copy"
+  g.fauxClip_paste_cmd = "wl-paste"
+
+  g.fauxClip_always_use = 1
+else
+  -- kopiowanie
+  g.fauxClip_copy_cmd = "xclip -f -i -selection clipboard"
+  g.fauxClip_copy_primary_cmd = "xclip -f -i"
+  g.fauxClip_copy_primary_cmd = "xclip -f -i"
+  -- wklejanie
+  g.fauxClip_paste_cmd = "xclip -o -selection clipboard"
+  g.fauxClip_paste_primary_cmd = "xclip -o"
+
+  g.fauxClip_always_use = 1
+end
+-- fauxClip }}}
+-- {{{ gitsigns
+require("gitsigns").setup({
+  numhl = true,
+  signcolumn = true,
+  keymaps = {
+    -- Default keymap options
+    noremap = true,
+
+    ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
+    ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+
+    ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+    ["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+    ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+    ["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+    ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+    -- ["n <leader>hn"] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
+    ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+
+    -- Text objects
+    ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+    ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+  },
+})
+-- gitsigns }}}
+-- {{{ gnupg
+local GPG_ID = os.getenv("GPG_ID")
+g.GPGPreferSymmetric = 0
+g.GPGUseAgent = 1
+g.GPGPreferArmor = 1
+g.GPGPreferSign = 1
+-- ID klucza pobiera ze zmienne systemowej $GPG_ID należy ustawić ją Write swojej powłoce systemowej
+g.GPGDefaultRecipients = "[$GPG_ID]"
+g.GPGFilePattern = "*{gpg,asc,gpg.md}"
+-- gnupg }}}
+-- {{{ hop
+require("hop").setup({
+  reverse_distribution = true,
+})
+-- Mapowanie
+map("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
+map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
+map("v", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
+map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
+-- Kolory
+vim.cmd("hi HopNextKey guifg=#ff9900")
+vim.cmd("hi HopNextKey1 guifg=#ff9900")
+vim.cmd("hi HopNextKey2 guifg=#ff9900")
+-- hop }}}
+-- {{{ indent-blankline
+require("indent_blankline").setup({
+  -- char = "┊",
+  -- char = "|",
+  char_list = { "|", "¦", "┆", "┊" },
+  space_char_blankline = " ",
+  buftype_exclude = { "terminal", "nofile" },
+  filetype_exclude = { "help", "packer", "dashboard" },
+  char_highlight = "LineNr",
+  show_trailing_blankline_indent = false,
+  -- char_highlight_list = { "Normal", "Function", "Error" },
+})
+-- indent-blankline }}}
+-- {{{ instant-markdown
+g.instant_markdown_browser = "firefox --new-window"
+g.instant_markdown_slow = 1
+g.instant_markdown_autostart = 1
+-- g.instant_markdown_open_to_the_world = 1
+-- g.instant_markdown_allow_unsafe_content = 1
+-- g.instant_markdown_allow_external_content = 0
+-- g.instant_markdown_mathjax = 1
+-- g.instant_markdown_mermaid = 1
+-- g.instant_markdown_logfile = "~/tmp/instant_markdown.log"
+-- g.instant_markdown_autoscroll = 0
+-- g.instant_markdown_port = 8888
+-- g.instant_markdown_python = 1
+-- instant-markdown }}}
+-- {{{ kommentary
+vim.g.kommentary_create_default_mappings = false
+
+-- api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
+-- api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
+-- api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
+-- api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
+-- api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
+-- api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
+
+-- api.nvim_set_keymap("n", "<leader>cc", "<Plug>kommentary_line_default", {})
+api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
+-- api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_motion_default", {})
+api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
+
+require("kommentary.config").configure_language("rust", {
+  single_line_comment_string = "//",
+  multi_line_comment_strings = { "/*", "*/" },
+})
+-- kommentary }}}
+-- {{{ lightspeed
+api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
+api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
+api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_s", {})
+api.nvim_set_keymap("n", "t", "<Plug>Lightspeed_S", {})
+api.nvim_set_keymap("v", "t", "<Plug>Lightspeed_s", {})
+api.nvim_set_keymap("v", "T", "<Plug>Lightspeed_S", {})
+api.nvim_set_keymap("v", "f", "<Plug>Lightspeed_s", {})
+api.nvim_set_keymap("v", "F", "<Plug>Lightspeed_S", {})
+
+-- api.nvim_set_keymap("n", "h", "<Plug>Lightspeed_s", {})
+-- api.nvim_set_keymap("n", "H", "<Plug>Lightspeed_S", {})
+-- api.nvim_set_keymap("v", "h", "<Plug>Lightspeed_s", {})
+-- api.nvim_set_keymap("v", "H", "<Plug>Lightspeed_S", {})
+
+-- nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
+-- nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
+-- nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
+-- nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
+
+require("lightspeed").setup({
+  jump_to_first_match = true,
+  jump_on_partial_input_safety_timeout = 400,
+  -- This can get _really_ slow if the window has a lot of content,
+  -- turn it on only if your machine can always cope with it.
+  highlight_unique_chars = false,
+  grey_out_search_area = true,
+  match_only_the_start_of_same_char_seqs = true,
+  limit_ft_matches = 5,
+  full_inclusive_prefix_key = "<c-x>",
+  -- By default, the values of these will be decided at runtime,
+  -- based on `jump_to_first_match`.
+  labels = nil,
+  cycle_group_fwd_key = nil,
+  cycle_group_bwd_key = nil,
+})
+-- lightspeed }}}
 -- {{{ lualine
 -- Eviline config for lualine
 local lualine = require("lualine")
@@ -1370,15 +1224,234 @@ ins_right({
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 --- lualine }}}
--- {{{ luasnip
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
--- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+-- {{{ minimap
+g.minimap_width = 10
+g.minimap_auto_start = 0
+-- g.minimap_auto_start_win_enter = 1
+-- minimap }}}
+-- {{{ nvim-web-devicons
+require("nvim-web-devicons").setup({
+  -- your personnal icons can go here (to override)
+  -- DevIcon will be appended to `name`
+  override = {
+    zsh = {
+      icon = "",
+      color = "#428850",
+      name = "Zsh",
+    },
+  },
+  -- globally enable default icons (default to false)
+  -- will get overriden by `get_icons` option
+  default = true,
+})
+-- nvim-web-devicons }}}
+-- {{{ pears
+require("pears").setup(function(conf)
+  conf.pair("{", "}")
+  conf.expand_on_enter(false)
+end)
+-- pears }}}
+-- {{{ prettier
+local prettier = function()
+  return {
+    exe = "prettier",
+    args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
+    -- args = { "--stdin-filepath", api.nvim_buf_get_name(0), "--double-quote" },
+    stdin = true,
+  }
+end
 
--- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
--- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+require("formatter").setup({
+  filetype = {
+    markdown = {
+      -- prettier
+      function()
+        return {
+          exe = "prettier",
+          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote" },
+          stdin = true,
+        }
+      end,
+    },
+  },
+})
 
--- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+require("formatter").setup({
+  logging = false,
+  filetype = {
+    javascript = { prettier },
+    typescript = { prettier },
+    html = { prettier },
+    css = { prettier },
+    scss = { prettier },
+    markdown = { prettier },
+    lua = {
+      -- Stylua
+      function()
+        return {
+          exe = "stylua",
+          args = { "--indent-width", 2, "--indent-type", "Spaces" },
+          stdin = false,
+        }
+      end,
+    },
+  },
+})
+
+-- Runs Formatter on save
+api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
+augroup END
+]],
+  true
+)
+-- prettier }}}
+-- {{{ telescope
+local sorters, actions, previewers =
+  require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
+
+local actions = require("telescope.actions")
+require("telescope").setup({
+  defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    prompt_prefix = " ❯ ",
+    initial_mode = "insert",
+    file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
+    color_devicons = true,
+    winblend = 20,
+    file_sorter = sorters.get_fzy_sorter,
+    generic_sorter = sorters.get_fzy_sorter,
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<esc>"] = actions.close,
+      },
+    },
+  },
+  extensions = {
+    -- Fast, fast, really fast sorter (fzf native)
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    },
+    project = {
+      base_dirs = {
+        "~/Sync",
+        { "~/git/github", maxdepth = 2 },
+        -- { "~/git/github " },
+        -- { '~/git', max_depth = 2 },
+        -- { path = '~/workspace' },
+        -- { path = '~/src', max_depth = 2 },
+      },
+      hidden_files = true, -- default: false
+      -- display_type = "full",
+    },
+  },
+  find_files = {
+    theme = "dropdown",
+  },
+  pickers = {
+    buffers = {
+      sort_lastused = true,
+      theme = "dropdown",
+      mappings = {
+        i = {
+          ["<C-w>"] = "delete_buffer",
+        },
+        n = {
+          ["<C-w>"] = "delete_buffer",
+        },
+      },
+    },
+  },
+})
+
+-- Load Telescope extensions
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("project")
+-- telescope }}}
+-- {{{ treesitter
+local ts = require("nvim-treesitter.configs")
+ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
+-- treesitter }}}
+-- {{{ vim-colorscheme-manager
+g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
+-- }}}
+-- {{{ vim-dotoo
+vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
+vim.g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
+api.nvim_exec(
+  [[
+    augroup dootoft
+        au!
+        autocmd BufNewFile,BufRead *.org   set filetype=dotoo
+    augroup END
+  ]],
+  false
+)
+-- let g:dotoo#agenda#files = ['~/workspace/org/*.org']
+-- let g:dotoo#capture#refile = expand('~/workspace/org/refile.org')
+-- }}}
+-- {{{ vimwiki
+api.nvim_exec(
+  [[
+    " wyłącza plugin vimwiki dla innych plików markdown poza listą wiki
+    let g:vimwiki_global_ext = 0
+
+    " wiki
+    let wiki = {}
+    let wiki.path = '~/Vimwiki/wiki'
+    let wiki.ext = '.wiki'
+    let wiki.syntax = 'markdown'
+    let wiki.nested_syntaxes = {'python': 'python', 'json': 'json', 'sh': 'sh'}
+    let wiki.auto_tags = 1
+
+    " chaos wiki
+    let chaos = {}
+    let chaos.path = '~/Vimwiki/chaos'
+    let chaos.ext = '.wiki'
+    let chaos.syntax = 'markdown'
+    let chaos.auto_tags = 1
+
+    " linux
+    let linux = {}
+    let linux.path = '~/Vimwiki/linux'
+    let linux.ext = '.wiki'
+    let linux.syntax = 'markdown'
+    let linux.auto_tags = 1
+
+    let g:vimwiki_list = [wiki, chaos, linux]
+    let g:vimwiki_listsyms = '✗○◐●✓'
+
+    autocmd Filetype vimwiki map <leader>1 1<leader>ww
+    autocmd Filetype vimwiki map <leader>2 2<leader>ww
+    autocmd Filetype vimwiki map <leader>3 3<leader>ww
+    " Zamiast 1<leader>ww można użyć zapisu 1<plug>VimwikiIndex
+    " autocmd Filetype vimwiki map <leader>4 4<Plug>VimwikiIndex
+]],
+  false
+)
+
+-- cmd("let g:vimwiki_list = [wiki, chaos, linux]")
 -- }}}
 -- {{{ zen-mode.nvim
 require("zen-mode").setup({
@@ -1427,20 +1500,16 @@ require("zen-mode").setup({
   -- callback where you can add custom code when the Zen window closes
   on_close = function() end,
 })
----}}}
--- {{{ Hop
-require("hop").setup({
-  reverse_distribution = true,
-})
--- Mapowanie
-map("n", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
-map("v", "<leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
-map("v", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
--- Kolory
-vim.cmd("hi HopNextKey guifg=#ff9900")
-vim.cmd("hi HopNextKey1 guifg=#ff9900")
-vim.cmd("hi HopNextKey2 guifg=#ff9900")
+--- zen-mode.nvim }}}
+-- {{{ luasnip
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+-- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+-- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+-- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+-- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+-- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- }}}
 -- {{{ auto-session
 -- local sessionopts = {
@@ -1527,7 +1596,7 @@ vim.cmd("hi HopNextKey2 guifg=#ff9900")
 --     -- end,
 --   },
 -- })
--- }}}
+-- bufferline }}}
 -- {{{ luatab
 -- vim.o.tabline = "%!v:lua.require'luatab'.tabline()"
 -- }}}
@@ -1681,6 +1750,9 @@ map("n", "zm", "zn")
 
 map("n", "gh", "0")
 map("n", "gl", "$")
+
+map("v", "gh", "0")
+map("v", "gl", "$")
 
 -- usuwa od kursora do początku / końca linii
 map("n", "dh", "xd0")

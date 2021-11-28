@@ -13,7 +13,9 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/Notes
 mkdir -p $HOME/.config/nvim
 
-# echo ". $HOME/.config/vars" >> $HOME/.bashrc
+cat <<EOF >> $HOME/.bashrc
+[ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
+EOF
 
 git clone --depth 1 https://github.com/hattori-hanz0/neovim-lua \
     $NEOVIM_LUA_DIR

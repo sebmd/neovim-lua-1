@@ -1,0 +1,3 @@
+# lightspeed
+
+- ggandor/lightspeed.nvim

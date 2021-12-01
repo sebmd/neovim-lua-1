@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-28 22:17:43
+-- Aktualizacja 2021-11-29 05:08:46
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1828,6 +1828,13 @@ map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
 
 map("n", "<leader>d", "<cmd>bdelete<cr>")
+
+-- noremap <leader>d "-d
+
+-- noremap p "0p
+-- noremap P "0P
+-- noremap <leader>p p
+-- noremap <leader>P P
 
 -- map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")

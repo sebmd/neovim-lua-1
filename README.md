@@ -33,3 +33,11 @@ NOTES_DIR - /home/$USER/Notes
 - [Komendy](docs/Komendy.md)
 - [Pluginy](docs/Pluginy.md)
 - [Funkcje](docs/Funkcje.md)
+
+## Uruchomienie lokalnej wersji Neovim
+
+W pliku `$HOME/bin/n6` dodajemy
+
+```shall
+VIMRUNTIME=~/.local/nvim/share/nvim/runtime/ .local/nvim/bin/nvim
+```

@@ -54,6 +54,7 @@
 | `<leader>P`  | Telescope project                                                                      |
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
+| `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 
 ## Okna
 

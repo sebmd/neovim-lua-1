@@ -1,4 +1,4 @@
--- Aktualizacja 2021-11-29 05:08:46
+-- Aktualizacja 2021-12-02 15:58:18
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -70,7 +70,7 @@ require("packer").startup(function(use)
 
   use("nvim-telescope/telescope-project.nvim")
 
-  use("nvim-treesitter/nvim-treesitter")
+  -- use("nvim-treesitter/nvim-treesitter")
 
   -- szybkie poruszanie się po pliku
   -- use("ggandor/lightspeed.nvim")
@@ -1454,8 +1454,8 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("project")
 -- telescope }}}
 -- {{{ treesitter
-local ts = require("nvim-treesitter.configs")
-ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
+-- local ts = require("nvim-treesitter.configs")
+-- ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
 -- treesitter }}}
 -- {{{ vim-colorscheme-manager
 g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
@@ -1967,4 +1967,6 @@ map("n", "<leader>P", ":Telescope project<cr>")
 
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")
+
+map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 -- mapowanie klawiszy }}}

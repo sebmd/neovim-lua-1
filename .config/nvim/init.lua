@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-03 23:21:44
+-- Aktualizacja 2021-12-04 00:07:37
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -579,6 +579,7 @@ end
 
 -- komendy
 cmd("command! CD call CD()")
+cmd("command! CDEdit e ~/.config/bmproj")
 cmd("command! DiaryNotes call DiaryNotes()")
 cmd("command! GA call GA()")
 cmd("command! GP call GP()")

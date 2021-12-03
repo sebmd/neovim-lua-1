@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-03 20:39:36
+-- Aktualizacja 2021-12-03 23:21:44
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -378,6 +378,19 @@ api.nvim_exec(
   false
 )
 
+-- Otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj`
+api.nvim_exec(
+  [[
+    function! CD()
+        let bmproj = readfile(expand('$HOME/.config/bmproj'))
+        call fzf#run(fzf#wrap({'source': bmproj,
+            \ 'sink' : 'e',
+            \ 'options' : '-m -x +s'}))
+    endfunction
+]],
+  false
+)
+
 -- Funkcja InsertDiaryHeader() wstawia nagłówej # i bieżący czas
 api.nvim_exec(
   [[
@@ -565,19 +578,21 @@ end
 -- map("n", "<leader>bb", "<cmd>lua print(vimrc_version)<cr>", { silent = false })
 
 -- komendy
-cmd("command! InsertDiaryHeader call InsertDiaryHeader()")
+cmd("command! CD call CD()")
 cmd("command! DiaryNotes call DiaryNotes()")
-cmd("command! VimrcVersion :lua VimrcVersion()<cr>")
-cmd("command! GP call GP()")
 cmd("command! GA call GA()")
-cmd("command! RevBackground call RevBackground()")
-cmd("command! UpdateVimrc call UpdateVimrc()")
-cmd("command! PI PackerInstall")
-cmd("command! Write call Write()")
-cmd("command! Time call Time()")
-cmd("command! S :source %")
+cmd("command! GP call GP()")
 cmd("command! GR :GoRun")
+cmd("command! InsertDiaryHeader call InsertDiaryHeader()")
 cmd("command! Kolory call Kolory()")
+cmd("command! PI PackerInstall")
+cmd("command! PS PackerSync")
+cmd("command! RevBackground call RevBackground()")
+cmd("command! S :source %")
+cmd("command! Time call Time()")
+cmd("command! UpdateVimrc call UpdateVimrc()")
+cmd("command! VimrcVersion :lua VimrcVersion()<cr>")
+cmd("command! Write call Write()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
 -- {{{ barbar
@@ -1676,11 +1691,14 @@ require("zen-mode").setup({
 -- }}}
 -- ustawienia pluginów }}}
 -- {{{ mapowanie klawiszy
--- Map leader to space
+-- Ustawia SPACE jako klawisz LEADER
 g.mapleader = " "
 
 -- wejście do trybu COMMAND
 map("n", "<leader>;", ":", { silent = false })
+
+-- Uruchomienie podręczniej pomocy Shift + F1
+map("n", "<f13>", "<cmd>Cheatsheet<cr>")
 
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
 map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
@@ -1704,13 +1722,13 @@ map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 
--- Przesuwanie linii
-map("n", "<c-j>", "<cmd>m .+1<CR>", { silent = true })
-map("n", "<c-k>", "<cmd>m .-2<CR>", { silent = true })
--- map("i", "<c-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
--- map("i", "<c-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
--- map("v", "<c-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
--- map("v", "<c-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
+-- Przesuwanie linii alt+j i alt+k
+map("n", "<m-j>", "<cmd>m .+1<CR>", { silent = true })
+map("n", "<m-k>", "<cmd>m .-2<CR>", { silent = true })
+map("i", "<m-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
+map("i", "<m-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
+-- map("v", "<m-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
+-- map("v", "<m-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
 
 -- podział okna pionowy i poziomy
 map("n", "<leader>vs", "<cmd>vs<cr>")
@@ -1722,6 +1740,10 @@ map("n", "qq", ":q<cr>")
 -- poruszanie się w długiej zawiniętej linii
 map("n", "j", "gj")
 map("n", "k", "gk")
+
+-- Standardowo `gf` przechodzi do otwartego pliku, to mapowanie tworzy nieistniejący plik i otwiera
+-- go w bieżącym buforze
+map("n", "gf", "<cmd>edit <cfile><cr>")
 
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
@@ -1840,7 +1862,8 @@ map("n", "<leader>.", "<cmd>bnext<cr>")
 
 map("n", "<leader>d", "<cmd>bdelete<cr>")
 
--- noremap <leader>d "-d
+-- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
+-- map("n", "<leader>d", "\"-d")
 
 -- noremap p "0p
 -- noremap P "0P

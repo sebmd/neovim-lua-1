@@ -38,8 +38,8 @@
 | `ya`         | Kopiuje cały plik                                                                      |
 | `yh`         | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii             |
 | `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap' |
-| `ctrl-j`     | Przenosi linię w dół                                                                   |
-| `ctrl-k`     | Przenosi linię w górę                                                                  |
+| `alt-j`      | Przenosi linię w dół                                                                   |
+| `alt-k`      | Przenosi linię w górę                                                                  |
 | `+`          | zwiększa liczbę o jeden                                                                |
 | `-`          | zmniejsza liczbę o jeden                                                               |
 | `<leader>p`  | Telescope find_files                                                                   |

@@ -33,6 +33,27 @@ api.nvim_exec(
 )
 ```
 
+## Funkcja CD
+
+Otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj`
+
+Wywołanie funkcji za pomocą komendy `CD`
+
+```lua
+-- Otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj`
+api.nvim_exec(
+  [[
+    function! CD()
+        let bmproj = readfile(expand('$HOME/.config/bmproj'))
+        call fzf#run(fzf#wrap({'source': bmproj,
+            \ 'sink' : 'e',
+            \ 'options' : '-m -x +s'}))
+    endfunction
+]],
+  false
+)
+```
+
 ## Funkcja InsertDiaryHeader
 
 Wstawia w bieżącej linii nagłówek pierwszego stopnia Markdown `#` oraz bieżącą date i godzinę.

@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-03 04:51:35
+-- Aktualizacja 2021-12-03 20:39:36
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1518,6 +1518,7 @@ api.nvim_exec(
 -- cmd("let g:vimwiki_list = [wiki, chaos, linux]")
 -- }}}
 -- {{{ zen-mode.nvim
+-- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
 require("zen-mode").setup({
   window = {
     backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
@@ -1530,13 +1531,13 @@ require("zen-mode").setup({
     -- by default, no options are changed for the Zen window
     -- uncomment any of the options below, or add other vim.wo options you want to apply
     options = {
-      -- signcolumn = "no", -- disable signcolumn
+      signcolumn = "no", -- disable signcolumn
       number = false, -- disable number column
       relativenumber = false, -- disable relative numbers
-      -- cursorline = false, -- disable cursorline
-      -- cursorcolumn = false, -- disable cursor column
+      cursorline = false, -- disable cursorline
+      cursorcolumn = false, -- disable cursor column
       foldcolumn = "0", -- disable fold column
-      -- list = false, -- disable whitespace characters
+      list = false, -- disable whitespace characters
     },
   },
   plugins = {

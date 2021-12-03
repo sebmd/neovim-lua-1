@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-02 15:58:18
+-- Aktualizacja 2021-12-03 04:51:35
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1691,6 +1691,37 @@ map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
+-- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
+map("i", "<c-h>", "<left>")
+map("i", "<c-j>", "<down>")
+map("i", "<c-k>", "<up>")
+map("i", "<c-l>", "<right>")
+
+-- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
+map("n", "<c-h>", "<c-w><c-h>")
+map("n", "<c-j>", "<c-w><c-j>")
+map("n", "<c-k>", "<c-w><c-k>")
+map("n", "<c-l>", "<c-w><c-l>")
+
+-- Przesuwanie linii
+map("n", "<c-j>", "<cmd>m .+1<CR>", { silent = true })
+map("n", "<c-k>", "<cmd>m .-2<CR>", { silent = true })
+-- map("i", "<c-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
+-- map("i", "<c-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
+-- map("v", "<c-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
+-- map("v", "<c-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
+
+-- podział okna pionowy i poziomy
+map("n", "<leader>vs", "<cmd>vs<cr>")
+map("n", "<leader>sp", "<cmd>sp<cr>")
+
+-- wyjście bez zapisania
+map("n", "qq", ":q<cr>")
+
+-- poruszanie się w długiej zawiniętej linii
+map("n", "j", "gj")
+map("n", "k", "gk")
+
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
   [[
@@ -1779,29 +1810,8 @@ map("n", "<leader>sp", ":norm ysip")
 map("n", "<leader>ss", ":norm yss")
 map("n", "<leader>sdd", ":norm ds")
 
--- podział okna pionowy i poziomy
-map("n", "<leader>vs", "<cmd>vs<cr>")
-map("n", "<leader>sp", "<cmd>sp<cr>")
-
--- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
-map("i", "<c-h>", "<left>")
-map("i", "<c-j>", "<down>")
-map("i", "<c-k>", "<up>")
-map("i", "<c-l>", "<right>")
-
--- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
-map("n", "<c-h>", "<c-w><c-h>")
-map("n", "<c-j>", "<c-w><c-j>")
-map("n", "<c-k>", "<c-w><c-k>")
-map("n", "<c-l>", "<c-w><c-l>")
-
 -- map("n", "<Enter>", "o<Esc>")
 -- map("n", "<space>", "i<space><C-c>l")
-
-map("n", "qq", ":q<cr>")
-
-map("n", "j", "gj")
-map("n", "k", "gk")
 
 map("n", "<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 map("n", "<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
@@ -1877,7 +1887,7 @@ map("n", "<leader>q", "<cmd>q<cr>")
 -- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 map("n", "<Tab>", "<cmd>e #<CR>")
 
--- Mapowanie znaczników w trybie insert po wprowadzeniu jednego ze znaków , . ! ? ; :
+-- Mapowanie znaczników (undo) w trybie INSERT po wprowadzeniu jednego ze znaków , . ! ? ; :
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", "!", "!<c-g>u")
@@ -1904,30 +1914,30 @@ map("n", "yh", "0f lv$hy")
 -- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
 map("n", "<leader>a", "=ip gqap")
 
--- Line bubbling
--- Use these two if you don't have prettier
--- map('n'), '<c-j>', '<cmd>m .+1<CR>==')
--- map('n,) <c-k>', '<cmd>m .-2<CR>==')
-map("n", "<c-j>", "<cmd>m .+1<CR>", { silent = true })
-map("n", "<c-k>", "<cmd>m .-2<CR>", { silent = true })
-map("i", "<c-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
-map("i", "<c-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
-map("v", "<c-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
-map("v", "<c-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
-
--- Simpler increment/decrement integers
+-- Łatwiejsza inkrementacja i dekremenatacja liczb
 map("n", "+", "<C-a>", { silent = true })
 map("v", "+", "<C-a>", { silent = true })
 map("n", "-", "<C-x>", { silent = true })
 map("v", "-", "<C-x>", { silent = true })
 
---Auto close tags
+-- Automatyczne zamykanie tagów
 map("i", ",/", "</<C-X><C-O>")
 
 -- ESC wyłącza wyróżnianie szukanego słowa
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Telescoope
+-- <leader>p    find_files
+-- <leader>r    registers
+-- <leader>g    live_grep
+-- <leader>zx   grep_string
+-- <leader>b    buffers
+-- <leader>j    help_tags
+-- <leader>f    file_browser
+-- <leader>s    spell_suggest
+-- <leader>i    git_status
+-- <leader>t    tags
+-- <leader>P    project
 map(
   "n",
   "<leader>p",

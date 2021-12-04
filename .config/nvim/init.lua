@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-04 09:07:17
+-- Aktualizacja 2021-12-04 09:07:50
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1699,7 +1699,10 @@ g.mapleader = " "
 map("n", "<leader>;", ":", { silent = false })
 
 -- Uruchomienie podręczniej pomocy Shift + F1
-map("n", "<f13>", "<cmd>Cheatsheet<cr>")
+-- map("n", "<f13>", "<cmd>Cheatsheet<cr>")
+
+-- Uruchomienie podręczniej pomocy LEADER ?
+map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
 
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
 map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')

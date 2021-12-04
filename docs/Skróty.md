@@ -55,6 +55,7 @@
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
+| `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
 
 ## Poruszanie się pomiędzy oknami
 
@@ -180,6 +181,8 @@
 | `.`        | pokazuje lub chowa ukryte pliki `.`                                    |
 
 ## Telescope project
+
+Skróty klawiszowe dostępne w oknie projektów
 
 | skrót      | opis                                                       |
 | ---------- | ---------------------------------------------------------- |

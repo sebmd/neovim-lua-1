@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-04 00:07:37
+-- Aktualizacja 2021-12-04 09:07:17
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1723,11 +1723,17 @@ map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 
+-- zmiana wielkości okna
+map("n", "<m-h>", "<cmd>vertical resize -2<cr>")
+map("n", "<m-j>", "<cmd>resize +2<cr>")
+map("n", "<m-k>", "<cmd>resize -2<cr>")
+map("n", "<m-l>", "<cmd>vertical resize +2<cr>")
+
 -- Przesuwanie linii alt+j i alt+k
-map("n", "<m-j>", "<cmd>m .+1<CR>", { silent = true })
-map("n", "<m-k>", "<cmd>m .-2<CR>", { silent = true })
-map("i", "<m-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
-map("i", "<m-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
+-- map("n", "<m-j>", "<cmd>m .+1<CR>", { silent = true })
+-- map("n", "<m-k>", "<cmd>m .-2<CR>", { silent = true })
+-- map("i", "<m-j> <Esc>", "<cmd>m .+1<CR>==gi", { silent = true })
+-- map("i", "<m-k> <Esc>", "<cmd>m .-2<CR>==gi", { silent = true })
 -- map("v", "<m-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
 -- map("v", "<m-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
 
@@ -1830,7 +1836,7 @@ map("n", "<leader>o", ':only<cr>:echom "There Can Be Only One"<cr>"')
 -- <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
 map("n", "<leader>sw", ":norm ysiw")
 map("n", "<leader>sW", ":norm ysiW")
-map("n", "<leader>sp", ":norm ysip")
+map("n", "<leader>ssp", ":norm ysip")
 map("n", "<leader>ss", ":norm yss")
 map("n", "<leader>sdd", ":norm ds")
 

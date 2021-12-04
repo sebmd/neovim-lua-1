@@ -56,7 +56,7 @@
 | `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 
-## Okna
+## Poruszanie się pomiędzy oknami
 
 | skrót    | opis                                 |
 | -------- | ------------------------------------ |
@@ -64,6 +64,15 @@
 | `ctrl-l` | przechodzi do okna po prawej stronie |
 | `ctrl-j` | przechodzi do okna poniżej           |
 | `ctrl-k` | przechodzi do okna powyżej           |
+
+## Zmiana rozmiaru okna
+
+| skrót   | opis                              |
+| ------- | --------------------------------- |
+| `alt-j` | zwiększa rozmiar okna w poziomie  |
+| `alt-k` | zmniejsza rozmiar okna w poziomie |
+| `alt-h` | zmniejsza rozmiar okna w pionie   |
+| `alt-l` | zwiększa rozmiar okna w pionie    |
 
 ## Skróty klawiszowe tryb INSERT
 
@@ -132,7 +141,7 @@
 | ------------- | -------------------------------------------------------------------- |
 | `<leader>sw`  | czeka na wprowadzenie znaku, którym otoczy wyraz - vim-surround      |
 | `<leader>sW`  | czeka na wprowadzenie znaku, którym otoczy WYRAZ - vim-surround      |
-| `<leader>sp`  | czeka na wprowadzenie znaku, który otoczy paragraf - vim-surround    |
+| `<leader>ssp` | czeka na wprowadzenie znaku, który otoczy paragraf - vim-surround    |
 | `<leader>ss`  | czeka na wprowadzenie znaku, którym otoczy linię - vim-surround      |
 | `<leader>sdd` | czeka na wprowadzenie znaku, którym zostanie usunięty - vim-surround |
 

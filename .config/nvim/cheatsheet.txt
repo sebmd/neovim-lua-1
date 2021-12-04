@@ -1,0 +1,3 @@
+Instalacja pluginów                    | :PI
+Aktualizacja pluginów                  | :PS
+Dodanie i wysłanie do repozytorium Git | :GP

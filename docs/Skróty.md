@@ -21,7 +21,7 @@
 | `qq`         | wyjście z edytora `:q`                                                                 |
 | `<leaader>,` | przechodzi do poprzedniego bufora                                                      |
 | `<leaader>.` | przechodzi do następnego bufora                                                        |
-| `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi bbuforami                                |
+| `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi buforami                                |
 | `<leader>vs` | dzieli okno pionowo                                                                    |
 | `<leader>sp` | dzieli okno poziomo                                                                    |
 | `<leader>o`  | ustawia bieżące okno na cały ekran                                                     |
@@ -37,7 +37,7 @@
 | `Y`          | Kopiuje od kursora do końca linii                                                      |
 | `ya`         | Kopiuje cały plik                                                                      |
 | `yh`         | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii             |
-| `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap' |
+| `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 'textwidth' znaków 'gqap' |
 | `alt-j`      | Przenosi linię w dół                                                                   |
 | `alt-k`      | Przenosi linię w górę                                                                  |
 | `+`          | zwiększa liczbę o jeden                                                                |
@@ -79,8 +79,8 @@
 
 | skrót    | opis                                         |
 | -------- | -------------------------------------------- |
-| `ctrl-k` | porusza kurosrem jedną linię w dół           |
-| `ctrl-j` | porusza kurosrem jedną linię w górę          |
+| `ctrl-k` | porusza kursorem jedną linię w dół           |
+| `ctrl-j` | porusza kursorem jedną linię w górę          |
 | `ctrl-h` | poruszanie się kursorem o jeden znak w lewo  |
 | `ctrl-l` | poruszanie się kursorem o jeden znak w prawo |
 
@@ -114,12 +114,12 @@
 | `<leader>ed` | otwiera plik `$NOTES_DIR/done.md`                                      |
 | `<leader>en` | otwiera plik `$NOTES_DIR/notatki.md`                                   |
 | `<leader>ej` | otwiera plik `$NOTES_DIR/diary/YYYY-MM-DD.md` - funkcja `:DiaryNotes`  |
-| `<leader>ee` | wyszukuje notatek w katalogu `$NOTES_DIR` - funcja `search_notes_dir`  |
+| `<leader>ee` | wyszukuje notatek w katalogu `$NOTES_DIR` - funkcja `search_notes_dir`  |
 | `<leader>er` | przeszukuje notatki w katalogu `$NOTES_DIR` - funkcja `grep_notes_dir` |
 
-## Przełączanie schematów kolorstycznych
+## Przełączanie schematów kolorystycznych
 
-| skrót      | ops                                                |
+| skrót      | opis                                               |
 | ---------- | -------------------------------------------------- |
 | `F8`       | następny schemat kolorystyczny                     |
 | `shift-F8` | poprzedni schemat kolorystyczny                    |
@@ -186,13 +186,13 @@ Skróty klawiszowe dostępne w oknie projektów
 
 | skrót      | opis                                                       |
 | ---------- | ---------------------------------------------------------- |
-| `<ctrl-d>` | usuwa pojekt pod kursorem                                  |
+| `<ctrl-d>` | usuwa projekt pod kursorem                                 |
 | `<ctrl-v>` | zmienia nazwę projektu pod kursorem                        |
 | `<ctrl-a>` | tworzy projekt                                             |
 | `<ctrl-s>` | przeszukuje pliki (grep) w projekcie pod kursorem          |
 | `<ctrl-b>` | wyszukuje pliki w projekcie pod kursorem                   |
-| `<ctrl-w>` | zmienia katalog na wybrany projekt bez otwieerania go      |
-| `<ctrl-r>` | wyszukuje ostatnio otwarte pliki w projektcie pod kursorem |
+| `<ctrl-w>` | zmienia katalog na wybrany projekt bez otwierania go       |
+| `<ctrl-r>` | wyszukuje ostatnio otwarte pliki w projekcie pod kursorem  |
 | `<ctrl-f>` | wyszukuje pliki w projekcie pod kursorem bez podkatalogów  |
 
 ## Neuron.nvim
@@ -201,7 +201,7 @@ Skróty klawiszowe dostępne w oknie projektów
 | ----- | ------------------------------------------------------ |
 | `gzn` | nowa notatka                                           |
 | `gzz` | wyszukiwanie notatek                                   |
-| `gzZ` | wstawia id znlezionej notatki                          |
+| `gzZ` | wstawia id znalezionej notatki                         |
 | `gzb` | znajduje odnośniki do bieżącej notatki                 |
 | `gzB` | wstawia id znalezionego odnośnika do bieżącej notatki  |
 | `gzt` | wyszukuje wszystkie tagi i jest wstawia                |

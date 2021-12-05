@@ -1,9 +1,67 @@
-Instalacja pluginów                                     | :PI
-Aktualizacja pluginów                                   | :PS
-Dodanie i wysłanie do repozytorium Git                  | :GP
-Wyświetlenie daty i godziny                             | :Time
-Zmiana katalogu na podstawie pliku $HOME/.config/bmproj | :CD
-Edytuje pliku $HOME/.config/bmproj                      | :CDEdit
-Edycja dzisiejszej notatki w katalogu $NOTES_DIR        | :DiaryNotes
-Wywołanie funkcji UpdateVimrc                           | :UpdateVimrc
-Pokazuje wersję konfiguracji Neovim (np. init.lua 2.1)  | :VimrcVersion
+Otwiera menadżer plików w wybranym katalogu, zawartym w pliku $HOME/.config/bmproj  | :CD
+Włącza edycję pliku $HOME/.config/bmproj                                            | :CDEdit
+edycja dzisiejszej notatki w katalogu $NOTES_DIR                                    | :DiaryNotes	
+Uruchamia skrypt dodający zmiany do repozytorium git                                | :GA
+Uruchamia skrypt git add, git commit, git push                                      | :GP
+Uruchamia program w Golang za pomocą komendy :GoRun                                 | :GR
+Wstawia nagłówek 1 stopnia oraz bieżącą datę i godzina                              | :InsertDiaryHeader
+Instalacja pluginów                                                                 | :PI
+Aktualizacja pluginów                                                               | :PS
+Odwraca kolor tła jasny / ciemny                                                    | :RevBackground
+Wykonuje polecenie :source %                                                        | :S
+Pokazuje datę i godzinę                                                             | :Time
+Wywołuje funkcję UpdateVimrc                                                        | :UpdateVimrc
+Pokazuje wersję konfiguracji Neovim (np. init.lua 2.1)                              | :VimrcVersion
+Zapisuje zmiany pliku                                                               | :Write
+Klawisz LEADER                                                                      | <space>
+Wejście do trybu COMMAND                                                            | <leader>;
+Zmapowane jako gj - poruszanie się po zawiniętej linii                              | j
+Zmapowane jako gk - poruszanie się po zawiniętej linii                              | k
+Przemapowuje zn jako zm - zamyka zagnieżdżenia                                      | zn
+Przemapowuje zm jako zn - otwiera zagnieżdżenia                                     | zm
+Przechodzi na początek linii                                                        | gh
+Przechodzi na koniec linii                                                          | gl
+Usuwa wszystko od kursora do początku linii                                         | dh
+Usuwa wszystko od kursora do końca linii                                            | dl
+Usuwa od kursora do pierwszego wystąpienia znaku spacji                             | d<spacja>
+Zapisuje plik                                                                       | <leader>w
+Zapisuje i zamyka edytor                                                            | <leader>x
+Zamyka edytor                                                                       | <leader>q
+Wyjście z edytora :q                                                                | qq
+Przejście do poprzedniego bufora                                                    | <leaader>,
+Przejście do następnego bufora                                                      | <leaader>.
+Porusza się pomiędzy dwoma ostatnio używanymi buforami                              | <tab>
+Dzieli okno pionowo                                                                 | <leader>vs
+Dzieli okno poziomo                                                                 | <leader>sp	
+Ustawia bieżące okno na cały ekran                                                  | <leader>o
+Usuwa bufor :bdelete                                                                | <leader>d
+Otwiera / zamyka menadżer plików NvimTree lub CHADtree                              | <leader>n
+Zaznacza cały plik                                                                  | <leader>sa
+Zapisuje sesję                                                                      | <leader>ss
+Odtwarza zapisaną sesję                                                             | <leader>sl
+Otwiera Undotree                                                                    | <leader>u
+Otwiera plik konfiguracyjny $MYVIMRC                                                | <leader>v
+Przeładowuje plik konfiguracyjny Lua $MYVIMRC                                       | <leader>sv
+Wyłącza podświetlanie szukanego słowa :nohl                                         | ESC
+Kopiuje od kursora do końca linii                                                   | Y
+Kopiuje cały plik                                                                   | ya
+Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii          | yh
+Wyrównanie paragrafu =ip dodatkowo zawija tekst na długośc textwidth znaków gqap    | <leader>a
+Przenosi linię w dół                                                                | alt-j
+Przenosi linię w górę                                                               | alt-k
+Zwiększa liczbę o jeden                                                             | +
+Zmniejsza liczbę o jeden                                                            | -
+Telescope find_files                                                                | <leader>p
+Telescope registers                                                                 | <leader>r
+Telescope live_grep                                                                 | <leader>g
+Lista otwartych buforów Telescope buffers                                           | <leader>b
+Telescope help_tags                                                                 | <leader>j
+Telescope file_browser                                                              | <leader>f
+Telescope spell_suggest                                                             | <leader>s
+Telescope git_status                                                                | <leader>i
+Telescope tags                                                                      | <leader>t
+Telescope project                                                                   | <leader>P
+Wyszukuje plików w git/github/dotfiles                                              | <leader>zz
+Wyszukuje plików w ~/.config/nvim/                                                  | <leader>zn
+Uruchamia tryb ZenMode                                                              | <leader>ze
+Uruchamia podręcznej pomocy :Cheatsheet                                             | <leader>?

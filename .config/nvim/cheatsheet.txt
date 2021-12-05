@@ -1,3 +1,7 @@
-Instalacja pluginów                    | :PI
-Aktualizacja pluginów                  | :PS
-Dodanie i wysłanie do repozytorium Git | :GP
+Instalacja pluginów                                 | :PI
+Aktualizacja pluginów                               | :PS
+Dodanie i wysłanie do repozytorium Git              | :GP
+Wyświetlenie daty i godziny                         | :Time
+Zmiana katalogu na podstawie pliku bmproj           | :CD
+Edytuje pliku $HOME/.config/bmproj                  | :CDEdit
+Edycja dzisiejszej notatki w katalogu $NOTES_DIR    | :DiaryNotes

@@ -46,7 +46,7 @@ Wyłącza podświetlanie szukanego słowa :nohl                                 
 Kopiuje od kursora do końca linii                                                           | Y
 Kopiuje cały plik                                                                           | ya
 Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii                  | yh
-Wyrównanie paragrafu =ip dodatkowo zawija tekst na długośc textwidth znaków gqap            | <leader>a
+Wyrównanie paragrafu =ip dodatkowo zawija tekst na długość textwidth znaków gqap            | <leader>a
 Przenosi linię w dół                                                                        | alt-j
 Przenosi linię w górę                                                                       | alt-k
 Zwiększa liczbę o jeden                                                                     | +
@@ -93,7 +93,7 @@ Notatki: otwiera plik $NOTES_DIR/index.md                                       
 Notatki: otwiera plik $NOTES_DIR/done.md                                                    | <leader>ed
 Notatki: otwiera plik $NOTES_DIR/notatki.md                                                 | <leader>en
 Notatki: otwiera plik $NOTES_DIR/diary/YYYY-MM-DD.md - funkcja :DiaryNotes                  | <leader>ej
-Notatki: wyszukuje notatek w katalogu $NOTES_DIR - funcja search_notes_dir                  | <leader>ee
+Notatki: wyszukuje notatek w katalogu $NOTES_DIR - funkcja search_notes_dir                 | <leader>ee
 Notatki: przeszukuje notatki w katalogu $NOTES_DIR - funkcja grep_notes_dir                 | <leader>er
 Następny schemat kolorystyczny                                                              | F8
 Poprzedni schemat kolorystyczny                                                             | Shift-F8
@@ -141,8 +141,8 @@ Telescope project: zmienia nazwę projektu pod kursorem                         
 Telescope project: tworzy projekt                                                           | <ctrl-a>
 Telescope project: przeszukuje pliki (grep) w projekcie pod kursorem                        | <ctrl-s>
 Telescope project: wyszukuje pliki w projekcie pod kursorem                                 | <ctrl-b>
-Telescope project: zmienia katalog na wybrany projekt bez otwieerania go                    | <ctrl-w>
-Telescope project: wyszukuje ostatnio otwarte pliki w projektcie pod kursorem               | <ctrl-r>
+Telescope project: zmienia katalog na wybrany projekt bez otwierania go                     | <ctrl-w>
+Telescope project: wyszukuje ostatnio otwarte pliki w projekcie pod kursorem                | <ctrl-r>
 Telescope project: wyszukuje pliki w projekcie pod kursorem bez podkatalogów                | <ctrl-f>
 Neuron: nowa notatka                                                                        | gzn
 Neuron: wyszukiwanie notatek                                                                | gzz

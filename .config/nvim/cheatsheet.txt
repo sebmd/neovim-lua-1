@@ -1,67 +1,155 @@
-Otwiera menadżer plików w wybranym katalogu, zawartym w pliku $HOME/.config/bmproj  | :CD
-Włącza edycję pliku $HOME/.config/bmproj                                            | :CDEdit
-edycja dzisiejszej notatki w katalogu $NOTES_DIR                                    | :DiaryNotes	
-Uruchamia skrypt dodający zmiany do repozytorium git                                | :GA
-Uruchamia skrypt git add, git commit, git push                                      | :GP
-Uruchamia program w Golang za pomocą komendy :GoRun                                 | :GR
-Wstawia nagłówek 1 stopnia oraz bieżącą datę i godzina                              | :InsertDiaryHeader
-Instalacja pluginów                                                                 | :PI
-Aktualizacja pluginów                                                               | :PS
-Odwraca kolor tła jasny / ciemny                                                    | :RevBackground
-Wykonuje polecenie :source %                                                        | :S
-Pokazuje datę i godzinę                                                             | :Time
-Wywołuje funkcję UpdateVimrc                                                        | :UpdateVimrc
-Pokazuje wersję konfiguracji Neovim (np. init.lua 2.1)                              | :VimrcVersion
-Zapisuje zmiany pliku                                                               | :Write
-Klawisz LEADER                                                                      | <space>
-Wejście do trybu COMMAND                                                            | <leader>;
-Zmapowane jako gj - poruszanie się po zawiniętej linii                              | j
-Zmapowane jako gk - poruszanie się po zawiniętej linii                              | k
-Przemapowuje zn jako zm - zamyka zagnieżdżenia                                      | zn
-Przemapowuje zm jako zn - otwiera zagnieżdżenia                                     | zm
-Przechodzi na początek linii                                                        | gh
-Przechodzi na koniec linii                                                          | gl
-Usuwa wszystko od kursora do początku linii                                         | dh
-Usuwa wszystko od kursora do końca linii                                            | dl
-Usuwa od kursora do pierwszego wystąpienia znaku spacji                             | d<spacja>
-Zapisuje plik                                                                       | <leader>w
-Zapisuje i zamyka edytor                                                            | <leader>x
-Zamyka edytor                                                                       | <leader>q
-Wyjście z edytora :q                                                                | qq
-Przejście do poprzedniego bufora                                                    | <leaader>,
-Przejście do następnego bufora                                                      | <leaader>.
-Porusza się pomiędzy dwoma ostatnio używanymi buforami                              | <tab>
-Dzieli okno pionowo                                                                 | <leader>vs
-Dzieli okno poziomo                                                                 | <leader>sp	
-Ustawia bieżące okno na cały ekran                                                  | <leader>o
-Usuwa bufor :bdelete                                                                | <leader>d
-Otwiera / zamyka menadżer plików NvimTree lub CHADtree                              | <leader>n
-Zaznacza cały plik                                                                  | <leader>sa
-Zapisuje sesję                                                                      | <leader>ss
-Odtwarza zapisaną sesję                                                             | <leader>sl
-Otwiera Undotree                                                                    | <leader>u
-Otwiera plik konfiguracyjny $MYVIMRC                                                | <leader>v
-Przeładowuje plik konfiguracyjny Lua $MYVIMRC                                       | <leader>sv
-Wyłącza podświetlanie szukanego słowa :nohl                                         | ESC
-Kopiuje od kursora do końca linii                                                   | Y
-Kopiuje cały plik                                                                   | ya
-Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii          | yh
-Wyrównanie paragrafu =ip dodatkowo zawija tekst na długośc textwidth znaków gqap    | <leader>a
-Przenosi linię w dół                                                                | alt-j
-Przenosi linię w górę                                                               | alt-k
-Zwiększa liczbę o jeden                                                             | +
-Zmniejsza liczbę o jeden                                                            | -
-Telescope find_files                                                                | <leader>p
-Telescope registers                                                                 | <leader>r
-Telescope live_grep                                                                 | <leader>g
-Lista otwartych buforów Telescope buffers                                           | <leader>b
-Telescope help_tags                                                                 | <leader>j
-Telescope file_browser                                                              | <leader>f
-Telescope spell_suggest                                                             | <leader>s
-Telescope git_status                                                                | <leader>i
-Telescope tags                                                                      | <leader>t
-Telescope project                                                                   | <leader>P
-Wyszukuje plików w git/github/dotfiles                                              | <leader>zz
-Wyszukuje plików w ~/.config/nvim/                                                  | <leader>zn
-Uruchamia tryb ZenMode                                                              | <leader>ze
-Uruchamia podręcznej pomocy :Cheatsheet                                             | <leader>?
+Otwiera menadżer plików w wybranym katalogu, zawartym w pliku $HOME/.config/bmproj          | :CD
+Włącza edycję pliku $HOME/.config/bmproj                                                    | :CDEdit
+edycja dzisiejszej notatki w katalogu $NOTES_DIR                                            | :DiaryNotes	
+Uruchamia skrypt dodający zmiany do repozytorium git                                        | :GA
+Uruchamia skrypt git add, git commit, git push                                              | :GP
+Uruchamia program w Golang za pomocą komendy :GoRun                                         | :GR
+Wstawia nagłówek 1 stopnia oraz bieżącą datę i godzina                                      | :InsertDiaryHeader
+Instalacja pluginów                                                                         | :PI
+Aktualizacja pluginów                                                                       | :PS
+Odwraca kolor tła jasny / ciemny                                                            | :RevBackground
+Wykonuje polecenie :source %                                                                | :S
+Pokazuje datę i godzinę                                                                     | :Time
+Wywołuje funkcję UpdateVimrc                                                                | :UpdateVimrc
+Pokazuje wersję konfiguracji Neovim (np. init.lua 2.1)                                      | :VimrcVersion
+Zapisuje zmiany pliku                                                                       | :Write
+Klawisz LEADER                                                                              | <space>
+Wejście do trybu COMMAND                                                                    | <leader>;
+Zmapowane jako gj - poruszanie się po zawiniętej linii                                      | j
+Zmapowane jako gk - poruszanie się po zawiniętej linii                                      | k
+Przemapowuje zn jako zm - zamyka zagnieżdżenia                                              | zn
+Przemapowuje zm jako zn - otwiera zagnieżdżenia                                             | zm
+Przechodzi na początek linii                                                                | gh
+Przechodzi na koniec linii                                                                  | gl
+Usuwa wszystko od kursora do początku linii                                                 | dh
+Usuwa wszystko od kursora do końca linii                                                    | dl
+Usuwa od kursora do pierwszego wystąpienia znaku spacji                                     | d<spacja>
+Zapisuje plik                                                                               | <leader>w
+Zapisuje i zamyka edytor                                                                    | <leader>x
+Zamyka edytor                                                                               | <leader>q
+Wyjście z edytora :q                                                                        | qq
+Przejście do poprzedniego bufora                                                            | <leaader>,
+Przejście do następnego bufora                                                              | <leaader>.
+Porusza się pomiędzy dwoma ostatnio używanymi buforami                                      | <tab>
+Dzieli okno pionowo                                                                         | <leader>vs
+Dzieli okno poziomo                                                                         | <leader>sp	
+Ustawia bieżące okno na cały ekran                                                          | <leader>o
+Usuwa bufor :bdelete                                                                        | <leader>d
+Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                      | <leader>n
+Zaznacza cały plik                                                                          | <leader>sa
+Zapisuje sesję                                                                              | <leader>ss
+Odtwarza zapisaną sesję                                                                     | <leader>sl
+Otwiera Undotree                                                                            | <leader>u
+Otwiera plik konfiguracyjny $MYVIMRC                                                        | <leader>v
+Przeładowuje plik konfiguracyjny Lua $MYVIMRC                                               | <leader>sv
+Wyłącza podświetlanie szukanego słowa :nohl                                                 | ESC
+Kopiuje od kursora do końca linii                                                           | Y
+Kopiuje cały plik                                                                           | ya
+Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii                  | yh
+Wyrównanie paragrafu =ip dodatkowo zawija tekst na długośc textwidth znaków gqap            | <leader>a
+Przenosi linię w dół                                                                        | alt-j
+Przenosi linię w górę                                                                       | alt-k
+Zwiększa liczbę o jeden                                                                     | +
+Zmniejsza liczbę o jeden                                                                    | -
+Telescope find_files                                                                        | <leader>p
+Telescope registers                                                                         | <leader>r
+Telescope live_grep                                                                         | <leader>g
+Lista otwartych buforów Telescope buffers                                                   | <leader>b
+Telescope help_tags                                                                         | <leader>j
+Telescope file_browser                                                                      | <leader>f
+Telescope spell_suggest                                                                     | <leader>s
+Telescope git_status                                                                        | <leader>i
+Telescope tags                                                                              | <leader>t
+Telescope project                                                                           | <leader>P
+Wyszukuje plików w git/github/dotfiles                                                      | <leader>zz
+Wyszukuje plików w ~/.config/nvim/                                                          | <leader>zn
+Uruchamia tryb ZenMode                                                                      | <leader>ze
+Uruchamia podręcznej pomocy :Cheatsheet                                                     | <leader>?
+Przechodzi do okna po lewej stronie                                                         | ctrl-h
+Przechodzi do okna po prawej stronie                                                        | ctrl-l
+przechodzi do okna poniżej                                                                  | ctrl-j
+przechodzi do okna powyżej                                                                  | ctrl-k
+zwiększa rozmiar okna w poziomie                                                            | alt-j
+zmniejsza rozmiar okna w poziomie                                                           | alt-k
+zmniejsza rozmiar okna w pionie                                                             | alt-h
+zwiększa rozmiar okna w pionie                                                              | alt-l
+porusza kursorem jedną linię w dół                                                          | ctrl-k
+porusza kursorem jedną linię w górę                                                         | ctrl-j
+poruszanie się kursorem o jeden znak w lewo                                                 | ctrl-h
+poruszanie się kursorem o jeden znak w prawo                                                | ctrl-l
+historia komend - następna komenda                                                          | ctrl-j
+historia komend - wcześniejsza komenda                                                      | ctrl-k
+poruszanie się kursorem o jeden znak w lewo                                                 | ctrl-h
+poruszanie się kursorem o jeden znak w prawo                                                | ctrl-l
+Przechodzi do następnego szukanego wyrażenia, przydatne przy użyciu polecenia :helpgrep     | <ctrl-n>
+Przechodzi do poprzedniego szukanego wyrażenia, przydatne przy użyciu polecenia :helpgrep   | <ctrl-p>
+Pomoc: przechodzi do linku pod kursorem                                                     | <leader>l
+Pomoc: wraca do poprzedniego miejsca                                                        | <leader>h
+Pomoc: wychodzi z pomocy                                                                    | q
+Notatki: przenosi linię lub zaznaczenie do $NOTES_DIR/index.md                              | <leader>si
+Notatki: przenosi linię lub zaznaczenie do $NOTES_DIR/done.md                               | <leader>sd
+Notatki: przenosi linię lub zaznaczenie do $NOTES_DIR/notatki.md                            | <leader>sn
+Notatki: otwiera plik $NOTES_DIR/index.md                                                   | <leader>ei
+Notatki: otwiera plik $NOTES_DIR/done.md                                                    | <leader>ed
+Notatki: otwiera plik $NOTES_DIR/notatki.md                                                 | <leader>en
+Notatki: otwiera plik $NOTES_DIR/diary/YYYY-MM-DD.md - funkcja :DiaryNotes                  | <leader>ej
+Notatki: wyszukuje notatek w katalogu $NOTES_DIR - funcja search_notes_dir                  | <leader>ee
+Notatki: przeszukuje notatki w katalogu $NOTES_DIR - funkcja grep_notes_dir                 | <leader>er
+Następny schemat kolorystyczny                                                              | F8
+Poprzedni schemat kolorystyczny                                                             | Shift-F8
+Wybiera przypadkowy schemat kolorystyczny                                                   | ctrl-F8
+Wyklucza schemat kolorystyczny z listy                                                      | F9
+Wyświetla nazwę bieżącego schematu kolorystycznego                                          | Shift-F9
+Przechodzi do następnej zmiany jeśli plik znajduje się w repozytorium git                   | <ctrl-n>
+Przechodzi do poprzedniej zmiany jeśli plik znajduje się w repozytorium git                 | <ctrl-p>
+Przechodzi do następnej zmiany jeśli plik znajduje się w repozytorium git                   | gj
+Przechodzi do poprzedniej zmiany jeśli plik znajduje się w repozytorium git                 | gk
+vim-surround: czeka na wprowadzenie znaku, którym otoczy wyraz                              | <leader>sw
+vim-surround: czeka na wprowadzenie znaku, którym otoczy WYRAZ                              | <leader>sW
+vim-surround: czeka na wprowadzenie znaku, który otoczy paragraf                            | <leader>ssp
+vim-surround: czeka na wprowadzenie znaku, którym otoczy linię                              | <leader>ss
+vim-surround: czeka na wprowadzenie znaku, którym zostanie usunięty                         | <leader>sdd
+CHADtree: zamyka okno                                                                       | q
+CHADtree: otwiera plik / katalog pod znajdujący się pod kursorem                            | <enter>
+CHADtree: zmniejsza szerokość okna                                                          | -
+CHADtree: zwiększa szerokość okna                                                           | =
+CHADtree: odświeża okno                                                                     | <ctrl-r>
+CHADtree: zmienia katalog na znajdujący się pod kursorem                                    | b
+CHADtree: ustawia widoczność na katalog pod kursorem                                        | c
+CHADtree: ustawia widoczność na katalog nadrzędny                                           | C
+CHADtree: otwiera plik pod kursorem w podziale pionowym                                     | w
+CHADtree: otwiera plik pod kursorem w podziale poziomym                                     | W
+CHADtree: otwiera plik pod kursorem w programie przypisanym dla tego typu plików            | o
+CHADtree: otwiera / zamyka drzewo katalogów                                                 | <tab>
+CHADtree: przechodzi do pliku w CHADtree obecnie edytowanego                                | J
+CHADtree: wyświetla informacje o pliku pod kursorem                                         | K
+CHADtree: kopiuje pełną ścieżkę pliku pod kursorem do schowka systemowego                   | y
+CHADtree: kopiuje nazwę pliku pod kursorem do schowka systemowego                           | Y
+CHADtree: filtrowanie plików po nazwie np. *.md                                             | f
+CHADtree: resetuje filtrowanie plików                                                       | F
+CHADtree: zaznacza plik lub zaznaczone pliki w trybie VISUAL                                | s
+CHADtree: resetuje zaznaczenie                                                              | S
+CHADtree: tworzy nowy plik lub katalog jeśli na końcu dodamy znak /                         | a
+CHADtree: zmienia nazwę pliku lub katalogu                                                  | r
+CHADtree: kopiuje zaznaczone pliki do lokalizacji pod kursorem                              | p
+CHADtree: przenosi zaznaczone pliki do lokalizacji pod kursorem                             | x
+CHADtree: usuwa zaznaczone pliki                                                            | d
+CHADtree: przenosi plik do kosza, wymaga programu trash-cli                                 | t
+CHADtree: pokazuje lub chowa ukryte pliki .                                                 | .
+Telescope project: usuwa projekt pod kursorem                                               | <ctrl-d>
+Telescope project: zmienia nazwę projektu pod kursorem                                      | <ctrl-v>
+Telescope project: tworzy projekt                                                           | <ctrl-a>
+Telescope project: przeszukuje pliki (grep) w projekcie pod kursorem                        | <ctrl-s>
+Telescope project: wyszukuje pliki w projekcie pod kursorem                                 | <ctrl-b>
+Telescope project: zmienia katalog na wybrany projekt bez otwieerania go                    | <ctrl-w>
+Telescope project: wyszukuje ostatnio otwarte pliki w projektcie pod kursorem               | <ctrl-r>
+Telescope project: wyszukuje pliki w projekcie pod kursorem bez podkatalogów                | <ctrl-f>
+Neuron: nowa notatka                                                                        | gzn
+Neuron: wyszukiwanie notatek                                                                | gzz
+Neuron: wstawia id znalezionej notatki                                                      | gzZ
+Neuron: znajduje odnośniki do bieżącej notatki                                              | gzb
+Neuron: wstawia id znalezionego odnośnika do bieżącej notatki                               | gzB
+Neuron: wyszukuje wszystkie tagi i jest wstawia                                             | gzt
+Neuron: uruchamia serwer WWW pod adresem http://127.0.0.1:8200                              | gzs
+Neuron: przechodzi do następnego linku                                                      | gz]
+Neuron: przechodzi do poprzedniego linku                                                    | gz[

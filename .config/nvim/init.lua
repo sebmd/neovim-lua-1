@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-04 09:07:50
+-- Aktualizacja 2021-12-04 09:22:21
 vimrc_version = "init.lua: 2.1"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1698,23 +1698,33 @@ g.mapleader = " "
 -- wejście do trybu COMMAND
 map("n", "<leader>;", ":", { silent = false })
 
--- Uruchomienie podręczniej pomocy Shift + F1
--- map("n", "<f13>", "<cmd>Cheatsheet<cr>")
-
 -- Uruchomienie podręczniej pomocy LEADER ?
 map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
+
+-- Zapisanie pliku
+map("n", "<leader>w", "<cmd>Write<cr>")
+
+-- Zapisanie i wyjście
+map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
+
+-- Wyjście
+map("n", "<leader>q", "<cmd>q<cr>")
+
+-- wyjście bez zapisania
+map("n", "qq", ":q<cr>")
 
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
 map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
 map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
 map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
 
+-- poruszanie się w trybie COMMAND
 map("c", "<c-j>", "<down>")
 map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
--- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
+-- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
 map("i", "<c-h>", "<left>")
 map("i", "<c-j>", "<down>")
 map("i", "<c-k>", "<up>")
@@ -1743,9 +1753,6 @@ map("n", "<m-l>", "<cmd>vertical resize +2<cr>")
 -- podział okna pionowy i poziomy
 map("n", "<leader>vs", "<cmd>vs<cr>")
 map("n", "<leader>sp", "<cmd>sp<cr>")
-
--- wyjście bez zapisania
-map("n", "qq", ":q<cr>")
 
 -- poruszanie się w długiej zawiniętej linii
 map("n", "j", "gj")
@@ -1855,9 +1862,9 @@ map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 map("n", "zn", "zm")
 map("n", "zm", "zn")
 
+-- przejście na początek / koniec linii
 map("n", "gh", "0")
 map("n", "gl", "$")
-
 map("v", "gh", "0")
 map("v", "gl", "$")
 
@@ -1865,11 +1872,21 @@ map("v", "gl", "$")
 map("n", "dh", "xd0")
 map("n", "dl", "d$")
 
+-- usuwa od kursora do pierwszej spacji
 map("n", "d<space>", "df<space>")
 
+-- poprzedni / następny bufor
 map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
 
+-- Tab to switch buffers in Normal mode
+-- map("n", "<Tab>", "<cmd>bnext<CR>")
+-- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
+
+-- przechodzi pomiędzy dwoma ostatimi buforami
+map("n", "<Tab>", "<cmd>e #<CR>")
+
+-- usuwa bufor
 map("n", "<leader>d", "<cmd>bdelete<cr>")
 
 -- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
@@ -1906,20 +1923,6 @@ map("n", "<leader>sa", "ggVG<c-$>")
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
-
--- Zapisanie pliku
-map("n", "<leader>w", "<cmd>Write<cr>")
-
--- Zapisanie i wyjście
-map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
-
--- Wyjście
-map("n", "<leader>q", "<cmd>q<cr>")
-
--- Tab to switch buffers in Normal mode
--- map("n", "<Tab>", "<cmd>bnext<CR>")
--- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
-map("n", "<Tab>", "<cmd>e #<CR>")
 
 -- Mapowanie znaczników (undo) w trybie INSERT po wprowadzeniu jednego ze znaków , . ! ? ; :
 map("i", ",", ",<c-g>u")
@@ -2009,8 +2012,12 @@ map("n", "<leader>P", ":Telescope project<cr>")
 -- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
 -- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
 
+-- wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
+
+-- wyszukiwanie plików w ~/.config/nvim
 map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")
 
+-- uruchamia tryb ZenMode
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 -- mapowanie klawiszy }}}

@@ -26,7 +26,7 @@
 | `<leader>sp` | dzieli okno poziomo                                                                    |
 | `<leader>o`  | ustawia bieżące okno na cały ekran                                                     |
 | `<leader>d`  | usuwa bufor `:bdelete`                                                                 |
-| `<leader>n`  | otwiera / zamyka menadżer plików CHADtree                                              |
+| `<leader>n`  | otwiera / zamyka menadżer plików NvimTree lub CHADtree                                              |
 | `<leader>sa` | zaznacza cały plik                                                                     |
 | `<leader>ss` | zapisuje sesję                                                                         |
 | `<leader>sl` | odtwarza zapisaną sesję                                                                |

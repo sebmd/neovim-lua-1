@@ -4,26 +4,24 @@
 
 | skrót        | opis                                                                                   |
 | ------------ | -------------------------------------------------------------------------------------- |
-| `<spacja>`   | klawisz **LEADER**                                                                     |
-| `<leader>;`  | wejście do trybu **COMMAND**                                                           |
-| `j`          | zmapowane jako `gj` - poruszanie się po zawiniętej linii                               |
-| `k`          | zmapowane jako `gk` - poruszanie się po zawiniętej linii                               |
-| `zn`         | przemapowuje `zn` jako `zm` - zamyka zagnieżdżenia                                     |
-| `zm`         | przemapowuje `zm` jako `zn` - otwiera zagnieżdżenia                                    |
-| `gh`         | przechodzi na początek linii                                                           |
-| `gl`         | przechodzi na koniec linii                                                             |
-| `dh`         | usuwa wszystko od kursora do początku linii                                            |
-| `dl`         | usuwa wszystko od kursora do końca linii                                               |
-| `d<spacja>`  | usuwa od kursora do pierwszego wystąpienia znaku spacji                                |
-| `<leader>w`  | zapisuje plik                                                                          |
-| `<leader>x`  | zapisuje i zamyka edytor                                                               |
-| `<leader>q`  | zamyka edytor                                                                          |
-| `qq`         | wyjście z edytora `:q`                                                                 |
-| `<leader>n`  | otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
-| `<leader>sa` | zaznacza cały plik                                                                     |
-| `<leader>ss` | zapisuje sesję                                                                         |
-| `<leader>sl` | odtwarza zapisaną sesję                                                                |
-| `<leader>u`  | Otwiera Undotree                                                                       |
+| `<spacja>`   | Klawisz **LEADER**                                                                     |
+| `<leader>;`  | Wejście do trybu **COMMAND**                                                           |
+| `j`          | Zmapowane jako `gj` - poruszanie się po zawiniętej linii                               |
+| `k`          | Zmapowane jako `gk` - poruszanie się po zawiniętej linii                               |
+| `zn`         | Przemapowuje `zn` jako `zm` - zamyka zagnieżdżenia                                     |
+| `zm`         | Przemapowuje `zm` jako `zn` - otwiera zagnieżdżenia                                    |
+| `gh`         | Przechodzi na początek linii                                                           |
+| `gl`         | Przechodzi na koniec linii                                                             |
+| `dh`         | Usuwa wszystko od kursora do początku linii                                            |
+| `dl`         | Usuwa wszystko od kursora do końca linii                                               |
+| `d<spacja>`  | Usuwa od kursora do pierwszego wystąpienia znaku spacji                                |
+| `<leader>w`  | Zapisuje plik - uruchamia funkcję Write()                                              |
+| `<leader>x`  | Zapisuje i zamyka edytor                                                               |
+| `<leader>q`  | Zamyka edytor `:q`                                                                     |
+| `qq`         | Zamyka edytor `:q`                                                                     |
+| `<leader>n`  | Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
+| `<leader>sa` | Zaznacza cały plik                                                                     |
+| `<leader>u`  | Otwiera okno zmian Undotree                                                            |
 | `<leader>v`  | Otwiera plik konfiguracyjny `$MYVIMRC`                                                 |
 | `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |
 | `ESC`        | Wyłącza podświetlanie szukanego słowa `:nohl`                                          |
@@ -31,10 +29,8 @@
 | `ya`         | Kopiuje cały plik                                                                      |
 | `yh`         | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii             |
 | `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 'textwidth' znaków 'gqap' |
-| `alt-j`      | Przenosi linię w dół                                                                   |
-| `alt-k`      | Przenosi linię w górę                                                                  |
-| `+`          | zwiększa liczbę o jeden                                                                |
-| `-`          | zmniejsza liczbę o jeden                                                               |
+| `+`          | Zwiększa liczbę o jeden                                                                |
+| `-`          | Zmniejsza liczbę o jeden                                                               |
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
@@ -42,18 +38,18 @@
 
 ## Telescope
 
-| skrót        | opis                                           |
-| ------------ | ---------------------------------------------- |
-| `<leader>p`  | Telescope find_files                           |
-| `<leader>r`  | Telescope registers - lista rejestrów          |
-| `<leader>g`  | Telescope live_grep                            |
-| `<leader>b`  | `Telescope buffers` - lista otwartych buforów  |
-| `<leader>j`  | Telescope help_tags                            |
-| `<leader>f`  | Telescope file_browser                         |
-| `<leader>s`  | Telescope spell_suggest                        |
-| `<leader>i`  | Telescope git_status                           |
-| `<leader>t`  | Telescope tags                                 |
-| `<leader>P`  | Telescope project                              |
+| skrót        | opis                                              |
+| ------------ | ------------------------------------------------- |
+| `<leader>p`  | `Telescope find_files`                            |
+| `<leader>r`  | `Telescope registers` - lista rejestrów           |
+| `<leader>g`  | `Telescope live_grep`                             |
+| `<leader>b`  | `Telescope buffers` - lista otwartych buforów     |
+| `<leader>j`  | `Telescope help_tags`                             |
+| `<leader>f`  | `Telescope file_browser`                          |
+| `<leader>s`  | `Telescope spell_suggest`                         |
+| `<leader>i`  | `Telescope git_status` - lista plików ze zmianami |
+| `<leader>t`  | `Telescope tags`                                  |
+| `<leader>P`  | `Telescope project`                               |
 
 ## Bufory
 

@@ -1,5 +1,5 @@
 -- Aktualizacja 2021-12-04 09:22:21
-vimrc_version = "init.lua: 2.1"
+vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- {{{ pluginy

@@ -19,14 +19,7 @@
 | `<leader>x`  | zapisuje i zamyka edytor                                                               |
 | `<leader>q`  | zamyka edytor                                                                          |
 | `qq`         | wyjście z edytora `:q`                                                                 |
-| `<leaader>,` | przechodzi do poprzedniego bufora                                                      |
-| `<leaader>.` | przechodzi do następnego bufora                                                        |
-| `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi buforami                                |
-| `<leader>vs` | dzieli okno pionowo                                                                    |
-| `<leader>sp` | dzieli okno poziomo                                                                    |
-| `<leader>o`  | ustawia bieżące okno na cały ekran                                                     |
-| `<leader>d`  | usuwa bufor `:bdelete`                                                                 |
-| `<leader>n`  | otwiera / zamyka menadżer plików NvimTree lub CHADtree                                              |
+| `<leader>n`  | otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
 | `<leader>sa` | zaznacza cały plik                                                                     |
 | `<leader>ss` | zapisuje sesję                                                                         |
 | `<leader>sl` | odtwarza zapisaną sesję                                                                |
@@ -42,38 +35,50 @@
 | `alt-k`      | Przenosi linię w górę                                                                  |
 | `+`          | zwiększa liczbę o jeden                                                                |
 | `-`          | zmniejsza liczbę o jeden                                                               |
-| `<leader>p`  | Telescope find_files                                                                   |
-| `<leader>r`  | Telescope registers                                                                    |
-| `<leader>g`  | Telescope live_grep                                                                    |
-| `<leader>b`  | lista otwartych buforów `Telescope buffers`                                            |
-| `<leader>j`  | Telescope help_tags                                                                    |
-| `<leader>f`  | Telescope file_browser                                                                 |
-| `<leader>s`  | Telescope spell_suggest                                                                |
-| `<leader>i`  | Telescope git_status                                                                   |
-| `<leader>t`  | Telescope tags                                                                         |
-| `<leader>P`  | Telescope project                                                                      |
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
 
-## Poruszanie się pomiędzy oknami
+## Telescope
 
-| skrót    | opis                                 |
-| -------- | ------------------------------------ |
-| `ctrl-h` | przechodzi do okna po lewej stronie  |
-| `ctrl-l` | przechodzi do okna po prawej stronie |
-| `ctrl-j` | przechodzi do okna poniżej           |
-| `ctrl-k` | przechodzi do okna powyżej           |
+| skrót        | opis                                           |
+| ------------ | ---------------------------------------------- |
+| `<leader>p`  | Telescope find_files                           |
+| `<leader>r`  | Telescope registers - lista rejestrów          |
+| `<leader>g`  | Telescope live_grep                            |
+| `<leader>b`  | `Telescope buffers` - lista otwartych buforów  |
+| `<leader>j`  | Telescope help_tags                            |
+| `<leader>f`  | Telescope file_browser                         |
+| `<leader>s`  | Telescope spell_suggest                        |
+| `<leader>i`  | Telescope git_status                           |
+| `<leader>t`  | Telescope tags                                 |
+| `<leader>P`  | Telescope project                              |
 
-## Zmiana rozmiaru okna
+## Bufory
 
-| skrót   | opis                              |
-| ------- | --------------------------------- |
-| `alt-j` | zwiększa rozmiar okna w poziomie  |
-| `alt-k` | zmniejsza rozmiar okna w poziomie |
-| `alt-h` | zmniejsza rozmiar okna w pionie   |
-| `alt-l` | zwiększa rozmiar okna w pionie    |
+| skrót        | opis                                                   |
+| ------------ | ------------------------------------------------------ |
+| `<leaader>,` | przechodzi do poprzedniego bufora                      |
+| `<leaader>.` | przechodzi do następnego bufora                        |
+| `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi buforami |
+| `<leader>d`  | usuwa bufor `:bdelete`                                 |
+
+## Okna
+
+| skrót        | opis                                 |
+| ------------ | ------------------------------------ |
+| `<leader>vs` | dzieli okno pionowo                  |
+| `<leader>sp` | dzieli okno poziomo                  |
+| `<leader>o`  | ustawia bieżące okno na cały ekran   |
+| `ctrl-h`     | przechodzi do okna po lewej stronie  |
+| `ctrl-l`     | przechodzi do okna po prawej stronie |
+| `ctrl-j`     | przechodzi do okna poniżej           |
+| `ctrl-k`     | przechodzi do okna powyżej           |
+| `alt-j`      | zwiększa rozmiar okna w poziomie     |
+| `alt-k`      | zmniejsza rozmiar okna w poziomie    |
+| `alt-h`      | zmniejsza rozmiar okna w pionie      |
+| `alt-l`      | zwiększa rozmiar okna w pionie       |
 
 ## Skróty klawiszowe tryb INSERT
 
@@ -114,7 +119,7 @@
 | `<leader>ed` | otwiera plik `$NOTES_DIR/done.md`                                      |
 | `<leader>en` | otwiera plik `$NOTES_DIR/notatki.md`                                   |
 | `<leader>ej` | otwiera plik `$NOTES_DIR/diary/YYYY-MM-DD.md` - funkcja `:DiaryNotes`  |
-| `<leader>ee` | wyszukuje notatek w katalogu `$NOTES_DIR` - funkcja `search_notes_dir`  |
+| `<leader>ee` | wyszukuje notatek w katalogu `$NOTES_DIR` - funkcja `search_notes_dir` |
 | `<leader>er` | przeszukuje notatki w katalogu `$NOTES_DIR` - funkcja `grep_notes_dir` |
 
 ## Przełączanie schematów kolorystycznych
@@ -150,38 +155,41 @@
 
 - https://github.com/kyazdani42/nvim-tree.lua#keybindings
 
-### Default actions
+| skrót         | opis                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------ |
+| `<cr>` / `o`  | Przechodzi do katalogu wyżej jeśli naciśniemy skrót na `..`                          |
+| `<cr>` / `o`  | Rozwija / zwija zawartość katalogu                                                   |
+| `<cr>` / `o`  | Otwiera plik pod kursorem                                                            |
+| `<C-]>`       | Wchodzi do katalogu pod kursorem                                                     |
+| `-`           | Przechodzi do katalogu wyżej                                                         |
+| `<BS>`        | Zamyka otwarty katalog                                                               |
+| `a`           | Dodaje nowy plik jeśli zakończymy nazwę znakiem `/` to zostanie utworzony katalog    |
+| `r`           | Zmienia nazwę pliku lub katalogu                                                     |
+| `<C-r>`       | Zmienia nazwę pliku lub katalogu nie podpowiadając jego obecnej nazwy                |
+| `x`           | Zaznacza / odznacza plik lub katalog do wycięcia                                     |
+| `c`           | Zaznacza / odznacza plik lub katalog do skopiowania                                  |
+| `y`           | Kopiuje nazwę pliku pod kursorem do schowka systemowego                              |
+| `Y`           | Kopiuje relatywną ścieżkę do schowka systemowego                                     |
+| `gy`          | Kopiuje pełną ścieżkę pliku do schowka systemowego                                   |
+| `p`           | Wkleja wcześniej zaznaczony plik do skopiowania lub wycięcia                         |
+| `d`           | Usuwa plik - wymaga potwierdzenia                                                    |
+| `D`           | Przenosi plik do kosza - wymaga dodatkowej konfiguracji                              |
+| `]c`          | Przechodzi do kolejnego pliku w repozytorium git, który w jakiś sposób go zmienił    |
+| `[c`          | Przechodzi do poprzedniego pliku w repozytorium git, który w jakiś sposób go zmienił |
+| `s`           | Otwiera plik za pomocą standardowego programu skojarzonego z typem pliku             |
+| `<C-v>`       | Otwiera plik w podziale pionowym                                                     |
+| `<C-x>`       | Otwiera plik w podziale poziomym                                                     |
+| `<C-t>`       | Otwiera plik w nowej zakładce                                                        |
+| `<Tab>`       | Otwiera plik jako podgląd pozostając w menadżerze plików                             |
+| `I`           | Chowa / pokazuje ukryte pliki i katalogi                                             |
+| `H`           | Chowa / pokazuje pliki konfiguracyjne zaczynające się od znaku `.`                   |
+| `R`           | Odświeża listę plików                                                                |
 
-- `<CR>` or `o` on `..` will cd in the above directory
-- `<C-]>` will cd in the directory under the cursor
-- `<BS>` will close current opened directory or parent
-- type `a` to add a file. Adding a directory requires leaving a leading `/` at the end of the path.
-  > you can add multiple directories by doing foo/bar/baz/f and it will add foo bar and baz directories and f as a file
-- type `r` to rename a file
-- type `<C-r>` to rename a file and omit the filename on input
-- type `x` to add/remove file/directory to cut clipboard
-- type `c` to add/remove file/directory to copy clipboard
-- type `y` will copy name to system clipboard
-- type `Y` will copy relative path to system clipboard
-- type `gy` will copy absolute path to system clipboard
-- type `p` to paste from clipboard. Cut clipboard has precedence over copy (will prompt for confirmation)
-- type `d` to delete a file (will prompt for confirmation)
-- type `D` to trash a file (configured in setup())
-- type `]c` to go to next git item
-- type `[c` to go to prev git item
-- type `-` to navigate up to the parent directory of the current file/directory
-- type `s` to open a file with default system application or a folder with default file manager (if you want to change the command used to do it see `:h nvim-tree.setup` under `system_open`)
-- if the file is a directory, `<CR>` will open the directory otherwise it will open the file in the buffer near the tree
-- if the file is a symlink, `<CR>` will follow the symlink (if the target is a file)
-- `<C-v>` will open the file in a vertical split
-- `<C-x>` will open the file in a horizontal split
-- `<C-t>` will open the file in a new tab
-- `<Tab>` will open the file as a preview (keeps the cursor in the tree)
-- `I` will toggle visibility of hidden folders / files
-- `H` will toggle visibility of dotfiles (files/folders starting with a `.`)
-- `R` will refresh the tree
-- Double left click acts like `<CR>`
-- Double right click acts like `<C-]>`
+Za pomocą skrótu `a` możemy dodawać kilka plików lub katalogów jednocześnie np. `foo/bar/baz/f`
+utworzy katalog `foo/bar/baz/` a w nim plik `f`
+
+- Lewy klawisz myszki zachowuj się jak skrót `<cr>`
+- Prawy klawisz myszki zachowuje się jak skrót `<C-]>`
 
 ## Skróty klawiszowe CHADtree
 

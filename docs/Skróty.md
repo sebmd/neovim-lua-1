@@ -138,13 +138,13 @@
 
 ## Plugin vim-surround
 
-| skrót         | opis                                                                 |
-| ------------- | -------------------------------------------------------------------- |
-| `<leader>sw`  | czeka na wprowadzenie znaku, którym otoczy wyraz - vim-surround      |
-| `<leader>sW`  | czeka na wprowadzenie znaku, którym otoczy WYRAZ - vim-surround      |
-| `<leader>ssp` | czeka na wprowadzenie znaku, który otoczy paragraf - vim-surround    |
-| `<leader>ss`  | czeka na wprowadzenie znaku, którym otoczy linię - vim-surround      |
-| `<leader>sdd` | czeka na wprowadzenie znaku, którym zostanie usunięty - vim-surround |
+| skrót         | opis                                                  |
+| ------------- | ----------------------------------------------------- |
+| `<leader>sw`  | czeka na wprowadzenie znaku, którym otoczy wyraz      |
+| `<leader>sW`  | czeka na wprowadzenie znaku, którym otoczy WYRAZ      |
+| `<leader>ssp` | czeka na wprowadzenie znaku, który otoczy paragraf    |
+| `<leader>ss`  | czeka na wprowadzenie znaku, którym otoczy linię      |
+| `<leader>sdd` | czeka na wprowadzenie znaku, którym zostanie usunięty |
 
 ## Skróty klawiszowe nvim-tree.lua
 

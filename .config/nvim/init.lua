@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-07 21:11:09
+-- Aktualizacja 2021-12-07 21:58:54
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -199,7 +199,6 @@ opt.completeopt = { "menuone", "noselect" }
 -- se completeopt=menuone,longest,noselect
 -- se completeopt=menuone,noinsert,noselect
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
-opt.expandtab = true -- Use spaces instead of tabs
 opt.foldcolumn = "1"
 opt.foldmethod = "marker"
 -- opt.foldmethod = "manual" -- folding, set to "expr" for treesitter based folding
@@ -210,19 +209,22 @@ opt.whichwrap:append("<,>,h,l")
 opt.formatoptions = "l"
 opt.hidden = true -- required to keep multiple buffers and open multiple buffers
 opt.hlsearch = true -- Highlight found searches
-opt.ignorecase = true -- Ignore case
+opt.ignorecase = true -- ignoruje wielkość znaków
 opt.inccommand = "split" -- Get a preview of replacements
 opt.incsearch = true -- Shows the match while typing
 opt.joinspaces = false -- No double spaces with join
 opt.linebreak = true -- Stop words being broken on wrap
 opt.list = true -- Show some invisible characters
-opt.number = true -- Show line numbers
-opt.relativenumber = false -- set relative numbered lines
-opt.numberwidth = 5 -- Make the gutter wider by default
+opt.number = true -- wyświetlanie numerów linii
+opt.relativenumber = false -- wyświetlanie relatywnych numerów linii
+opt.numberwidth = 5 -- ustawia szerokość kolumny numerowania linii
 opt.scrolloff = 4 -- Lines of context
 opt.sidescrolloff = 8 -- Columns of context
+opt.tabstop = 4 -- number of visual spaces per TAB
+opt.softtabstop = 4 -- number of spaces in tab when editing
+opt.shiftwidth = 4 -- number of spaces to use for autoindent
+opt.expandtab = true -- expand tab to spaces so that tabs are spaces
 opt.shiftround = true -- Round indent
-opt.shiftwidth = 4 -- Size of an indent
 opt.showmode = false -- Don't display mode
 opt.signcolumn = "yes:1" -- always show signcolumns
 opt.smartcase = true -- Do not ignore case with capitals
@@ -230,11 +232,10 @@ opt.smartindent = true -- Insert indents automatically
 opt.spelllang = "pl"
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
-opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
 opt.updatetime = 300 -- don't give |ins-completion-menu| messages.
-opt.lazyredraw = true -- lz - szybciej wykonuje makra
-opt.wrap = false -- display lines as one long line
+opt.lazyredraw = true -- szybciej wykonuje makra
+opt.wrap = false -- zawijanie linii
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 -- opt.wildmode = "list:longest,full"

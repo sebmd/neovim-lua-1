@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-04 09:22:21
+-- Aktualizacja 2021-12-07 21:11:09
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -175,17 +175,17 @@ end
 -- aliasy }}}
 -- {{{ ustawienia ·
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 500 -- czas w milisekundach na wprowadzenie skrótu klawiszowego, ma znaczenie przy sekwencjach np. <leader>sW
 opt.showtabline = 1 -- 0 nie pokazuje; 1 pokazuje jeśli są karty (tab), 2 zawsze pokazuje górną belkę
-opt.conceallevel = 0 -- so that `` is visible in markdown files
-opt.textwidth = 100
+opt.conceallevel = 0 -- sprawia, że znaki `` są widzialne w plikach Markdown
+opt.textwidth = 100 -- szerokość linii
 opt.colorcolumn = "+1"
-opt.cursorline = true -- highlight the current line
+opt.cursorline = true -- wyróżnia bieżącą linię
 opt.title = true -- set the title of window to the value of the titlestring
 opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 opt.pumheight = 10 -- pop up menu height
 opt.autoread = true
-opt.swapfile = false -- creates a swapfile
+opt.swapfile = false -- tworzenie pliku swap
 opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 opt.spell = false
 opt.autochdir = true
@@ -194,7 +194,7 @@ opt.writebackup = false -- if a file is being edited by another program (or was 
 opt.fileencoding = "utf-8" -- the encoding written to a file
 opt.fileformat = "unix"
 opt.backspace = { "indent", "eol", "start" }
-opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+opt.clipboard = "unnamedplus" -- dostęp do schowka systemowego
 opt.completeopt = { "menuone", "noselect" }
 -- se completeopt=menuone,longest,noselect
 -- se completeopt=menuone,noinsert,noselect
@@ -264,9 +264,9 @@ g.netrw_liststyle = 3 -- Tree style Netrw
 
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
 
--- podgreśla słowo na którym znajduje się kursor
+-- podkreśla słowo na którym znajduje się kursor
 g.cursorword_highlight = true
--- podświetla bieżącą linię po 1000ms puszczeniu klawisza
+-- podświetla bieżącą linię po 1000ms od puszczeniu klawisza
 g.cursorline_timeout = 1000
 
 -- Colourscheme config
@@ -1879,15 +1879,15 @@ map("n", "d<space>", "df<space>")
 map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
 
--- Tab to switch buffers in Normal mode
--- map("n", "<Tab>", "<cmd>bnext<CR>")
--- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
-
 -- przechodzi pomiędzy dwoma ostatimi buforami
 map("n", "<Tab>", "<cmd>e #<CR>")
 
 -- usuwa bufor
 map("n", "<leader>d", "<cmd>bdelete<cr>")
+
+-- Tab to switch buffers in Normal mode
+-- map("n", "<Tab>", "<cmd>bnext<CR>")
+-- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 
 -- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
 -- map("n", "<leader>d", "\"-d")
@@ -1906,20 +1906,17 @@ map("n", "<leader>v", "<cmd>e $MYVIMRC<cr>")
 -- Source nvimrc file
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
 
--- Quick new file
+-- Otwiera nowy plik do edycji
 -- map("n", "<Leader>n", "<cmd>enew<cr>")
-
--- Menadżer plików NvimTree
--- map("n", "<Leader>n", "<cmd>NvimTreeToggle<cr>")
-
--- Menadzęr plików CHADtree
--- map("n", "<leader>n", "<cmd>CHADopen<cr>")
 
 -- Mendadżer plików NvimTree
 map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
 
--- Easy select all of file
-map("n", "<leader>sa", "ggVG<c-$>")
+-- Menadzęr plików CHADtree
+-- map("n", "<leader>n", "<cmd>CHADopen<cr>")
+
+-- Zaznacza cały plik, dodatkowo tworzy znacznik na bieżącej pozycji, `z wraca na miejsce znacznika
+map("n", "<leader>sa", "mzggVG<c-$>")
 
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
@@ -1932,7 +1929,11 @@ map("i", "?", "?<c-g>u")
 map("i", ";", ";<c-g>u")
 map("i", ":", ":<c-g>u")
 
--- Keep search results centred
+-- `mm` - tworzy znacznik; `mM` - wraca na miejsce znacznika
+map("n", "mm", "mm") -- tego oczywiście nie trzeba dodatkowo mapować
+map("n", "mM", "`m")
+
+-- Przechodzi do kolejnej / poprzedniej szukanej pozycji, dodatkowo wyśrodkowuje ekran i otwiera zagnieżdżenia
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
@@ -2020,4 +2021,4 @@ map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")
 
 -- uruchamia tryb ZenMode
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")
--- mapowanie klawiszy }}}
+-- mapowanie klawiszy }}

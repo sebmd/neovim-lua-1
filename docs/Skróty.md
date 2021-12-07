@@ -108,9 +108,9 @@
 
 | skrót        | opis                                                                   |
 | ------------ | ---------------------------------------------------------------------- |
-| `<leader>si` | przenosi linię lub zaznaczenie do $NOTES_DIR/index.md                  |
-| `<leader>sd` | przenosi linię lub zaznaczenie do $NOTES_DIR/done.md                   |
-| `<leader>sn` | przenosi linię lub zaznaczenie do $NOTES_DIR/notatki.md                |
+| `<leader>si` | przenosi linię lub zaznaczenie do `$NOTES_DIR/index.md`                |
+| `<leader>sd` | przenosi linię lub zaznaczenie do `$NOTES_DIR/done.md`                 |
+| `<leader>sn` | przenosi linię lub zaznaczenie do `$NOTES_DIR/notatki.md`              |
 | `<leader>ei` | otwiera plik `$NOTES_DIR/index.md`                                     |
 | `<leader>ed` | otwiera plik `$NOTES_DIR/done.md`                                      |
 | `<leader>en` | otwiera plik `$NOTES_DIR/notatki.md`                                   |
@@ -130,12 +130,10 @@
 
 ## Plugin gitsigns
 
-| skrót      | opis                                                                        |
-| ---------- | --------------------------------------------------------------------------- |
-| `<ctrl-n>` | przechodzi do następnej zmiany jeśli plik znajduje się w repozytorium git   |
-| `<ctrl-p>` | przechodzi do poprzedniej zmiany jeśli plik znajduje się w repozytorium git |
-| `gj`       | przechodzi do następnej zmiany jeśli plik znajduje się w repozytorium git   |
-| `gk`       | przechodzi do poprzedniej zmiany jeśli plik znajduje się w repozytorium git |
+| skrót             | opis                                                                        |
+| ----------------- | --------------------------------------------------------------------------- |
+| `<ctrl-n>` / `gj` | przechodzi do następnej zmiany jeśli plik znajduje się w repozytorium git   |
+| `<ctrl-p>` / `gp` | przechodzi do poprzedniej zmiany jeśli plik znajduje się w repozytorium git |
 
 ## Plugin vim-surround
 

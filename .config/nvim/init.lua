@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-07 22:54:58
+-- Aktualizacja 2021-12-07 23:49:16
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -763,7 +763,7 @@ vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :
 vim.g.dashboard_custom_section = {
   a = {
     description = { "  Find File              'f'" },
-    command = "Telescope find_files",
+    command = "lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})"
   },
   b = {
     description = { "  Recent Projects        'p'" },
@@ -797,7 +797,7 @@ vim.g.dashboard_custom_section = {
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 api.nvim_exec(
   [[
-    autocmd FileType dashboard nnoremap <silent> <buffer> f :Telescope find_files<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> f :lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>
@@ -1992,10 +1992,16 @@ map(
 map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map(
+--[[ map(
   "n",
   "<leader>f",
   '<cmd>lua require("telescope.builtin").file_browser(require("telescope.themes").get_dropdown({}))<cr>'
+) ]]
+map(
+  "n",
+  "<leader>f",
+  "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>",
+  default_opts
 )
 map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 map(

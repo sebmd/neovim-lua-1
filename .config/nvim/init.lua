@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-07 23:49:16
+-- Aktualizacja 2021-12-08 00:17:44
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -246,6 +246,7 @@ opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
 opt.showbreak = "↪"
+opt.fillchars:append { eob = " " } -- usuwa znak ~ na końcu bufora
 opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
 opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
 opt.viewdir = "$HOME/.local/share/nvim/view"

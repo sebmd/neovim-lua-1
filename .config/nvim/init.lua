@@ -1794,8 +1794,8 @@ map("n", "<f21>", ":colo<cr>") -- shift f9
 -- map("n", "<leader>sl", "<cmd>RestoreSession<cr>")
 
 -- Dashboard
--- map("n", "<leader>ss", ":<C-u>SessionSave<CR>")
--- map("n", "<leader>sl", ":<C-u>SessionLoad<CR>")
+map("n", "<f2>", ":<C-u>SessionSave<CR>")
+map("n", "<f3>", ":<C-u>SessionLoad<CR>")
 
 -- przeniesienie bieżącej linii do pliku
 map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")

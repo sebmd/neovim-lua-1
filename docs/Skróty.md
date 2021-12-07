@@ -76,6 +76,15 @@
 | `alt-h`      | zmniejsza rozmiar okna w pionie      |
 | `alt-l`      | zwiększa rozmiar okna w pionie       |
 
+## Sesje
+
+Obsługa sesji za pomocą pluginu Dashboard
+
+| skrót | opis              |
+| ----- | ----------------- |
+| `F2`  | Zapisanie sesji   |
+| `F3`  | Odtworzenie sesji |
+
 ## Skróty klawiszowe tryb INSERT
 
 | skrót    | opis                                         |

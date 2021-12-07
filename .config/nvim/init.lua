@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-07 21:58:54
+-- Aktualizacja 2021-12-07 22:54:58
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1403,6 +1403,7 @@ require("telescope").setup({
       "--line-number",
       "--column",
       "--smart-case",
+      "--follow",
     },
     prompt_prefix = " ❯ ",
     initial_mode = "insert",

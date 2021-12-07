@@ -7,6 +7,8 @@ PLIK=${SKRYPT##*/}
 # katalog skryptu
 KATALOG=${SKRYPT%$PLIK}
 
+DATA=$(date +%F-%T|tr : -)
+
 NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua
 
 mkdir -p $HOME/bin
@@ -26,7 +28,13 @@ git clone --depth 1 https://github.com/sainnhe/everforest \
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua
+
+if [ ! -f $HOME/.config/nvim/init.lua ]; then
+    ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua
+else
+    cp ~/.config/nvim/init.lua ~/.config/nvim/init-$DATA.lua
+fi
+
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
 ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs

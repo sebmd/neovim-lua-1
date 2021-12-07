@@ -27,10 +27,15 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua
-ln -sf $NEOVIM_LUA_DIR/.config/vars ~/.config/vars
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
 ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs
+
+if [ ! -f $HOME/.config/vars ]; then
+    ln -sf $NEOVIM_LUA_DIR/.config/vars ~/.config/vars
+else
+    echo "Plik $HOME/.config/vars już istnieje. Nie zostanie utworzone dowiązanie"
+fi
 
 ln -sf $NEOVIM_LUA_DIR/bin/gp.sh ~/bin/gp.sh
 ln -sf $NEOVIM_LUA_DIR/bin/ga.sh ~/bin/ga.sh

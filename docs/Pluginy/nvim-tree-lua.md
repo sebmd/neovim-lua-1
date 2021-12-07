@@ -16,32 +16,40 @@ use {
 
 ## Skróty klawiszowe
 
-- `<CR>` lub `o` na `..` przechodzi do katalogu wyżej
-- `<CR>` otwiera katalog lub plik
-- `<CR>` jeśli plik jest dowiązaniem symbolicznym przechodzi do właściwego pliku
-- `<C-]>` przechodzi do katalogu pod kursorem
-- `<BS>` zamyka katalog
-- `a` tworzy nowy plik lub katalog, katalog tworzymy przez dodanie `/` na końcu. Można tworzyć całe drzewo katalogów np. qwerty/asdf/foo/bar.txt
-- `r` zmiana nazwy pliku
-- `<C-r>` zmiana nazwy pliku nie uzupełnia oryginalnej nazwy pliku
-- `x` dodaje / usuwa plik lub katalog jako wycinany
-- `c` dodaje / usuwa plik lub katalog jako kopiowany
-- `y` kopiuje nazwę pliku do schowka systemowego
-- `Y` kopiuje relatywną ścieżkę do schowka systemowego
-- `gy` kopiuje pełną ścieżkę pliku do schowka systemowego
-- `p` wkleja plik
-- `d` usuwa plik, wymaga potwierdzenia
-- `D` przenosi plik do kosza, wymaga dodatkowej konfiguracji
-- `]c` przechodzi do następnego elementu repozytorium git np. zmodyfikowanego pliku
-- `[c` przechodzi do wcześniejszego elementu repozytorium git np. zmodyfikowanego pliku
-- `-` to navigate up to the parent directory of the current file/directory
-- `s` to open a file with default system application or a folder with default file manager (if you want to change the command used to do it see :h nvim-tree.setup under system_open)
-- `<C-v>` otwiera plik w podziale pionowym
-- `<C-x>` otwiera plik w podziale poziomym
-- `<C-t>` otwiera plik w nowej zakładce
-- `<Tab>` otwiera plik, ale pozostaje w NvimTree co na wzór szybkiego podglądu
-- `I` will toggle visibility of hidden folders / files
-- `H` pokazuje / ukrywa plik zaczynające się od `.`, np. `.vimrc`, lub katalog `.config`
-- `R` odświeża listę plików
-- Double left click acts like `<CR>`
-- Double right click acts like `<C-]>`
+- https://github.com/kyazdani42/nvim-tree.lua#keybindings
+
+| skrót        | opis                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `<cr>` / `o` | Przechodzi do katalogu wyżej jeśli naciśniemy skrót na `..`                          |
+| `<cr>` / `o` | Rozwija / zwija zawartość katalogu                                                   |
+| `<cr>` / `o` | Otwiera plik pod kursorem                                                            |
+| `<C-]>`      | Wchodzi do katalogu pod kursorem                                                     |
+| `-`          | Przechodzi do katalogu wyżej                                                         |
+| `<BS>`       | Zamyka otwarty katalog                                                               |
+| `a`          | Dodaje nowy plik jeśli zakończymy nazwę znakiem `/` to zostanie utworzony katalog    |
+| `r`          | Zmienia nazwę pliku lub katalogu                                                     |
+| `<C-r>`      | Zmienia nazwę pliku lub katalogu nie podpowiadając jego obecnej nazwy                |
+| `x`          | Zaznacza / odznacza plik lub katalog do wycięcia                                     |
+| `c`          | Zaznacza / odznacza plik lub katalog do skopiowania                                  |
+| `y`          | Kopiuje nazwę pliku pod kursorem do schowka systemowego                              |
+| `Y`          | Kopiuje relatywną ścieżkę do schowka systemowego                                     |
+| `gy`         | Kopiuje pełną ścieżkę pliku do schowka systemowego                                   |
+| `p`          | Wkleja wcześniej zaznaczony plik do skopiowania lub wycięcia                         |
+| `d`          | Usuwa plik - wymaga potwierdzenia                                                    |
+| `D`          | Przenosi plik do kosza - wymaga dodatkowej konfiguracji                              |
+| `]c`         | Przechodzi do kolejnego pliku w repozytorium git, który w jakiś sposób go zmienił    |
+| `[c`         | Przechodzi do poprzedniego pliku w repozytorium git, który w jakiś sposób go zmienił |
+| `s`          | Otwiera plik za pomocą standardowego programu skojarzonego z typem pliku             |
+| `<C-v>`      | Otwiera plik w podziale pionowym                                                     |
+| `<C-x>`      | Otwiera plik w podziale poziomym                                                     |
+| `<C-t>`      | Otwiera plik w nowej zakładce                                                        |
+| `<Tab>`      | Otwiera plik jako podgląd pozostając w menadżerze plików                             |
+| `I`          | Chowa / pokazuje ukryte pliki i katalogi                                             |
+| `H`          | Chowa / pokazuje pliki konfiguracyjne zaczynające się od znaku `.`                   |
+| `R`          | Odświeża listę plików                                                                |
+
+Za pomocą skrótu `a` możemy dodawać kilka plików lub katalogów jednocześnie np. `foo/bar/baz/f`
+utworzy katalog `foo/bar/baz/` a w nim plik `f`
+
+- Lewy klawisz myszki zachowuj się jak skrót `<cr>`
+- Prawy klawisz myszki zachowuje się jak skrót `<C-]>`

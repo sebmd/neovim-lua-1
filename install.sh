@@ -32,7 +32,9 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 if [ ! -f $HOME/.config/nvim/init.lua ]; then
     ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua
 else
+    echo "Plik ~/.config/nvim/init.lua już istnieje."
     cp ~/.config/nvim/init.lua ~/.config/nvim/init-$DATA.lua
+    echo "Skopiowałem obecną konfigurację Neovim (init.lua) do pliku ~/.config/nvim/init-$DATA.lua"
 fi
 
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
@@ -42,7 +44,9 @@ ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs
 if [ ! -f $HOME/.config/vars ]; then
     ln -sf $NEOVIM_LUA_DIR/.config/vars ~/.config/vars
 else
-    echo "Plik $HOME/.config/vars już istnieje. Nie zostanie utworzone dowiązanie"
+    echo "Plik $HOME/.config/vars już istnieje.
+    cp ~/.config/vars ~/.config/vars-$DATA
+    echo "Skopiowałem obecną konfigurację do pliku ~/.config/vars-$DATA"
 fi
 
 ln -sf $NEOVIM_LUA_DIR/bin/gp.sh ~/bin/gp.sh

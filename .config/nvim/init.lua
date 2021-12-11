@@ -474,6 +474,7 @@ search_nvim_dotfiles = function()
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
     find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' },
+    file_ignore_patterns = { "spell/" },
   })
 end
 

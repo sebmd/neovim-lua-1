@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-11 08:32:41
+-- Aktualizacja 2021-12-11 12:44:23
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -464,6 +464,7 @@ search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< dot.files >",
     cwd = "$HOME/git/github/dotfiles/",
+    find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' },
   })
 end
 
@@ -472,7 +473,7 @@ search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
-    file_ignore_patterns = { "spell/" },
+    find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' },
   })
 end
 

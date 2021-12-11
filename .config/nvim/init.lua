@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-11 12:44:23
+-- Aktualizacja 2021-12-11 13:15:17
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -175,35 +175,31 @@ end
 -- aliasy }}}
 -- {{{ ustawienia ·
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-opt.timeoutlen = 500 -- czas w milisekundach na wprowadzenie skrótu klawiszowego, ma znaczenie przy sekwencjach np. <leader>sW
 opt.showtabline = 1 -- 0 nie pokazuje; 1 pokazuje jeśli są karty (tab), 2 zawsze pokazuje górną belkę
 opt.conceallevel = 0 -- sprawia, że znaki `` są widzialne w plikach Markdown
 opt.textwidth = 100 -- szerokość linii
 opt.colorcolumn = "+1"
 opt.cursorline = true -- wyróżnia bieżącą linię
-opt.title = true -- set the title of window to the value of the titlestring
-opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
-opt.pumheight = 10 -- pop up menu height
-opt.autoread = true
-opt.swapfile = false -- tworzenie pliku swap
-opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
-opt.spell = false
-opt.autochdir = true
-opt.backup = false -- creates a backup file
-opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.fileencoding = "utf-8" -- the encoding written to a file
 opt.fileformat = "unix"
-opt.backspace = { "indent", "eol", "start" }
-opt.clipboard = "unnamedplus" -- dostęp do schowka systemowego
-opt.completeopt = { "menuone", "noselect" }
--- se completeopt=menuone,longest,noselect
--- se completeopt=menuone,noinsert,noselect
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.foldcolumn = "1"
 opt.foldmethod = "marker"
 -- opt.foldmethod = "manual" -- folding, set to "expr" for treesitter based folding
 -- opt.foldmethod = "indent"
 -- opt.foldenable = false
+opt.title = true -- set the title of window to the value of the titlestring
+opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
+opt.pumheight = 10 -- pop up menu height
+opt.autoread = true
+opt.autochdir = true
+opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
+opt.spell = false
+opt.backspace = { "indent", "eol", "start" }
+opt.clipboard = "unnamedplus" -- dostęp do schowka systemowego
+opt.completeopt = { "menuone", "noselect" }
+-- se completeopt=menuone,longest,noselect
+-- se completeopt=menuone,noinsert,noselect
 -- opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
 opt.whichwrap:append("<,>,h,l")
 opt.formatoptions = "l"
@@ -233,26 +229,30 @@ opt.spelllang = "pl"
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
+opt.timeoutlen = 500 -- czas w milisekundach na wprowadzenie skrótu klawiszowego, ma znaczenie przy sekwencjach np. <leader>sW
 opt.updatetime = 300 -- don't give |ins-completion-menu| messages.
 opt.lazyredraw = true -- szybciej wykonuje makra
 opt.wrap = false -- zawijanie linii
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 -- opt.wildmode = "list:longest,full"
+opt.swapfile = false -- tworzenie pliku swap
+opt.backup = false -- creates a backup file
+opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 -- opt.undodir = CACHE_PATH .. "/undo" -- set an undo directory
 -- opt.undodir = "$HOME/.config/nvim/undo" -- set an undo directory
 -- opt.undodir = utils.join_paths(get_cache_dir(), "undo"), -- set an undo directory
 opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
-opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
-opt.showbreak = "↪"
-opt.fillchars:append({ eob = " " }) -- usuwa znak ~ na końcu bufora
-opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
 opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
 opt.viewdir = "$HOME/.local/share/nvim/view"
 opt.directory = "~/.local/share/nvim/swap//"
 opt.path:remove("/usr/include")
 opt.path:append("**")
+opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
+opt.showbreak = "↪"
+opt.fillchars:append({ eob = " " }) -- usuwa znak ~ na końcu bufora
+opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
 opt.laststatus = 2
 opt.complete:append("kspell") -- Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 

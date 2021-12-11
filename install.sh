@@ -37,6 +37,7 @@ else
     echo "Skopiowałem obecną konfigurację Neovim (init.lua) do pliku ~/.config/nvim/init-$DATA.lua"
 fi
 
+ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua ~/.config/nvim/lua
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
 ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs

@@ -262,6 +262,12 @@ opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*"
 -- cmd('let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"')
 -- cmd('let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"')
 
+-- Pomaga używaniu aliasów BASH
+cmd('let $BASH_ENV="~/.config/aliases"')
+
+-- Ustawia powłokę systemową
+opt.shell = "/bin/bash"
+
 g.netrw_liststyle = 3 -- Tree style Netrw
 
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"

@@ -155,6 +155,7 @@ search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< dot.files >",
     cwd = "$HOME/git/github/dotfiles/",
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
   })
 end
 ```
@@ -167,6 +168,7 @@ search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
     file_ignore_patterns = { "spell/" },
   })
 end

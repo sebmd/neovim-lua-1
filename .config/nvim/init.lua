@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-08 00:17:44
+-- Aktualizacja 2021-12-11 08:32:41
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1707,6 +1707,12 @@ map("n", "<leader>;", ":", { silent = false })
 
 -- Uruchomienie podręczniej pomocy LEADER ?
 map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
+
+-- otwiera nowy plik
+map("n", "<leader>c", "<cmd>enew<cr>")
+
+-- uruchamia Dashboard
+map("n", "<leader>D", "<cmd>Dashboard<cr>")
 
 -- Zapisanie pliku
 map("n", "<leader>w", "<cmd>Write<cr>")

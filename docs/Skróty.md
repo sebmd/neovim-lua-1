@@ -18,9 +18,9 @@
 | `<leader>w`  | Zapisuje plik - uruchamia funkcję Write()                                              |
 | `<leader>x`  | Zapisuje i zamyka edytor                                                               |
 | `<leader>q`  | Zamyka edytor `:q`                                                                     |
+| `qq`         | Zamyka edytor `:q`                                                                     |
 | `<leader>D`  | Uruchamia Dashboard                                                                    |
 | `<leader>c`  | Otwiera nowy pusty plik                                                                |
-| `qq`         | Zamyka edytor `:q`                                                                     |
 | `<leader>n`  | Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
 | `<leader>sa` | Zaznacza cały plik                                                                     |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |

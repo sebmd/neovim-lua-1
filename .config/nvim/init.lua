@@ -1154,6 +1154,9 @@ map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
 map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
 map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
 
+map("n", "g;", "g;zvzz")
+map("n", "g,", "g,zvzz")
+
 -- poruszanie się w trybie COMMAND
 map("c", "<c-j>", "<down>")
 map("c", "<c-k>", "<up>")
@@ -1470,4 +1473,5 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
--- mapowanie klawiszy }}
+-- mapowanie klawiszy }}}
+require("local")

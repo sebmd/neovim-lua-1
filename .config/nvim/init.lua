@@ -246,7 +246,7 @@ opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
 opt.showbreak = "↪"
-opt.fillchars:append { eob = " " } -- usuwa znak ~ na końcu bufora
+opt.fillchars:append({ eob = " " }) -- usuwa znak ~ na końcu bufora
 opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
 opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
 opt.viewdir = "$HOME/.local/share/nvim/view"
@@ -350,6 +350,8 @@ api.nvim_exec(
 )
 cmd("au BufNewFile,BufReadPost *.gpg.md set filetype=markdown")
 cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
+
+cmd("au! BufNewFile *.md startinsert!")
 
 -- cmd("au TextYankPost * lua vim.highlight.on_yank {higroup = IncSearch, on_visual = true, timeout = 150}")
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true, timeout = 150}")
@@ -764,7 +766,7 @@ vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :
 vim.g.dashboard_custom_section = {
   a = {
     description = { "  Find File              'f'" },
-    command = "lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})"
+    command = "lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
   },
   b = {
     description = { "  Recent Projects        'p'" },

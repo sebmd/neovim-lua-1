@@ -464,7 +464,7 @@ search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< dot.files >",
     cwd = "$HOME/git/github/dotfiles/",
-    find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' },
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
   })
 end
 
@@ -473,7 +473,7 @@ search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
-    find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' },
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
     file_ignore_patterns = { "spell/" },
   })
 end
@@ -644,7 +644,7 @@ vim.g.bufferline = {
   icon_separator_inactive = "▎",
   icon_close_tab = "",
   icon_close_tab_modified = "●",
-  icon_pinned = "車",
+  icon_pinned = "📌",
 
   -- If true, new buffers will be inserted at the start/end of the list.
   -- Default is to insert after current buffer.

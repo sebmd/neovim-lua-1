@@ -2,6 +2,8 @@
 
 ## Skróty klawiszowe Tryb NORMAL
 
+Klawisz **LEADER** to **SPACJA**.
+
 | skrót        | opis                                                                                   |
 | ------------ | -------------------------------------------------------------------------------------- |
 | `<spacja>`   | Klawisz **LEADER**                                                                     |

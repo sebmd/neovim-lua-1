@@ -16,6 +16,7 @@ NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua
 mkdir -p $HOME/bin
 mkdir -p $HOME/Notes
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim/lua
 
 cat <<EOF >> $HOME/.bashrc
 [ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
@@ -43,6 +44,7 @@ ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua ~/.config/nvim/lua
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/funkcje.lua ~/.config/nvim/lua/funkcje.lua
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/komendy.lua ~/.config/nvim/lua/komendy.lua
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/mappings.lua ~/.config/nvim/lua/mappings.lua
+ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
 ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs

@@ -1,4 +1,4 @@
--- zen-mode.nvim
+-- zen-mode
 -- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
 require("zen-mode").setup({
   window = {

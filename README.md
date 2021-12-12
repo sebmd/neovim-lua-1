@@ -1,6 +1,6 @@
 # Neovim Lua
 
-![neovim lua](https://raw.githubusercontent.com/hattori-hanz0/neovim-config/main/img/neovim-lua-1.png)
+![neovim lua](https://raw.githubusercontent.com/hattori-hanz0/neovim-config/main/img/neovim-lua-3.png)
 
 ## Instalacja
 

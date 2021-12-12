@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# INFO: Skrypt instalacyjny
+
 # pełna ścieżka oraz nazwa pliku
 SKRYPT="$PWD/$(basename $0)"
 # nazwa pliku

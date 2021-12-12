@@ -201,20 +201,21 @@ ins_right({
   color = { fg = colors.green },
 })
 
-ins_right({
-  function()
-    if not vim.api.nvim_buf_get_option(0, "expandtab") then
-      return "T" .. vim.api.nvim_buf_get_option(0, "tabstop") .. " "
-    end
-    local size = vim.api.nvim_buf_get_option(0, "shiftwidth")
-    if size == 0 then
-      size = vim.api.nvim_buf_get_option(0, "tabstop")
-    end
-    return "S" .. size
-  end,
-  cond = conditions.hide_in_width,
-  color = { fg = colors.green },
-})
+-- funkcja pokazuje czy w konfiguracji mamt ustawione spacje czy taby
+-- ins_right({
+--   function()
+--     if not vim.api.nvim_buf_get_option(0, "expandtab") then
+--       return "T" .. vim.api.nvim_buf_get_option(0, "tabstop") .. " "
+--     end
+--     local size = vim.api.nvim_buf_get_option(0, "shiftwidth")
+--     if size == 0 then
+--       size = vim.api.nvim_buf_get_option(0, "tabstop")
+--     end
+--     return "S" .. size
+--   end,
+--   cond = conditions.hide_in_width,
+--   color = { fg = colors.green },
+-- })
 
 ins_right({
   "filetype",

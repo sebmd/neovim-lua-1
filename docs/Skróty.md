@@ -26,7 +26,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>n`  | Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
 | `<leader>sa` | Zaznacza cały plik                                                                     |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
-| `<leader>v`  | Otwiera plik konfiguracyjny `$MYVIMRC`                                                 |
+| `<leader>v`  | Wyszukuje plików konfiguracyjnych Neovim w katalogu `~/.config/nvim/`                  |
 | `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |
 | `ESC`        | Wyłącza podświetlanie szukanego słowa `:nohl`                                          |
 | `Y`          | Kopiuje od kursora do końca linii                                                      |
@@ -36,24 +36,23 @@ Klawisz **LEADER** to **SPACJA**.
 | `+`          | Zwiększa liczbę o jeden                                                                |
 | `-`          | Zmniejsza liczbę o jeden                                                               |
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
-| `<leader>zn` | Wyszukuje plików w `~/.config/nvim/`                                                   |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
 
 ## Telescope
 
-| skrót        | opis                                              |
-| ------------ | ------------------------------------------------- |
-| `<leader>p`  | `Telescope find_files`                            |
-| `<leader>r`  | `Telescope registers` - lista rejestrów           |
-| `<leader>g`  | `Telescope live_grep`                             |
-| `<leader>b`  | `Telescope buffers` - lista otwartych buforów     |
-| `<leader>j`  | `Telescope help_tags`                             |
-| `<leader>f`  | `Telescope file_browser`                          |
-| `<leader>s`  | `Telescope spell_suggest`                         |
-| `<leader>i`  | `Telescope git_status` - lista plików ze zmianami |
-| `<leader>t`  | `Telescope tags`                                  |
-| `<leader>P`  | `Telescope project`                               |
+| skrót       | opis                                              |
+| ----------- | ------------------------------------------------- |
+| `<leader>p` | `Telescope find_files`                            |
+| `<leader>r` | `Telescope registers` - lista rejestrów           |
+| `<leader>g` | `Telescope live_grep`                             |
+| `<leader>b` | `Telescope buffers` - lista otwartych buforów     |
+| `<leader>j` | `Telescope help_tags`                             |
+| `<leader>f` | `Telescope file_browser`                          |
+| `<leader>s` | `Telescope spell_suggest`                         |
+| `<leader>i` | `Telescope git_status` - lista plików ze zmianami |
+| `<leader>t` | `Telescope tags`                                  |
+| `<leader>P` | `Telescope project`                               |
 
 ## Bufory
 
@@ -162,35 +161,35 @@ Obsługa sesji za pomocą pluginu Dashboard
 
 - https://github.com/kyazdani42/nvim-tree.lua#keybindings
 
-| skrót         | opis                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------ |
-| `<cr>` / `o`  | Przechodzi do katalogu wyżej jeśli naciśniemy skrót na `..`                          |
-| `<cr>` / `o`  | Rozwija / zwija zawartość katalogu                                                   |
-| `<cr>` / `o`  | Otwiera plik pod kursorem                                                            |
-| `<C-]>`       | Wchodzi do katalogu pod kursorem                                                     |
-| `-`           | Przechodzi do katalogu wyżej                                                         |
-| `<BS>`        | Zamyka otwarty katalog                                                               |
-| `a`           | Dodaje nowy plik jeśli zakończymy nazwę znakiem `/` to zostanie utworzony katalog    |
-| `r`           | Zmienia nazwę pliku lub katalogu                                                     |
-| `<C-r>`       | Zmienia nazwę pliku lub katalogu nie podpowiadając jego obecnej nazwy                |
-| `x`           | Zaznacza / odznacza plik lub katalog do wycięcia                                     |
-| `c`           | Zaznacza / odznacza plik lub katalog do skopiowania                                  |
-| `y`           | Kopiuje nazwę pliku pod kursorem do schowka systemowego                              |
-| `Y`           | Kopiuje relatywną ścieżkę do schowka systemowego                                     |
-| `gy`          | Kopiuje pełną ścieżkę pliku do schowka systemowego                                   |
-| `p`           | Wkleja wcześniej zaznaczony plik do skopiowania lub wycięcia                         |
-| `d`           | Usuwa plik - wymaga potwierdzenia                                                    |
-| `D`           | Przenosi plik do kosza - wymaga dodatkowej konfiguracji                              |
-| `]c`          | Przechodzi do kolejnego pliku w repozytorium git, który w jakiś sposób go zmienił    |
-| `[c`          | Przechodzi do poprzedniego pliku w repozytorium git, który w jakiś sposób go zmienił |
-| `s`           | Otwiera plik za pomocą standardowego programu skojarzonego z typem pliku             |
-| `<C-v>`       | Otwiera plik w podziale pionowym                                                     |
-| `<C-x>`       | Otwiera plik w podziale poziomym                                                     |
-| `<C-t>`       | Otwiera plik w nowej zakładce                                                        |
-| `<Tab>`       | Otwiera plik jako podgląd pozostając w menadżerze plików                             |
-| `I`           | Chowa / pokazuje ukryte pliki i katalogi                                             |
-| `H`           | Chowa / pokazuje pliki konfiguracyjne zaczynające się od znaku `.`                   |
-| `R`           | Odświeża listę plików                                                                |
+| skrót        | opis                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `<cr>` / `o` | Przechodzi do katalogu wyżej jeśli naciśniemy skrót na `..`                          |
+| `<cr>` / `o` | Rozwija / zwija zawartość katalogu                                                   |
+| `<cr>` / `o` | Otwiera plik pod kursorem                                                            |
+| `<C-]>`      | Wchodzi do katalogu pod kursorem                                                     |
+| `-`          | Przechodzi do katalogu wyżej                                                         |
+| `<BS>`       | Zamyka otwarty katalog                                                               |
+| `a`          | Dodaje nowy plik jeśli zakończymy nazwę znakiem `/` to zostanie utworzony katalog    |
+| `r`          | Zmienia nazwę pliku lub katalogu                                                     |
+| `<C-r>`      | Zmienia nazwę pliku lub katalogu nie podpowiadając jego obecnej nazwy                |
+| `x`          | Zaznacza / odznacza plik lub katalog do wycięcia                                     |
+| `c`          | Zaznacza / odznacza plik lub katalog do skopiowania                                  |
+| `y`          | Kopiuje nazwę pliku pod kursorem do schowka systemowego                              |
+| `Y`          | Kopiuje relatywną ścieżkę do schowka systemowego                                     |
+| `gy`         | Kopiuje pełną ścieżkę pliku do schowka systemowego                                   |
+| `p`          | Wkleja wcześniej zaznaczony plik do skopiowania lub wycięcia                         |
+| `d`          | Usuwa plik - wymaga potwierdzenia                                                    |
+| `D`          | Przenosi plik do kosza - wymaga dodatkowej konfiguracji                              |
+| `]c`         | Przechodzi do kolejnego pliku w repozytorium git, który w jakiś sposób go zmienił    |
+| `[c`         | Przechodzi do poprzedniego pliku w repozytorium git, który w jakiś sposób go zmienił |
+| `s`          | Otwiera plik za pomocą standardowego programu skojarzonego z typem pliku             |
+| `<C-v>`      | Otwiera plik w podziale pionowym                                                     |
+| `<C-x>`      | Otwiera plik w podziale poziomym                                                     |
+| `<C-t>`      | Otwiera plik w nowej zakładce                                                        |
+| `<Tab>`      | Otwiera plik jako podgląd pozostając w menadżerze plików                             |
+| `I`          | Chowa / pokazuje ukryte pliki i katalogi                                             |
+| `H`          | Chowa / pokazuje pliki konfiguracyjne zaczynające się od znaku `.`                   |
+| `R`          | Odświeża listę plików                                                                |
 
 Za pomocą skrótu `a` możemy dodawać kilka plików lub katalogów jednocześnie np. `foo/bar/baz/f`
 utworzy katalog `foo/bar/baz/` a w nim plik `f`
@@ -236,16 +235,16 @@ utworzy katalog `foo/bar/baz/` a w nim plik `f`
 
 Skróty klawiszowe dostępne w oknie projektów
 
-| skrót      | opis                                                       |
-| ---------- | ---------------------------------------------------------- |
-| `<ctrl-d>` | usuwa projekt pod kursorem                                 |
-| `<ctrl-v>` | zmienia nazwę projektu pod kursorem                        |
-| `<ctrl-a>` | tworzy projekt                                             |
-| `<ctrl-s>` | przeszukuje pliki (grep) w projekcie pod kursorem          |
-| `<ctrl-b>` | wyszukuje pliki w projekcie pod kursorem                   |
-| `<ctrl-w>` | zmienia katalog na wybrany projekt bez otwierania go       |
-| `<ctrl-r>` | wyszukuje ostatnio otwarte pliki w projekcie pod kursorem  |
-| `<ctrl-f>` | wyszukuje pliki w projekcie pod kursorem bez podkatalogów  |
+| skrót      | opis                                                      |
+| ---------- | --------------------------------------------------------- |
+| `<ctrl-d>` | usuwa projekt pod kursorem                                |
+| `<ctrl-v>` | zmienia nazwę projektu pod kursorem                       |
+| `<ctrl-a>` | tworzy projekt                                            |
+| `<ctrl-s>` | przeszukuje pliki (grep) w projekcie pod kursorem         |
+| `<ctrl-b>` | wyszukuje pliki w projekcie pod kursorem                  |
+| `<ctrl-w>` | zmienia katalog na wybrany projekt bez otwierania go      |
+| `<ctrl-r>` | wyszukuje ostatnio otwarte pliki w projekcie pod kursorem |
+| `<ctrl-f>` | wyszukuje pliki w projekcie pod kursorem bez podkatalogów |
 
 ## Neuron.nvim
 

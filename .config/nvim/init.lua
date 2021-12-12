@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-11 16:04:11
+-- Aktualizacja 2021-12-12 18:03:39
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -1345,7 +1345,10 @@ map("n", "<leader>d", "<cmd>bdelete<cr>")
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
 -- Otwiera plik konfiguracyjny Neovim
-map("n", "<leader>v", "<cmd>e $MYVIMRC<cr>")
+-- map("n", "<leader>v", "<cmd>e $MYVIMRC<cr>")
+--
+-- Wyszukiwanie plików w ~/.config/nvim
+map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 
 -- Source nvimrc file
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
@@ -1465,9 +1468,6 @@ map("n", "<leader>P", ":Telescope project<cr>")
 
 -- wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
-
--- wyszukiwanie plików w ~/.config/nvim
-map("n", "<leader>zn", "<cmd>lua search_nvim_dotfiles()<cr>")
 
 -- uruchamia tryb ZenMode
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")

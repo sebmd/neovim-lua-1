@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-12 18:03:39
+-- Aktualizacja 2021-12-12 19:27:49
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
@@ -92,7 +92,7 @@ require("packer").startup(function(use)
   use("wellle/targets.vim")
 
   -- minimapa :!cargo install --locked code-minimap
-  -- { "wfxr/minimap.vim", run = "cargo install --locked code-minimap" },
+  use({ "wfxr/minimap.vim", run = "cargo install --locked code-minimap" })
 
   -- undotree
   use("mbbill/undotree")
@@ -611,14 +611,16 @@ cmd("command! VimrcVersion :lua VimrcVersion()<cr>")
 cmd("command! Write call Write()")
 -- funkcje, komendy }}}
 -- ustawienia pluginów {{{
-require("plugins/lualine")
 require("plugins/barbar")
-require("plugins/zenmode")
-require("plugins/dashboard")
-require("plugins/compe")
 require("plugins/cheatsheet")
+require("plugins/compe")
+require("plugins/dashboard")
 require("plugins/gitsigns")
 require("plugins/gnupg")
+require("plugins/indent-blankline")
+require("plugins/kommentary")
+require("plugins/lualine")
+require("plugins/zenmode")
 -- hop {{{
 --[[ require("hop").setup({
   reverse_distribution = true,
@@ -633,19 +635,6 @@ vim.cmd("hi HopNextKey guifg=#ff9900")
 vim.cmd("hi HopNextKey1 guifg=#ff9900")
 vim.cmd("hi HopNextKey2 guifg=#ff9900")
 -- hop }}} ]]
--- {{{ indent-blankline
-require("indent_blankline").setup({
-  -- char = "┊",
-  -- char = "|",
-  char_list = { "|", "¦", "┆", "┊" },
-  space_char_blankline = " ",
-  buftype_exclude = { "terminal", "nofile" },
-  filetype_exclude = { "help", "packer", "dashboard" },
-  char_highlight = "LineNr",
-  show_trailing_blankline_indent = false,
-  -- char_highlight_list = { "Normal", "Function", "Error" },
-})
--- indent-blankline }}}
 -- {{{ instant-markdown
 g.instant_markdown_browser = "firefox --new-window"
 g.instant_markdown_slow = 1
@@ -660,26 +649,6 @@ g.instant_markdown_autostart = 1
 -- g.instant_markdown_port = 8888
 -- g.instant_markdown_python = 1
 -- instant-markdown }}}
--- {{{ kommentary
-vim.g.kommentary_create_default_mappings = false
-
--- api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
--- api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
--- api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
--- api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
--- api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
--- api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
-
--- api.nvim_set_keymap("n", "<leader>cc", "<Plug>kommentary_line_default", {})
-api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
--- api.nvim_set_keymap("n", "<leader>c", "<Plug>kommentary_motion_default", {})
-api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
-
-require("kommentary.config").configure_language("rust", {
-  single_line_comment_string = "//",
-  multi_line_comment_strings = { "/*", "*/" },
-})
--- kommentary }}}
 -- {{{ lightspeed
 --[[
 api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
@@ -1478,5 +1447,9 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+
+-- plugin kommentary
+api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
+api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
 -- mapowanie klawiszy }}}
 require("local")

@@ -40,6 +40,9 @@ else
 fi
 
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua ~/.config/nvim/lua
+ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/funkcje.lua ~/.config/nvim/lua/funkcje.lua
+ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/komendy.lua ~/.config/nvim/lua/komendy.lua
+ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/mappings.lua ~/.config/nvim/lua/mappings.lua
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
 ln -sf $NEOVIM_LUA_DIR/docs ~/.config/nvim/docs

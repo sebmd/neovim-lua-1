@@ -1,8 +1,8 @@
--- Aktualizacja 2021-12-12 20:12:35
+-- Aktualizacja 2021-12-12 20:51:46
 vimrc_version = "init.lua: 2.2"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
--- <leader>zn - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
+-- <leader>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 -- {{{ pluginy
 require("packer").startup(function(use)
   -- menadżer pluginów
@@ -31,7 +31,7 @@ require("packer").startup(function(use)
 
   -- menadżer plików
   -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
-  -- use({ "ms-jpq/chadtree" })
+  -- use("ms-jpq/chadtree")
   use("kyazdani42/nvim-tree.lua")
 
   -- komentarze
@@ -620,8 +620,10 @@ require("plugins/gnupg")
 require("plugins/indent-blankline")
 require("plugins/kommentary")
 require("plugins/lualine")
+require("plugins/minimap")
 require("plugins/nvim-tree")
 require("plugins/nvim-web-devicons")
+require("plugins/vim-dotoo")
 require("plugins/zenmode")
 -- hop {{{
 --[[ require("hop").setup({
@@ -690,11 +692,6 @@ require("lightspeed").setup({
 })
 ]]
 -- lightspeed }}}
--- {{{ minimap
-g.minimap_width = 10
-g.minimap_auto_start = 0
--- g.minimap_auto_start_win_enter = 1
--- minimap }}}
 -- {{{ pears
 require("pears").setup(function(conf)
   conf.pair("{", "}")
@@ -847,21 +844,6 @@ require("telescope").load_extension("project")
 -- treesitter }}}
 -- {{{ vim-colorscheme-manager
 g.colorscheme_manager_file = "~/.config/nvim/.colorscheme"
--- }}}
--- {{{ vim-dotoo
-vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
-vim.g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
-api.nvim_exec(
-  [[
-    augroup dootoft
-        au!
-        autocmd BufNewFile,BufRead *.org   set filetype=dotoo
-    augroup END
-  ]],
-  false
-)
--- let g:dotoo#agenda#files = ['~/workspace/org/*.org']
--- let g:dotoo#capture#refile = expand('~/workspace/org/refile.org')
 -- }}}
 -- {{{ vimwiki
 api.nvim_exec(

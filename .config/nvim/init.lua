@@ -1154,8 +1154,13 @@ map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
 map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
 map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
 
+-- poruszanie się pomiędzy zmianami w pliku
 map("n", "g;", "g;zvzz")
 map("n", "g,", "g,zvzz")
+
+-- poruszanie się pomiędzy paragrafami
+map("n", "}", "}zvzz")
+map("n", "{", "{zvzz")
 
 -- poruszanie się w trybie COMMAND
 map("c", "<c-j>", "<down>")

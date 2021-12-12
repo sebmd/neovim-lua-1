@@ -92,7 +92,7 @@ require("packer").startup(function(use)
   use("wellle/targets.vim")
 
   -- minimapa :!cargo install --locked code-minimap
-  use({ "wfxr/minimap.vim", run = "cargo install --locked code-minimap" })
+  -- use({ "wfxr/minimap.vim", run = "cargo install --locked code-minimap" })
 
   -- undotree
   use("mbbill/undotree")

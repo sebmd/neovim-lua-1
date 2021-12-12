@@ -58,7 +58,7 @@ ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
 require("formatter").setup({
   filetype = {
     javascript = {
-      -- prettier
+      -- JavaScript
       function()
         return {
           exe = "~/node_modules/.bin/prettier",
@@ -78,7 +78,7 @@ require("formatter").setup({
       end,
     },
     html = {
-      -- prettier
+      -- HTML
       function()
         return {
           exe = "~/node_modules/.bin/prettier",
@@ -88,6 +88,7 @@ require("formatter").setup({
       end,
     },
     lua = {
+      -- LUA
       function()
         return {
           exe = "~/.local/bin/stylua",

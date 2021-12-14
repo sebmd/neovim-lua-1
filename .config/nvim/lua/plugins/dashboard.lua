@@ -9,36 +9,40 @@ vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :
 
 vim.g.dashboard_custom_section = {
   a = {
-    description = { "  Find File              'f'" },
+    description = { "   Wyszukiwanie plików    'f'" },
     command = "lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
   },
   b = {
-    description = { "  Recent Projects        'p'" },
+    description = { "   Ostatnie projekty      'p'" },
     command = "Telescope project",
   },
   c = {
-    description = { "  Recently Used Files    'r'" },
+    description = { "   Ostatnio używane pliki 'r'" },
     command = "Telescope oldfiles",
   },
   d = {
-    description = { "  New File               'n'" },
+    description = { "   Nowy plik              'n'" },
     command = "DashboardNewFile",
   },
   e = {
-    description = { "  Find Word              'w'" },
+    description = { "   Wyszukuj w plikach     'w'" },
     command = "Telescope live_grep",
   },
   f = {
-    description = { "  ColorScheme            's'" },
+    description = { "   Schematy kolorystyczne 's'" },
     command = "DashboardChangeColorscheme",
   },
   g = {
-    description = { "  dot.files              'd'" },
+    description = { "   Pliki dot.files        'd'" },
     command = ":lua search_dotfiles()",
   },
   h = {
-    description = { "  Configuration          'c'" },
+    description = { "   Konfiguracja Neovim    'c'" },
     command = ":e $MYVIMRC",
+  },
+  i = {
+    description = { "   Dokumentacja           'D'" },
+    command = "lua require'telescope.builtin'.find_files({ cwd='~/.config/nvim/docs/', find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
   },
 }
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
@@ -52,6 +56,7 @@ vim.api.nvim_exec(
     autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> D :lua require'telescope.builtin'.find_files({ cwd='~/.config/nvim/docs/', find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
 
     autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66

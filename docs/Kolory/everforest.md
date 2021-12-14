@@ -1,3 +1,3 @@
 # everforest
 
-- https://github.com/sainnhe/everforest
+- [everforest](https://github.com/sainnhe/everforest)

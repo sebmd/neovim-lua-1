@@ -42,7 +42,7 @@ vim.g.dashboard_custom_section = {
   },
   i = {
     description = { "   Dokumentacja           'D'" },
-    command = "lua require'telescope.builtin'.find_files({ cwd='~/.config/nvim/docs/', find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
+    command = ":lua search_docs()",
   },
   j = {
     description = { "   Wyjście z Neovim       'q'" },
@@ -60,7 +60,7 @@ vim.api.nvim_exec(
     autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> D :lua require'telescope.builtin'.find_files({ cwd='~/.config/nvim/docs/', find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> D :lua search_docs()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
 
     autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66

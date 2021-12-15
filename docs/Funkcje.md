@@ -160,6 +160,19 @@ search_dotfiles = function()
 end
 ```
 
+## Funkcja search_docs
+
+```lua
+-- Wyszukiwanie plików w katalogu dokumentacji
+search_docs = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< docs >",
+    cwd = "$HOME/.config/nvim/docs/",
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
+  })
+end
+```
+
 ## Funkcja search_nvim_dotfiles
 
 ```lua

@@ -10,7 +10,7 @@ vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :
 vim.g.dashboard_custom_section = {
   a = {
     description = { "   Wyszukiwanie plików    'f'" },
-    command = "lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
+    command = "lua Find_Files()",
   },
   b = {
     description = { "   Ostatnie projekty      'p'" },
@@ -52,7 +52,7 @@ vim.g.dashboard_custom_section = {
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 vim.api.nvim_exec(
   [[
-    autocmd FileType dashboard nnoremap <silent> <buffer> f :lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> f :lua Find_files()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>

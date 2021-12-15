@@ -82,6 +82,14 @@ vim.api.nvim_exec(
   false
 )
 
+-- Wyszukiwanie plików w bieżącej lokalizacji
+Find_Files = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< Wyszukiwanie >",
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
+  })
+end
+
 -- Wyszukiwanie telescope w katalogu $NOTES_DIR
 search_notes_dir = function()
   require("telescope.builtin").find_files({
@@ -116,7 +124,7 @@ search_docs = function()
   })
 end
 
--- Wyszukiwanie telescope w katalogu dotfiles
+-- Wyszukiwanie plików konfiguracyjnych Neovim w katalogu $HOME/.config/nvim
 search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",

@@ -44,6 +44,10 @@ vim.g.dashboard_custom_section = {
     description = { "   Dokumentacja           'D'" },
     command = "lua require'telescope.builtin'.find_files({ cwd='~/.config/nvim/docs/', find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})",
   },
+  j = {
+    description = { "   Wyjście z Neovim       'q'" },
+    command = ":q",
+  },
 }
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 vim.api.nvim_exec(

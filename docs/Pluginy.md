@@ -9,7 +9,7 @@
 - [formatter.nvim](Pluginy/formatter-nvim.md) - formatowanie składni
 - [fzf.vim](Pluginy/fzf-vim.md) - wyszukiwanie
 - [fzf](Pluginy/fzf.md) - wyszukiwanie
-- [gitsigns.nvim](Pluginy/gitsigns.nvim.md) - obsługa repozytoriów git
+- [gitsigns.nvim](Pluginy/gitsigns-nvim.md) - obsługa repozytoriów git
 - [indent-blankline.nvim](Pluginy/indent-blankline-nvim.md) - wyróżnianie wcięć linii
 - [kommentary](Pluginy/kommentary.md) - komentowanie tekstu za pomocą skrótów klawiszowych
 - [lualine](Pluginy/lualine.md) - dolny pasek
@@ -18,7 +18,7 @@
 - [nvim-tree.lua](Pluginy/nvim-tree-lua.md) - menadżer plików
 - [nvim-web-devicons](Pluginy/nvim-web-devicons.md) - dodatkowe czcionki z symbolami
 - [packer.nvim](Pluginy/packer-nvim.md) - menadżer pluginów
-- [pears.nvim](Pluginy/pears-nvim.md)
+- [pears.nvim](Pluginy/pears-nvim.md) - automatyczne zamykanie nawiasów
 - [plenary.nvim](Pluginy/plenary-nvim.md) - dodatkowa biblioteka
 - [popup.nvim](Pluginy/popup-nvim.md) - dodatkowa biblioteka
 - [targets.vim](Pluginy/targets-vim.md)

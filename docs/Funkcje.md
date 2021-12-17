@@ -190,12 +190,12 @@ end
 ## Funkcja search_nvim_dotfiles
 
 ```lua
--- Wyszukiwanie telescope w katalogu dotfiles
+-- Wyszukiwanie plików konfiguracyjnych Neovim w katalogu $HOME/.config/nvim
 search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
-    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
+    find_command = { "rg", "--files", "--follow", "-g", "!*.md" },
     file_ignore_patterns = { "spell/" },
   })
 end

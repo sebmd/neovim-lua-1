@@ -16,7 +16,7 @@ require("telescope").setup({
     },
     prompt_prefix = " ❯ ",
     initial_mode = "insert",
-    file_ignore_patterns = { ".git/*", "node_modules", "env/*", "venv/*" },
+    file_ignore_patterns = { "/.git/*", "node_modules", "env/*", "venv/*" },
     color_devicons = true,
     winblend = 20,
     file_sorter = sorters.get_fzy_sorter,

@@ -1,5 +1,6 @@
 # Wymagania
 
+- [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 

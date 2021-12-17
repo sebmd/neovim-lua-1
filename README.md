@@ -4,17 +4,13 @@
 
 ## Instalacja
 
-### Wymagania
-
-- ripgrep
-- fzf
-
 ```shell
 bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)"
 ```
 
 ## Dokumentacja
 
+- [Wymagania](docs/Wymagania.md)
 - [Po instalacji](docs/Po_instalacji.md)
 - [Skróty](docs/Skróty.md)
 - [Komendy](docs/Komendy.md)

@@ -52,7 +52,7 @@ vim.g.dashboard_custom_section = {
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
 vim.api.nvim_exec(
   [[
-    autocmd FileType dashboard nnoremap <silent> <buffer> f :lua Find_files()<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> f :lua Find_Files()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>

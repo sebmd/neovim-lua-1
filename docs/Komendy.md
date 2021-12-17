@@ -5,6 +5,7 @@
 | `CD`                | otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj` |
 | `CDEdit`            | włącza edycję pliku `$HOME/.config/bmproj`                                           |
 | `DiaryNotes`        | edycja dzisiejszej notatki w katalogu `$NOTES_DIR`                                   |
+| `Dokumentacja`      | przeglądanie dokumentacji                                                            |
 | `GA`                | uruchamia skrypt dodający zmiany do repozytorium git                                 |
 | `GP`                | uruchamia skrypt git add, git commit, git push                                       |
 | `GR`                | uruchamia program w Golang za pomocą komendy `:GoRun`                                |

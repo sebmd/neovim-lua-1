@@ -103,7 +103,7 @@ ins_left({
       ["!"] = colors.red,
       t = colors.red,
     }
-    api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+    vim.api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
     return "▊"
   end,
   color = "LualineMode",

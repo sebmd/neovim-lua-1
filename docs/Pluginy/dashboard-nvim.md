@@ -5,3 +5,5 @@
 Wejście do Dashboard za pomocą skrótu `<leader>D`, klawisz `<leader>` jest ustawiony jako **SPACJA**.
 
 Konfiguracja pluginu `dashboard-nvim` znajduje się w pliku `~/.config/nvim/lua/plugins/dashboard.lua`.
+
+![dashboard](https://raw.githubusercontent.com/hattori-hanz0/neovim-config/main/img/plugin-dashboard.png)

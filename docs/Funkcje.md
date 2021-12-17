@@ -119,6 +119,20 @@ api.nvim_exec(
 )
 ```
 
+## Funkcja Find_Files
+
+Funkcja Find_Files wyszukuje pliki w bieżącej lokalizacji za pomocą polecenia `rg`
+
+```lua
+-- Wyszukiwanie plików w bieżącej lokalizacji
+Find_Files = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "< Wyszukiwanie >",
+    find_command = { "rg", "--files", "--hidden", "--follow", "-g", "!.git" },
+  })
+end
+```
+
 ## Funkcja search_notes_dir
 
 Za pomocą pluginu `Telescope` możemy przeszukiwać katalog `$NOTES_DIR`

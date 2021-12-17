@@ -1,4 +1,4 @@
--- {{{ auto-session
+-- auto-session
 -- local sessionopts = {
 -- SaveSession
 -- RestoreSession

@@ -11,6 +11,7 @@ KATALOG=${SKRYPT%$PLIK}
 
 DATA=$(date +%F-%T|tr : -)
 
+# Katalog konfiguracjia Neovim
 NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua
 
 mkdir -p $HOME/bin

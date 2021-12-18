@@ -179,11 +179,11 @@ end
 ```lua
 -- Wyszukiwanie plików w katalogu dokumentacji
 search_docs = function()
-require("telescope.builtin").find_files({
-prompt_title = "< docs >",
-cwd = "$HOME/.config/nvim/docs/",
-find_command = { "rg", "--files", "--follow" },
-})
+    require("telescope.builtin").find_files({
+        prompt_title = "< docs >",
+        cwd = "$HOME/.config/nvim/docs/",
+        find_command = { "rg", "--files", "--follow" },
+    })
 end
 ```
 
@@ -195,9 +195,9 @@ search_nvim_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "< nvim >",
     cwd = "$HOME/.config/nvim/",
-find_command = { "rg", "--files", "--follow" },
-file_ignore_patterns = { "spell/", ".md" },
-})
+    find_command = { "rg", "--files", "--follow" },
+    file_ignore_patterns = { "spell/", ".md" },
+  })
 end
 ```
 

@@ -99,7 +99,7 @@ Komenda `:GenTocMarked`
 
 ## Pluginy
 
-- [zen-mode](Pluginy/zen-mode.md)
+- [zen-mode](Pluginy/zen-mode-nvim.md)
 - TOC
 - [vim-gnupg](Pluginy/vim-gnupg.md) - szyfrowanie plików
 - [vim-table-mode](Pluginy/vim-table-mode.md) - automatyczne formatowanie tabelek

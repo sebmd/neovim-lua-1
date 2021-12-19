@@ -60,7 +60,7 @@ vim.api.nvim_exec(
         if filereadable(expand("$NOTES_DIR/diary/".strftime("%F").".md"))
             execute ":e "(expand("$NOTES_DIR/diary/".strftime("%F").".md"))""
         else
-            execute ":e $NOTES_DIR/diary/".strftime("%F").".md"
+            execute ":e "(expand("$NOTES_DIR/diary/".strftime("%F").".md"))""
             call InsertDiaryHeader()
         endif
     endfunction

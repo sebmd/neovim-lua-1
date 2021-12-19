@@ -20,9 +20,13 @@ mkdir -p $HOME/Notes
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/nvim/lua
 
-cat <<EOF >> $HOME/.bashrc
-[ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
-EOF
+# Dodaje do pliku konfiguracji BASH wczytanie zmiennych z pliku ~/.config/vars
+grep "\$HOME/.config/vars" ~/.bashrc > /dev/null
+if [ $? == 1 ]; then
+    echo "#" >> ~/.bashrc
+    echo "# Wczytanie zmiennych z pliku ~/.config/vars" >> ~/.bashrc
+    echo "[ -f \"\$HOME/.config/vars\" ] && . \"\$HOME/.config/vars\"" >> ~/.bashrc
+fi
 
 # Pobiera konfigurację Neovim
 git clone --depth 1 https://github.com/hattori-hanz0/neovim-lua \

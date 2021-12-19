@@ -4,6 +4,7 @@
 | ------------------- | ------------------------------------------------------------------------------------ |
 | `CD`                | otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj` |
 | `CDEdit`            | włącza edycję pliku `$HOME/.config/bmproj`                                           |
+| `DestractionFree`   | wyłącza różnego rodzaju rozpraszacze, na przykład numerowanie linii                  |
 | `DiaryNotes`        | edycja dzisiejszej notatki w katalogu `$NOTES_DIR`                                   |
 | `Dokumentacja`      | przeglądanie dokumentacji                                                            |
 | `GA`                | uruchamia skrypt dodający zmiany do repozytorium git                                 |

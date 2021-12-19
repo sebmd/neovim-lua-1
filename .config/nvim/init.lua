@@ -96,8 +96,6 @@ require("packer").startup(function(use)
 
   -- markdown
   use("folke/zen-mode.nvim")
-  -- use("junegunn/goyo.vim")
-  -- use("junegunn/limelight.vim")
   use("dhruvasagar/vim-table-mode")
   use("vimwiki/vimwiki")
   use("junegunn/vim-markdown-toc")

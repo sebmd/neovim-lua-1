@@ -1,6 +1,7 @@
 -- komendy
 vim.cmd("command! CD call CD()")
 vim.cmd("command! CDEdit e ~/.config/bmproj")
+vim.cmd("command! DestractionFree call DestractionFree()")
 vim.cmd("command! DiaryNotes call DiaryNotes()")
 vim.cmd("command! Dokumentacja :lua search_docs()<cr>")
 vim.cmd("command! GA call GA()")

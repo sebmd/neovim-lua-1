@@ -99,15 +99,15 @@ Komenda `:GenTocMarked`
 
 ## Pluginy
 
-- zen-mode
+- [zen-mode](Pluginy/zen-mode.md)
 - TOC
-- vim-gnupg - szyfrowanie plików
-- vim-table-mode - automatyczne formatowanie tabelek
+- [vim-gnupg](Pluginy/vim-gnupg.md) - szyfrowanie plików
+- [vim-table-mode](Pluginy/vim-table-mode.md) - automatyczne formatowanie tabelek
 
 Pluginy do zarządzania notatkami
 
-- [VimWiki](VimWiki.md)
-- vim-dotoo
+- [VimWiki](Pluginy/vimwiki.md)
+- [vim-dotoo](Pluginy/vim-dotoo.md)
 - neuron
 
 Automatyczny podgląd plików Markdown w przeglądarce WWW

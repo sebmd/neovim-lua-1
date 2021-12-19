@@ -128,12 +128,12 @@ map("n", "<f2>", ":<C-u>SessionSave<CR>")
 map("n", "<f3>", ":<C-u>SessionLoad<CR>")
 
 -- przeniesienie bieżącej linii do pliku
-map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'inbox.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>sn", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>")
 
 -- przeniesienie zaznaczenia do pliku
-map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'index.md', 'a')<cr>:cd %:p:h<cr>")
+map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'inbox.md', 'a')<cr>:cd %:p:h<cr>")
 map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map(
   "v",
@@ -142,7 +142,7 @@ map(
 )
 
 -- edycja wybranych plików
-map("n", "<leader>ei", ":e $NOTES_DIR/index.md<cr>")
+map("n", "<leader>ei", ":e $NOTES_DIR/inbox.md<cr>")
 map("n", "<leader>ed", ":e $NOTES_DIR/done.md<cr>")
 map("n", "<leader>en", ":e $NOTES_DIR/notatki.md<cr>")
 

@@ -29,7 +29,7 @@ Standardowym katalogiem dla notatek jest `~/Notes`, Neovim pobiera katalog z not
 
 Katalog `NOTES_DIR` zawiera kilka plików, są to:
 
-- `$NOTES_DIR/index.md`
+- `$NOTES_DIR/inbox.md`
 - `$NOTES_DIR/done.md`
 - `$NOTES_DIR/notatki.md`
 
@@ -49,13 +49,13 @@ Format nazwy pliku `YYYY-MM-DD.md`
 
 Skróty pozwalające przenoszenie linii lub zaznaczenia do jednego z trzech plików.
 
-- `<leader>si` przenosi do pliku `$NOTES_DIR/index.md`
+- `<leader>si` przenosi do pliku `$NOTES_DIR/inbox.md`
 - `<leader>sd` przenosi do pliku `$NOTES_DIR/done.md`
 - `<leader>sn` przenosi do pliku `$NOTES_DIR/notatki.md`
 
 ### Edycja wybranych plików
 
-- `<leader>ei` otwiera plik `$NOTES_DIR/index.md`
+- `<leader>ei` otwiera plik `$NOTES_DIR/inbox.md`
 - `<leader>ed` otwiera plik `$NOTES_DIR/done.md`
 - `<leader>en` otwiera plik `$NOTES_DIR/notatki.md`
 
@@ -101,13 +101,16 @@ Komenda `:GenTocMarked`
 
 - zen-mode
 - TOC
+- vim-gnupg - szyfrowanie plików
+- vim-table-mode - automatyczne formatowanie tabelek
 
-- vim-gnupg
-- vim-table-mode
+Pluginy do zarządzania notatkami
 
 - [VimWiki](VimWiki.md)
 - vim-dotoo
 - neuron
+
+Automatyczny podgląd plików Markdown w przeglądarce WWW
 
 - coc + markdown-preview
 - instant-preview

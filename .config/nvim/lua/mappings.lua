@@ -358,13 +358,6 @@ map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 -- uruchamia tryb ZenMode
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 
--- plugin compe
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-
 -- plugin kommentary
 vim.api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})

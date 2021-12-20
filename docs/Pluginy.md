@@ -13,14 +13,9 @@
 - [indent-blankline.nvim](Pluginy/indent-blankline-nvim.md) - wyróżnianie wcięć linii
 - [kommentary](Pluginy/kommentary.md) - komentowanie tekstu za pomocą skrótów klawiszowych
 - [lualine](Pluginy/lualine.md) - dolny pasek
-- [nvim-compe](Pluginy/nvim-compe.md) - podpowiedzi
 - [nvim-cursorline](Pluginy/nvim-cursorline.md)
 - [nvim-tree.lua](Pluginy/nvim-tree-lua.md) - menadżer plików
 - [nvim-web-devicons](Pluginy/nvim-web-devicons.md) - dodatkowe czcionki z symbolami
-- [packer.nvim](Pluginy/packer-nvim.md) - menadżer pluginów
-- [pears.nvim](Pluginy/pears-nvim.md) - automatyczne zamykanie nawiasów
-- [plenary.nvim](Pluginy/plenary-nvim.md) - dodatkowa biblioteka
-- [popup.nvim](Pluginy/popup-nvim.md) - dodatkowa biblioteka
 - [targets.vim](Pluginy/targets-vim.md)
 - [telescope-fzf-native.nvim](Pluginy/telescope-fzf-native-nvim.md)
 - [telescope-project.nvim](Pluginy/telescope-project-nvim.md)
@@ -32,16 +27,32 @@
 - [vim-eunuch](Pluginy/vim-eunuch.md)
 - [vim-gnupg](Pluginy/vim-gnupg.md) - szyfrowanie plików za pomocą GnuPG
 - [vim-markdown-toc](Pluginy/vim-markdown-toc.md)
-- [vim-misc](Pluginy/vim-misc.md)
 - [vim-peekaboo](Pluginy/vim-peekaboo.md)
 - [vim-repeat](Pluginy/vim-repeat.md)
 - [vim-surround](Pluginy/vim-surround.md)
 - [vim-table-mode](Pluginy/vim-table-mode.md)
-- [vim-vsnip](Pluginy/vim-vsnip.md)
 - [vimwiki](Pluginy/vimwiki.md) - podręczne Wiki
 - [zen-mode.nvim](Pluginy/zen-mode-nvim.md) - tryb skupienia - wyłącza rozpraszacze np. numery linii itp.
 
-Kolory
+### Automatyczne podpowiedzi i snipeety
+
+- hrsh7th/nvim-cmp
+- hrsh7th/cmp-buffer
+- hrsh7th/cmp-path
+- hrsh7th/cmp-cmdline
+- hrsh7th/cmp-vsnip
+- hrsh7th/vim-vsnip
+- [vim-vsnip](Pluginy/vim-vsnip.md)
+
+### Narzędzia i biblioteki
+
+- [packer.nvim](Pluginy/packer-nvim.md) - menadżer pluginów
+- [pears.nvim](Pluginy/pears-nvim.md) - automatyczne zamykanie nawiasów
+- [plenary.nvim](Pluginy/plenary-nvim.md) - dodatkowa biblioteka
+- [popup.nvim](Pluginy/popup-nvim.md) - dodatkowa biblioteka
+- [vim-misc](Pluginy/vim-misc.md)
+
+### Kolory
 
 - [ayu-vim](Kolory/ayu-vim.md)
 - [base16-vim](Kolory/base16-vim.md)

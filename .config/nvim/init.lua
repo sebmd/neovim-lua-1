@@ -1,5 +1,5 @@
--- Aktualizacja 2021-12-12 23:20:15
-vimrc_version = "init.lua: 2.2"
+-- Aktualizacja 2021-12-21 00:11:27
+vimrc_version = "init.lua: 2.3"
 -- zn schowanie zagnieżdżeń
 -- zm otworzenie zagnieżdżeń
 -- <leader>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -8,9 +8,11 @@ require("packer").startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
 
-  -- use("neoclide/coc.nvim")
+  -- wyłączony
+  use({ "neoclide/coc.nvim", disable = true })
 
-  -- use("fatih/vim-go")
+  -- obsługa języka Go - wyłączony
+  use({ "fatih/vim-go", disable = true })
 
   use({
     "sudormrfbin/cheatsheet.nvim",
@@ -24,7 +26,9 @@ require("packer").startup(function(use)
 
   -- git
   use("lewis6991/gitsigns.nvim") -- integracja git
-  -- use "rhysd/git-messenger.vim"
+
+  -- wyłączony
+  use({ "rhysd/git-messenger.vim", disable = true })
 
   -- obsługa schowka systemowego
   use("Jorengarenar/fauxClip")
@@ -37,8 +41,16 @@ require("packer").startup(function(use)
   use("b3nj5m1n/kommentary") -- komentarze
 
   -- automatyczne uzupełnianie
-  use("hrsh7th/nvim-compe")
+  use({ "neovim/nvim-lspconfig", disable = true })
+  use({ "hrsh7th/cmp-nvim-lsp", disable = true })
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/nvim-cmp")
+
+  use("hrsh7th/cmp-vsnip")
   use("hrsh7th/vim-vsnip")
+
   -- use "L3MON4D3/LuaSnip"
   -- use "vim-scripts/AutoComplPop"
   -- use("tibabit/vim-templates")
@@ -68,9 +80,8 @@ require("packer").startup(function(use)
 
   -- use("nvim-treesitter/nvim-treesitter")
 
-  -- szybkie poruszanie się po pliku
-  -- use("phaazon/hop.nvim")
-  -- use("ggandor/lightspeed.nvim")
+  use({ "phaazon/hop.nvim", disable = true }) -- szybkie poruszanie się po pliku
+  use({ "ggandor/lightspeed.nvim", disable = true }) -- szybkie poruszanie się po pliku
 
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -84,12 +95,13 @@ require("packer").startup(function(use)
   -- minimapa :!cargo install --locked code-minimap
   -- use({ "wfxr/minimap.vim", run = "cargo install --locked code-minimap" })
 
-  -- use("vim-scripts/YankRing.vim")
+  -- Obsługa rejestrów
+  use({ "vim-scripts/YankRing.vim", disable = true })
 
   -- statusline
   use("hoob3rt/lualine.nvim")
   use("romgrk/barbar.nvim")
-  -- use "akinsho/nvim-bufferline.lua"
+  use({ "akinsho/nvim-bufferline.lua", disable = true }) -- wyłączony
   use({ "glepnir/dashboard-nvim" })
 
   use("jamessan/vim-gnupg") -- szyfrowanie
@@ -107,7 +119,8 @@ require("packer").startup(function(use)
   use("folke/todo-comments.nvim")
   use("folke/trouble.nvim")
 
-  -- use "liuchengxu/vim-which-key"
+  -- wyłączony
+  use({ "liuchengxu/vim-which-key", disable = true })
 
   -- biblioteki, dodatki
   use("nvim-lua/plenary.nvim")
@@ -145,6 +158,7 @@ local opt = vim.opt -- to set options
 local api = vim.api
 -- aliasy }}}
 -- {{{ ustawienia ·
+-- :help options
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 opt.showtabline = 1 -- 0 nie pokazuje; 1 pokazuje jeśli są karty (tab), 2 zawsze pokazuje górną belkę
 opt.conceallevel = 0 -- sprawia, że znaki `` są widzialne w plikach Markdown
@@ -264,48 +278,6 @@ api.nvim_exec([[colorscheme everforest]], false)
 -- Dostępne tematy: nordfox, palefox, dayfox, dawnfox, duskfox
 -- require('nightfox').load('nordfox')
 
--- g.material_style = "lighter"
--- g.material_style = "palenight"
--- g.material_style = "deep ocean"
--- g.material_style = "ocanic"
--- g.material_style = "darker"
-
--- konfiguracja koloru material
---[[ require("material").setup({
-
-  contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
-  borders = false, -- Enable borders between verticaly split windows
-
-  italics = {
-    comments = false, -- Enable italic comments
-    keywords = false, -- Enable italic keywords
-    functions = false, -- Enable italic functions
-    strings = false, -- Enable italic strings
-    variables = false, -- Enable italic variables
-  },
-
-  contrast_windows = { -- Specify which windows get the contrasted (darker) background
-    "terminal", -- Darker terminal background
-    "packer", -- Darker packer background
-    "qf", -- Darker qf list background
-  },
-
-  text_contrast = {
-    lighter = false, -- Enable higher contrast text for lighter style
-    darker = false, -- Enable higher contrast text for darker style
-  },
-
-  disable = {
-    background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
-    term_colors = false, -- Prevent the theme from setting terminal colors
-    eob_lines = false, -- Hide the end-of-buffer lines
-  },
-  -- Overwrite highlights with your own
-  -- custom_highlights = {
-    -- CursorLine = "#0000FF",
-    -- LineNr = "#FF0000",
-  -- },
-}) ]]
 
 -- api.nvim_command([[ autocmd ColorScheme * highlight Search ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan ]])
 
@@ -338,7 +310,6 @@ require("komendy")
 -- ustawienia pluginów {{{
 require("plugins/barbar")
 require("plugins/cheatsheet")
-require("plugins/compe")
 require("plugins/dashboard")
 require("plugins/formatter")
 require("plugins/gitsigns")
@@ -346,7 +317,9 @@ require("plugins/gnupg")
 require("plugins/indent-blankline")
 require("plugins/kommentary")
 require("plugins/lualine")
+require("plugins/material")
 require("plugins/minimap")
+require("plugins/nvim-cmp")
 require("plugins/nvim-tree")
 require("plugins/nvim-web-devicons")
 require("plugins/pears")
@@ -370,4 +343,8 @@ require("plugins/zenmode")
 -- {{{ mapowanie klawiszy
 require("mappings")
 -- mapowanie klawiszy }}}
-require("local")
+-- jeśli znajdzie plik ~/.config/nvim/local.lua wczyta jego zawartość
+local status_ok, local_conf = pcall(require, "local")
+if not status_ok then
+  return
+end

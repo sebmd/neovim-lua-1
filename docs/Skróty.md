@@ -8,10 +8,11 @@ Klawisz **LEADER** to **SPACJA**.
 | ------------ | -------------------------------------------------------------------------------------- |
 | `<spacja>`   | Klawisz **LEADER**                                                                     |
 | `<leader>;`  | Wejście do trybu **COMMAND**                                                           |
-| `j`          | Zmapowane jako `gj` - poruszanie się po zawiniętej linii                               |
-| `k`          | Zmapowane jako `gk` - poruszanie się po zawiniętej linii                               |
-| `zn`         | Przemapowuje `zn` jako `zm` - zamyka zagnieżdżenia                                     |
-| `zm`         | Przemapowuje `zm` jako `zn` - otwiera zagnieżdżenia                                    |
+| `kj`         | Wyjście z trybu INSERT                                                                 |
+| `j`          | Ustawia `j` jako `gj` - poruszanie się po zawiniętej linii                             |
+| `k`          | Ustawia `k` jako `gk` - poruszanie się po zawiniętej linii                             |
+| `zn`         | Zamienia skrót `zn` na `zm` - zamyka zagnieżdżenia                                     |
+| `zm`         | Zamienia skrót `zm` na `zn` - otwiera zagnieżdżenia                                    |
 | `gh`         | Przechodzi na początek linii                                                           |
 | `gl`         | Przechodzi na koniec linii                                                             |
 | `dh`         | Usuwa wszystko od kursora do początku linii                                            |
@@ -106,6 +107,13 @@ Obsługa sesji za pomocą pluginu Dashboard
 | `ctrl-h` | poruszanie się kursorem o jeden znak w lewo  |
 | `ctrl-l` | poruszanie się kursorem o jeden znak w prawo |
 
+## Skróty klawiszowe w trybie VISUAL
+
+| skrót | opis                                                       |
+| ----- | ---------------------------------------------------------- |
+| `>`   | przesuwa zaznaczony tekst w prawo zostając w trybie VISUAL |
+| `<`   | przesuwa zaznaczony tekst w lewo zostając w trybie VISUAL  |
+
 ## Poruszanie się po pliku pomocy Vim
 
 | skrót       | opis                                                                                        |
@@ -120,10 +128,10 @@ Obsługa sesji za pomocą pluginu Dashboard
 
 | skrót        | opis                                                                   |
 | ------------ | ---------------------------------------------------------------------- |
-| `<leader>si` | przenosi linię lub zaznaczenie do `$NOTES_DIR/index.md`                |
+| `<leader>si` | przenosi linię lub zaznaczenie do `$NOTES_DIR/inbox.md`                |
 | `<leader>sd` | przenosi linię lub zaznaczenie do `$NOTES_DIR/done.md`                 |
 | `<leader>sn` | przenosi linię lub zaznaczenie do `$NOTES_DIR/notatki.md`              |
-| `<leader>ei` | otwiera plik `$NOTES_DIR/index.md`                                     |
+| `<leader>ei` | otwiera plik `$NOTES_DIR/inbox.md`                                     |
 | `<leader>ed` | otwiera plik `$NOTES_DIR/done.md`                                      |
 | `<leader>en` | otwiera plik `$NOTES_DIR/notatki.md`                                   |
 | `<leader>ej` | otwiera plik `$NOTES_DIR/diary/YYYY-MM-DD.md` - funkcja `:DiaryNotes`  |

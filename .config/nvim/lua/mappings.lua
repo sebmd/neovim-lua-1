@@ -11,6 +11,10 @@ end
 -- Ustawia SPACE jako klawisz LEADER
 vim.g.mapleader = " "
 
+-- Wyjście z trybu INSERT
+map("i", "kj", "<esc>")
+-- map("i", "jk", "<esc>")
+
 -- Wejście do trybu COMMAND
 map("n", "<leader>;", ":", { silent = false })
 
@@ -47,6 +51,10 @@ map("n", "g,", "g,zvzz")
 -- poruszanie się pomiędzy paragrafami
 map("n", "}", "}zvzz")
 map("n", "{", "{zvzz")
+
+-- tab w trybie VISUAL pozostaje w trybie VISUAL
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- poruszanie się w trybie COMMAND
 map("c", "<c-j>", "<down>")

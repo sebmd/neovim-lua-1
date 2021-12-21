@@ -135,14 +135,10 @@ search_nvim_dotfiles = function()
 end
 
 -- Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
-vim.api.nvim_exec(
-  [[
-    function! Time()
-        echom strftime("- Teraz jest: %F, %A %T -")
-    endfunction
-]],
-  false
-)
+function Time()
+  local czas = vim.fn.strftime("%F, %A %T")
+  print("- Teraz jest: " .. czas .. " -")
+end
 
 -- Funkcja UpdateVimrc() uruchamiana po zapisaniu pliku $MYVIMRC
 vim.api.nvim_exec(

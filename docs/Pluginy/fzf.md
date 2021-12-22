@@ -1,3 +1,3 @@
 # fzf
 
-- https://github.com/junegunn/fzf
+- [fzf](https://github.com/junegunn/fzf)

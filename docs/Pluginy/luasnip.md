@@ -1,3 +1,3 @@
 # LuaSnip
 
-- https://github.com/L3MON4D3/LuaSnip
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)

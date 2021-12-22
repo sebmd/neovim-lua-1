@@ -1,3 +1,3 @@
 # lightspeed
 
-- https://github.com/ggandor/lightspeed.nvim
+- [lightspeed](https://github.com/ggandor/lightspeed.nvim)

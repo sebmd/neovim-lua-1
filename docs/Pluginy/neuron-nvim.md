@@ -1,6 +1,6 @@
 # neuron.nvim
 
-- https://github.com/oberblastmeister/neuron.nvim
+- [neuron.nvim](https://github.com/oberblastmeister/neuron.nvim)
 
 ## Instalacja Neuron
 

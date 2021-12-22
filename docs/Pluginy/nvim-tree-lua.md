@@ -2,7 +2,7 @@
 
 Menadżer plików
 
-- https://github.com/kyazdani42/nvim-tree.lua
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 
 ```lua
 use {

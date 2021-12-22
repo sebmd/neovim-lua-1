@@ -1,3 +1,3 @@
 # plenary.nvim
 
-- https://github.com/nvim-lua/plenary.nvim
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)

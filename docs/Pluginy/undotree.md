@@ -1,3 +1,3 @@
 # undotree
 
-- https://github.com/mbbill/undotree
+- [undotree](https://github.com/mbbill/undotree)

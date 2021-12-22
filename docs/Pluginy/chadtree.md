@@ -1,6 +1,6 @@
 # CHADTree
 
-- https://github.com/ms-jpq/chadtree/blob/chad/docs/KEYBIND.md
+- [CHADTree](https://github.com/ms-jpq/chadtree/blob/chad/docs/KEYBIND.md)
 
 ## Instalacja
 

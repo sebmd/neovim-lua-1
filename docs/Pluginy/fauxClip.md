@@ -1,3 +1,3 @@
 # fauxClip
 
-- https://github.com/Jorengarenar/fauxClip
+- [fauxClip](https://github.com/Jorengarenar/fauxClip)

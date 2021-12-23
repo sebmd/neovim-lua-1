@@ -1,7 +1,7 @@
--- Aktualizacja 2021-12-23 00:57:41
+-- Aktualizacja 2021-12-23 12:02:08
 vimrc_version = "init.lua: 2.3"
 --
--- <leader>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
+-- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --
 opt = vim.opt -- to set options
 cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')

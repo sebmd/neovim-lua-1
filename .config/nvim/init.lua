@@ -3,6 +3,11 @@ vimrc_version = "init.lua: 2.3"
 --
 -- <leader>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --
+opt = vim.opt -- to set options
+cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
+fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
+g = vim.g -- a table to access global variables
+api = vim.api
 -- pluginy
 require("plugins")
 

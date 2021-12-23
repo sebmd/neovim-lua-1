@@ -1,10 +1,5 @@
 -- settings.lua
 -- :help options
-local opt = vim.opt -- to set options
-local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g -- a table to access global variables
-local api = vim.api
 -- opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 opt.showtabline = 1 -- 0 nie pokazuje; 1 pokazuje jeśli są karty (tab), 2 zawsze pokazuje górną belkę
 opt.conceallevel = 0 -- sprawia, że znaki `` są widzialne w plikach Markdown

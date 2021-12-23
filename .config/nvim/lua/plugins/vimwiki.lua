@@ -1,5 +1,5 @@
 -- vimwiki
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     " wyłącza plugin vimwiki dla innych plików markdown poza listą wiki
     let g:vimwiki_global_ext = 0
@@ -38,4 +38,4 @@ vim.api.nvim_exec(
   false
 )
 
--- vim.cmd("let g:vimwiki_list = [wiki, chaos, linux]")
+-- cmd("let g:vimwiki_list = [wiki, chaos, linux]")

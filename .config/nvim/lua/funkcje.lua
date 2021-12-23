@@ -1,6 +1,6 @@
 -- Funkcje
 -- Zapisuje plik Write()
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! Write()
         " wywołuje funkcję UpdateVimrc
@@ -25,7 +25,7 @@ vim.api.nvim_exec(
 )
 
 -- Otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj`
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! CD()
         let bmproj = readfile(expand('$HOME/.config/bmproj'))
@@ -38,7 +38,7 @@ vim.api.nvim_exec(
 )
 
 -- Funkcja InsertDiaryHeader() wstawia nagłówej # i bieżący czas
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! InsertDiaryHeader()
         normal! o# <temat> <data>
@@ -53,7 +53,7 @@ vim.api.nvim_exec(
 )
 -- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 -- InsertDiaryHeader
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     " funkcję uruchamia skrót <leader>e
     function! DiaryNotes()
@@ -69,7 +69,7 @@ vim.api.nvim_exec(
 )
 
 -- Lista tematów kolorystycznych FZF
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
         function! Kolory()
             let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
@@ -141,7 +141,7 @@ function Time()
 end
 
 -- Funkcja UpdateVimrc() uruchamiana po zapisaniu pliku $MYVIMRC
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! UpdateVimrc()
         normal! ma1G0D
@@ -155,7 +155,7 @@ vim.api.nvim_exec(
 )
 
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp.sh
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! GP()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/gp.sh
@@ -166,7 +166,7 @@ vim.api.nvim_exec(
 )
 
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga.sh
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! GA()
         silent !cd $(dirname $(readlink -m %)) && ~/bin/ga.sh
@@ -177,7 +177,7 @@ vim.api.nvim_exec(
 )
 
 -- Odwraca kolor tła
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     function! RevBackground()
         if &background=="light"
@@ -191,7 +191,7 @@ vim.api.nvim_exec(
 )
 
 -- Funkcja DestractionFree()
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     let g:DestractionFree=""
     let g:List=""

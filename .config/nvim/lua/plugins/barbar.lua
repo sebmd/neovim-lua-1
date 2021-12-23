@@ -1,5 +1,5 @@
 -- barbar.lua
-vim.g.bufferline = {
+g.bufferline = {
   -- Enable/disable animations
   animation = true,
 

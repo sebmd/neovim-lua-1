@@ -9,7 +9,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Ustawia SPACE jako klawisz LEADER
-vim.g.mapleader = " "
+g.mapleader = " "
 
 -- Wyjście z trybu INSERT
 map("i", "kj", "<esc>")
@@ -101,7 +101,7 @@ map("n", "k", "gk")
 map("n", "gf", "<cmd>edit <cfile><cr>")
 
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     cmap <c-r>p <c-r>"
 ]],
@@ -109,7 +109,7 @@ vim.api.nvim_exec(
 )
 
 -- Ustawienia skrótów klawiszowych dla plików pomocy
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     autocmd Filetype help nnoremap <c-n> :cnext<cr>
     autocmd Filetype help nnoremap <c-p> :cprevious<cr>
@@ -165,7 +165,7 @@ map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 -- vnoremap <leader>p "_dP
 
 -- automatycznie odświerza pliki
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md set autoread
     autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md :checktime
@@ -367,5 +367,5 @@ map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 
 -- plugin kommentary
-vim.api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
-vim.api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
+api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
+api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})

@@ -46,7 +46,7 @@ require("formatter").setup({
 })
 
 -- Runs Formatter on save
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!

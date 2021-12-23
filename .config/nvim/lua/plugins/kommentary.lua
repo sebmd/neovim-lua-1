@@ -1,5 +1,5 @@
 -- kommentary
-vim.g.kommentary_create_default_mappings = false
+g.kommentary_create_default_mappings = false
 
 -- api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
 -- api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})

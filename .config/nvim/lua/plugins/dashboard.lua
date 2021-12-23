@@ -1,13 +1,13 @@
 -- dashboard
-vim.g.dashboard_disable_at_vimenter = 0
-vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_session_enable = 0
+g.dashboard_disable_at_vimenter = 0
+g.dashboard_default_executive = "telescope"
+g.dashboard_session_enable = 0
 
-vim.g.dashboard_custom_header = { "Hattori :•: Hanzo" }
+g.dashboard_custom_header = { "Hattori :•: Hanzo" }
 
-vim.g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
+g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
 
-vim.g.dashboard_custom_section = {
+g.dashboard_custom_section = {
   a = {
     description = { "   Wyszukiwanie plików    'f'" },
     command = "lua Find_Files()",
@@ -50,7 +50,7 @@ vim.g.dashboard_custom_section = {
   },
 }
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
-vim.api.nvim_exec(
+api.nvim_exec(
   [[
     autocmd FileType dashboard nnoremap <silent> <buffer> f :lua Find_Files()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>

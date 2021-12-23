@@ -50,7 +50,7 @@ require("plugins/zenmode")
 require("mappings")
 
 -- jeśli znajdzie plik ~/.config/nvim/lua/local.lua wczyta jego zawartość
-local status_ok, local_conf = pcall(require, "local")
+local status_ok, _ = pcall(require, "local")
 if not status_ok then
   return
 end

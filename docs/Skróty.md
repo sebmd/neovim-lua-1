@@ -1,6 +1,6 @@
 # Skróty klawiszowe
 
-## Skróty klawiszowe Tryb NORMAL
+## Skróty klawiszowe trybu NORMAL
 
 Klawisz **LEADER** to **SPACJA**.
 
@@ -15,31 +15,41 @@ Klawisz **LEADER** to **SPACJA**.
 | `zm`         | Zamienia skrót `zm` na `zn` - otwiera zagnieżdżenia                                    |
 | `gh`         | Przechodzi na początek linii                                                           |
 | `gl`         | Przechodzi na koniec linii                                                             |
-| `dh`         | Usuwa wszystko od kursora do początku linii                                            |
-| `dl`         | Usuwa wszystko od kursora do końca linii                                               |
-| `d<spacja>`  | Usuwa od kursora do pierwszego wystąpienia znaku spacji                                |
-| `<leader>w`  | Zapisuje plik - uruchamia funkcję Write()                                              |
-| `<leader>x`  | Zapisuje i zamyka edytor                                                               |
-| `<leader>q`  | Zamyka edytor `:q`                                                                     |
-| `qq`         | Zamyka edytor `:q`                                                                     |
 | `<leader>D`  | Uruchamia Dashboard                                                                    |
-| `<leader>c`  | Otwiera nowy pusty plik                                                                |
-| `<leader>n`  | Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
 | `<leader>sa` | Zaznacza cały plik, powraca do miejsca uruchomienia skrótu za pomocą `` `z ``          |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
 | `<leader>v`  | Wyszukuje plików konfiguracyjnych Neovim w katalogu `~/.config/nvim/`                  |
 | `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |
 | `ESC`        | Wyłącza podświetlanie szukanego słowa `:nohl`                                          |
-| `Y`          | Kopiuje od kursora do końca linii                                                      |
-| `ya`         | Kopiuje cały plik                                                                      |
-| `yh`         | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii             |
-| `,p` / `,P`  | Wkleja ostatnio skopiowany tekst, ale nie usunięty za pomocą skrótu `d`                |
 | `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 'textwidth' znaków 'gqap' |
 | `+`          | Zwiększa liczbę o jeden                                                                |
 | `-`          | Zmniejsza liczbę o jeden                                                               |
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
+
+## Praca z plikami, wyjście z edytora
+
+| skrót       | opis                                                   |
+| ----------- | ------------------------------------------------------ |
+| `<leader>n` | Otwiera / zamyka menadżer plików NvimTree lub CHADtree |
+| `<leader>c` | Otwiera nowy pusty plik                                |
+| `<leader>w` | Zapisuje plik - uruchamia funkcję Write()              |
+| `<leader>x` | Zapisuje i zamyka edytor                               |
+| `<leader>q` | Zamyka edytor `:q`                                     |
+| `qq`        | Zamyka edytor `:q`                                     |
+
+## Kopiowanie, wklejanie, wycinanie
+
+| skrót       | opis                                                                       |
+| ----------- | -------------------------------------------------------------------------- |
+| `dh`        | Usuwa wszystko od kursora do początku linii                                |
+| `dl`        | Usuwa wszystko od kursora do końca linii                                   |
+| `d<spacja>` | Usuwa od kursora do pierwszego wystąpienia znaku spacji                    |
+| `Y`         | Kopiuje od kursora do końca linii                                          |
+| `ya`        | Kopiuje cały plik                                                          |
+| `yh`        | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii |
+| `,p` / `,P` | Wkleja ostatnio skopiowany tekst, ale nie usunięty za pomocą skrótu `d`    |
 
 ## Telescope
 

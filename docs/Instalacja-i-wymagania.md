@@ -34,6 +34,8 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 
+[Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
+
 ### Opcjonalnie
 
 - cargo / rust - kompilacja oprogramowania w języku Rust

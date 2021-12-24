@@ -40,6 +40,10 @@ git clone --depth 1 https://github.com/sainnhe/everforest \
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+# Pobranie słownika języka polskiego
+mkdir -p ~/.config/nvim/spell
+curl http://ftp.vim.org/pub/vim/runtime/spell/pl.utf-8.spl -o ~/.config/nvim/spell/pl.utf-8.spl
+
 # Tworzy link symboliczny pomiędzy pobranym repozytorium a plikiem ~/.config/nvim/init.lua
 if [ ! -f $HOME/.config/nvim/init.lua ]; then
     ln -sf $NEOVIM_LUA_DIR/.config/nvim/init.lua ~/.config/nvim/init.lua

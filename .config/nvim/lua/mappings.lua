@@ -1,4 +1,4 @@
--- mappings
+-- mappings.lua
 -- Funkcja map
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
@@ -281,7 +281,7 @@ map("n", "N", "Nzzzv")
 -- łączy linie pozostawiając kursor w obecnej pozycji
 map("n", "J", "mzJ`z")
 
--- kopiuje tekst od kursora do końca linii
+-- kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
 map("n", "Y", "y$")
 
 -- kopiuje cały plik
@@ -352,7 +352,7 @@ map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("teles
 
 map("n", "<leader>P", ":Telescope project<cr>")
 
--- map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
+map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
 
 -- Uruchomienie terminala w podziale poziomym

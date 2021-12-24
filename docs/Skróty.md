@@ -25,7 +25,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>D`  | Uruchamia Dashboard                                                                    |
 | `<leader>c`  | Otwiera nowy pusty plik                                                                |
 | `<leader>n`  | Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                 |
-| `<leader>sa` | Zaznacza cały plik, powraca do miejsca uruchomienia skrótu za pomocą ` `z `            |
+| `<leader>sa` | Zaznacza cały plik, powraca do miejsca uruchomienia skrótu za pomocą `` `z ``          |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
 | `<leader>v`  | Wyszukuje plików konfiguracyjnych Neovim w katalogu `~/.config/nvim/`                  |
 | `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |

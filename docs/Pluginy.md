@@ -1,11 +1,62 @@
 # Pluginy
 
-## Włączone
+<!-- vim-markdown-toc Marked -->
+
+* [Dodanie pluginu](#dodanie-pluginu)
+* [Włączenie pluginu](#włączenie-pluginu)
+* [Włączone pluginy](#włączone-pluginy)
+    * [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
+    * [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
+    * [Kolory](#kolory)
+* [Wyłączone](#wyłączone)
+
+<!-- vim-markdown-toc -->
+
+## Dodanie pluginu
+
+Menadżerem pluginów jest `packer.nvim` więcej informacji można znaleźć na stronie
+https://github.com/wbthomason/packer.nvim
+
+Dodajemy do pliku `~/.config/nvim/lua/plugins.lua`
+
+```lua
+use("lewis6991/gitsigns.nvim") -- integracja git
+```
+
+Następnie tworzymy plik konfiguracyjny `~/.config/nvim/lua/plugins/gitsigns.lua` i tam umieszczamy
+konfigurację dla pluginu.
+
+Teraz w pliku `~/.config/nvim/init.lua` umieszczamy linię, która wczyta plik konfiguracyjny:
+
+```lua
+require("plugins/gitsigns")
+```
+
+Ostatnim etapem jest instalacji pluginu za pomocą polecenia `:PI` lub `:PackerInstall`, wcześniej
+należy wczytać ponownie plik `plugins.lua` lub ponownie włączyć Neovim.
+
+Wczytanie pliku `plugins.lua`
+
+```vim
+:so ~/.config/nvim/lua/plugins.lua
+```
+
+## Włączenie pluginu
+
+Część pluginów jest wyłączona, żeby włączyć plugin należy zmienić wartość `disable` na `false`
+
+```lua
+use({ "neoclide/coc.nvim", disable = false })
+```
+
+Żeby zmiany odniosły skutek, należy ponownie wczytać plik `plugins.lua` lub ponownie włączyć Neovim.
+
+## Włączone pluginy
 
 - [barbar.nvim](Pluginy/barbar-nvim.md) - górny pasek oraz obsługa buforów
 - [cheatsheet.nvim](Pluginy/cheatsheet-nvim.md) - szybka pomoc
 - [dashboard-nvim](Pluginy/dashboard-nvim.md) - ekran startowy
-- [fauxClip](Pluginy/fauxClip.md) - kopiowanie do schowka systemowego
+- [fauxClip](Pluginy/fauxClip.md) - obsługa schowka systemowego
 - [formatter.nvim](Pluginy/formatter-nvim.md) - formatowanie składni
 - [fzf.vim](Pluginy/fzf-vim.md) - wyszukiwanie
 - [fzf](Pluginy/fzf.md) - wyszukiwanie

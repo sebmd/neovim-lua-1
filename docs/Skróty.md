@@ -33,6 +33,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `Y`          | Kopiuje od kursora do końca linii                                                      |
 | `ya`         | Kopiuje cały plik                                                                      |
 | `yh`         | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii             |
+| `,p` / `,P`  | Wkleja ostatnio skopiowany tekst, ale nie usunięty za pomocą skrótu `d`                |
 | `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 'textwidth' znaków 'gqap' |
 | `+`          | Zwiększa liczbę o jeden                                                                |
 | `-`          | Zmniejsza liczbę o jeden                                                               |

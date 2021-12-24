@@ -15,8 +15,9 @@ g.mapleader = " "
 map("i", "kj", "<esc>")
 -- map("i", "jk", "<esc>")
 
--- Wejście do trybu COMMAND
+-- Wejście do trybu COMMAND w trybie NORMAL i VISUAL
 map("n", "<leader>;", ":", { silent = false })
+map("v", "<leader>;", ":", { silent = false })
 
 -- Uruchomienie podręczniej pomocy LEADER ?
 map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
@@ -228,12 +229,16 @@ map("n", "<leader>d", "<cmd>bdelete<cr>")
 -- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 
 -- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
--- map("n", "<leader>d", "\"-d")
+-- map("n", "<leader>d", '"-d')
 
--- noremap p "0p
--- noremap P "0P
--- noremap <leader>p p
--- noremap <leader>P P
+-- wkleja ostatnio skopiowany tekst ale nie usunięty, ustawiony jako ,p i ,P
+-- map("n", "p", '"0p')
+-- map("n", "P", '"0P')
+map("n", ",p", '"0p')
+map("n", ",P", '"0P')
+-- wkleja ostatnio usunięty tekst
+-- map("n", "<leader>p", "p")
+-- map("n", "<leader>P", "P")
 
 -- map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")

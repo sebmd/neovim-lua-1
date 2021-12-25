@@ -101,6 +101,10 @@ map("n", "k", "gk")
 -- go w bieżącym buforze
 map("n", "gf", "<cmd>edit <cfile><cr>")
 
+-- uruchamia przeglądarkę na linku pod kursorem używając przeglądarki zdefiniowanej w zmiennej
+-- BROWSER
+map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
+
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
   [[

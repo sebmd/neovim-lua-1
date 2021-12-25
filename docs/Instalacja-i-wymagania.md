@@ -30,11 +30,9 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 
 ## Wymagania
 
-- [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6
+- [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
-
-[Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 
 ### Opcjonalnie
 

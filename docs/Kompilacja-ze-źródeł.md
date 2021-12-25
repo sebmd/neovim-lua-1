@@ -19,3 +19,12 @@ make distclean
 make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local/nvim
 make install
 ```
+
+Ustawienie zmiennych w pliku `~/.bashrc`
+
+```bash
+NVIM5="VIMRUNTIME=/usr/share/nvim/runtime /usr/bin/nvim"
+NVIM6="VIMRUNTIME=$HOME/.local/nvim/share/nvim/runtime $HOME/.local/nvim/bin/nvim"
+NVIM=$NVIM6
+EDITOR=$NVIM6
+```

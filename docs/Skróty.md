@@ -27,6 +27,8 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>zz` | Wyszukuje plików w `git/github/dotfiles`                                               |
 | `<leader>ze` | Uruchamia tryb ZenMode                                                                 |
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
+| `gf`         | Otwiera plik pod kursorem, lub tworzy plik, jeśli go nie znajdzie                      |
+| `gx`         | Otwiera stronę WWW pod kursorem w przeglądarce zdefiniowanej w zmiennej `BROWSER`      |
 
 ## Praca z plikami, wyjście z edytora
 

@@ -68,6 +68,15 @@ git submodule update --init --recursive
 npm install --save-dev --save-exact prettier
 ```
 
+### Instalacja StyLua
+
+```shell
+git clone --depth 1 https://github.com/JohnnyMorganz/StyLua
+cd StyLua
+cargo build --release
+cp target/release/stylua ~/bin
+```
+
 ### Zmienne systemowe
 
 ```bash

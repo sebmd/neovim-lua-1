@@ -68,7 +68,7 @@ return packer.startup(function(use)
   use({ "rhysd/git-messenger.vim", disable = true })
 
   -- obsługa schowka systemowego
-  use("Jorengarenar/fauxClip")
+  use({ "Jorengarenar/fauxClip", disable = false })
 
   -- menadżer plików
   -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
@@ -86,7 +86,7 @@ return packer.startup(function(use)
   use("hrsh7th/nvim-cmp")
 
   use({ "hrsh7th/cmp-vsnip", disable = false })
-  use("hrsh7th/vim-vsnip")
+  use({ "hrsh7th/vim-vsnip", disable = false })
 
   -- use "L3MON4D3/LuaSnip"
   -- use "vim-scripts/AutoComplPop"
@@ -98,7 +98,7 @@ return packer.startup(function(use)
   use("steelsojka/pears.nvim")
 
   -- formatowanie kodu
-  use("mhartington/formatter.nvim")
+  use({ "mhartington/formatter.nvim", disable = false })
 
   use("junegunn/vim-peekaboo") -- wyświetla zawartość rejestrów po naciśnięciu klawisza "
   use("tpope/vim-eunuch") -- polecenia systemu Linux
@@ -141,13 +141,13 @@ return packer.startup(function(use)
   use({ "akinsho/nvim-bufferline.lua", disable = true }) -- wyłączony
   use({ "glepnir/dashboard-nvim" })
 
-  use("jamessan/vim-gnupg") -- szyfrowanie
+  use({ "jamessan/vim-gnupg", disable = false }) -- szyfrowanie
 
   -- markdown
-  use("folke/zen-mode.nvim")
-  use("dhruvasagar/vim-table-mode")
-  use("vimwiki/vimwiki")
-  use("junegunn/vim-markdown-toc")
+  use({ "folke/zen-mode.nvim", disable = false })
+  use({ "dhruvasagar/vim-table-mode", disable = false })
+  use({ "vimwiki/vimwiki", disable = false })
+  use({ "junegunn/vim-markdown-toc", disable = false })
   -- use("instant-markdown/vim-instant-markdown")
   -- use("oberblastmeister/neuron.nvim")
 

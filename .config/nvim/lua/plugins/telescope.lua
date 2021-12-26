@@ -1,9 +1,32 @@
 -- telescope
-local sorters, actions, previewers =
-  require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
+local telescope_status_ok, configs = pcall(require, "telescope")
+if not telescope_status_ok then
+  return
+end
+
+local telescope_actions_status_ok, _ = pcall(require, "telescope.actions")
+if not telescope_actions_status_ok then
+  return
+end
+
+local telescope_sorters_status_ok, _ = pcall(require, "telescope.sorters")
+if not telescope_sorters_status_ok then
+  return
+end
+
+local telescope_previewers_status_ok, _ = pcall(require, "telescope.previewers")
+if not telescope_previewers_status_ok then
+  return
+end
+
+-- local sorters, actions, previewers =
+-- require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
 
 local actions = require("telescope.actions")
-require("telescope").setup({
+local sorters = require("telescope.sorters")
+local previewers = require("telescope.previewers")
+
+configs.setup({
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -77,5 +100,5 @@ require("telescope").setup({
 })
 
 -- Load Telescope extensions
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("project")
+configs.load_extension("fzf")
+configs.load_extension("project")

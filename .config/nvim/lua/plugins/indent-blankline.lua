@@ -1,5 +1,10 @@
 -- indent-blankline
-require("indent_blankline").setup({
+local indent_blankline_status_ok, configs = pcall(require, "indent-blankline")
+if not indent_blankline_status_ok then
+  return
+end
+
+configs.setup({
   -- char = "┊",
   -- char = "|",
   char_list = { "|", "¦", "┆", "┊" },

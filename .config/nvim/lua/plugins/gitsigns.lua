@@ -1,5 +1,10 @@
 -- gitsigns https://github.com/lewis6991/gitsigns.nvim
-require("gitsigns").setup({
+local gitsigns_status_ok, configs = pcall(require, "gitsigns")
+if not gitsigns_status_ok then
+  return
+end
+
+configs.setup({
   numhl = true,
   signcolumn = true,
   keymaps = {

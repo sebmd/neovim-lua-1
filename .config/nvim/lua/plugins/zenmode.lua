@@ -1,6 +1,11 @@
 -- zen-mode
 -- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
-require("zen-mode").setup({
+local zen_mode_status_ok, configs = pcall(require, "zen-mode")
+if not zen_mode_status_ok then
+  return
+end
+
+configs.setup({
   window = {
     backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
     -- height and width can be:

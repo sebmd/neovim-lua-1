@@ -5,7 +5,7 @@ g.dashboard_session_enable = 0
 
 g.dashboard_custom_header = { "Hattori :•: Hanzo" }
 
-g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: " .. vimrc_version }
+g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: wersja: " .. vimrc_version }
 
 g.dashboard_custom_section = {
   a = {

@@ -231,7 +231,7 @@ endfunction
 )
 
 function VimrcVersion()
-  print(vimrc_version)
+  print("Wersja: " .. vimrc_version)
 end
 
 -- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })

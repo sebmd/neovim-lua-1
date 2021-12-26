@@ -1,5 +1,5 @@
 -- Aktualizacja 2021-12-26 20:21:00
-vimrc_version = "init.lua: 2.3"
+vimrc_version = "2.3"
 --
 -- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --

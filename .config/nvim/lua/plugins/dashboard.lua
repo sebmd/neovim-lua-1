@@ -33,7 +33,7 @@ g.dashboard_custom_section = {
     command = ":lua search_dotfiles()",
   },
   g = {
-    description = { "   Konfiguracja Neovim    'c'" },
+    description = { "   Konfiguracja Neovim    'v'" },
     command = "lua search_nvim_dotfiles()",
   },
   h = {
@@ -59,7 +59,7 @@ api.nvim_exec(
     autocmd FileType dashboard nnoremap <silent> <buffer> w :Telescope live_grep<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> c :lua search_nvim_dotfiles()<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> v :lua search_nvim_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> D :lua search_docs()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
 

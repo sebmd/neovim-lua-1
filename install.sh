@@ -78,7 +78,7 @@ ln -sf $NEOVIM_LUA_DIR/bin/gp.sh ~/bin/gp.sh
 ln -sf $NEOVIM_LUA_DIR/bin/ga.sh ~/bin/ga.sh
 
 # Instaluje pluginy
-nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Włącza Neovim
 nvim

@@ -1,8 +1,42 @@
+--
 -- plugins.lua
-require("packer").startup(function(use)
+-- mechanizm instalacji skopiowany z: https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/plugins.lua
+local fn = vim.fn
+
+-- Automatically install packer
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
+end
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init({
+  display = {
+    open_fn = function()
+      return require("packer.util").float({ border = "rounded" })
+    end,
+  },
+})
+
+return packer.startup(function(use)
+  -- require("packer").startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
-
   -- wyłączony
   use({ "neoclide/coc.nvim", disable = true })
 
@@ -73,7 +107,7 @@ require("packer").startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("nvim-telescope/telescope-project.nvim")
 
-  use({ "nvim-treesitter/nvim-treesitter", disable = true })
+  use({ "nvim-treesitter/nvim-treesitter", disable = false })
 
   use({ "phaazon/hop.nvim", disable = true }) -- szybkie poruszanie się po pliku
   use({ "ggandor/lightspeed.nvim", disable = true }) -- szybkie poruszanie się po pliku
@@ -143,4 +177,8 @@ require("packer").startup(function(use)
   use("zekzekus/menguless")
   use("whatyouhide/vim-gotham")
   use("marko-cerovac/material.nvim")
+  -- end)
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)

@@ -37,8 +37,8 @@ git clone --depth 1 https://github.com/sainnhe/everforest \
     $HOME/.local/share/nvim/site/pack/packer/start/everforest
 
 # Pobiera menadżer pluginów packer.nvim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    # ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Pobranie słownika języka polskiego
 mkdir -p ~/.config/nvim/spell

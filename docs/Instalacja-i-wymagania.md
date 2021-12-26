@@ -33,13 +33,14 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 - [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
+- nodejs, npm
 
 ### Opcjonalnie
 
+- StyLua - formatowanie plików Lua
+- fd (fd-find) - wyszukiwanie plików
 - cargo / rust - kompilacja oprogramowania w języku Rust
 - go - kompilacja oprogramowania w języku Go lang
-- fd (fd-find) - wyszukiwanie plików
-- nodejs, npm - JavaScript
 
 ## Po instalacji
 

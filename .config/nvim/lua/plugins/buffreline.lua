@@ -1,5 +1,10 @@
 -- bufferline
-require("bufferline").setup({
+local bufferline_status_ok, configs = pcall(require, "bufferline")
+if not bufferline_status_ok then
+  return
+end
+
+configs.setup({
   options = {
     numbers = buff_id, -- "none" | "ordinal" | "buffer_id" | "both",
     number_style = { "none", "subscript" }, -- "superscript" | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2

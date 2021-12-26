@@ -1,5 +1,10 @@
 -- hop
-require("hop").setup({
+local hop_status_ok, configs = pcall(require, "hop")
+if not hop_status_ok then
+  return
+end
+
+configs.setup({
   reverse_distribution = true,
 })
 

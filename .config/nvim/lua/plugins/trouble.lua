@@ -1,5 +1,10 @@
 -- trouble
-require("trouble").setup({
+local trouble_status_ok, configs = pcall(require, "trouble")
+if not trouble_status_ok then
+  return
+end
+
+configs.setup({
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 10, -- height of the trouble list when position is top or bottom
   width = 50, -- width of the list when position is left or right

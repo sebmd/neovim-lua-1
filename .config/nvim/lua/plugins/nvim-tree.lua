@@ -1,7 +1,12 @@
 -- nvim-tree
+local nvim_tree_status_ok, configs = pcall(require, "nvim-tree")
+if not nvim_tree_status_ok then
+  return
+end
+
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require("nvim-tree").setup({
+configs.setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,

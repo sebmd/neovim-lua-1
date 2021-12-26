@@ -1,4 +1,9 @@
 -- formatter
+local formatter_status_ok, configs = pcall(require, "formatter")
+if not formatter_status_ok then
+  return
+end
+
 local prettier = function()
   return {
     exe = "prettier",
@@ -8,7 +13,7 @@ local prettier = function()
   }
 end
 
-require("formatter").setup({
+configs.setup({
   filetype = {
     markdown = {
       -- prettier
@@ -23,7 +28,7 @@ require("formatter").setup({
   },
 })
 
-require("formatter").setup({
+configs.setup({
   logging = false,
   filetype = {
     javascript = { prettier },

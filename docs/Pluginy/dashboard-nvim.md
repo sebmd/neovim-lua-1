@@ -6,6 +6,19 @@ Wejście do Dashboard za pomocą skrótu `<leader>D`, klawisz `<leader>` jest us
 
 Konfiguracja pluginu `dashboard-nvim` znajduje się w pliku `~/.config/nvim/lua/plugins/dashboard.lua`.
 
+- `n` - nowy plik
+- `r` - ostatnio używane pliki
+- `f` - wyszukiwanie plików
+- `w` - przeszukiwanie plików
+- `p` - projekty
+- `d` - pliki konfiguracyjne systemu `$HOME/git/github/dotfiles/`
+- `v` - pliki konfiguracyjne Neovim
+- `s` - zmiana schematu kolorystycznego
+- `D` - dokumentacja
+- `q` - wyjście
+
+Zarządzanie sesjami
+
 - `F2` zapisanie sesji
 - `F3` odtworzenie sesji
 

@@ -1,5 +1,10 @@
 -- lualine
-local lualine = require("lualine")
+local lualine_status_ok, configs = pcall(require, "lualine")
+if not lualine_status_ok then
+  return
+end
+
+local lualine = configs
 
 -- Color table for highlights
 local colors = {

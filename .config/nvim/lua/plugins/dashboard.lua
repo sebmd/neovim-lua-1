@@ -9,36 +9,36 @@ g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•:
 
 g.dashboard_custom_section = {
   a = {
-    description = { "   Wyszukiwanie plików    'f'" },
-    command = "lua Find_Files()",
-  },
-  b = {
-    description = { "   Ostatnie projekty      'p'" },
-    command = "Telescope project",
-  },
-  c = {
-    description = { "   Ostatnio używane pliki 'r'" },
-    command = "Telescope oldfiles",
-  },
-  d = {
     description = { "   Nowy plik              'n'" },
     command = "DashboardNewFile",
   },
-  e = {
+  b = {
+    description = { "   Ostatnio używane pliki 'r'" },
+    command = "Telescope oldfiles",
+  },
+  c = {
+    description = { "   Wyszukiwanie plików    'f'" },
+    command = "lua Find_Files()",
+  },
+  d = {
     description = { "   Wyszukuj w plikach     'w'" },
     command = "Telescope live_grep",
   },
-  f = {
-    description = { "   Schematy kolorystyczne 's'" },
-    command = "DashboardChangeColorscheme",
+  e = {
+    description = { "   Ostatnie projekty      'p'" },
+    command = "Telescope project",
   },
-  g = {
+  f = {
     description = { "   Pliki dot.files        'd'" },
     command = ":lua search_dotfiles()",
   },
-  h = {
+  g = {
     description = { "   Konfiguracja Neovim    'c'" },
-    command = ":e $MYVIMRC",
+    command = "lua search_nvim_dotfiles()",
+  },
+  h = {
+    description = { "   Schematy kolorystyczne 's'" },
+    command = "DashboardChangeColorscheme",
   },
   i = {
     description = { "   Dokumentacja           'D'" },
@@ -59,7 +59,7 @@ api.nvim_exec(
     autocmd FileType dashboard nnoremap <silent> <buffer> w :Telescope live_grep<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> c :e $MYVIMRC<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> c :lua search_nvim_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> D :lua search_docs()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
 

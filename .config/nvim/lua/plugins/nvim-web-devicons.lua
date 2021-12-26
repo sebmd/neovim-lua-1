@@ -1,5 +1,10 @@
 -- nvim-web-devicons
-require("nvim-web-devicons").setup({
+local nvim_web_devicons_status_ok, configs = pcall(require, "nvim-web-devicons")
+if not nvim_web_devicons_status_ok then
+  return
+end
+
+configs.setup({
   -- your personnal icons can go here (to override)
   -- DevIcon will be appended to `name`
   override = {

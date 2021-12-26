@@ -1,5 +1,5 @@
 -- indent-blankline
-local indent_blankline_status_ok, configs = pcall(require, "indent-blankline")
+local indent_blankline_status_ok, configs = pcall(require, "indent_blankline")
 if not indent_blankline_status_ok then
   return
 end

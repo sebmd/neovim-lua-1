@@ -1,4 +1,4 @@
--- Aktualizacja 2021-12-23 12:02:08
+-- Aktualizacja 2021-12-26 17:08:50
 vimrc_version = "init.lua: 2.3"
 --
 -- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -21,6 +21,7 @@ require("komendy")
 -- ustawienia pluginów
 require("plugins/barbar")
 require("plugins/cheatsheet")
+require("plugins/cmp-vsnip")
 require("plugins/dashboard")
 require("plugins/formatter")
 require("plugins/gitsigns")

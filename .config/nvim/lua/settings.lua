@@ -76,8 +76,8 @@ opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
 -- opt.shada = "!,'100,<50,s10,h"
 -- opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
--- opt.viewdir = "~/.local/share/nvim/view//"
--- opt.directory = "~/.local/share/nvim/swap//"
+-- opt.viewdir = "$HOME/.local/share/nvim/view//"
+-- opt.directory = "$HOME/.local/share/nvim/swap//"
 opt.path:remove("/usr/include")
 opt.path:append("**")
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲

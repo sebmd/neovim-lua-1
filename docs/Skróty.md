@@ -20,6 +20,9 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
 | `<leader>v`  | Wyszukuje plików konfiguracyjnych Neovim w katalogu `~/.config/nvim/`                  |
 | `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |
+| `<leader>sf` | Przeładowuje otwarty plik `:luafile %<cr>`                                             |
+| `<leader>sr` | Uruchamia skrypt shell `:!./%<cr>`                                                     |
+| `<leader>sv` | Przeładowuje plik konfiguracyjny Lua `$MYVIMRC`                                        |
 | `ESC`        | Wyłącza podświetlanie szukanego słowa `:nohl`                                          |
 | `<leader>a`  | Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 'textwidth' znaków 'gqap' |
 | `+`          | Zwiększa liczbę o jeden                                                                |

@@ -144,7 +144,7 @@ end
 api.nvim_exec(
   [[
     function! UpdateVimrc()
-        normal! ma1G0D
+        normal! ma1G0"_D
         normal! I-- Aktualizacja
         execute ':r!date +"\%F \%T"'
         normal! kJ

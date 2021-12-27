@@ -125,6 +125,22 @@ api.nvim_exec(
   false
 )
 
+-- Klawisz `K` w plikach lua wywołuje pomoc dla wyrazu pod kursorem
+api.nvim_exec(
+  [[
+    autocmd Filetype lua nnoremap K viwy:help <c-r>"<cr>
+    ]],
+  false
+)
+
+--
+-- Klawisz `K` w plikach sh wywołuje pomoc dla wyrazu pod kursorem
+api.nvim_exec(
+  [[
+    autocmd Filetype sh nnoremap K viwy:Man <c-r>"<cr>
+    ]],
+  false
+)
 -- zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
 map("n", "<f8>", ":NextColorScheme<cr>") -- f8
 map("n", "<f20>", ":PrevColorScheme<cr>") -- shift f8
@@ -167,7 +183,7 @@ map("n", "<leader>ee", "<cmd>lua search_notes_dir()<cr>")
 map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 
 -- usuwa zaznaczony tekst a następnie wkleja tekst ze schowka
--- vnoremap <leader>p "_dP
+map("v", "<leader>p", '"_dP')
 
 -- automatycznie odświerza pliki
 api.nvim_exec(
@@ -253,8 +269,14 @@ map("n", "<leader>u", ":UndotreeToggle<cr>")
 -- Wyszukiwanie plików w ~/.config/nvim
 map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 
--- Source nvimrc file
+-- przeładowuje konfigurację $MYVIMRC
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
+
+-- uruchamia skrypt (bieżący plik)
+map("n", "<leader>sr", ":!./%<cr>")
+
+-- przeładowuje konfigurajce otwartego pliku
+map("n", "<leader>sf", ":luafile %<cr>")
 
 -- Otwiera nowy plik do edycji
 -- map("n", "<Leader>n", "<cmd>enew<cr>")

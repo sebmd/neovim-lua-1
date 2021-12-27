@@ -149,6 +149,7 @@ packer.startup(function(use)
   use("xolox/vim-misc")
 
   -- kolory
+  use("rebelot/kanagawa.nvim")
   use("Taverius/vim-colorscheme-manager")
   use("xolox/vim-colorscheme-switcher")
   use("chriskempson/base16-vim")

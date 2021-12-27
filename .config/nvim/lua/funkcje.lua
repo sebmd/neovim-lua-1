@@ -72,11 +72,8 @@ api.nvim_exec(
 api.nvim_exec(
   [[
         function! Kolory()
-            let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
-                \ 'everforest', 'gruvbox-material', 'one', 'srcery', 'base16-atelier-savanna',
-                \ 'base16-atlas', 'base16-darktooth', 'base16-eighties', 'base16-material',
-                \ 'base16-solarized-light','material']
-            call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
+        	let kolory = readfile(expand('$HOME/.config/nvim/kolory'))
+        	call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
         endfunction
     ]],
   false

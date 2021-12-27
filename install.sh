@@ -63,6 +63,7 @@ ln -sf $NEOVIM_LUA_DIR/.config/nvim/lua/plugins/ ~/.config/nvim/lua/plugins
 ln -sf $NEOVIM_LUA_DIR/docs/ ~/.config/nvim/docs
 ln -sf $NEOVIM_LUA_DIR/README.md ~/.config/nvim/README.md
 ln -sf $NEOVIM_LUA_DIR/.config/nvim/cheatsheet.txt ~/.config/nvim/cheatsheet.txt
+ln -sf $NEOVIM_LUA_DIR/.config/nvim/kolory ~/.config/nvim/kolory
 
 # Tworzy link symboliczny dla ~/.config/vars
 if [ ! -f $HOME/.config/vars ]; then

@@ -74,9 +74,10 @@ opt.writebackup = false -- if a file is being edited by another program (or was 
 -- opt.undodir = utils.join_paths(get_cache_dir(), "undo"), -- set an undo directory
 opt.undofile = true -- enable persistent undo
 opt.undolevels = 1000
-opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
-opt.viewdir = "$HOME/.local/share/nvim/view"
-opt.directory = "~/.local/share/nvim/swap//"
+-- opt.shada = "!,'100,<50,s10,h"
+-- opt.viminfo = "'100,n$HOME/.local/share/nvim/viminfo/viminfo"
+-- opt.viewdir = "~/.local/share/nvim/view//"
+-- opt.directory = "~/.local/share/nvim/swap//"
 opt.path:remove("/usr/include")
 opt.path:append("**")
 opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- eol ↲
@@ -96,7 +97,7 @@ opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*"
 cmd('let $BASH_ENV="~/.config/aliases"')
 
 -- Ustawia powłokę systemową
--- opt.shell = "/bin/bash"
+opt.shell = "/bin/bash"
 
 g.netrw_liststyle = 3 -- Tree style Netrw
 
@@ -139,6 +140,13 @@ api.nvim_exec(
 )
 cmd("au BufNewFile,BufReadPost *.gpg.md set filetype=markdown")
 cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
+
+-- vim.o.buftype = "nofile"
+-- if vim.o.buftype == "" then
+-- print("OK")
+-- end
+-- cmd("au BufWinLeave * mkview")
+-- cmd("au VimEnter * loadview")
 
 -- wchodzi w tryb INSERT przy utowrzeniu nowego pliku typu Markdown
 cmd("au! BufNewFile *.md startinsert!")

@@ -5,10 +5,6 @@ if not telescope_status_ok then
 end
 
 -- local sorters, actions, previewers =
--- require("telescope.sorters")
--- require("telescope.actions")
--- require("telescope.previewers")
-
 local actions = require("telescope.actions")
 local sorters = require("telescope.sorters")
 local previewers = require("telescope.previewers")

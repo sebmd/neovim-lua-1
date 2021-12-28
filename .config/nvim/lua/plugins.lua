@@ -105,6 +105,7 @@ packer.startup(function(use)
   use("lukas-reineke/indent-blankline.nvim")
 
   -- use("rmagatti/auto-session")
+  use("Shatur/neovim-session-manager")
 
   use("tpope/vim-repeat")
   use("tpope/vim-surround")

@@ -4,23 +4,10 @@ if not telescope_status_ok then
   return
 end
 
-local telescope_actions_status_ok, _ = pcall(require, "telescope.actions")
-if not telescope_actions_status_ok then
-  return
-end
-
-local telescope_sorters_status_ok, _ = pcall(require, "telescope.sorters")
-if not telescope_sorters_status_ok then
-  return
-end
-
-local telescope_previewers_status_ok, _ = pcall(require, "telescope.previewers")
-if not telescope_previewers_status_ok then
-  return
-end
-
 -- local sorters, actions, previewers =
--- require("telescope.sorters"), require("telescope.actions"), require("telescope.previewers")
+-- require("telescope.sorters")
+-- require("telescope.actions")
+-- require("telescope.previewers")
 
 local actions = require("telescope.actions")
 local sorters = require("telescope.sorters")
@@ -102,3 +89,4 @@ configs.setup({
 -- Load Telescope extensions
 configs.load_extension("fzf")
 configs.load_extension("project")
+configs.load_extension("sessions")

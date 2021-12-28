@@ -5,9 +5,9 @@
 * [Dodanie pluginu](#dodanie-pluginu)
 * [Włączenie pluginu](#włączenie-pluginu)
 * [Włączone pluginy](#włączone-pluginy)
-    * [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
-    * [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
-    * [Kolory](#kolory)
+	* [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
+	* [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
+	* [Kolory](#kolory)
 * [Wyłączone](#wyłączone)
 
 <!-- vim-markdown-toc -->
@@ -64,6 +64,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [indent-blankline.nvim](Pluginy/indent-blankline-nvim.md) - wyróżnianie wcięć linii
 - [kommentary](Pluginy/kommentary.md) - komentowanie tekstu za pomocą skrótów klawiszowych
 - [lualine](Pluginy/lualine.md) - dolny pasek
+- [neovim-session-manager](Pluginy/neovim-session-manager.md)
 - [nvim-cursorline](Pluginy/nvim-cursorline.md)
 - [nvim-tree.lua](Pluginy/nvim-tree-lua.md) - menadżer plików
 - [nvim-web-devicons](Pluginy/nvim-web-devicons.md) - dodatkowe czcionki z symbolami

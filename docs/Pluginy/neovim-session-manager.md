@@ -1,0 +1,1 @@
+# neovim-session-manager

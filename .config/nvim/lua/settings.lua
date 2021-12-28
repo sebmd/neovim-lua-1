@@ -141,13 +141,6 @@ api.nvim_exec(
 cmd("au BufNewFile,BufReadPost *.gpg.md set filetype=markdown")
 cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
 
--- vim.o.buftype = "nofile"
--- if vim.o.buftype == "" then
--- print("OK")
--- end
--- cmd("au BufWinLeave * mkview")
--- cmd("au VimEnter * loadview")
-
 -- wchodzi w tryb INSERT przy utowrzeniu nowego pliku typu Markdown
 cmd("au! BufNewFile *.md startinsert!")
 

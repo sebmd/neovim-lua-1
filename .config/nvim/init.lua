@@ -1,5 +1,5 @@
--- Aktualizacja 2021-12-27 12:51:42
-vimrc_version = "2.3"
+-- Aktualizacja 2021-12-28 14:40:56
+vimrc_version = "2.4"
 --
 -- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --

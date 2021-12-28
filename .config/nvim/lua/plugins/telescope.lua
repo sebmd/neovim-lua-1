@@ -51,7 +51,8 @@ configs.setup({
     },
     project = {
       base_dirs = {
-        "$HOME",
+        "~/git",
+        -- "$HOME",
         -- "~/Sync",
         -- { "~/git/github", maxdepth = 2 },
         -- { "~/git/github " },

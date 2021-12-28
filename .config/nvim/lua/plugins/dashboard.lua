@@ -17,34 +17,38 @@ g.dashboard_custom_section = {
     command = "Telescope oldfiles",
   },
   c = {
+    description = { "   Zapisane sesje         's'" },
+    command = "Telescope sessions",
+  },
+  d = {
     description = { "   Wyszukiwanie plików    'f'" },
     command = "lua Find_Files()",
   },
-  d = {
+  e = {
     description = { "   Wyszukuj w plikach     'w'" },
     command = "Telescope live_grep",
   },
-  e = {
+  f = {
     description = { "   Ostatnie projekty      'p'" },
     command = "Telescope project",
-  },
-  f = {
-    description = { "   Pliki dot.files        'd'" },
-    command = ":lua search_dotfiles()",
   },
   g = {
     description = { "   Konfiguracja Neovim    'v'" },
     command = "lua search_nvim_dotfiles()",
   },
   h = {
-    description = { "   Schematy kolorystyczne 's'" },
-    command = "DashboardChangeColorscheme",
+    description = { "   Pliki dot.files        'd'" },
+    command = ":lua search_dotfiles()",
   },
   i = {
+    description = { "   Schematy kolorystyczne 'S'" },
+    command = "DashboardChangeColorscheme",
+  },
+  j = {
     description = { "   Dokumentacja           'D'" },
     command = ":lua search_docs()",
   },
-  j = {
+  k = {
     description = { "   Wyjście z Neovim       'q'" },
     command = ":q",
   },
@@ -54,19 +58,20 @@ api.nvim_exec(
   [[
     autocmd FileType dashboard nnoremap <silent> <buffer> f :lua Find_Files()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> p :Telescope project<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> s :Telescope sessions<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> r :Telescope oldfiles<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> n :DashboardNewFile<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> w :Telescope live_grep<cr>
-    autocmd FileType dashboard nnoremap <silent> <buffer> s :DashboardChangeColorscheme<cr>
+    autocmd FileType dashboard nnoremap <silent> <buffer> S :DashboardChangeColorscheme<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> d :lua search_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> v :lua search_nvim_dotfiles()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> D :lua search_docs()<cr>
     autocmd FileType dashboard nnoremap <silent> <buffer> q :q<cr>
 
-    autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66
-    autocmd FileType dashboard highlight dashboardCenter    ctermfg=109 guifg=#5CCFE6
-    autocmd FileType dashboard highlight dashboardFooter    ctermfg=240 guifg=#BBE67E
-    autocmd FileType dashboard highlight dashboardShortCut  ctermfg=245
+    " autocmd FileType dashboard highlight dashboardHeader    ctermfg=114 guifg=#FFCC66
+    " autocmd FileType dashboard highlight dashboardCenter    ctermfg=109 guifg=#5CCFE6
+    " autocmd FileType dashboard highlight dashboardFooter    ctermfg=240 guifg=#BBE67E
+    " autocmd FileType dashboard highlight dashboardShortCut  ctermfg=245
 ]],
   false
 )

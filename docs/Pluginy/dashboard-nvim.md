@@ -8,12 +8,13 @@ Konfiguracja pluginu `dashboard-nvim` znajduje się w pliku `~/.config/nvim/lua/
 
 - `n` - nowy plik
 - `r` - ostatnio używane pliki
+- `s` - zapisane sesje
 - `f` - wyszukiwanie plików
 - `w` - przeszukiwanie plików
 - `p` - projekty
 - `d` - pliki konfiguracyjne systemu `$HOME/git/github/dotfiles/`
 - `v` - pliki konfiguracyjne Neovim
-- `s` - zmiana schematu kolorystycznego
+- `S` - zmiana schematu kolorystycznego
 - `D` - dokumentacja
 - `q` - wyjście
 

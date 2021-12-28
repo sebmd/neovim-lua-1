@@ -155,7 +155,7 @@ packer.startup(function(use)
   use("xolox/vim-colorscheme-switcher")
   use("chriskempson/base16-vim")
   use("rose-pine/neovim")
-  -- use "flazz/vim-colorschemes"
+  -- use("flazz/vim-colorschemes")
   use("EdenEast/nightfox.nvim")
   use("rakr/vim-one")
   use("lifepillar/vim-solarized8")

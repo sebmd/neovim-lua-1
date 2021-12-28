@@ -88,12 +88,11 @@ use({ "neoclide/coc.nvim", disable = false })
 
 ### Automatyczne podpowiedzi i snipeety
 
-- hrsh7th/nvim-cmp
-- hrsh7th/cmp-buffer
-- hrsh7th/cmp-path
-- hrsh7th/cmp-cmdline
-- hrsh7th/cmp-vsnip
-- hrsh7th/vim-vsnip
+- [nvim-cmp](Pluginy/nvim-cmp.md)
+- [cmp-buffer](Pluginy/cmp-buffer.md)
+- [cmp-path](Pluginy/cmp-path.md)
+- [cmp-cmdline](Pluginy/cmp-cmdline.md)
+- [cmp-vsnip](Pluginy/cmp-vsnip.md)
 - [vim-vsnip](Pluginy/vim-vsnip.md)
 
 ### Narzędzia i biblioteki
@@ -111,6 +110,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [everforest](Kolory/everforest.md)
 - [gruvbox-material](Kolory/gruvbox-material.md)
 - [gruvbox](Kolory/gruvbox.md)
+- [kanagawa.nvim](Kolory/kanagawa-nvim.md)
 - [material.nvim](Kolory/material-nvim.md)
 - [menguless](Kolory/menguless.md)
 - [nightfox.nvim](Kolory/nightfox-nvim.md)

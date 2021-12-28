@@ -69,7 +69,7 @@ map("i", "<c-j>", "<down>")
 map("i", "<c-k>", "<up>")
 map("i", "<c-l>", "<right>")
 
--- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
+-- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
 map("n", "<c-h>", "<c-w><c-h>")
 map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
@@ -263,9 +263,6 @@ map("n", ",P", '"0P')
 -- map("n", "<leader>th", ":nohl<cr>", { silent = true })
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
--- Otwiera plik konfiguracyjny Neovim
--- map("n", "<leader>v", "<cmd>e $MYVIMRC<cr>")
---
 -- Wyszukiwanie plików w ~/.config/nvim
 map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 
@@ -277,9 +274,6 @@ map("n", "<leader>sr", ":!./%<cr>")
 
 -- przeładowuje konfigurajce otwartego pliku
 map("n", "<leader>sf", ":luafile %<cr>")
-
--- Otwiera nowy plik do edycji
--- map("n", "<Leader>n", "<cmd>enew<cr>")
 
 -- Mendadżer plików NvimTree
 map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
@@ -337,17 +331,6 @@ map("i", ",/", "</<C-X><C-O>")
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Telescoope
--- <leader>p    find_files
--- <leader>r    registers
--- <leader>g    live_grep
--- <leader>zx   grep_string
--- <leader>b    buffers
--- <leader>j    help_tags
--- <leader>f    file_browser
--- <leader>s    spell_suggest
--- <leader>i    git_status
--- <leader>t    tags
--- <leader>P    project
 map(
   "n",
   "<leader>p",
@@ -362,11 +345,6 @@ map(
 map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
---[[ map(
-  "n",
-  "<leader>f",
-  '<cmd>lua require("telescope.builtin").file_browser(require("telescope.themes").get_dropdown({}))<cr>'
-) ]]
 map(
   "n",
   "<leader>f",
@@ -379,17 +357,29 @@ map(
   "<leader>i",
   '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
-map("n", "<leader>t", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
+map("n", "<leader>ta", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 
 map("n", "<leader>P", ":Telescope project<cr>")
 
 map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
 
+-- historia komend :
+map("n", "q:", "<nop>")
+map("n", "q:", ":Telescope command_history<cr>")
+map("n", "<leader>hc", ":Telescope command_history<cr>")
+
+-- lista zmapowanych klawiszy
+map("n", "<leader>m", ":Telescope keymaps<cr>")
+
+-- historia wyszukiwania
+map("n", "<leader>sh", ":Telescope search_history<cr>")
+
 -- Uruchomienie terminala w podziale poziomym
 -- <c-\><c-n> przechodzi w tryb NORMAL w oknie terminala, dzięki czemu można zaznaczać tekst w
 -- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
--- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
+map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
+map("n", "<leader>tt", "<cmd>split term://$SHELL<cr>")
 
 -- wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")

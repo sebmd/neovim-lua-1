@@ -32,6 +32,8 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
 | `gf`         | Otwiera plik pod kursorem, lub tworzy plik, jeśli go nie znajdzie                      |
 | `gx`         | Otwiera stronę WWW pod kursorem w przeglądarce zdefiniowanej w zmiennej `BROWSER`      |
+| `<leader>t`  | Uruchamia termianal                                                                    |
+| `<leader>tt` | Uruchamia terminal                                                                     |
 
 ## Praca z plikami, wyjście z edytora
 
@@ -58,18 +60,23 @@ Klawisz **LEADER** to **SPACJA**.
 
 ## Telescope
 
-| skrót       | opis                                              |
-| ----------- | ------------------------------------------------- |
-| `<leader>p` | `Telescope find_files`                            |
-| `<leader>r` | `Telescope registers` - lista rejestrów           |
-| `<leader>g` | `Telescope live_grep`                             |
-| `<leader>b` | `Telescope buffers` - lista otwartych buforów     |
-| `<leader>j` | `Telescope help_tags`                             |
-| `<leader>f` | `Telescope file_browser`                          |
-| `<leader>s` | `Telescope spell_suggest`                         |
-| `<leader>i` | `Telescope git_status` - lista plików ze zmianami |
-| `<leader>t` | `Telescope tags`                                  |
-| `<leader>P` | `Telescope project`                               |
+| skrót        | opis                                                                     |
+| ------------ | ------------------------------------------------------------------------ |
+| `<leader>p`  | `Telescope find_files`                                                   |
+| `<leader>r`  | `Telescope registers` - lista rejestrów                                  |
+| `<leader>g`  | `Telescope live_grep`                                                    |
+| `<leader>b`  | `Telescope buffers` - lista otwartych buforów                            |
+| `<leader>j`  | `Telescope help_tags`                                                    |
+| `<leader>f`  | `Telescope file_browser`                                                 |
+| `<leader>s`  | `Telescope spell_suggest`                                                |
+| `<leader>i`  | `Telescope git_status` - lista plików ze zmianami                        |
+| `<leader>ta` | `Telescope tags`                                                         |
+| `<leader>P`  | `Telescope project`                                                      |
+| `<leader>sy` | `Telescope symbols`                                                      |
+| `<leader>hc` | `Telescope command_history`                                              |
+| `q:`         | `Telescope command_history` zastąpiony standardowy skrót historii komend |
+| `<leader>m`  | `Telescope keymaps`                                                      |
+| `<leader>sh` | `Telescope search_history`                                               |
 
 ## Bufory
 

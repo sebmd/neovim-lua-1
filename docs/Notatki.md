@@ -3,13 +3,13 @@
 <!-- vim-markdown-toc Marked -->
 
 * [Komendy i skróty klawiszowe](#komendy-i-skróty-klawiszowe)
-    * [Formatowanie tekstu](#formatowanie-tekstu)
-    * [Przeniesienie bieżącej linii lub zaznaczenia do pliku](#przeniesienie-bieżącej-linii-lub-zaznaczenia-do-pliku)
-    * [Edycja wybranych plików](#edycja-wybranych-plików)
-    * [Dodaje nowy plik dziennika](#dodaje-nowy-plik-dziennika)
-    * [Komenda InsertDiaryHeader](#komenda-insertdiaryheader)
-    * [Przeszukiwanie i wyszukiwanie](#przeszukiwanie-i-wyszukiwanie)
-    * [Tryb zen-mode](#tryb-zen-mode)
+	* [Formatowanie tekstu](#formatowanie-tekstu)
+	* [Przeniesienie bieżącej linii lub zaznaczenia do pliku](#przeniesienie-bieżącej-linii-lub-zaznaczenia-do-pliku)
+	* [Edycja wybranych plików](#edycja-wybranych-plików)
+	* [Dodaje nowy plik dziennika](#dodaje-nowy-plik-dziennika)
+	* [Komenda InsertDiaryHeader](#komenda-insertdiaryheader)
+	* [Przeszukiwanie i wyszukiwanie](#przeszukiwanie-i-wyszukiwanie)
+	* [Tryb zen-mode](#tryb-zen-mode)
 * [Tworzenie spisu treści](#tworzenie-spisu-treści)
 * [Pluginy](#pluginy)
 
@@ -52,6 +52,20 @@ Skróty pozwalające przenoszenie linii lub zaznaczenia do jednego z trzech plik
 - `<leader>si` przenosi do pliku `$NOTES_DIR/inbox.md`
 - `<leader>sd` przenosi do pliku `$NOTES_DIR/done.md`
 - `<leader>sn` przenosi do pliku `$NOTES_DIR/notatki.md`
+
+Jeśli chcemy, żeby automatycznie się odświeżały pliki po przeniesieniu linii należy ustawić w pliku `settings.lua`
+katalog notatek w następujących liniach.
+
+```
+-- automatycznie odświerza pliki
+api.nvim_exec(
+  [[
+    autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md set autoread
+    autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md :checktime
+]],
+  false
+)
+```
 
 ### Edycja wybranych plików
 

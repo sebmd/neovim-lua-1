@@ -185,15 +185,6 @@ map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 -- usuwa zaznaczony tekst a następnie wkleja tekst ze schowka
 map("v", "<leader>p", '"_dP')
 
--- automatycznie odświerza pliki
-api.nvim_exec(
-  [[
-    autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md set autoread
-    autocmd FocusGained,BufEnter,CursorHold $NOTES_DIR/*.md :checktime
-]],
-  false
-)
-
 -- ustawia podzielone okno na główne (full screen)
 map("n", "<leader>o", ':only<cr>:echom "There Can Be Only One"<cr>"')
 

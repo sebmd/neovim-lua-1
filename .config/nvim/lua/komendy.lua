@@ -1,6 +1,7 @@
 -- komendy
 cmd("command! CD call CD()")
 cmd("command! CDEdit e ~/.config/bmproj")
+cmd("command! DeleteSwapFile call DeleteSwapFile()")
 cmd("command! DestractionFree call DestractionFree()")
 cmd("command! DiaryNotes call DiaryNotes()")
 cmd("command! Dokumentacja :lua search_docs()<cr>")

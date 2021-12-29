@@ -5,6 +5,7 @@
 | `CDEdit`            | włącza edycję pliku `$HOME/.config/bmproj`                                           |
 | `CD`                | otwiera menadżer plików w wybranym katalogu, zawartym w pliku `$HOME/.config/bmproj` |
 | `DestractionFree`   | wyłącza różnego rodzaju rozpraszacze, na przykład numerowanie linii                  |
+| `DeleteSwapFile`    | usuwa plik swap (.swp) dla otwartego pliku                                           |
 | `DiaryNotes`        | edycja dzisiejszej notatki w katalogu `$NOTES_DIR`                                   |
 | `Dokumentacja`      | przeglądanie dokumentacji                                                            |
 | `GA`                | uruchamia skrypt dodający zmiany do repozytorium git                                 |

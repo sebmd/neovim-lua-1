@@ -4,6 +4,9 @@ if not nvim_tree_status_ok then
   return
 end
 
+-- automatycznie zmienia katalog względem położenia otwartego pliku
+vim.g.nvim_tree_respect_buf_cwd = 1
+
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 configs.setup({

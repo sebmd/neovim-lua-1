@@ -381,3 +381,9 @@ map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 -- plugin kommentary
 api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
 api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
+
+-- plugin vim-vsnip
+cmd([[imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']])
+cmd([[smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']])
+cmd([[imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>']])
+cmd([[smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>']])

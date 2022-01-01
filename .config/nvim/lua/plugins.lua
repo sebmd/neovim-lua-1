@@ -52,6 +52,8 @@ packer.startup(function(use)
   -- obsługa schowka systemowego
   use({ "Jorengarenar/fauxClip", disable = false })
 
+  -- use("nyngwang/NeoRoot.lua")
+
   -- menadżer plików
   -- use({ "ms-jpq/chadtree", run = ":CHADdeps" })
   -- use("ms-jpq/chadtree")

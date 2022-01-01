@@ -5,9 +5,9 @@
 * [Dodanie pluginu](#dodanie-pluginu)
 * [Włączenie pluginu](#włączenie-pluginu)
 * [Włączone pluginy](#włączone-pluginy)
-    * [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
-    * [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
-    * [Kolory](#kolory)
+	* [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
+	* [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
+	* [Kolory](#kolory)
 * [Wyłączone](#wyłączone)
 
 <!-- vim-markdown-toc -->
@@ -58,6 +58,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [dashboard-nvim](Pluginy/dashboard-nvim.md) - ekran startowy
 - [fauxClip](Pluginy/fauxClip.md) - obsługa schowka systemowego
 - [formatter.nvim](Pluginy/formatter-nvim.md) - formatowanie składni
+- [fzf-lua](Pluginy/fzf-lua.md)
 - [fzf.vim](Pluginy/fzf-vim.md) - wyszukiwanie
 - [fzf](Pluginy/fzf.md) - wyszukiwanie
 - [gitsigns.nvim](Pluginy/gitsigns-nvim.md) - obsługa repozytoriów git

@@ -87,8 +87,10 @@ packer.startup(function(use)
   -- use("yamatsum/nvim-cursorline") -- podświetlanie identycznych słów
 
   -- wyszukiwanie
-  use("junegunn/fzf")
-  use("junegunn/fzf.vim")
+  -- use("junegunn/fzf")
+  -- use("junegunn/fzf.vim")
+
+  use("ibhagwan/fzf-lua")
 
   use({
     "nvim-telescope/telescope.nvim",

@@ -5,9 +5,9 @@
 * [Dodanie pluginu](#dodanie-pluginu)
 * [Włączenie pluginu](#włączenie-pluginu)
 * [Włączone pluginy](#włączone-pluginy)
-	* [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
-	* [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
-	* [Kolory](#kolory)
+    * [Automatyczne podpowiedzi i snipeety](#automatyczne-podpowiedzi-i-snipeety)
+    * [Narzędzia i biblioteki](#narzędzia-i-biblioteki)
+    * [Kolory](#kolory)
 * [Wyłączone](#wyłączone)
 
 <!-- vim-markdown-toc -->

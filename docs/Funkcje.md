@@ -408,7 +408,7 @@ endfunction
 
 ## Funkcja VimrcVersion
 
-Wyświetla wersję konfiguracji.
+Wyświetla wersję konfiguracji na podstawie zmiennej `vimrc_version` znajdującej się w pliku `~/.config/nvim/init.lua`.
 
 ```lua
 function VimrcVersion()

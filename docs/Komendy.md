@@ -14,6 +14,7 @@
 | `GP`                | uruchamia skrypt git add, git commit, git push                                       |
 | `GR`                | uruchamia program w Golang za pomocą komendy `:GoRun`                                |
 | `InsertDiaryHeader` | wstawia nagłówek 1 stopnia oraz bieżącą datę i godzina                               |
+| `Maps`              | wyświetla listę skrótów klawiszowych                                                 |
 | `PC`                | usunięcie plików nieużywanych pluginów za pomocą komendy `PackerClean`               |
 | `PI`                | instalacja pluginów za pomocą komendy `PackerInstall`                                |
 | `PS`                | aktualizacja pluginów za pomocą komendy `PackerSync`                                 |

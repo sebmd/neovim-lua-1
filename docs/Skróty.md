@@ -58,13 +58,13 @@ Klawisz **LEADER** to **SPACJA**.
 | `yh`        | Kopiuje linię z pominięcie pierwszego wyrazu / znaku bez znaku końca linii |
 | `,p` / `,P` | Wkleja ostatnio skopiowany tekst, ale nie usunięty za pomocą skrótu `d`    |
 
-## Telescope
+## Telescope / FzfLua
 
 | skrót        | opis                                                                     |
 | ------------ | ------------------------------------------------------------------------ |
 | `<leader>r`  | `Telescope registers` - lista rejestrów                                  |
 | `<leader>g`  | `Telescope live_grep`                                                    |
-| `<leader>b`  | `Telescope buffers` - lista otwartych buforów                            |
+| `<leader>b`  | `FzfLua buffers` - lista otwartych buforów                               |
 | `<leader>j`  | `Telescope help_tags`                                                    |
 | `<leader>f`  | `Telescope file_browser`                                                 |
 | `<leader>s`  | `Telescope spell_suggest`                                                |
@@ -85,6 +85,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leaader>.` | przechodzi do następnego bufora                        |
 | `<tab>`      | porusza się pomiędzy dwoma ostatnio używanymi buforami |
 | `<leader>d`  | usuwa bufor `:bdelete`                                 |
+| `<leader>b`  | lista otwartych buforów `FzfLua buffers`               |
 
 ## Okna
 

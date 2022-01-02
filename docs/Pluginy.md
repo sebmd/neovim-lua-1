@@ -74,6 +74,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [telescope-project.nvim](Pluginy/telescope-project-nvim.md)
 - [telescope-symbols.nvim](Pluginy/telescope-symbols-nvim.md)
 - [telescope.nvim](Pluginy/telescope-nvim.md)
+- [toggleterm.nvim](Pluginy/toggleterm-nvim.md)
 - [undotree](Pluginy/undotree.md) - drzewo zmian
 - [vim-devicons](Pluginy/vim-devicons.md) - dodatkowe czcionki z symbolami
 - [vim-dotoo](Pluginy/vim-dotoo.md)

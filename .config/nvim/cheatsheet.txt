@@ -1,5 +1,6 @@
 Otwiera menadżer plików w wybranym katalogu, zawartym w pliku $HOME/.config/bmproj          | :CD
 Włącza edycję pliku $HOME/.config/bmproj                                                    | :CDEdit
+Wyświetla listę kolorów                                                                     | :Colors
 Włącza tryb minimalnego wyglądu                                                             | :DestractionFree
 Usuwa plik swap (.swp) dla otwartego pliku                                                  | :DeleteSwapFile
 Edycja dzisiejszej notatki w katalogu $NOTES_DIR                                            | :DiaryNotes
@@ -9,6 +10,7 @@ Uruchamia skrypt git add, git commit, git push                                  
 Uruchamia program w Golang za pomocą komendy :GoRun                                         | :GR
 Wstawia nagłówek 1 stopnia oraz bieżącą datę i godzina                                      | :InsertDiaryHeader
 Własna lista kolorów w oparciu o plik ~/.config/nvim/kolory                                 | :Kolory
+Wyświetla listę skrótów klawiszowych                                                        | :Maps
 Usunięcie zbędnych pluginów                                                                 | :PC
 Instalacja pluginów                                                                         | :PI
 Aktualizacja pluginów                                                                       | :PS
@@ -62,8 +64,8 @@ Zaznacza cały plik                                                             
 Zapisuje sesję                                                                              | F2
 Odtwarza zapisaną sesję                                                                     | F3
 Otwiera Undotree                                                                            | <leader>u
-Otwiera okno terminala systemowego                                                          | <leader>t
-Otwiera okno terminala systemowego                                                          | <leader>tt
+Otwiera okno terminala ToggleTerm                                                           | <leader>t
+Otwiera okno terminala ToggleTerm                                                           | <c-\>
 Wyszukiwanie plików konfiguracyjnych *.lua w katalogu ~/.config/nvim                        | <leader>v
 Przeładowuje plik konfiguracyjny Lua $MYVIMRC                                               | <leader>sv
 Przeładowanie bieżącego pliku konfiguracyjnego                                              | <leader>sf

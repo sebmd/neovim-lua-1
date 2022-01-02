@@ -14,7 +14,7 @@
 | [`search_dotfiles`](#funkcja-search_dotfiles)           | Wyszukiwanie telescope w katalogu dotfiles                                                       |
 | [`search_docs`](#funkcja-search_docs)                   | Wyszukiwanie plików w katalogu dokumentacji                                                      |
 | [`search_nvim_dotfiles`](#funkcja-search_nvim_dotfiles) | Wyszukiwanie plików konfiguracyjnych Neovim w katalogu `$HOME/.config/nvim`                      |
-| [`Time`](#funkcja-time)                                 | Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27           |
+| [`Time`](#funkcja-time)                                 | Funkcja `Time()` wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27         |
 | [`UpdateVimrc`](#funkcja-updatevimrc)                   | Przechodzi do pierwszej linii pliku i zmienia datę aktualizacji pliku                            |
 | [`GP`](#funkcja-gp)                                     | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/gp.sh`                        |
 | [`GA`](#funkcja-ga)                                     | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/ga.sh`                        |
@@ -138,6 +138,8 @@ api.nvim_exec(
 
 ## Funkcja DiaryNotes
 
+Funkcja `DiaryNotes()` otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji `InsertDiaryHeader`
+
 ```lua
 -- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 -- InsertDiaryHeader
@@ -159,16 +161,15 @@ api.nvim_exec(
 
 ## Funkcja Kolory
 
+Zmiana schematu kolorystycznego z listy zapisanej w pliku `$HOME/.config/nvim/kolory`.
+
 ```lua
 -- Lista tematów kolorystycznych FZF
 api.nvim_exec(
   [[
         function! Kolory()
-            let kolory = ['ayu', 'nightfox', 'nordfox', 'palefox', 'dayfox', 'dawnfox', 'duskfox',
-                \ 'everforest', 'gruvbox-material', 'one', 'srcery', 'base16-atelier-savanna',
-                \ 'base16-atlas', 'base16-darktooth', 'base16-eighties', 'base16-material',
-                \ 'base16-solarized-light']
-            call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
+        	let kolory = readfile(expand('$HOME/.config/nvim/kolory'))
+        	call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
         endfunction
     ]],
   false
@@ -177,7 +178,7 @@ api.nvim_exec(
 
 ## Funkcja Find_Files
 
-Funkcja Find_Files wyszukuje pliki w bieżącej lokalizacji za pomocą polecenia `rg`
+Funkcja `Find_Files` wyszukuje pliki w bieżącej lokalizacji za pomocą polecenia `rg`
 
 ```lua
 -- Wyszukiwanie plików w bieżącej lokalizacji
@@ -207,6 +208,8 @@ end
 
 ## Funkcja grep_notes_dir
 
+Przeszukiwanie za pomocą pluginu Telescope katalogu `$NOTES_DIR`.
+
 ```lua
 -- Przeszukiwanie telescope w katalogu $NOTES_DIR
 grep_notes_dir = function()
@@ -218,6 +221,8 @@ end
 ```
 
 ## Funkcja search_dotfiles
+
+Wyszukiwanie za pomocą pluginu Telescope w katalogu `$HOME/git/github/dotfiles`.
 
 ```lua
 -- Wyszukiwanie telescope w katalogu dotfiles
@@ -232,6 +237,8 @@ end
 
 ## Funkcja search_docs
 
+Wyszukiwanie plików w katalogu dokumentacji `$HOME/.config/nvim/docs/`
+
 ```lua
 -- Wyszukiwanie plików w katalogu dokumentacji
 search_docs = function()
@@ -244,6 +251,8 @@ end
 ```
 
 ## Funkcja search_nvim_dotfiles
+
+Wyszukiwanie plików konfiguracyjnych Neovim w katalogu `$HOME/.config/nvim`.
 
 ```lua
 -- Wyszukiwanie plików konfiguracyjnych Neovim w katalogu $HOME/.config/nvim
@@ -258,6 +267,8 @@ end
 ```
 
 ## Funkcja Time
+
+Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
 
 ```lua
 -- Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
@@ -297,6 +308,8 @@ api.nvim_exec(
 
 ## Funkcja GP
 
+Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/gp.sh`.
+
 ```lua
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/gp.sh
 api.nvim_exec(
@@ -312,6 +325,8 @@ api.nvim_exec(
 
 ## Funkcja GA
 
+Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/ga.sh`.
+
 ```lua
 -- Przechodzi do katalogu edytowanego pliku i uruchamia skrypt ~/bin/ga.sh
 api.nvim_exec(
@@ -326,6 +341,8 @@ api.nvim_exec(
 ```
 
 ## Funkcja RevBackground
+
+Odwraca kolor tła
 
 ```lua
 -- Odwraca kolor tła
@@ -390,6 +407,8 @@ endfunction
 ```
 
 ## Funkcja VimrcVersion
+
+Wyświetla wersję konfiguracji.
 
 ```lua
 function VimrcVersion()

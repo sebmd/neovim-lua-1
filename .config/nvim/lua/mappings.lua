@@ -15,6 +15,12 @@ g.mapleader = " "
 map("i", "kj", "<esc>")
 -- map("i", "jk", "<esc>")
 
+-- Wyłącza podświetlanie szukanego tekstu
+-- map("n", "<leader>th", ":nohl<cr>", { silent = true })
+
+-- ESC wyłącza wyróżnianie szukanego słowa
+map("n", "<esc>", ":noh<cr><esc>", { silent = true })
+
 -- Wejście do trybu COMMAND w trybie NORMAL i VISUAL
 map("n", "<leader>;", ":", { silent = false })
 map("v", "<leader>;", ":", { silent = false })
@@ -37,7 +43,7 @@ map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 -- Wyjście
 map("n", "<leader>q", "<cmd>q<cr>")
 
--- wyjście bez zapisania
+-- Wyjście bez zapisania
 map("n", "qq", ":q<cr>")
 
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
@@ -45,37 +51,37 @@ map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
 map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
 map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
 
--- poruszanie się pomiędzy zmianami w pliku
+-- Poruszanie się pomiędzy zmianami w pliku
 map("n", "g;", "g;zvzz")
 map("n", "g,", "g,zvzz")
 
--- poruszanie się pomiędzy paragrafami
+-- Poruszanie się pomiędzy paragrafami
 map("n", "}", "}zvzz")
 map("n", "{", "{zvzz")
 
--- tab w trybie VISUAL pozostaje w trybie VISUAL
+-- TAB w trybie VISUAL pozostaje w trybie VISUAL
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- poruszanie się w trybie COMMAND
+-- Poruszanie się w trybie COMMAND
 map("c", "<c-j>", "<down>")
 map("c", "<c-k>", "<up>")
 map("c", "<c-h>", "<left>")
 map("c", "<c-l>", "<right>")
 
--- poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
+-- Poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
 map("i", "<c-h>", "<left>")
 map("i", "<c-j>", "<down>")
 map("i", "<c-k>", "<up>")
 map("i", "<c-l>", "<right>")
 
--- poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
+-- Poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
 map("n", "<c-h>", "<c-w><c-h>")
 map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 
--- zmiana wielkości okna
+-- Zmiana wielkości okna
 map("n", "<m-h>", "<cmd>vertical resize -2<cr>")
 map("n", "<m-j>", "<cmd>resize +2<cr>")
 map("n", "<m-k>", "<cmd>resize -2<cr>")
@@ -89,11 +95,11 @@ map("n", "<m-l>", "<cmd>vertical resize +2<cr>")
 -- map("v", "<m-j>", "<cmd>m +1<CR>gv=gv", { silent = true })
 -- map("v", "<m-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
 
--- podział okna pionowy i poziomy
+-- Podział okna pionowy i poziomy
 map("n", "<leader>vs", "<cmd>vs<cr>")
 map("n", "<leader>sp", "<cmd>sp<cr>")
 
--- poruszanie się w długiej zawiniętej linii
+-- Poruszanie się w długiej zawiniętej linii
 map("n", "j", "gj")
 map("n", "k", "gk")
 
@@ -101,7 +107,7 @@ map("n", "k", "gk")
 -- go w bieżącym buforze
 map("n", "gf", "<cmd>edit <cfile><cr>")
 
--- uruchamia przeglądarkę na linku pod kursorem używając przeglądarki zdefiniowanej w zmiennej
+-- Uruchamia przeglądarkę na linku pod kursorem używając przeglądarki zdefiniowanej w zmiennej
 -- BROWSER
 map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
 
@@ -133,7 +139,6 @@ api.nvim_exec(
   false
 )
 
---
 -- Klawisz `K` w plikach sh wywołuje pomoc dla wyrazu pod kursorem
 api.nvim_exec(
   [[
@@ -141,14 +146,15 @@ api.nvim_exec(
     ]],
   false
 )
--- zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
+
+-- Zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
 map("n", "<f8>", ":NextColorScheme<cr>") -- f8
 map("n", "<f20>", ":PrevColorScheme<cr>") -- shift f8
 map("n", "<f32>", ":RandomColorScheme<cr>") -- ctrl f8
 map("n", "<f9>", ":BlacklistAddColorScheme<cr>") -- f9
 map("n", "<f21>", ":colo<cr>") -- shift f9
 
--- plugin auto-session
+-- Plugin auto-session
 -- map("n", "<leader>ss", "<cmd>SaveSession<cr>")
 -- map("n", "<leader>sl", "<cmd>RestoreSession<cr>")
 
@@ -156,12 +162,12 @@ map("n", "<f21>", ":colo<cr>") -- shift f9
 map("n", "<f2>", ":<C-u>SessionSave<CR>")
 map("n", "<f3>", ":<C-u>SessionLoad<CR>")
 
--- przeniesienie bieżącej linii do pliku
+-- Przeniesienie bieżącej linii do pliku
 map("n", "<leader>si", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'inbox.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>sd", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map("n", "<leader>sn", ":d<cr>:cd $NOTES_DIR<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>")
 
--- przeniesienie zaznaczenia do pliku
+-- Przeniesienie zaznaczenia do pliku
 map("v", "<leader>si", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'inbox.md', 'a')<cr>:cd %:p:h<cr>")
 map("v", "<leader>sd", ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'done.md', 'a')<cr>:cd %:p:h<cr>")
 map(
@@ -170,22 +176,24 @@ map(
   ":d<cr>:cd $NOTES_DIR/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>"
 )
 
--- edycja wybranych plików
+-- Edycja wybranych plików
 map("n", "<leader>ei", ":e $NOTES_DIR/inbox.md<cr>")
 map("n", "<leader>ed", ":e $NOTES_DIR/done.md<cr>")
 map("n", "<leader>en", ":e $NOTES_DIR/notatki.md<cr>")
 
--- dodaje nowy plik dziennika
+-- Dodaje nowy plik dziennika
 map("n", "<leader>ej", ":DiaryNotes<cr>")
 
+-- Wyszukiwanie plików w katalogu $NOTES_DIR
 map("n", "<leader>ee", "<cmd>lua search_notes_dir()<cr>")
 
+-- Przeszukiwanie plików w katalogu $NOTES_DIR
 map("n", "<leader>er", "<cmd>lua grep_notes_dir()<cr>")
 
--- usuwa zaznaczony tekst a następnie wkleja tekst ze schowka
+-- Usuwa zaznaczony tekst a następnie wkleja tekst ze schowka
 map("v", "<leader>p", '"_dP')
 
--- ustawia podzielone okno na główne (full screen)
+-- Ustawia podzielone okno na główne (full screen)
 map("n", "<leader>o", ':only<cr>:echom "There Can Be Only One"<cr>"')
 
 -- Obsługa pluginu vim-surround
@@ -203,36 +211,37 @@ map("n", "<leader>sdd", ":norm ds")
 -- map("n", "<Enter>", "o<Esc>")
 -- map("n", "<space>", "i<space><C-c>l")
 
+-- Plugin gitsigns
 map("n", "<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 map("n", "<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 map("n", "gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 
--- przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
+-- Przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
 map("n", "zn", "zm")
 map("n", "zm", "zn")
 
--- przejście na początek / koniec linii
+-- Przejście na początek / koniec linii
 map("n", "gh", "0")
 map("n", "gl", "$")
 map("v", "gh", "0")
 map("v", "gl", "$")
 
--- usuwa od kursora do początku / końca linii
+-- Usuwa od kursora do początku / końca linii
 map("n", "dh", "xd0")
 map("n", "dl", "d$")
 
--- usuwa od kursora do pierwszej spacji
+-- Usuwa od kursora do pierwszej spacji
 map("n", "d<space>", "df<space>")
 
--- poprzedni / następny bufor
+-- Przechodzi pomiędzy dwoma ostatimi buforami
+map("n", "<Tab>", "<cmd>e #<CR>")
+
+-- Poprzedni / następny bufor
 map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
 
--- przechodzi pomiędzy dwoma ostatimi buforami
-map("n", "<Tab>", "<cmd>e #<CR>")
-
--- usuwa bufor
+-- Usuwa bufor
 map("n", "<leader>d", "<cmd>bdelete<cr>")
 
 -- Tab to switch buffers in Normal mode
@@ -242,28 +251,29 @@ map("n", "<leader>d", "<cmd>bdelete<cr>")
 -- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
 -- map("n", "<leader>d", '"-d')
 
--- wkleja ostatnio skopiowany tekst ale nie usunięty, ustawiony jako ,p i ,P
+-- Wkleja ostatnio skopiowany tekst ale nie usunięty, ustawiony jako ,p i ,P
 -- map("n", "p", '"0p')
 -- map("n", "P", '"0P')
 map("n", ",p", '"0p')
 map("n", ",P", '"0P')
--- wkleja ostatnio usunięty tekst
+
+-- Wkleja ostatnio usunięty tekst
 -- map("n", "<leader>p", "p")
 -- map("n", "<leader>P", "P")
 
--- map("n", "<leader>th", ":nohl<cr>", { silent = true })
+-- Uruchamia UndotreeToggle
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
 -- Wyszukiwanie plików w ~/.config/nvim
 map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 
--- przeładowuje konfigurację $MYVIMRC
+-- Przeładowuje konfigurację $MYVIMRC
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
 
--- uruchamia skrypt (bieżący plik)
+-- Uruchamia skrypt (bieżący plik)
 map("n", "<leader>sr", ":!./%<cr>")
 
--- przeładowuje konfigurajce otwartego pliku
+-- Przeładowuje konfigurajce otwartego pliku
 map("n", "<leader>sf", ":luafile %<cr>")
 
 -- Mendadżer plików NvimTree
@@ -294,19 +304,19 @@ map("n", "mM", "`m")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- łączy linie pozostawiając kursor w obecnej pozycji
+-- Łączy linie pozostawiając kursor w obecnej pozycji
 map("n", "J", "mzJ`z")
 
--- kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
+-- Kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
 map("n", "Y", "y$")
 
--- kopiuje cały plik
+-- Kopiuje cały plik
 map("n", "ya", "ggVGy")
 
--- kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
+-- Kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
 map("n", "yh", "0f lv$hy")
 
--- wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
+-- Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
 map("n", "<leader>a", "=ip gqap")
 
 -- Łatwiejsza inkrementacja i dekremenatacja liczb
@@ -318,51 +328,64 @@ map("v", "-", "<C-x>", { silent = true })
 -- Automatyczne zamykanie tagów
 map("i", ",/", "</<C-X><C-O>")
 
--- ESC wyłącza wyróżnianie szukanego słowa
-map("n", "<esc>", ":noh<cr><esc>", { silent = true })
-
 -- Rejestry
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
+
 -- Live Grep
 map(
   "n",
   "<leader>g",
   '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
 )
+
 -- Grep String
 map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
+
+-- Bufory
 -- map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
 map("n", "<leader>B", "<cmd>BufferPick<cr>")
+
+-- Help Tags
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
+
+-- Find Files
 map(
   "n",
   "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>",
   default_opts
 )
+
+-- Spell Suggest
 map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
+
+-- Git Status
 map(
   "n",
   "<leader>i",
   '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
+
+-- Tags
 map("n", "<leader>ta", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 
+-- Project
 map("n", "<leader>p", ":Telescope project<cr>")
 
+-- Symbols
 map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
 
--- historia komend :
+-- Historia komend :
 map("n", "q:", "<nop>")
 map("n", "q:", ":Telescope command_history<cr>")
 map("n", "<leader>hc", ":Telescope command_history<cr>")
 
--- lista zmapowanych klawiszy
+-- Lista zmapowanych klawiszy
 map("n", "<leader>m", ":Telescope keymaps<cr>")
 
--- historia wyszukiwania
+-- Historia wyszukiwania
 map("n", "<leader>sh", ":Telescope search_history<cr>")
 
 -- Uruchomienie terminala w podziale poziomym
@@ -373,17 +396,17 @@ map("n", "<leader>sh", ":Telescope search_history<cr>")
 map("n", "<leader>t", '<cmd>ToggleTerm direction="vertical" size=60<cr>')
 map("n", "<leader>tt", '<cmd>ToggleTerm direction="float" size=60<cr>')
 
--- wyszukiwanie plików w katalogu dotfiles
+-- Wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 
--- uruchamia tryb ZenMode
+-- Uruchamia tryb ZenMode
 map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 
--- plugin kommentary
+-- Plugin kommentary
 api.nvim_set_keymap("n", "<c-_>", "<Plug>kommentary_line_default", {})
 api.nvim_set_keymap("x", "<c-_>", "<Plug>kommentary_visual_default", {})
 
--- plugin vim-vsnip
+-- Plugin vim-vsnip
 cmd([[imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']])
 cmd([[smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']])
 cmd([[imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>']])

@@ -183,7 +183,8 @@ api.nvim_exec(
 api.nvim_exec(
   [[
     function! GP()
-        silent execute ':!$HOME/bin/gp.sh $PWD'
+        silent !cd $(dirname $(readlink -m %)) && $HOME/bin/ga.sh
+        " silent execute ':!$HOME/bin/gp.sh $PWD'
         redraw!
     endfunction
 ]],

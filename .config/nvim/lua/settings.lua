@@ -132,8 +132,8 @@ api.nvim_exec(
   [[
     augroup markdownSpell
         autocmd!
-        autocmd FileType markdown,md,txt setlocal spell
-        autocmd BufRead,BufNewFile *.md,*.gpg.md,*.txt,*.markdown setlocal spell
+        autocmd FileType markdown,md,txt setlocal spell spelllang=pl
+        autocmd BufRead,BufNewFile *.md,*.gpg.md,*.txt,*.markdown setlocal spell spelllang=pl
     augroup END
 ]],
   false

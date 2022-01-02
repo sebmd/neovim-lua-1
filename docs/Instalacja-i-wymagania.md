@@ -2,7 +2,7 @@
 
 ## Instalacja
 
-[Skrypt instalacyjny - źródło](https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)
+- [Skrypt instalacyjny - źródło](https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)
 
 ### Automatyczna instalacja
 
@@ -39,8 +39,6 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 
 - StyLua - formatowanie plików Lua
 - fd (fd-find) - wyszukiwanie plików
-- cargo / rust - kompilacja oprogramowania w języku Rust
-- go - kompilacja oprogramowania w języku Go lang
 
 ## Po instalacji
 
@@ -71,6 +69,11 @@ npm install --save-dev --save-exact prettier
 
 ### Instalacja StyLua
 
+StyLua jeśli nie istnieje w Twojej dystrybucji to można go pobrać już skompilowaną wersję ze strony
+https://github.com/JohnnyMorganz/StyLua/releases binarne pliki są dostępne dla systemu Linux, Windows oraz MacOS
+
+Instalacja ze źródeł wymaga pakietu `cargo` w niektórych dystrybucjach istnieje on jako `rust`.
+
 ```shell
 git clone --depth 1 https://github.com/JohnnyMorganz/StyLua
 cd StyLua
@@ -82,6 +85,7 @@ cp target/release/stylua ~/bin
 
 ```bash
 NOTES_DIR - /home/$USER/Notes
+BROWSER - /usr/bin/firefox
 ```
 
 ### Uruchomienie lokalnej wersji Neovim

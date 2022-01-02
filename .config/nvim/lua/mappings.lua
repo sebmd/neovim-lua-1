@@ -322,11 +322,6 @@ map("i", ",/", "</<C-X><C-O>")
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Telescoope
-map(
-  "n",
-  "<leader>p",
-  '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>'
-)
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
 map(
   "n",
@@ -350,7 +345,7 @@ map(
 )
 map("n", "<leader>ta", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 
-map("n", "<leader>P", ":Telescope project<cr>")
+map("n", "<leader>p", ":Telescope project<cr>")
 
 map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")

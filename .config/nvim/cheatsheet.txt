@@ -77,7 +77,6 @@ Przenosi linię w dół                                                         
 Przenosi linię w górę                                                                       | alt-k
 Zwiększa liczbę o jeden                                                                     | +
 Zmniejsza liczbę o jeden                                                                    | -
-Telescope find_files - wyszukiwanie plików                                                  | <leader>p
 Telescope live_grep - przeszukiwanie plików                                                 | <leader>g
 Telescope registers - przeglądanie rejestrów schowka                                        | <leader>r
 Telescope buffers - lista otwartych buforów                                                 | <leader>b
@@ -87,7 +86,7 @@ Telescope buffers - lista otwartych buforów                                    
 Telescope spell_suggest                                                                     | <leader>s
 Telescope git_status                                                                        | <leader>i
 Telescope tags                                                                              | <leader>ta
-Telescope project - lista projektów w `~/git`                                               | <leader>P
+Telescope project - lista projektów w `~/git`                                               | <leader>p
 Telescope symbols - emotki                                                                  | <leader>sy
 Telescope command_history - przeglądanie historii komend                                    | <leader>hc
 Telescope command_history - przeglądanie historii komend                                    | q:

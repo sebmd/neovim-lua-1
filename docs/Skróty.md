@@ -62,7 +62,6 @@ Klawisz **LEADER** to **SPACJA**.
 
 | skrót        | opis                                                                     |
 | ------------ | ------------------------------------------------------------------------ |
-| `<leader>p`  | `Telescope find_files`                                                   |
 | `<leader>r`  | `Telescope registers` - lista rejestrów                                  |
 | `<leader>g`  | `Telescope live_grep`                                                    |
 | `<leader>b`  | `Telescope buffers` - lista otwartych buforów                            |
@@ -71,7 +70,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>s`  | `Telescope spell_suggest`                                                |
 | `<leader>i`  | `Telescope git_status` - lista plików ze zmianami                        |
 | `<leader>ta` | `Telescope tags`                                                         |
-| `<leader>P`  | `Telescope project`                                                      |
+| `<leader>p`  | `Telescope project`                                                      |
 | `<leader>sy` | `Telescope symbols`                                                      |
 | `<leader>hc` | `Telescope command_history`                                              |
 | `q:`         | `Telescope command_history` zastąpiony standardowy skrót historii komend |

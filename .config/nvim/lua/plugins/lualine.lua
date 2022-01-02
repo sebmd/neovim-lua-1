@@ -50,7 +50,7 @@ local config = {
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
     -- theme = "gruvbox_dark",
-    disabled_filetypes = { "CHADTree", "NvimTree" },
+    disabled_filetypes = { "CHADTree", "NvimTree", "toggleterm" },
   },
   sections = {
     -- these are to remove the defaults

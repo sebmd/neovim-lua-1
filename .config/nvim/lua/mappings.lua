@@ -321,16 +321,19 @@ map("i", ",/", "</<C-X><C-O>")
 -- ESC wyłącza wyróżnianie szukanego słowa
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
--- Telescoope
+-- Rejestry
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
+-- Live Grep
 map(
   "n",
   "<leader>g",
   '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
 )
+-- Grep String
 map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 -- map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
 map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
+map("n", "<leader>B", "<cmd>BufferPick<cr>")
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map(
   "n",
@@ -367,7 +370,8 @@ map("n", "<leader>sh", ":Telescope search_history<cr>")
 -- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
 -- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
 -- map("n", "<leader>tt", "<cmd>split term://$SHELL<cr>")
-map("n", "<leader>t", "<cmd>ToggleTerm direction=vertical size=60<cr>")
+map("n", "<leader>t", '<cmd>ToggleTerm direction="vertical" size=60<cr>')
+map("n", "<leader>tt", '<cmd>ToggleTerm direction="float" size=60<cr>')
 
 -- wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")

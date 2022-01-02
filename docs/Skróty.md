@@ -33,6 +33,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `gf`         | Otwiera plik pod kursorem, lub tworzy plik, jeśli go nie znajdzie                      |
 | `gx`         | Otwiera stronę WWW pod kursorem w przeglądarce zdefiniowanej w zmiennej `BROWSER`      |
 | `<leader>t`  | Uruchamia terminal ToggleTerm                                                          |
+| `<leader>tt` | Uruchamia terminal ToggleTerm (float)                                                  |
 | `<c-\>`      | Uruchamia terminal ToggleTerm                                                          |
 
 ## Praca z plikami, wyjście z edytora
@@ -65,6 +66,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>r`  | `Telescope registers` - lista rejestrów                                  |
 | `<leader>g`  | `Telescope live_grep`                                                    |
 | `<leader>b`  | `FzfLua buffers` - lista otwartych buforów                               |
+| `<leader>B`  | `BufferPick` - wybór bufora za pomocą liter                              |
 | `<leader>j`  | `Telescope help_tags`                                                    |
 | `<leader>f`  | `Telescope file_browser`                                                 |
 | `<leader>s`  | `Telescope spell_suggest`                                                |

@@ -1,7 +1,7 @@
 -- barbar.lua
 g.bufferline = {
   -- Enable/disable animations
-  animation = true,
+  animation = false,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
   auto_hide = false,
@@ -10,7 +10,7 @@ g.bufferline = {
   tabpages = true,
 
   -- Enable/disable close button
-  closable = true,
+  closable = false,
 
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer

@@ -6,7 +6,7 @@ end
 
 configs.setup({
   size = 60,
-  direction = "vertical", -- horizontal, vertical, float, window
+  direction = "vertical", -- horizontal, vertical, float
   open_mapping = [[<c-\>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},

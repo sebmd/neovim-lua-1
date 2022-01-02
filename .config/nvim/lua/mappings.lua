@@ -365,8 +365,9 @@ map("n", "<leader>sh", ":Telescope search_history<cr>")
 -- Uruchomienie terminala w podziale poziomym
 -- <c-\><c-n> przechodzi w tryb NORMAL w oknie terminala, dzięki czemu można zaznaczać tekst w
 -- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
-map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
-map("n", "<leader>tt", "<cmd>split term://$SHELL<cr>")
+-- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
+-- map("n", "<leader>tt", "<cmd>split term://$SHELL<cr>")
+map("n", "<leader>t", "<cmd>ToggleTerm direction=vertical size=60<cr>")
 
 -- wyszukiwanie plików w katalogu dotfiles
 map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")

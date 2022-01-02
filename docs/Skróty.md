@@ -32,8 +32,8 @@ Klawisz **LEADER** to **SPACJA**.
 | `<leader>?`  | Uruchamia podręcznej pomocy `:Cheatsheet`                                              |
 | `gf`         | Otwiera plik pod kursorem, lub tworzy plik, jeśli go nie znajdzie                      |
 | `gx`         | Otwiera stronę WWW pod kursorem w przeglądarce zdefiniowanej w zmiennej `BROWSER`      |
-| `<leader>t`  | Uruchamia termianal                                                                    |
-| `<leader>tt` | Uruchamia terminal                                                                     |
+| `<leader>t`  | Uruchamia terminal ToggleTerm                                                          |
+| `<c-\>`      | Uruchamia terminal ToggleTerm                                                          |
 
 ## Praca z plikami, wyjście z edytora
 

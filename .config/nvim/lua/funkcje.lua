@@ -194,7 +194,7 @@ api.nvim_exec(
 api.nvim_exec(
   [[
     function! GA()
-        silent !cd $(dirname $(readlink -m %)) && ~/bin/ga.sh
+        silent execute ':!$HOME/bin/ga.sh $PWD'
         redraw!
     endfunction
     ]],

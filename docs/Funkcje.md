@@ -1,50 +1,26 @@
 # Funkcje
 
-| Funkcja                 | Opis                                                                                             |
-| ----------------------- | ------------------------------------------------------------------------------------------------ |
-| [Write](#funkcja-write) | Zapisuje pliku lub aktualizuje                                                                   |
-| [`CD`](#funkcja-cd)     | Poruszanie się po katalogach zapisanych w pliku `~/.cnofig/bmproj`                               |
-| `DeleteSwapFile`        | Usuwa plik `.swp`                                                                                |
-| `InsertDiaryHeader`     | Wstawia nagłówek pierwszego stopnia w plikach Markdown                                           |
-| `DiaryNotes`            | Otwiera plik dziennika                                                                           |
-| `Kolory`                | Zmienia schemat kolorystyczne na podstawie listy znajdującej się w pliku `~/.config/nvim/kolory` |
-| `Find_Files`            | Funkcja wyszukuje pliki w bieżącej lokalizacji za pomocą polecenia `rg`                          |
-| `search_notes_dir`      | Za pomocą pluginu `Telescope` możemy przeszukiwać katalog `$NOTES_DIR`                           |
-| `grep_notes_dir`        | Przeszukiwanie telescope w katalogu `$NOTES_DIR`                                                 |
-| `search_dotfiles`       | Wyszukiwanie telescope w katalogu dotfiles                                                       |
-| `search_docs`           | Wyszukiwanie plików w katalogu dokumentacji                                                      |
-| `search_nvim_dotfiles`  | Wyszukiwanie plików konfiguracyjnych Neovim w katalogu `$HOME/.config/nvim`                      |
-| `Time`                  | Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27           |
-| `UpdateVimrc`           | Przechodzi do pierwszej linii pliku i zmienia datę aktualizacji pliku                            |
-| `GP`                    | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/gp.sh`                        |
-| `GA`                    | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/ga.sh`                        |
-| `RevBackground`         | Odwraca kolor tła                                                                                |
-| `DestractionFree`       | Alternatywa dla pluginu Goyo / ZenMode                                                           |
-| `VimrcVersion`          | Wyświetla wersję konfiguracji                                                                    |
-
-<!-- vim-markdown-toc Marked -->
-
-* [Funkcja Write](#funkcja-write)
-* [Funkcja CD](#funkcja-cd)
-* [Funkcja DeleteSwapFile](#funkcja-deleteswapfile)
-* [Funkcja InsertDiaryHeader](#funkcja-insertdiaryheader)
-* [Funkcja DiaryNotes](#funkcja-diarynotes)
-* [Funkcja Kolory](#funkcja-kolory)
-* [Funkcja Find_Files](#funkcja-find_files)
-* [Funkcja search_notes_dir](#funkcja-search_notes_dir)
-* [Funkcja grep_notes_dir](#funkcja-grep_notes_dir)
-* [Funkcja search_dotfiles](#funkcja-search_dotfiles)
-* [Funkcja search_docs](#funkcja-search_docs)
-* [Funkcja search_nvim_dotfiles](#funkcja-search_nvim_dotfiles)
-* [Funkcja Time](#funkcja-time)
-* [Funkcja UpdateVimrc](#funkcja-updatevimrc)
-* [Funkcja GP](#funkcja-gp)
-* [Funkcja GA](#funkcja-ga)
-* [Funkcja RevBackground](#funkcja-revbackground)
-* [Funkcja DestractionFree](#funkcja-destractionfree)
-* [Funkcja VimrcVersion](#funkcja-vimrcversion)
-
-<!-- vim-markdown-toc -->
+| Funkcja                                                 | Opis                                                                                             |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [`Write`](#funkcja-write)                               | Zapisuje pliku lub aktualizuje                                                                   |
+| [`CD`](#funkcja-cd)                                     | Poruszanie się po katalogach zapisanych w pliku `~/.cnofig/bmproj`                               |
+| [`DeleteSwapFile`](#funkcja-deleteswapfile)             | Usuwa plik `.swp`                                                                                |
+| [`InsertDiaryHeader`](#funkcja-insertdiaryheader)       | Wstawia nagłówek pierwszego stopnia w plikach Markdown                                           |
+| [`DiaryNotes`](#funkcja-diarynotes)                     | Otwiera plik dziennika                                                                           |
+| [`Kolory`](#funkcja-kolory)                             | Zmienia schemat kolorystyczne na podstawie listy znajdującej się w pliku `~/.config/nvim/kolory` |
+| [`Find_Files`](#funkcja-find_files)                     | Funkcja wyszukuje pliki w bieżącej lokalizacji za pomocą polecenia `rg`                          |
+| [`search_notes_dir`](#funkcja-search_notes_dir)         | Za pomocą pluginu `Telescope` możemy przeszukiwać katalog `$NOTES_DIR`                           |
+| [`grep_notes_dir`](#funkcja-grep_notes_dir)             | Przeszukiwanie telescope w katalogu `$NOTES_DIR`                                                 |
+| [`search_dotfiles`](#funkcja-search_dotfiles)           | Wyszukiwanie telescope w katalogu dotfiles                                                       |
+| [`search_docs`](#funkcja-search_docs)                   | Wyszukiwanie plików w katalogu dokumentacji                                                      |
+| [`search_nvim_dotfiles`](#funkcja-search_nvim_dotfiles) | Wyszukiwanie plików konfiguracyjnych Neovim w katalogu `$HOME/.config/nvim`                      |
+| [`Time`](#funkcja-time)                                 | Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27           |
+| [`UpdateVimrc`](#funkcja-updatevimrc)                   | Przechodzi do pierwszej linii pliku i zmienia datę aktualizacji pliku                            |
+| [`GP`](#funkcja-gp)                                     | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/gp.sh`                        |
+| [`GA`](#funkcja-ga)                                     | Przechodzi do katalogu edytowanego pliku i uruchamia skrypt `~/bin/ga.sh`                        |
+| [`RevBackground`](#funkcja-revbackground)               | Odwraca kolor tła                                                                                |
+| [`DestractionFree`](#funkcja-destractionfree)           | Alternatywa dla pluginu Goyo / ZenMode                                                           |
+| [`VimrcVersion`](#funkcja-vimrcversion)                 | Wyświetla wersję konfiguracji                                                                    |
 
 ## Funkcja Write
 

@@ -1,4 +1,5 @@
 -- komendy
+local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 cmd("command! CD call CD()")
 cmd("command! CDEdit e ~/.config/bmproj")
 cmd("command! Colors FzfLua colorschemes")

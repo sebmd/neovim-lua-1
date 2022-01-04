@@ -1,4 +1,9 @@
 -- mappings.lua
+
+local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
+local g = vim.g -- a table to access global variables
+local api = vim.api
+
 -- Funkcja map
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
@@ -242,7 +247,7 @@ map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
 
 -- Usuwa bufor
-map("n", "<leader>d", "<cmd>bdelete<cr>")
+map("n", "<leader>d", "<cmd>BufferDelete<cr>")
 
 -- Tab to switch buffers in Normal mode
 -- map("n", "<Tab>", "<cmd>bnext<CR>")

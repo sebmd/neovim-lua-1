@@ -1,4 +1,7 @@
 -- Funkcje
+
+local api = vim.api
+
 -- Zapisuje plik Write()
 api.nvim_exec(
   [[

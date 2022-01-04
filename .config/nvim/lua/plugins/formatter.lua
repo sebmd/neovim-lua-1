@@ -4,6 +4,8 @@ if not formatter_status_ok then
   return
 end
 
+local api = vim.api
+
 local prettier = function()
   return {
     exe = "prettier",

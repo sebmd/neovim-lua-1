@@ -1,7 +1,7 @@
 -- vim-dotoo
-g["dotoo#agenda#files"] = "~/workspace/org/*.org"
-g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
-api.nvim_exec(
+vim.g["dotoo#agenda#files"] = "~/workspace/org/*.org"
+vim.g["dotoo#capture#refile"] = vim.fn.expand("~/workspace/org/refile.org")
+vim.api.nvim_exec(
   [[
     augroup dootoft
         au!

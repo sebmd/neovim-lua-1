@@ -8,7 +8,7 @@ end
 -- vim.g.material_style = "palenight"
 -- vim.g.material_style = "deep ocean"
 -- vim.g.material_style = "ocanic"
-g.material_style = "darker"
+vim.g.material_style = "darker"
 
 -- konfiguracja koloru material
 configs.setup({

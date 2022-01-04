@@ -1,4 +1,5 @@
 -- gnupg
+local g = vim.g -- a table to access global variables
 local GPG_ID = os.getenv("GPG_ID")
 g.GPGPreferSymmetric = 0
 g.GPGUseAgent = 1

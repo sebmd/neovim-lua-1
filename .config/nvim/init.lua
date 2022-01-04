@@ -3,15 +3,6 @@ vimrc_version = "2.4"
 --
 -- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --
--- aliasy
-opt = vim.opt -- global
-wo = vim.wo -- local to window
-bo = vim.bo -- local to buffer
-cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
-g = vim.g -- a table to access global variables
-api = vim.api
-
 -- ustawienia
 require("settings")
 

@@ -1,4 +1,6 @@
 -- dashboard
+local g = vim.g -- a table to access global variables
+local api = vim.api
 g.dashboard_disable_at_vimenter = 0
 g.dashboard_default_executive = "telescope"
 g.dashboard_session_enable = 0

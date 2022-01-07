@@ -11,11 +11,12 @@
 	* [Przeszukiwanie i wyszukiwanie](#przeszukiwanie-i-wyszukiwanie)
 	* [Tryb zen-mode](#tryb-zen-mode)
 * [Tworzenie spisu treści](#tworzenie-spisu-treści)
+* [Szyfrowanie za pomocą GnuPG](#szyfrowanie-za-pomocą-gnupg)
 * [Pluginy](#pluginy)
 
 <!-- vim-markdown-toc -->
 
-Notatkami można zarządzać samodzielnie, ale można sobie nieco ułatwić za pomocą odpowiedniej
+Notatkami można zarządzać samodzielnie, ale można sobie nieco pomóc za używając odpowiedniej
 konfiguracji i dodaniu pluginów. Konfiguracja jest przygotowana do tworzenia notatek w formacie
 Markdown.
 
@@ -110,6 +111,38 @@ korzystać z menadżera plików.
 ## Tworzenie spisu treści
 
 Komenda `:GenTocMarked`
+
+## Szyfrowanie za pomocą GnuPG
+
+- [vim-gnupg](Pluginy/vim-gnupg.md)
+
+ID klucza szyfrującego jest pobierana ze zmiennej systemowej `GPG_ID`, która
+jest ustawiona w pliku `~/.config/vars`. Ten plik należy wczytać przy
+uruchomieniu powłoki systemowej dla powłoki BASH będzie to wyglądało tak:
+
+```sh
+[ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
+```
+
+W pliku `~/.config/vars` umieszczamy:
+
+```
+export GPG_ID="0x94273492749"
+```
+
+Konfiguracja znajduje się w pliku `~/.config/nvim/lua/plugins/gnupg.lua`.
+
+```lua
+-- gnupg
+local g = vim.g -- a table to access global variables
+local GPG_ID = os.getenv("GPG_ID")
+g.GPGPreferSymmetric = 0
+g.GPGUseAgent = 1
+g.GPGPreferArmor = 1
+g.GPGPreferSign = 1
+g.GPGDefaultRecipients = "[$GPG_ID]"
+g.GPGFilePattern = "*{gpg,asc,gpg.md}"
+```
 
 ## Pluginy
 

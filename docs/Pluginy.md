@@ -81,6 +81,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [vim-eunuch](Pluginy/vim-eunuch.md)
 - [vim-gnupg](Pluginy/vim-gnupg.md) - szyfrowanie plików za pomocą GnuPG
 - [vim-markdown-toc](Pluginy/vim-markdown-toc.md)
+- [vim-oscyank](Pluginy/vim-oscyank.md)
 - [vim-peekaboo](Pluginy/vim-peekaboo.md)
 - [vim-repeat](Pluginy/vim-repeat.md)
 - [vim-surround](Pluginy/vim-surround.md)

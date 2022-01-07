@@ -52,6 +52,9 @@ packer.startup(function(use)
   -- obsługa schowka systemowego
   use({ "Jorengarenar/fauxClip", disable = false })
 
+  -- obsługa schowka przez ssh
+  use("ojroques/vim-oscyank")
+
   -- use("nyngwang/NeoRoot.lua")
 
   -- menadżer plików

@@ -416,3 +416,16 @@ cmd([[imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      :
 cmd([[smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']])
 cmd([[imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>']])
 cmd([[smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>']])
+
+-- Plugin gitsigns
+map("n", "<leader>hs", '<cmd>lua require"gitsigns".stage_hunk()<CR>')
+map("v", "<leader>hs", '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>')
+map("n", "<leader>hu", '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
+map("n", "<leader>hr", '<cmd>lua require"gitsigns".reset_hunk()<CR>')
+map("v", "<leader>hr", '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>')
+map("n", "<leader>hR", '<cmd>lua require"gitsigns".reset_buffer()<CR>')
+map("n", "<leader>hp", '<cmd>lua require"gitsigns".preview_hunk()<CR>')
+map("n", "<leader>hn", '<cmd>lua require"gitsigns".next_hunk()<CR>')
+map("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line(true)<CR>')
+map("o", "ih", ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>')
+map("x", "ih", ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>')

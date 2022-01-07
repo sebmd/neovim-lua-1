@@ -11,7 +11,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/ma
 ## Dokumentacja
 
 - [Instalacja i wymagania](docs/Instalacja-i-wymagania.md)
-- [Skróty](docs/Skróty.md)
+- [Skróty klawiszowe](docs/Skróty.md)
 - [Komendy](docs/Komendy.md)
 - [Pluginy](docs/Pluginy.md)
 - [Funkcje](docs/Funkcje.md)

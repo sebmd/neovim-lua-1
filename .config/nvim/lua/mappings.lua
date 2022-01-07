@@ -34,7 +34,10 @@ map("v", "<leader>;", ":", { silent = false })
 map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
 
 -- Otwiera nowy plik
-map("n", "<leader>c", "<cmd>enew<cr>")
+-- map("n", "<leader>c", "<cmd>enew<cr>")
+
+-- Przechodzenie pomiędzy katalogami
+map("n", "<leader>c", "<cmd>CD<cr>")
 
 -- Uruchamia Dashboard
 map("n", "<leader>D", "<cmd>Dashboard<cr>")
@@ -49,7 +52,7 @@ map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 map("n", "<leader>q", "<cmd>q<cr>")
 
 -- Wyjście bez zapisania
-map("n", "qq", ":q<cr>")
+map("n", "qq", ":qa<cr>")
 
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
 map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')

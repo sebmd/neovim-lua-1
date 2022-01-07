@@ -1,5 +1,5 @@
-Otwiera menadżer plików w wybranym katalogu, zawartym w pliku $HOME/.config/bmproj          | :CD
-Włącza edycję pliku $HOME/.config/bmproj                                                    | :CDEdit
+Poruszanie się pomiędzy katalogami zapisanymi w pliku $HOME/.config/bmproj                  | :CD
+Edytuje pliku $HOME/.config/bmproj                                                          | :CDEdit
 Wyświetla listę kolorów                                                                     | :Colors
 Włącza tryb minimalnego wyglądu                                                             | :DestractionFree
 Usuwa plik swap (.swp) dla otwartego pliku                                                  | :DeleteSwapFile
@@ -51,7 +51,7 @@ Poruszanie się kursorem o jeden znak w prawo  (tryb INSERT i COMMAND)          
 Usuwa wszystko od kursora do początku linii                                                 | dh
 Usuwa wszystko od kursora do końca linii                                                    | dl
 Usuwa od kursora do pierwszego wystąpienia znaku spacji                                     | d<spacja>
-Tworzy pusty bufor / plik                                                                   | <leader>c
+Poruszanie się pomiędzy katalogami zapisanymi w pliku ~/.config/bmproj                      | <leader>c
 Zapisuje plik                                                                               | <leader>w
 Zapisuje i zamyka edytor                                                                    | <leader>x
 Zamyka edytor                                                                               | <leader>q

@@ -15,6 +15,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `zm`         | Zamienia skrót `zm` na `zn` - otwiera zagnieżdżenia                                    |
 | `gh`         | Przechodzi na początek linii                                                           |
 | `gl`         | Przechodzi na koniec linii                                                             |
+| `<leader>c`  | Poruszanie się pomiędzy katalogami zapisanymi w pliku `~/.config/bmproj`               |
 | `<leader>D`  | Uruchamia Dashboard                                                                    |
 | `<leader>sa` | Zaznacza cały plik, powraca do miejsca uruchomienia skrótu za pomocą `` `z ``          |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
@@ -41,7 +42,6 @@ Klawisz **LEADER** to **SPACJA**.
 | skrót       | opis                                                   |
 | ----------- | ------------------------------------------------------ |
 | `<leader>n` | Otwiera / zamyka menadżer plików NvimTree lub CHADtree |
-| `<leader>c` | Otwiera nowy pusty plik                                |
 | `<leader>w` | Zapisuje plik - uruchamia funkcję Write()              |
 | `<leader>x` | Zapisuje i zamyka edytor                               |
 | `<leader>q` | Zamyka edytor `:q`                                     |

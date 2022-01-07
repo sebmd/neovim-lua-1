@@ -15,7 +15,7 @@
 
 <!-- vim-markdown-toc -->
 
-Notatkami można zarządzać samodzielnie, ale można sobie nieco pomóc za pomocą odpowiedniej
+Notatkami można zarządzać samodzielnie, ale można sobie nieco ułatwić za pomocą odpowiedniej
 konfiguracji i dodaniu pluginów. Konfiguracja jest przygotowana do tworzenia notatek w formacie
 Markdown.
 

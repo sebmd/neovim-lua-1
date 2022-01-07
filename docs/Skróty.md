@@ -230,6 +230,22 @@ utworzy katalog `foo/bar/baz/` a w nim plik `f`
 - Lewy klawisz myszki zachowuj się jak skrót `<cr>`
 - Prawy klawisz myszki zachowuje się jak skrót `<C-]>`
 
+## Plugin gitsigns
+
+```lua
+map("n", "<leader>hs", '<cmd>lua require"gitsigns".stage_hunk()<CR>')
+map("v", "<leader>hs", '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>')
+map("n", "<leader>hu", '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
+map("n", "<leader>hr", '<cmd>lua require"gitsigns".reset_hunk()<CR>')
+map("v", "<leader>hr", '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>')
+map("n", "<leader>hR", '<cmd>lua require"gitsigns".reset_buffer()<CR>')
+map("n", "<leader>hp", '<cmd>lua require"gitsigns".preview_hunk()<CR>')
+map("n", "<leader>hn", '<cmd>lua require"gitsigns".next_hunk()<CR>')
+map("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line(true)<CR>')
+map("o", "ih", ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>')
+map("x", "ih", ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>')
+```
+
 ## Skróty klawiszowe CHADtree
 
 - https://github.com/ms-jpq/chadtree/blob/chad/docs/KEYBIND.md

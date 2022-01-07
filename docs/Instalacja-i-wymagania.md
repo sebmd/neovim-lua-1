@@ -13,12 +13,13 @@ bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/ma
 Skrypt instalacyjny pobiera repozytorium **neovim-lua** do katalogu `$HOME/.local/share/neovim-lua`,
 katalog instalacyjny jest zdefiniowany w zmiennej `NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua`.
 
-Pliki konfiguracyjne są linkami symbolicznymi do ich odpowiedników w katalogu instalacyjnym.
+Pliki konfiguracyjne są linkami symbolicznymi do ich odpowiedników w katalogu
+instalacyjnym.
 
-Dodatkowo do pliku konfiguracyjnego `.bashrc` jest dodawane wczytanie pliku `~/.config/vars`,
-w którym znajdują się zmienne `NOTES_DIR` i `GPG_ID`. Zmienna `NOTES_DIR` określa katalog
-z notatkami, standardowo jest to `~/Notes`. Natomiast zmienna `GPG_ID` określa ID klucza
-publicznego GPG.
+Dodatkowo do pliku konfiguracyjnego `.bashrc` jest dodawane wczytanie pliku
+`~/.config/vars`, w którym znajdują się zmienne `NOTES_DIR` i `GPG_ID`. Zmienna
+`NOTES_DIR` określa katalog z notatkami, standardowo jest to `~/Notes`.
+Natomiast zmienna `GPG_ID` określa ID klucza publicznego GPG.
 
 ### Ręczna instalacja
 
@@ -39,6 +40,7 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 
 - StyLua - formatowanie plików Lua
 - fd (fd-find) - wyszukiwanie plików
+- sk (skim) - fzf napisany w języku Rust
 
 ## Po instalacji
 
@@ -67,12 +69,23 @@ git submodule update --init --recursive
 npm install --save-dev --save-exact prettier
 ```
 
+Program zostanie zainstalowany w katalogu `~/node_modules/.bin/`, który
+najlepiej dodać do zmiennej systemowej `$PATH`.
+
+Dla powłoki BASH może to wyglądać tak:
+
+```sh
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/node_modules/.bin:$PATH"
+```
+
 ### Instalacja StyLua
 
-StyLua jeśli nie istnieje w Twojej dystrybucji to można go pobrać już skompilowaną wersję ze strony
-https://github.com/JohnnyMorganz/StyLua/releases binarne pliki są dostępne dla systemu Linux, Windows oraz MacOS
+StyLua jeśli nie istnieje w Twojej dystrybucji to można go pobrać już
+skompilowaną wersję ze strony https://github.com/JohnnyMorganz/StyLua/releases
+binarne pliki są dostępne dla systemu Linux, Windows oraz MacOS
 
-Instalacja ze źródeł wymaga pakietu `cargo` w niektórych dystrybucjach istnieje on jako `rust`.
+Instalacja ze źródeł wymaga pakietu `cargo` w niektórych dystrybucjach istnieje
+on jako `rust`.
 
 ```shell
 git clone --depth 1 https://github.com/JohnnyMorganz/StyLua

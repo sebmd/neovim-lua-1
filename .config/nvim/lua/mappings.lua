@@ -42,6 +42,9 @@ map("n", "<leader>c", "<cmd>CD<cr>")
 -- Uruchamia Dashboard
 map("n", "<leader>D", "<cmd>Dashboard<cr>")
 
+-- Zmiana kolorów
+map("n", "<leader>k", "<cmd>Kolory<cr>")
+
 -- Zapisanie pliku
 map("n", "<leader>w", "<cmd>Write<cr>")
 

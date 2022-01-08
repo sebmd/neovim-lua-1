@@ -17,6 +17,7 @@ Klawisz **LEADER** to **SPACJA**.
 | `gl`         | Przechodzi na koniec linii                                                             |
 | `<leader>c`  | Poruszanie się pomiędzy katalogami zapisanymi w pliku `~/.config/bmproj`               |
 | `<leader>D`  | Uruchamia Dashboard                                                                    |
+| `<leader>k`  | Uruchamia funkcję `Kolory`                                                             |
 | `<leader>sa` | Zaznacza cały plik, powraca do miejsca uruchomienia skrótu za pomocą `` `z ``          |
 | `<leader>u`  | Otwiera okno zmian Undotree                                                            |
 | `<leader>v`  | Wyszukuje plików konfiguracyjnych Neovim w katalogu `~/.config/nvim/`                  |

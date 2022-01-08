@@ -29,7 +29,7 @@ Porusza się pomiędzy dwoma ostatnio używanymi buforami                       
 Dzieli okno pionowo                                                                         | <leader>vs
 Dzieli okno poziomo                                                                         | <leader>sp
 Ustawia bieżące okno na cały ekran                                                          | <leader>o
-Usuwa bufor :bdelete                                                                        | <leader>d
+Usuwa bufor :BufferDelete                                                                   | <leader>d
 Przechodzi do okna po lewej stronie                                                         | ctrl-h
 Przechodzi do okna po prawej stronie                                                        | ctrl-l
 Przechodzi do okna poniżej                                                                  | ctrl-j
@@ -56,6 +56,7 @@ Zapisuje plik                                                                   
 Zapisuje i zamyka edytor                                                                    | <leader>x
 Zamyka edytor                                                                               | <leader>q
 Uruchamia Dashboard                                                                         | <leader>D
+Uruchamia funkcję Kolory                                                                    | <leader>k
 Wyjście z edytora :q                                                                        | qq
 Otwiera / zamyka menadżer plików NvimTree lub CHADtree                                      | <leader>n
 Otworzenie pliku pod kursorem, lub utworzenie pliku w przypadku kiedy go nie znajdzie       | gf

@@ -87,7 +87,7 @@ local toggle_lazygit = function()
   return lazygit:toggle()
 end
 -- b Bufory
--- c Colors
+-- c CD
 -- d Dashboard
 -- D dot.files
 -- f Telescope find files
@@ -98,13 +98,14 @@ end
 -- o Window
 -- q Quit
 -- r Telescope live grep
+-- u UndotreeToggle
 -- s Search
 -- t Terminal
 -- v Neovim config
 -- x Save & Quit
 -- z Focus (ZenMode)
 local mappings = {
-  c = { "<cmd>Colors<cr>", "Colors" },
+  c = { "<cmd>CD<cr>", "CD" },
   d = { "<cmd>Dashboard<cr>", "Dashboard" },
   f = { "<cmd>Telescope find_files<cr>", "Telescope Find Files" },
   k = { "<cmd>Kolory<cr>", "Kolory" },
@@ -112,9 +113,17 @@ local mappings = {
   n = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
   q = { "<cmd>qa<cr>", "Quit" },
   r = { "<cmd>Telescope live_grep<cr>", "Telescope Live Grep" },
+  u = { "<cmd>UndotreeToggle<cr>", "UndotreeToggle" },
   v = { "<cmd>lua search_nvim_dotfiles()<cr>", "Edit config" },
   w = { "<cmd>Write<cr>", "Save" },
   x = { "<cmd>Write<cr>:q<cr>", "Save & Quit" },
+  ["?"] = { "<cmd>Cheatsheet<cr>", "Cheatsheet" },
+  R = {
+    name = "Różności",
+    o = { "<cmd>only<cr>", "Pozostawia tylko otwarty okno w przypadku podziału." },
+    s = { "<cmd>source %<cr>", "source %" },
+    r = { "<cmd>!./%<cr>", "shell %" },
+  },
   b = {
     name = "Bufory",
     b = { "<cmd>FzfLua buffers<cr>", "FZF Buffers" },
@@ -142,6 +151,7 @@ local mappings = {
     c = { "<cmd>e ~/.config/awesome/rc.lua<cr>", "~/.config/awesome/rc.lua" },
     d = { "<cmd>e ~/.config/alacritty/alacritty.yml<cr>", "~/.config/alacritty/alacritty.yml" },
     v = { "<cmd>lua search_nvim_dotfiles()<cr>", "Edit config" },
+    e = { "<cmd>lua search_dotfiles()<cr>", "Przeszukuje katalog ~/git/github/dotfiles" },
   },
   g = {
     name = "Git",
@@ -181,9 +191,13 @@ local mappings = {
   },
   s = {
     name = "Search",
+    c = { "<cmd>Telescope command_history<cr>", "Telescope Command History" },
     f = { "<cmd>Telescope find_files<cr>", "Telescope Find Files" },
+    g = { "<cmd>Telescope live_grep<cr>", "Telescope Live Grep" },
     h = { "<cmd>Telescope search_history<cr>", "Telescope Search history" },
-    r = { "<cmd>Telescope live_grep<cr>", "Telescope Live Grep" },
+    k = { "<cmd>Telescope keymaps<cr>", "Telescope Keymaps" },
+    p = { "<cmd>Telescope project<cr>", "Telescope Project" },
+    r = { "<cmd>Telescope registers<cr>", "Telescope Registers" },
   },
   z = {
     name = "Focus",

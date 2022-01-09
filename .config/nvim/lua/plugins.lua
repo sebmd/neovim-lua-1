@@ -137,6 +137,7 @@ packer.startup(function(use)
 
   -- markdown
   use({ "folke/zen-mode.nvim", disable = false })
+  use("folke/twilight.nvim") -- podświetla paragraf
   use({ "dhruvasagar/vim-table-mode", disable = false })
   use({ "vimwiki/vimwiki", disable = false })
   use({ "junegunn/vim-markdown-toc", disable = false })
@@ -148,8 +149,8 @@ packer.startup(function(use)
   use("folke/todo-comments.nvim")
   use("folke/trouble.nvim")
 
-  -- wyłączony
-  use({ "liuchengxu/vim-which-key", disable = true })
+  -- Podpowiedzi
+  use("folke/which-key.nvim")
 
   -- biblioteki, dodatki
   use("nvim-lua/plenary.nvim")

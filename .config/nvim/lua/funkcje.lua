@@ -186,7 +186,7 @@ api.nvim_exec(
 api.nvim_exec(
   [[
     function! GP()
-        silent execute ':!$HOME/bin/gp.sh $PWD'
+        silent execute ':!$HOME/bin/gp.sh %:p'
         redraw!
     endfunction
 ]],

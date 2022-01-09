@@ -68,6 +68,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [neovim-session-manager](Pluginy/neovim-session-manager.md)
 - [nvim-cursorline](Pluginy/nvim-cursorline.md)
 - [nvim-tree.lua](Pluginy/nvim-tree-lua.md) - menadżer plików
+- [which-key](Pluginy/which-key.md)
 - [nvim-web-devicons](Pluginy/nvim-web-devicons.md) - dodatkowe czcionki z symbolami
 - [targets.vim](Pluginy/targets-vim.md)
 - [telescope-fzf-native.nvim](Pluginy/telescope-fzf-native-nvim.md)
@@ -144,7 +145,6 @@ use({ "neoclide/coc.nvim", disable = false })
 - [vim-go](Pluginy/vim-go.md)
 - [vim-instant-markdown](Pluginy/vim-instant-markdown.md)
 - [vim-templates](Pluginy/vim-templates.md)
-- [vim-which-key](Pluginy/vim-which-key.md)
 - [YankRing.vim](Pluginy/yankring-vim.md)
 
 Kolory

@@ -86,4 +86,4 @@ configs.setup({
 -- Load Telescope extensions
 configs.load_extension("fzf")
 configs.load_extension("project")
-configs.load_extension("sessions")
+-- configs.load_extension("sessions")

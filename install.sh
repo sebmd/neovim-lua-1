@@ -45,6 +45,9 @@ cp -R $NEOVIM_LUA_DIR/.config/nvim/* $HOME/.config/nvim
 cp -R $NEOVIM_LUA_DIR/docs/* $HOME/.config/nvim/docs
 cp $NEOVIM_LUA_DIR/README.md $HOME/.config/nvim/
 
+# Kopiowanie skryptów do $HOME/bin
+cp $NEOVIM_LUA_DIR/bin/* $HOME/bin/
+
 # Pobiera schemat kolorów everforest
 echo "Pobieram schemat kolorów everforest"
 git clone --depth 1 https://github.com/sainnhe/everforest \
@@ -67,10 +70,6 @@ else
     cp $HOME/.config/vars $HOME/.config/vars-$DATA
     echo "Skopiowałem obecną konfigurację do pliku ~/.config/vars-$DATA"
 fi
-
-# Tworzy linki symboliczne dla skryptów gp i ga
-ln -sf $NEOVIM_LUA_DIR/bin/gp.sh $HOME/bin/gp.sh
-ln -sf $NEOVIM_LUA_DIR/bin/ga.sh $HOME/bin/ga.sh
 
 # Instaluje pluginy
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

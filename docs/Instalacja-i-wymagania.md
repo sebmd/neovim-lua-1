@@ -21,6 +21,15 @@ Dodatkowo do pliku konfiguracyjnego `.bashrc` jest dodawane wczytanie pliku
 `NOTES_DIR` określa katalog z notatkami, standardowo jest to `~/Notes`.
 Natomiast zmienna `GPG_ID` określa ID klucza publicznego GPG.
 
+Skrypt tworzy następujące pliki i katalogi:
+
+- `~/.config/nvim`
+- `~/bin/ga.sh`
+- `~/bin/gp.sh`
+- `~/bin`
+- `~/git`
+- `~/Notes`
+
 ### Ręczna instalacja
 
 Innym sposobem jest pobranie skryptu na dysk, ewentualnie modyfikacji i uruchomienie go.

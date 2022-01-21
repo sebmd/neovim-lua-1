@@ -11,10 +11,12 @@ bash -c "$(curl -s https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/ma
 ```
 
 Skrypt instalacyjny pobiera repozytorium **neovim-lua** do katalogu `$HOME/.local/share/neovim-lua`,
-katalog instalacyjny jest zdefiniowany w zmiennej `NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua`.
+katalog instalacyjny jest zdefiniowany w zmiennej `NEOVIM_LUA_DIR=$HOME/.local/share/neovim-lua`
+w skrypcie instalacyjnym `install.sh`.
 
-Pliki konfiguracyjne są linkami symbolicznymi do ich odpowiedników w katalogu
-instalacyjnym.
+Następnie kopiuje pliki do katalogu `~/.config/nvim`.
+
+Jeśli istnieje katalog `~/.config/nvim` to wykonuje kopie zapasową.
 
 Dodatkowo do pliku konfiguracyjnego `.bashrc` jest dodawane wczytanie pliku
 `~/.config/vars`, w którym znajdują się zmienne `NOTES_DIR` i `GPG_ID`. Zmienna
@@ -23,7 +25,7 @@ Natomiast zmienna `GPG_ID` określa ID klucza publicznego GPG.
 
 ### Ręczna instalacja
 
-Innym sposobem jest pobranie skryptu na dysk, ewentualnie modyfikacji i uruchomienie go.
+Innym sposobem jest pobranie skryptu instalacyjnego na dysk i uruchomienie go.
 
 ```shell
 curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh
@@ -34,15 +36,27 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 - [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
+- fd (fd-find) - wyszukiwanie plików
 - nodejs, npm
 
 ### Opcjonalnie
 
-- StyLua - formatowanie plików Lua
-- fd (fd-find) - wyszukiwanie plików
+- [StyLua](https://github.com/JohnnyMorganz/StyLua) - formatowanie plików Lua
 - sk (skim) - fzf napisany w języku Rust
 
 ## Po instalacji
+
+### NPM Neovim
+
+```
+sudo npm install -g neovim
+```
+
+### Python Neovim
+
+```
+sudo dnf install python3-neovim
+```
 
 ### Minimap
 

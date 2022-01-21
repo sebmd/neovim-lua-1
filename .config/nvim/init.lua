@@ -1,4 +1,4 @@
--- Aktualizacja 2022-01-01 15:06:23
+-- Aktualizacja 2022-01-21 18:25:40
 vimrc_version = "2.4"
 --
 -- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -44,9 +44,10 @@ require("plugins/trouble")
 require("plugins/vim-colorscheme-manager")
 require("plugins/vim-dotoo")
 require("plugins/vim-oscyank")
+require("plugins/vim-vsnip")
 require("plugins/vimwiki")
-require("plugins/zenmode")
 require("plugins/which-key")
+require("plugins/zenmode")
 -- require("plugins/auto-session")
 -- require("plugins/bufferline")
 -- require("plugins/hop")

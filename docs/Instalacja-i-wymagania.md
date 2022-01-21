@@ -1,5 +1,7 @@
 # Instalacja i wymagania
 
+Najnowszą wersję binarną Neovim można pobrać ze strony https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+
 ## Instalacja
 
 - [Skrypt instalacyjny - źródło](https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install.sh)
@@ -45,13 +47,13 @@ curl -LO https://raw.githubusercontent.com/hattori-hanz0/neovim-lua/main/install
 - [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
-- fd (fd-find) - wyszukiwanie plików
+- [fd](https://github.com/sharkdp/fd) (fd-find) - wyszukiwanie plików
 - nodejs, npm
 
 ### Opcjonalnie
 
 - [StyLua](https://github.com/JohnnyMorganz/StyLua) - formatowanie plików Lua
-- sk (skim) - fzf napisany w języku Rust
+- [sk](https://github.com/lotabout/skim) (skim) - fzf napisany w języku Rust
 
 ## Po instalacji
 

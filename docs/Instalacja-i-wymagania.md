@@ -25,6 +25,16 @@ Dodatkowo do pliku konfiguracyjnego `.bashrc` jest dodawane wczytanie pliku
 `NOTES_DIR` określa katalog z notatkami, standardowo jest to `~/Notes`.
 Natomiast zmienna `GPG_ID` określa ID klucza publicznego GPG.
 
+Przykładowy plik `~/.config/vars`
+
+```
+GPG_ID=0x0000000000000000000
+NOTES_DIR=~/Notes
+BROWSER=firefox
+EMAIL=adres@email.pl
+NAME="Hattori Hanzō"
+```
+
 Skrypt tworzy następujące pliki i katalogi:
 
 - `~/.config/nvim`

@@ -1,3 +1,5 @@
 GPG_ID=0x0000000000000000000
 NOTES_DIR=~/Notes
 BROWSER=firefox
+EMAIL=adres@email.pl
+NAME="Hattori Hanzō"

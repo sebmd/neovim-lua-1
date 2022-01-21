@@ -65,17 +65,20 @@ packer.startup(function(use)
   use("b3nj5m1n/kommentary") -- komentarze
 
   -- automatyczne uzupełnianie
-  use({ "neovim/nvim-lspconfig", disable = true })
-  use({ "hrsh7th/cmp-nvim-lsp", disable = true })
+  use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/nvim-cmp")
+  use("saadparwaiz1/cmp_luasnip")
+  use({ "neovim/nvim-lspconfig", disable = true })
+  use({ "hrsh7th/cmp-nvim-lsp", disable = true })
 
   use({ "hrsh7th/cmp-vsnip", disable = false })
   use({ "hrsh7th/vim-vsnip", disable = false })
 
-  -- use "L3MON4D3/LuaSnip"
+  -- use("L3MON4D3/LuaSnip")
+  use("rafamadriz/friendly-snippets")
+  --
   -- use "vim-scripts/AutoComplPop"
   -- use("tibabit/vim-templates")
 

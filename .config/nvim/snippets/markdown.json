@@ -1,74 +1,12 @@
 {
-  "links": {
-    "prefix": ["l", "link"],
-    "body": ["[${1}](${2}) ${0}"]
-  },
-  "urls": {
-    "prefix": ["u", "url"],
-    "body": ["[${1}](${2}) ${0}"]
-  },
-  "images": {
-    "prefix": "img",
-    "body": ["![${1}](${2}) ${0}"]
-  },
-  "user": {
-    "prefix": "username",
-    "body": "${VIM:\\$USER} ${0}"
-  },
-  "gpg-id": {
-    "prefix": "gpgid",
-    "body": "${VIM:\\$GPG_ID} ${0}"
-  },
-  "uuid": {
-    "prefix": "uuid",
-    "body": [
-      "${VIM:system('python -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')} ${0}"
-    ]
-  },
   "code": {
     "prefix": ["c", "code"],
     "body": [
-	"",
-	"```",
-	"${0}",
-	"```",
-	""
-    ]
-  },
-  "h1": {
-    "prefix": "h1",
-    "body": [
-      "# ${0}"
-    ]
-  },
-  "h2": {
-    "prefix": "h2",
-    "body": [
-      "## ${0}"
-    ]
-  },
-  "h3": {
-    "prefix": "h3",
-    "body": [
-      "### ${0}"
-    ]
-  },
-  "h4": {
-    "prefix": "h4",
-    "body": [
-      "#### ${0}"
-    ]
-  },
-  "h5": {
-    "prefix": "h5",
-    "body": [
-      "##### ${0}"
-    ]
-  },
-  "h6": {
-    "prefix": "h6",
-    "body": [
-      "###### ${0}"
+    "",
+    "```",
+    "${0}",
+    "```",
+    ""
     ]
   }
 }

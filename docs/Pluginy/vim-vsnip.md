@@ -2,6 +2,8 @@
 
 - [vim-vsnip](https://github.com/hrsh7th/vim-vsnip)
 
+- https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax
+
 Makietyki możemy edytować wpisując polecenie:
 
 ```

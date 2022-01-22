@@ -1,7 +1,7 @@
--- Aktualizacja 2022-01-22 14:27:08
+-- Aktualizacja 2022-01-22 14:28:12
 vimrc_version = "2.5"
 --
--- <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
+--  INFO: <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --
 -- ustawienia
 require("settings")

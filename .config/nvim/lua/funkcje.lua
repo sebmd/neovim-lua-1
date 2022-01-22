@@ -1,6 +1,7 @@
 -- Funkcje
 
 local api = vim.api
+local fn = vim.fn
 
 -- Zapisuje plik Write()
 api.nvim_exec(
@@ -19,6 +20,7 @@ api.nvim_exec(
                 endif
             endfor
         else
+            execute ':lua MkDir()'
             execute ':write'
             echo "Utworzyłem" expand("%:p")
         endif
@@ -163,8 +165,8 @@ search_nvim_dotfiles = function()
 end
 
 -- Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
-function Time()
-  local czas = vim.fn.strftime("%F, %A %T")
+Time = function()
+  local czas = fn.strftime("%F, %A %T")
   print("- Teraz jest: " .. czas .. " -")
 end
 
@@ -260,6 +262,14 @@ endfunction
 
 function VimrcVersion()
   print("Wersja: " .. vimrc_version)
+end
+
+MkDir = function()
+  local dir = fn.expand("%:p:h")
+
+  if fn.isdirectory(dir) == 0 then
+    fn.mkdir(dir, "p")
+  end
 end
 
 -- map("n", "<leader>bc", "<cmd>lua VimrcVersion()<cr>", { silent = false })

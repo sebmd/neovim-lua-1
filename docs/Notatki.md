@@ -79,9 +79,11 @@ api.nvim_exec(
 Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 InsertDiaryHeader
 
-- `<leader>ej` wywołuje funkcję `DiaryNotes`
+- `<leader>ej` wywołuje funkcję `DiaryNotes`, tworzy lub otwiera plik w formacie:
 
+```
 $NOTES_DIR/diary/YYYY-MM-DD.md
+```
 
 ### Komenda InsertDiaryHeader
 

@@ -1,4 +1,8 @@
 {
+  "hello": {
+    "prefix": "hello",
+    "body": "$BLOCK_COMMENT_START Hello World $BLOCK_COMMENT_END"
+  },
   "filename": {
     "prefix": ["fname"],
     "body": "$TM_FILENAME_BASE"

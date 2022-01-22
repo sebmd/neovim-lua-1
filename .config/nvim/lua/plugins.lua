@@ -30,7 +30,7 @@ packer.startup(function(use)
   -- wyłączony
   use({ "neoclide/coc.nvim", disable = true })
 
-  -- obsługa języka Go - wyłączony
+  -- obsługa języka Go
   use({ "fatih/vim-go", disable = true })
 
   use({

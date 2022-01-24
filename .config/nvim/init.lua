@@ -1,4 +1,4 @@
--- Aktualizacja 2022-01-22 14:28:12
+-- Aktualizacja 2022-01-23 02:17:15
 vimrc_version = "2.5"
 --
 --  INFO: <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -16,7 +16,7 @@ require("komendy")
 -- pluginy
 require("plugins")
 
--- ustawienia pluginów
+-- konfiguracja pluginów
 require("plugins/barbar")
 require("plugins/cheatsheet")
 require("plugins/cmp-vsnip")

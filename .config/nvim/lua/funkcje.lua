@@ -9,7 +9,7 @@ api.nvim_exec(
     function! Write()
         " wywołuje funkcję UpdateVimrc
         " autocmd! BufWritePost $MYVIMRC call UpdateVimrc() | source % | redraw
-        autocmd! BufWritePost $MYVIMRC call UpdateVimrc()
+        autocmd! BufWrite $MYVIMRC call UpdateVimrc()
         if filereadable(expand("%"))
             for buf in getbufinfo("%")
                 if buf.changed
@@ -264,6 +264,7 @@ function VimrcVersion()
   print("Wersja: " .. vimrc_version)
 end
 
+-- Tworzy brakujące katalogi
 MkDir = function()
   local dir = fn.expand("%:p:h")
 

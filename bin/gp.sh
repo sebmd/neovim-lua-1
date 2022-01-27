@@ -2,7 +2,7 @@
 
 DATA=$(date +%F-%T)
 
-cd "$1"
+cd "$(dirname $(readlink -m $1))"
 
 if [ "$(basename $0)" == "gps" ]; then
     git add -A && git commit -S -m $DATA && git push

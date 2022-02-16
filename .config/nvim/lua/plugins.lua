@@ -116,6 +116,8 @@ packer.startup(function(use)
 
   use("lukas-reineke/indent-blankline.nvim")
 
+  use("liuchengxu/vista.vim")
+
   -- use("rmagatti/auto-session")
   use({ "Shatur/neovim-session-manager", disable = false })
 

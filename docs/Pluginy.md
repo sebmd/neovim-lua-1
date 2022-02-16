@@ -78,6 +78,7 @@ use({ "neoclide/coc.nvim", disable = false })
 - [toggleterm.nvim](Pluginy/toggleterm-nvim.md)
 - [undotree](Pluginy/undotree.md) - drzewo zmian
 - [vim-devicons](Pluginy/vim-devicons.md) - dodatkowe czcionki z symbolami
+- [liuchengxu/vista.vim](Pluginy/vista.md) - Viewer & Finder for LSP symbols and tags
 - [vim-dotoo](Pluginy/vim-dotoo.md)
 - [vim-eunuch](Pluginy/vim-eunuch.md)
 - [vim-gnupg](Pluginy/vim-gnupg.md) - szyfrowanie plików za pomocą GnuPG

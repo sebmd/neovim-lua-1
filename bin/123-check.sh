@@ -17,6 +17,10 @@ case $(~/bin/detect-os sys) in
         msg_info "Wykryłem system Arch"
         ARCH=1
         ;;
+    Void)
+        msg_info "Wykryłem system Void"
+        VOID=1
+        ;;
 esac
 
 echo
@@ -46,6 +50,14 @@ declare -a PAKIETY_UBUNTU=(
 )
 
 declare -a PAKIETY_ARCH=(
+    "nvim"
+    "git"
+    "rg"
+    "fd"
+    "fzf"
+)
+
+declare -a PAKIETY_VOID=(
     "nvim"
     "git"
     "rg"
@@ -85,4 +97,15 @@ if [[ $ARCH ]]; then
     msg_info "Jeśli brakuje jakiegoś pakietu uruchom polecenie:"
     echo
     echo "sudo pacman -S neovim git ripgrep fzf fd-find"
+fi
+
+if [[ $VOID ]]; then
+    for i in ${PAKIETY_VOID[@]}; do
+        check "$1"
+    done
+
+    echo
+    msg_info "Jeśli brakuje jakiegoś pakietu uruchom polecenie:"
+    echo
+    echo "sudo xbps-install -S neovim git ripgrep fzf fd"
 fi

@@ -6,6 +6,7 @@
 #   - CentOS
 #   - Ubuntu
 #   - Arch
+#   - Void
 #
 # Parametry:
 #
@@ -58,6 +59,16 @@ if [ -f /etc/os-release ]; then
         system="Arch"
         system_full="$NAME"
         system_ver="$BUILD_ID"
+    fi
+fi
+
+# Wykrywanie systemu Void
+if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    if [ $ID == "void" ]; then
+        system="Void"
+        system_full="$NAME $(uname -a)"
+        system_ver="Void $kernel"
     fi
 fi
 

@@ -1,14 +1,17 @@
 -- dashboard
 local g = vim.g -- a table to access global variables
 local api = vim.api
+local fn = vim.fn
+local plugins_count = fn.len(fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
 g.dashboard_disable_at_vimenter = 0
 g.dashboard_default_executive = "telescope"
 g.dashboard_session_enable = 0
 
 g.dashboard_custom_header = { "Hattori :•: Hanzō" }
 
-g.dashboard_custom_footer = { "https://github.com/hattori-hanz0/neovim-lua :•: wersja: " .. vimrc_version }
-
+g.dashboard_custom_footer = {
+  "https://github.com/hattori-hanz0/neovim-lua :•: wersja: " .. vimrc_version .. " liczba   " .. plugins_count,
+}
 g.dashboard_custom_section = {
   a = {
     description = { "   Nowy plik              'n'" },

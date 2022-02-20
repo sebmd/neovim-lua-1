@@ -27,7 +27,8 @@ packer.init({
 packer.startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
-  -- wyłączony
+
+  -- COC
   use({ "neoclide/coc.nvim", disable = true })
 
   -- obsługa języka Go

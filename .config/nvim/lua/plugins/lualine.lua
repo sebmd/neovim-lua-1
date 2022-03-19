@@ -50,7 +50,8 @@ local config = {
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
     -- theme = "gruvbox_dark",
-    disabled_filetypes = { "CHADTree", "NvimTree", "toggleterm", "dashboard" },
+    -- disabled_filetypes = { "CHADTree", "NvimTree", "toggleterm", "dashboard" },
+    disabled_filetypes = { "CHADTree", "toggleterm", "dashboard" },
   },
   sections = {
     -- these are to remove the defaults
@@ -272,3 +273,12 @@ ins_right({
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
+-- ustawia statusline na całą długość ekranu dla nvim  dla nvim = 0.7
+if vim.fn.has("nvim-0.7") == 1 then
+  -- print("we got neovim 0.7")
+  vim.opt.laststatus = 3
+else
+  -- print("we got neovim 0.1")
+  vim.opt.laststatus = 2
+end

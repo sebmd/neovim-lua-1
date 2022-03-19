@@ -89,7 +89,7 @@ opt.listchars = "nbsp:⦸,tab:▸ ,eol:¬,extends:»,precedes:«,trail:•" -- e
 opt.showbreak = "↪"
 opt.fillchars:append({ eob = " " }) -- usuwa znak ~ na końcu bufora
 opt.tags:append("./tags,./../tags,./../../tags,./../../../tags,tags")
-opt.laststatus = 2
+-- opt.laststatus = 2 -- przeniesione do konfiguracji lualine.lua
 opt.complete:append("kspell") -- Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 
 opt.mouse = "a" -- allow the mouse to be used in neovim

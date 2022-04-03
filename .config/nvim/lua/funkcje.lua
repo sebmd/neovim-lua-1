@@ -13,7 +13,7 @@ api.nvim_exec(
         if filereadable(expand("%"))
             for buf in getbufinfo("%")
                 if buf.changed
-                    execute ':update'
+                    execute ':silent update'
                     echo "Zapisałem" expand("%:p")
                 else
                     echo "Brak zmian w" expand("%:p")
@@ -21,7 +21,7 @@ api.nvim_exec(
             endfor
         else
             execute ':lua MkDir()'
-            execute ':write'
+            execute ':silent write'
             echo "Utworzyłem" expand("%:p")
         endif
     endfunction

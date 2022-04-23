@@ -4,7 +4,7 @@
 
 Najnowszą wersję binarną Neovim można pobrać ze strony https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 
-- [Neovim](https://github.com/neovim/neovim) w wersji min. 0.6 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
+- [Neovim](https://github.com/neovim/neovim) w wersji min. 0.7 - [Kompilacja Neovim ze źródeł](Kompilacja-ze-źródeł.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [fd](https://github.com/sharkdp/fd) (fd-find) - wyszukiwanie plików

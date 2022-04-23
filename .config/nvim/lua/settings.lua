@@ -156,6 +156,10 @@ api.nvim_exec(
   false
 )
 
+-- Hide cursorline in insert mode
+-- vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { command = "set nocursorline", group = group })
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { command = "set cursorline", group = group })
+
 -- wchodzi w tryb INSERT przy utowrzeniu nowego pliku typu Markdown
 cmd("au! BufNewFile *.md startinsert!")
 

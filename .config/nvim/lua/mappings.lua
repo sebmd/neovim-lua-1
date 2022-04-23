@@ -110,6 +110,14 @@ map("n", "<m-l>", "<cmd>vertical resize +2<cr>")
 map("n", "<leader>vs", "<cmd>vs<cr>")
 map("n", "<leader>sp", "<cmd>sp<cr>")
 
+-- Mapowanie dla terminala
+-- map("t", "<esc>", "<c-\\><c-n>")
+-- map("t", "jk", "<c-\\><c-n>")
+-- map("t", "<c-h>", "<c-\\><c-n><c-w>h")
+-- map("t", "<c-j>", "<c-\\><c-n><c-w>j")
+-- map("t", "<c-k>", "<c-\\><c-n><c-w>k")
+-- map("t", "<c-l>", "<c-\\><c-n><c-w>l")
+
 -- Poruszanie się w długiej zawiniętej linii
 map("n", "j", "gj")
 map("n", "k", "gk")

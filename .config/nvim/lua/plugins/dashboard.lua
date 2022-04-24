@@ -28,12 +28,12 @@ g.dashboard_custom_section = {
 }
 
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
-local group = vim.api.nvim_create_augroup("DashboardMappings", {
+local group = api.nvim_create_augroup("DashboardMappings", {
   clear = true,
 })
 
 -- Klawisz 's' - Telescope sessions
--- vim.api.nvim_create_autocmd("FileType", {
+-- api.nvim_create_autocmd("FileType", {
 --   pattern = {
 --     "dashboard",
 --   },
@@ -42,7 +42,7 @@ local group = vim.api.nvim_create_augroup("DashboardMappings", {
 -- })
 
 -- Klawisz 'q' - funkcja search_docs()
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
   pattern = {
     "dashboard",
   },

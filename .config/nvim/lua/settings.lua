@@ -158,7 +158,3 @@ api.nvim_exec(
 
 -- wchodzi w tryb INSERT przy utowrzeniu nowego pliku typu Markdown
 cmd("au! BufNewFile *.md startinsert!")
-
--- ustawia podświetlenie i czas podświetlenia kopiowanego tekstu
--- cmd("au TextYankPost * lua vim.highlight.on_yank {higroup = IncSearch, on_visual = true, timeout = 150}")
-cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true, timeout = 150}")

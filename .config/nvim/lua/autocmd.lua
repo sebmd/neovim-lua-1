@@ -13,8 +13,8 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- Hide cursorline in insert mode
--- api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { command = "set nocursorline", group = group })
--- api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { command = "set cursorline", group = group })
+-- api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { command = "set nocursorline" })
+-- api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { command = "set cursorline" })
 
 -- Automatically update changed file in Vim
 api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
@@ -24,4 +24,10 @@ api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI"
 -- Notification after file change
 api.nvim_create_autocmd("FileChangedShellPost", {
   command = [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]],
+})
+
+vim.api.nvim_create_augroup("Highlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  command = [[ lua vim.highlight.on_yank({ higroup = 'Search', timeout = 150, on_visual = true }) ]],
+  group = "Highlight",
 })

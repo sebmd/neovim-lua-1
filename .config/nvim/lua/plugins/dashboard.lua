@@ -17,23 +17,24 @@ g.dashboard_custom_section = {
   a = { description = { "   Nowy plik              'n'" }, command = "DashboardNewFile" },
   b = { description = { "   Ostatnio używane pliki 'r'" }, command = "Telescope oldfiles" },
   -- c = { description = { "   Zapisane sesje         's'" }, command = "Telescope sessions" },
-  d = { description = { "   Wyszukiwanie plików    'f'" }, command = "lua Find_Files()" },
-  e = { description = { "   Wyszukuj w plikach     'w'" }, command = "Telescope live_grep" },
-  f = { description = { "   Ostatnie projekty      'p'" }, command = "Telescope project" },
-  g = { description = { "   Konfiguracja Neovim    'v'" }, command = "lua search_nvim_dotfiles()" },
-  h = { description = { "   Pliki dot.files        'd'" }, command = ":lua search_dotfiles()" },
-  i = { description = { "   Schematy kolorystyczne 'S'" }, command = "DashboardChangeColorscheme" },
-  j = { description = { "   Dokumentacja           'D'" }, command = ":lua search_docs()" },
+  c = { description = { "   Wyszukiwanie plików    'f'" }, command = "lua Find_Files()" },
+  d = { description = { "   Wyszukuj w plikach     'w'" }, command = "Telescope live_grep" },
+  e = { description = { "   Ostatnie projekty      'p'" }, command = "Telescope project" },
+  f = { description = { "   Pliki dot.files        'd'" }, command = ":lua search_dotfiles()" },
+  g = { description = { "   Schematy kolorystyczne 'S'" }, command = "DashboardChangeColorscheme" },
+  h = { description = { "   Dokumentacja           'D'" }, command = ":lua search_docs()" },
+  i = { description = { "   Konfiguracja Neovim    'v'" }, command = "lua search_nvim_dotfiles()" },
+  j = { description = { "   Aktualizacja pluginów  'u'" }, command = ":PackerSync<cr>" },
   k = { description = { "   Wyjście z Neovim       'q'" }, command = ":q" },
 }
 
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów
-local group = api.nvim_create_augroup("DashboardMappings", {
+local group = vim.api.nvim_create_augroup("DashboardMappings", {
   clear = true,
 })
 
 -- Klawisz 's' - Telescope sessions
--- api.nvim_create_autocmd("FileType", {
+-- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = {
 --     "dashboard",
 --   },
@@ -42,7 +43,7 @@ local group = api.nvim_create_augroup("DashboardMappings", {
 -- })
 
 -- Klawisz 'q' - funkcja search_docs()
-api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "dashboard",
   },
@@ -50,6 +51,7 @@ api.nvim_create_autocmd("FileType", {
     vim.api.nvim_command([[ nnoremap <silent> <buffer> f :lua Find_Files()<cr> ]])
     vim.api.nvim_command([[ nnoremap <silent> <buffer> p :Telescope project<cr> ]])
     vim.api.nvim_command([[ nnoremap <silent> <buffer> r :Telescope oldfiles<cr> ]])
+    vim.api.nvim_command([[ nnoremap <silent> <buffer> u :PackerSync<cr> ]])
     vim.api.nvim_command([[ nnoremap <silent> <buffer> n :DashboardNewFile<cr> ]])
     vim.api.nvim_command([[ nnoremap <silent> <buffer> w :Telescope live_grep<cr> ]])
     vim.api.nvim_command([[ nnoremap <silent> <buffer> S :DashboardChangeColorscheme<cr> ]])

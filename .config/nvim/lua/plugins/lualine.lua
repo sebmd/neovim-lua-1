@@ -41,6 +41,7 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
+    globalstatus = true,
     icons_enabled = true,
     theme = {
       -- We are going to use lualine_c an lualine_x as left and
@@ -273,12 +274,3 @@ ins_right({
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
-
--- ustawia statusline na całą długość ekranu dla nvim  dla nvim = 0.7
-if vim.fn.has("nvim-0.7") == 1 then
-  -- print("we got neovim 0.7")
-  vim.opt.laststatus = 3
-else
-  -- print("we got neovim 0.1")
-  vim.opt.laststatus = 2
-end

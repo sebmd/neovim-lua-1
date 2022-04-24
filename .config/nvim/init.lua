@@ -1,5 +1,5 @@
--- Aktualizacja 2022-01-23 02:17:15
-vimrc_version = "2.5"
+-- Aktualizacja 2022-04-24 09:50:58
+vimrc_version = "2.6"
 --
 --  INFO: <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
 --
@@ -9,9 +9,10 @@ require("settings")
 -- mapowanie klawiszy
 require("mappings")
 
--- funkcje, komendy
+-- funkcje, komendy, autocmd
 require("funkcje")
 require("komendy")
+require("autocmd")
 
 -- pluginy
 require("plugins")

@@ -139,32 +139,38 @@ api.nvim_exec(
 )
 
 -- Ustawienia skrótów klawiszowych dla plików pomocy
-api.nvim_exec(
-  [[
-    autocmd Filetype help nnoremap <c-n> :cnext<cr>
-    autocmd Filetype help nnoremap <c-p> :cprevious<cr>
-    autocmd Filetype help nnoremap <leader>l <c-]>
-    autocmd Filetype help nnoremap <leader>h <c-t>
-    autocmd Filetype help nnoremap q :quit<cr>
-]],
-  false
-)
+vim.api.nvim_create_augroup("HelpMap", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+  },
+  callback = function()
+    vim.api.nvim_command([[ nnoremap <c-n> :cnext<cr> ]])
+    vim.api.nvim_command([[ nnoremap <c-p> :cprevious<cr> ]])
+    vim.api.nvim_command([[ nnoremap <leader>l <c-]> ]])
+    vim.api.nvim_command([[ nnoremap <leader>h <c-t> ]])
+    vim.api.nvim_command([[ nnoremap q :quit<cr> ]])
+  end,
+  group = "HelpMap",
+})
+
+-- Uruchamia Vista TOC
+api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  command = [[nnoremap <leader>t :Vista<cr>]],
+})
 
 -- Klawisz `K` w plikach lua wywołuje pomoc dla wyrazu pod kursorem
-api.nvim_exec(
-  [[
-    autocmd Filetype lua nnoremap K viwy:help <c-r>"<cr>
-    ]],
-  false
-)
+api.nvim_create_autocmd("FileType", {
+  pattern = { "lua" },
+  command = [[nnoremap K viwy:help <c-r>"<cr>]],
+})
 
--- Klawisz `K` w plikach sh wywołuje pomoc dla wyrazu pod kursorem
-api.nvim_exec(
-  [[
-    autocmd Filetype sh nnoremap K viwy:Man <c-r>"<cr>
-    ]],
-  false
-)
+-- Klawisz `K` w plikach lua wywołuje pomoc dla wyrazu pod kursorem
+api.nvim_create_autocmd("FileType", {
+  pattern = { "sh" },
+  command = [[nnoremap K viwy:Man <c-r>"<cr>]],
+})
 
 -- Zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
 map("n", "<f8>", ":NextColorScheme<cr>") -- f8

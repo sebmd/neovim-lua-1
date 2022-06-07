@@ -145,16 +145,21 @@ api.nvim_exec(
 )
 
 cmd("au BufNewFile,BufReadPost *.gpg.md set filetype=markdown")
-cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
+-- cmd("au BufNewFile,BufReadPost *.md set filetype=markdown")
 
 -- automatycznie odświerza pliki
-api.nvim_exec(
-  [[
-    autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md set autoread
-    autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md :checktime
-]],
-  false
-)
+-- api.nvim_exec(
+--   [[
+--     autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md set autoread
+--     autocmd FocusGained,BufEnter,CursorHold ~/Notes/*.md :checktime
+-- ]],
+--   false
+-- )
+
+-- automatycznie odświerza pliki
+api.nvim_create_autocmd("FocusGained,BufEnter,CursorHold ~/Notes/*.md", { command = "set autoread" })
+api.nvim_create_autocmd("FocusGained,BufEnter,CursorHold ~/Notes/*.md", { command = ":checktime" })
 
 -- wchodzi w tryb INSERT przy utowrzeniu nowego pliku typu Markdown
-cmd("au! BufNewFile *.md startinsert!")
+-- cmd("au! BufNewFile *.md startinsert!")
+api.nvim_create_autocmd("BufNewFile filetype *.md", { command = "startinsert!" })

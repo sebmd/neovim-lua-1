@@ -84,6 +84,7 @@ api.nvim_exec(
 ]],
   false
 )
+
 -- Funkcja DiaryNotes() otwiera plik dziennika do edycji wstawiając nagłówek za pomocą funkcji
 -- InsertDiaryHeader
 api.nvim_exec(
@@ -105,8 +106,8 @@ api.nvim_exec(
 api.nvim_exec(
   [[
         function! Kolory()
-        	let kolory = readfile(expand('$HOME/.config/nvim/kolory'))
-        	call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
+		let kolory = readfile(expand('$HOME/.config/nvim/kolory'))
+		call fzf#run(fzf#wrap({'source': kolory, 'sink' : 'colorscheme'}))
         endfunction
     ]],
   false

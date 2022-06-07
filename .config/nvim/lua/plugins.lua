@@ -80,7 +80,7 @@ packer.startup(function(use)
   use("rafamadriz/friendly-snippets")
   --
   -- use "vim-scripts/AutoComplPop"
-  -- use("tibabit/vim-templates")
+  use("tibabit/vim-templates")
 
   use("nvim-telescope/telescope-symbols.nvim")
 

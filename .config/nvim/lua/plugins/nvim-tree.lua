@@ -19,8 +19,8 @@ configs.setup({
   hijack_cursor = false,
   update_cwd = false,
   -- update_to_buf_dir = {
-  -- enable = true,
-  -- auto_open = true,
+    -- enable = true,
+    -- auto_open = true,
   -- },
   diagnostics = {
     enable = false,

@@ -54,6 +54,9 @@ map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 -- Wyjście
 map("n", "<leader>q", "<cmd>q<cr>")
 
+-- wyświetla ścieżkę do bieżącego pliku, obsługuje również linki symboliczne
+map("n", "<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
+
 -- Wyjście bez zapisania
 map("n", "qq", ":qa<cr>")
 
@@ -111,12 +114,12 @@ map("n", "<leader>vs", "<cmd>vs<cr>")
 map("n", "<leader>sp", "<cmd>sp<cr>")
 
 -- Mapowanie dla terminala
+map("t", "<c-h>", "<c-\\><c-n><c-w>h")
+map("t", "<c-j>", "<c-\\><c-n><c-w>j")
+map("t", "<c-k>", "<c-\\><c-n><c-w>k")
+map("t", "<c-l>", "<c-\\><c-n><c-w>l")
 -- map("t", "<esc>", "<c-\\><c-n>")
 -- map("t", "jk", "<c-\\><c-n>")
--- map("t", "<c-h>", "<c-\\><c-n><c-w>h")
--- map("t", "<c-j>", "<c-\\><c-n><c-w>j")
--- map("t", "<c-k>", "<c-\\><c-n><c-w>k")
--- map("t", "<c-l>", "<c-\\><c-n><c-w>l")
 
 -- Poruszanie się w długiej zawiniętej linii
 map("n", "j", "gj")
@@ -129,6 +132,9 @@ map("n", "gf", "<cmd>edit <cfile><cr>")
 -- Uruchamia przeglądarkę na linku pod kursorem używając przeglądarki zdefiniowanej w zmiennej
 -- BROWSER
 map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
+
+-- Dublowanie linii
+map("n", "tt", ":t.<cr>")
 
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
@@ -296,7 +302,7 @@ map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
 
 -- Uruchamia skrypt (bieżący plik)
-map("n", "<leader>sr", ":!./%<cr>")
+map("n", "<leader>sr", ":Write<cr>:!./%<cr>")
 
 -- Przeładowuje konfigurajce otwartego pliku
 map("n", "<leader>sf", ":luafile %<cr>")
@@ -405,6 +411,7 @@ map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources =
 -- Historia komend :
 map("n", "q:", "<nop>")
 map("n", "q:", ":Telescope command_history<cr>")
+map("n", "q;", ":Telescope command_history<cr>")
 map("n", "<leader>hc", ":Telescope command_history<cr>")
 
 -- Lista zmapowanych klawiszy

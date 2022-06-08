@@ -133,9 +133,6 @@ map("n", "gf", "<cmd>edit <cfile><cr>")
 -- BROWSER
 map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
 
--- Dublowanie linii
-map("n", "tt", ":t.<cr>")
-
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
   [[
@@ -271,13 +268,32 @@ map("n", "<Tab>", "<cmd>e #<CR>")
 -- Poprzedni / następny bufor
 map("n", "<leader>,", "<cmd>bprevious<cr>")
 map("n", "<leader>.", "<cmd>bnext<cr>")
+map("n", "<c-,>", "<cmd>bprevious<cr>")
+map("n", "<c-.>", "<cmd>bnext<cr>")
 
--- Usuwa bufor
-map("n", "<leader>d", "<cmd>BufferDelete<cr>")
+-- Łączy linie pozostawiając kursor w obecnej pozycji
+map("n", "J", "mzJ`z")
 
--- Tab to switch buffers in Normal mode
--- map("n", "<Tab>", "<cmd>bnext<CR>")
--- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
+-- Kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
+map("n", "Y", "y$")
+
+-- Zaznacza cały plik, dodatkowo tworzy znacznik na bieżącej pozycji, `z wraca na miejsce znacznika
+map("n", "<leader>sa", "mzggVG<c-$>")
+
+-- Make visual yanks place the cursor back where started
+map("v", "y", "ygv<Esc>")
+
+-- Kopiuje cały plik
+-- map("n", "ya", "ggVGy")
+
+-- Kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
+map("n", "yh", "0f lv$hy")
+
+-- Dublowanie linii
+map("n", "tt", ":t.<cr>")
+
+-- Klonuje cały paragraf
+map("n", "<leader>cp", "yap<s-}>p")
 
 -- Usuwa obiekt tekstowy nie kopiując go do standardowego rejestru
 -- map("n", "<leader>d", '"-d')
@@ -291,6 +307,16 @@ map("n", ",P", '"0P')
 -- Wkleja ostatnio usunięty tekst
 -- map("n", "<leader>p", "p")
 -- map("n", "<leader>P", "P")
+
+-- Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
+map("n", "<leader>a", "=ip gqap")
+
+-- Usuwa bufor
+map("n", "<leader>d", "<cmd>BufferDelete<cr>")
+
+-- Tab to switch buffers in Normal mode
+-- map("n", "<Tab>", "<cmd>bnext<CR>")
+-- map("n", "<S-Tab>", "<cmd>bprevious<CR>")
 
 -- Uruchamia UndotreeToggle
 map("n", "<leader>u", ":UndotreeToggle<cr>")
@@ -313,12 +339,6 @@ map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
 -- Menadzęr plików CHADtree
 -- map("n", "<leader>n", "<cmd>CHADopen<cr>")
 
--- Zaznacza cały plik, dodatkowo tworzy znacznik na bieżącej pozycji, `z wraca na miejsce znacznika
-map("n", "<leader>sa", "mzggVG<c-$>")
-
--- Make visual yanks place the cursor back where started
-map("v", "y", "ygv<Esc>")
-
 -- Mapowanie znaczników (undo) w trybie INSERT po wprowadzeniu jednego ze znaków , . ! ? ; :
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
@@ -334,21 +354,6 @@ map("n", "mM", "`m")
 -- Przechodzi do kolejnej / poprzedniej szukanej pozycji, dodatkowo wyśrodkowuje ekran i otwiera zagnieżdżenia
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
-
--- Łączy linie pozostawiając kursor w obecnej pozycji
-map("n", "J", "mzJ`z")
-
--- Kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
-map("n", "Y", "y$")
-
--- Kopiuje cały plik
-map("n", "ya", "ggVGy")
-
--- Kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
-map("n", "yh", "0f lv$hy")
-
--- Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
-map("n", "<leader>a", "=ip gqap")
 
 -- Łatwiejsza inkrementacja i dekremenatacja liczb
 map("n", "+", "<C-a>", { silent = true })

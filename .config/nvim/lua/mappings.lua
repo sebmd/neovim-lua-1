@@ -60,6 +60,9 @@ map("n", "<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
 -- Wyjście bez zapisania
 map("n", "qq", ":qa<cr>")
 
+-- Wyświetla pełną ścieżkę otwartego pliku, w tym rozwiązuje linki symbliczne
+map("n", "<leader>l", '<cmd>echom resolve(expand("%:p"))')
+
 map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
 map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
 map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')

@@ -54,9 +54,6 @@ map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 -- Wyjście
 map("n", "<leader>q", "<cmd>q<cr>")
 
--- wyświetla ścieżkę do bieżącego pliku, obsługuje również linki symboliczne
-map("n", "<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
-
 -- Wyjście bez zapisania
 map("n", "qq", ":qa<cr>")
 

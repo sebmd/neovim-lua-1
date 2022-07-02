@@ -5,7 +5,7 @@ if not nvim_tree_status_ok then
 end
 
 -- automatycznie zmienia katalog względem położenia otwartego pliku
-vim.g.nvim_tree_respect_buf_cwd = 1
+vim.g.respect_buf_cwd = 1
 
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
@@ -19,8 +19,8 @@ configs.setup({
   hijack_cursor = false,
   update_cwd = false,
   -- update_to_buf_dir = {
-    -- enable = true,
-    -- auto_open = true,
+  -- enable = true,
+  -- auto_open = true,
   -- },
   diagnostics = {
     enable = false,

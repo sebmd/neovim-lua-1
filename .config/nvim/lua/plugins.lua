@@ -95,8 +95,8 @@ packer.startup(function(use)
   -- use("yamatsum/nvim-cursorline") -- podświetlanie identycznych słów
 
   -- wyszukiwanie
-  -- use("junegunn/fzf")
-  -- use("junegunn/fzf.vim")
+  use("junegunn/fzf")
+  use("junegunn/fzf.vim")
 
   use("ibhagwan/fzf-lua")
 
@@ -185,4 +185,5 @@ packer.startup(function(use)
   use("zekzekus/menguless")
   use("whatyouhide/vim-gotham")
   use("marko-cerovac/material.nvim")
+  use("LunarVim/horizon.nvim")
 end)

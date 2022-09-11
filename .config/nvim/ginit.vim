@@ -1,3 +1,4 @@
+" Konfiguracja dla Neovim Qt
 GuiFont Hack:h14:l
 GuiTabline 0
 

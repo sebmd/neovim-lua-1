@@ -136,6 +136,9 @@ map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>')
 -- Dublowanie linii
 map("n", "tt", ":t.<cr>")
 
+-- Klonuje cały paragraf
+-- map("n", "<leader>cp", "yap<s-}>p")
+
 -- Wkleja do linii komend lub wyszukiwania skopiowany tekst z bufora za pomocą <c-r>p
 api.nvim_exec(
   [[
@@ -345,7 +348,7 @@ map("n", "J", "mzJ`z")
 map("n", "Y", "y$")
 
 -- Kopiuje cały plik
-map("n", "ya", "ggVGy")
+map("n", "ya", "mzggVGy`z")
 
 -- Kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
 map("n", "yh", "0f lv$hy")

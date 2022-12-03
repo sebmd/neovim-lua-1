@@ -1,5 +1,5 @@
 " source $VIMRUNTIME/defaults.vim
-" filetype plugin indent on
+" "filetype plugin indent on
 syntax on
 " set ft=man
 set syntax=man
@@ -15,6 +15,8 @@ set hidden
 set laststatus=0
 set background=dark
 set termguicolors
+set timeout
+set timeoutlen=10
 colo ayu
 
 " let ayucolor="light"  " for light version of theme
@@ -28,5 +30,6 @@ map n nzz
 map N Nzz
 map d <c-d>
 map u <c-u>
+map g gg
 map <space> <c-d>
 map <backspace> <c-u>

@@ -165,6 +165,34 @@ search_nvim_dotfiles = function()
   })
 end
 
+-- przenosi linię do podanego pliku w argumencie
+send_line_to_file = function(plik)
+  vim.cmd("d")
+  -- vim.cmd("cd $NOTES_DIR")
+  rejestr = fn.getreg("@", 1, 1)
+  fn.writefile(rejestr, plik, "a")
+  vim.cmd("cd %:p:h")
+end
+
+-- kopiuje linię do podanego pliku w argumencie
+copy_line_to_file = function(plik)
+  vim.cmd("y")
+  -- vim.cmd("cd $NOTES_DIR")
+  fn.writefile(fn.getreg("@", 1, 1), plik, "a")
+  vim.cmd("cd %:p:h")
+end
+
+-- kopiowanie zaznaczenia nie działa nawet po dodaniu '<,'>y
+
+-- kopiuje linię do podanego pliku w argumencie
+copy_v_line_to_file = function(plik)
+  -- vim.cmd("'<,'>y")
+  vim.cmd("y")
+  -- vim.cmd("cd $NOTES_DIR")
+  fn.writefile(fn.getreg("@", 1, 1), plik, "a")
+  vim.cmd("cd %:p:h")
+end
+
 -- Funkcja Time() wyświetla bieżącą datę i godzinę w formacie 2021-11-23, wtorek 20:53:27
 Time = function()
   local czas = fn.strftime("%F, %A %T")

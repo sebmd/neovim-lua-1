@@ -20,6 +20,7 @@ bo.fileformat = "unix"
 opt.encoding = "utf-8" -- Set default encoding to UTF-8
 wo.foldcolumn = "1"
 wo.foldmethod = "marker"
+opt.iskeyword:append("-,_") -- nie traktuje `-` jako seperatora słowa np: wyraz-jeden uznawane jest za całe słowo
 -- opt.foldmethod = "manual" -- folding, set to "expr" for treesitter based folding
 -- opt.foldmethod = "indent"
 -- opt.foldenable = false
@@ -47,7 +48,7 @@ opt.joinspaces = false -- No double spaces with join
 wo.linebreak = true -- Stop words being broken on wrap
 opt.list = true -- Show some invisible characters
 wo.number = true -- wyświetlanie numerów linii
-wo.relativenumber = false -- wyświetlanie relatywnych numerów linii
+wo.relativenumber = true -- wyświetlanie relatywnych numerów linii
 opt.numberwidth = 5 -- ustawia szerokość kolumny numerowania linii
 opt.scrolloff = 4 -- Lines of context
 opt.sidescrolloff = 8 -- Columns of context

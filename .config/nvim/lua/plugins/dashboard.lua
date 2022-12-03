@@ -4,33 +4,28 @@ local api = vim.api
 local fn = vim.fn
 local plugins_count = fn.len(fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
 
--- Dashboard
-local db_status_ok, db = pcall(require, "dashboard")
-if not db_status_ok then
-  return
-end
+g.dashboard_disable_at_vimenter = 0
+g.dashboard_default_executive = "telescope"
+g.dashboard_session_enable = 0
 
-db.disable_at_vimenter = 0
-db.default_executive = "telescope"
-db.session_enable = 0
+g.dashboard_custom_header = { "Hattori :•: Hanzō" }
 
-db.custom_header = { "Hattori :•: Hanzō" }
-
-db.custom_footer = {
+g.dashboard_custom_footer = {
   "https://github.com/hattori-hanz0/neovim-lua :•: wersja: " .. vimrc_version .. " liczba   " .. plugins_count,
 }
-db.custom_center = {
-  { icon = " ", desc = "Nowy plik                      ", shortcut = "n", action = "DashboardNewFile" },
-  { icon = " ", desc = "Ostatnio używane pliki         ", shortcut = "r", action = "Telescope oldfiles" },
-  { icon = " ", desc = "Wyszukiwanie plików            ", shortcut = "f", action = "lua Find_Files()" },
-  { icon = " ", desc = "Wyszukuj w plikach             ", shortcut = "w", action = "Telescope live_grep" },
-  { icon = " ", desc = "Ostatnie projekty              ", shortcut = "p", action = "Telescope project" },
-  { icon = " ", desc = "Pliki dot.files                ", shortcut = "d", action = ":lua search_dotfiles()" },
-  { icon = " ", desc = "Schematy kolorystyczne         ", shortcut = "S", action = "Kolory" },
-  { icon = " ", desc = "Dokumentacja                   ", shortcut = "D", action = ":lua search_docs()" },
-  { icon = " ", desc = "Konfiguracja Neovim            ", shortcut = "v", action = "lua search_nvim_dotfiles()" },
-  { icon = " ", desc = "Aktualizacja pluginów          ", shortcut = "u", action = ":PackerSync<cr>" },
-  { icon = " ", desc = "Wyjście z Neovim               ", shortcut = "q", action = ":q" },
+g.dashboard_custom_section = {
+  a = { description = { "   Nowy plik              'n'" }, command = "DashboardNewFile" },
+  b = { description = { "   Ostatnio używane pliki 'r'" }, command = "Telescope oldfiles" },
+  -- c = { description = { "   Zapisane sesje         's'" }, command = "Telescope sessions" },
+  c = { description = { "   Wyszukiwanie plików    'f'" }, command = "lua Find_Files()" },
+  d = { description = { "   Wyszukuj w plikach     'w'" }, command = "Telescope live_grep" },
+  e = { description = { "   Ostatnie projekty      'p'" }, command = "Telescope project" },
+  f = { description = { "   Pliki dot.files        'd'" }, command = ":lua search_dotfiles()" },
+  g = { description = { "   Schematy kolorystyczne 'S'" }, command = "DashboardChangeColorscheme" },
+  h = { description = { "   Dokumentacja           'D'" }, command = ":lua search_docs()" },
+  i = { description = { "   Konfiguracja Neovim    'v'" }, command = "lua search_nvim_dotfiles()" },
+  j = { description = { "   Aktualizacja pluginów  'u'" }, command = ":PackerSync<cr>" },
+  k = { description = { "   Wyjście z Neovim       'q'" }, command = ":q" },
 }
 
 -- Mapowanie klawiszy w Dahsboard i ustawienie kolorów

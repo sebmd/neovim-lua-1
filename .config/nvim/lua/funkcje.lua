@@ -69,6 +69,14 @@ api.nvim_exec(
 ]],
   false
 )
+-- wstawia: # 2022-12-11 03:31:01
+function date_header()
+  local pos = vim.api.nvim_win_get_cursor(0)[2]
+  local line = vim.api.nvim_get_current_line()
+  local nline = line:sub(0, pos) .. "# " .. os.date("%Y-%m-%d %H:%M:%S") .. line:sub(pos + 1)
+  vim.api.nvim_set_current_line(nline)
+  vim.api.nvim_feedkeys("o", "n", true)
+end
 
 -- Funkcja InsertDiaryHeader() wstawia nagłówej # i bieżący czas
 api.nvim_exec(

@@ -1,4 +1,4 @@
--- Aktualizacja 2022-04-24 09:50:58
+-- Aktualizacja 2022-12-11 13:17:29
 vimrc_version = "2.6"
 --
 --  INFO: <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -28,6 +28,7 @@ require("plugins/gitsigns")
 require("plugins/gnupg")
 require("plugins/indent-blankline")
 require("plugins/kommentary")
+require("plugins/leap-nvim")
 require("plugins/lualine")
 require("plugins/material")
 require("plugins/minimap")

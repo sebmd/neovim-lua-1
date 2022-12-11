@@ -27,124 +27,81 @@ end
 g.mapleader = " "
 
 -- Wyjście z trybu INSERT
--- map("i", "kj", "<esc>")
 inoremap("kj", "<esc>")
--- map("i", "jk", "<esc>")
-
--- Wyłącza podświetlanie szukanego tekstu
--- map("n", "<leader>th", ":nohl<cr>", { silent = true })
+-- inoremap("jk", "<esc>")
 
 -- ESC wyłącza wyróżnianie szukanego słowa
--- map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 nnoremap("<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Wejście do trybu COMMAND w trybie NORMAL i VISUAL
--- map("n", "<leader>;", ":", { silent = false })
 nnoremap("<leader>;", ":", { silent = false })
--- map("v", "<leader>;", ":", { silent = false })
 xnoremap("<leader>;", ":", { silent = false })
 
 -- Uruchomienie podręczniej pomocy LEADER ?
--- map("n", "<leader>?", "<cmd>Cheatsheet<cr>")
 nnoremap("<leader>?", "<cmd>Cheatsheet<cr>")
 
--- Otwiera nowy plik
--- map("n", "<leader>c", "<cmd>enew<cr>")
+-- Otwiera pusty bufor
+nnoremap("<leader>C", "<cmd>enew<cr>")
 
--- Przechodzenie pomiędzy katalogami
--- map("n", "<leader>c", "<cmd>CD<cr>")
+-- Przechodzenie pomiędzy katalogami z użyciem funkcji CD
 nnoremap("<leader>c", "<cmd>CD<cr>")
 
 -- Uruchamia Dashboard
--- map("n", "<leader>D", "<cmd>Dashboard<cr>")
 nnoremap("<leader>D", "<cmd>Dashboard<cr>")
 
 -- Zmiana kolorów
--- map("n", "<leader>k", "<cmd>Kolory<cr>")
 nnoremap("<leader>k", "<cmd>Kolory<cr>")
 
 -- Zapisanie pliku
--- map("n", "<leader>w", "<cmd>Write<cr>")
 nnoremap("<leader>w", "<cmd>Write<cr>")
 
 -- Zapisanie i wyjście
--- map("n", "<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 nnoremap("<leader>x", "<cmd>Write<cr><cmd>q<cr>")
 
 -- Wyjście
--- map("n", "<leader>q", "<cmd>q<cr>")
 nnoremap("<leader>q", "<cmd>q<cr>")
 
 -- Wyjście
--- map("n", "<leader>z", "<cmd>q!<cr>")
 nnoremap("<leader>z", "<cmd>q!<cr>")
 
 -- wyświetla ścieżkę do bieżącego pliku, obsługuje również linki symboliczne
--- map("n", "<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
-nnoremap("<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
+-- nnoremap("<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
+nnoremap("<leader>l", "<cmd>call FileInfo()<cr>")
 
 -- Wyjście bez zapisania
--- map("n", "qq", ":qa<cr>")
 nnoremap("qq", ":qa<cr>")
 
--- map("n", "<left>", ':echom "Użyj klawisza h"<cr>h')
--- map("n", "<down>", ':echom "Użyj klawisza j"<cr>j')
--- map("n", "<up>", ':echom "Użyj klawisza k"<cr>k')
--- map("n", "<right>", ':echom "Użyj klawisza l"<cr>l')
-
 -- Poruszanie się pomiędzy zmianami w pliku
--- map("n", "g;", "g;zvzz")
--- map("n", "g,", "g,zvzz")
 nnoremap("g;", "g;zvzz")
 nnoremap("g,", "g,zvzz")
 
 -- Poruszanie się pomiędzy paragrafami
--- map("n", "}", "}zvzz")
--- map("n", "{", "{zvzz")
 nnoremap("}", "}zvzz")
 nnoremap("{", "{zvzz")
 
 -- TAB w trybie VISUAL pozostaje w trybie VISUAL
--- map("v", "<", "<gv")
--- map("v", ">", ">gv")
 xnoremap("<", "<gv")
 xnoremap(">", ">gv")
 
 -- Poruszanie się w trybie COMMAND
--- map("c", "<c-j>", "<down>")
--- map("c", "<c-k>", "<up>")
--- map("c", "<c-h>", "<left>")
--- map("c", "<c-l>", "<right>")
 cmap("<c-j>", "<down>")
 cmap("<c-k>", "<up>")
 cmap("<c-h>", "<left>")
 cmap("<c-l>", "<right>")
 
 -- Poruszanie się w trybie INSERT za pomocą skrótów <c-h,j,k,l>
--- map("i", "<c-h>", "<left>")
--- map("i", "<c-j>", "<down>")
--- map("i", "<c-k>", "<up>")
--- map("i", "<c-l>", "<right>")
 inoremap("<c-h>", "<left>")
 inoremap("<c-j>", "<down>")
 inoremap("<c-k>", "<up>")
 inoremap("<c-l>", "<right>")
 
 -- Poruszanie się pomiędzy oknami za pomocą <c-h,j,k,l>
---[[ map("n", "<c-h>", "<c-w><c-h>")
-map("n", "<c-j>", "<c-w><c-j>")
-map("n", "<c-k>", "<c-w><c-k>")
-map("n", "<c-l>", "<c-w><c-l>") ]]
 nnoremap("<c-h>", "<c-w><c-h>")
 nnoremap("<c-j>", "<c-w><c-j>")
 nnoremap("<c-k>", "<c-w><c-k>")
 nnoremap("<c-l>", "<c-w><c-l>")
 
 -- Zmiana wielkości okna
--- map("n", "<m-h>", "<cmd>vertical resize -2<cr>")
--- map("n", "<m-j>", "<cmd>resize +2<cr>")
--- map("n", "<m-k>", "<cmd>resize -2<cr>")
--- map("n", "<m-l>", "<cmd>vertical resize +2<cr>")
 nnoremap("<m-h>", "<cmd>vertical resize -2<cr>")
 nnoremap("<m-j>", "<cmd>resize +2<cr>")
 nnoremap("<m-k>", "<cmd>resize -2<cr>")
@@ -159,17 +116,10 @@ nnoremap("<m-l>", "<cmd>vertical resize +2<cr>")
 -- map("v", "<m-k>", "<cmd>m -2<CR>gv=gv", { silent = true })
 
 -- Podział okna pionowy i poziomy
--- map("n", "<leader>vs", "<cmd>vs<cr>")
--- map("n", "<leader>sp", "<cmd>sp<cr>")
 nnoremap("<leader>vs", "<cmd>vs<cr>")
 nnoremap("<leader>sp", "<cmd>sp<cr>")
 
 -- Mapowanie dla terminala
--- map("t", "<c-h>", "<c-\\><c-n><c-w>h")
--- map("t", "<c-j>", "<c-\\><c-n><c-w>j")
--- map("t", "<c-k>", "<c-\\><c-n><c-w>k")
--- map("t", "<c-l>", "<c-\\><c-n><c-w>l")
---
 -- map("t", "<esc>", "<c-\\><c-n>")
 -- map("t", "jk", "<c-\\><c-n>")
 --
@@ -179,23 +129,18 @@ tmap("<c-k>", "<c-\\><c-n><c-w>k")
 tmap("<c-l>", "<c-\\><c-n><c-w>l")
 
 -- Poruszanie się w długiej zawiniętej linii
--- map("n", "j", "gj")
--- map("n", "k", "gk")
 nnoremap("j", "gj")
 nnoremap("k", "gk")
 
 -- Standardowo `gf` przechodzi do otwartego pliku, to mapowanie tworzy nieistniejący plik i otwiera
 -- go w bieżącym buforze
--- map("n", "gf", "<cmd>edit <cfile><cr>")
 nnoremap("gf", "<cmd>edit <cfile><cr>")
 
 -- Uruchamia przeglądarkę na linku pod kursorem używając przeglądarki zdefiniowanej w zmiennej
 -- BROWSER
--- map("n", "gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
 nnoremap("gx", "<cmd>silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<cr>")
 
 -- Dublowanie linii
--- map("n", "tt", ":t.<cr>")
 nnoremap("tt", ":t.<cr>")
 
 -- Klonuje cały paragraf
@@ -245,11 +190,6 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- Zmiana kolorów F8, Shift-F8, Ctrl-F8, F9
--- map("n", "<f8>", ":NextColorScheme<cr>") -- f8
--- map("n", "<f20>", ":PrevColorScheme<cr>") -- shift f8
--- map("n", "<f32>", ":RandomColorScheme<cr>") -- ctrl f8
--- map("n", "<f9>", ":BlacklistAddColorScheme<cr>") -- f9
--- map("n", "<f21>", ":colo<cr>") -- shift f9
 nnoremap("<f8>", ":NextColorScheme<cr>") -- f8
 nnoremap("<f20>", ":PrevColorScheme<cr>") -- shift f8
 nnoremap("<f32>", ":RandomColorScheme<cr>") -- ctrl f8
@@ -261,23 +201,15 @@ nnoremap("<f21>", ":colo<cr>") -- shift f9
 -- map("n", "<leader>sl", "<cmd>RestoreSession<cr>")
 
 -- Dashboard
--- map("n", "<f2>", ":<C-u>SessionSave<CR>")
--- map("n", "<f3>", ":<C-u>SessionLoad<CR>")
 nnoremap("<f2>", ":<C-u>SessionSave<CR>")
 nnoremap("<f3>", ":<C-u>SessionLoad<CR>")
 
 -- Przenosi bieżącą linię do pliku
--- map("n", "<leader>si", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/inbox.md")<cr>')
--- map("n", "<leader>sd", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/done.md")<cr>')
--- map("n", "<leader>sn", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/notatki.md")<cr>')
 nnoremap("<leader>si", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/inbox.md")<cr>')
 nnoremap("<leader>sd", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/done.md")<cr>')
 nnoremap("<leader>sn", '<cmd>lua send_line_to_file(os.getenv("NOTES_DIR") .. "/notatki.md")<cr>')
 
 -- Kopiuje bieżącą linię do pliku
--- map("n", "<leader>ci", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/inbox.md")<cr>')
--- map("n", "<leader>cd", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/done.md")<cr>)')
--- map("n", "<leader>cn", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/notatki.md")<cr>)')
 nnoremap("<leader>ci", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/inbox.md")<cr>')
 nnoremap("<leader>cd", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/done.md")<cr>)')
 nnoremap("<leader>cn", '<cmd>lua copy_line_to_file(os.getenv("NOTES_DIR") .. "/notatki.md")<cr>)')
@@ -376,71 +308,49 @@ nnoremap("<leader><leader>", "ciw")
 -- Obsługa pluginu vim-surround
 -- <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
 -- <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
--- <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
+-- <leader>ssp czeka na wprowadzenie znaku, który otoczy paragraf
 -- <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
--- <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
--- map("n", "<leader>sw", ":norm ysiw")
+-- <leader>sdd czeka na wprowadzenie znaku, którym zostanie usunięty
 nnoremap("<leader>sw", ":norm ysiw")
--- map("n", "<leader>sW", ":norm ysiW")
 nnoremap("<leader>sW", ":norm ysiW")
--- map("n", "<leader>ssp", ":norm ysip")
 nnoremap("<leader>ssp", ":norm ysip")
--- map("n", "<leader>ss", ":norm yss")
 nnoremap("<leader>ss", ":norm yss")
--- map("n", "<leader>sdd", ":norm ds")
 nnoremap("<leader>sdd", ":norm ds")
 
 -- map("n", "<Enter>", "o<Esc>")
 -- map("n", "<space>", "i<space><C-c>l")
 
 -- Plugin gitsigns
--- map("n", "<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
--- map("n", "<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
--- map("n", "gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
--- map("n", "gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 nnoremap("<c-n>", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 nnoremap("<c-p>", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 nnoremap("gj", '<cmd>lua require"gitsigns.actions".next_hunk()<CR>zv')
 nnoremap("gk", '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>zv')
 
 -- Przemapowanie klawiszy otwierających i zamykających zagnieżdżenia
--- map("n", "zn", "zm")
--- map("n", "zm", "zn")
 nnoremap("zn", "zm")
 nnoremap("zm", "zn")
 
 -- Przejście na początek / koniec linii
--- map("n", "gh", "0")
--- map("n", "gl", "$")
--- map("v", "gh", "0")
--- map("v", "gl", "$")
 nnoremap("gh", "0")
 nnoremap("gl", "$")
 xnoremap("gh", "0")
 xnoremap("gl", "$")
 
 -- Usuwa od kursora do początku / końca linii
--- map("n", "dh", "xd0")
--- map("n", "dl", "d$")
 nnoremap("dh", "xd0")
 nnoremap("dl", "d$")
 
 -- Usuwa od kursora do pierwszej spacji
--- map("n", "d<space>", "df<space>")
 nnoremap("d<space>", "df<space>")
 
 -- Przechodzi pomiędzy dwoma ostatimi buforami
--- map("n", "<Tab>", "<cmd>e #<CR>")
 nnoremap("<Tab>", "<cmd>e #<CR>")
 
 -- Poprzedni / następny bufor
--- map("n", "<leader>,", "<cmd>bprevious<cr>")
--- map("n", "<leader>.", "<cmd>bnext<cr>")
 nnoremap("<leader>,", "<cmd>bprevious<cr>")
 nnoremap("<leader>.", "<cmd>bnext<cr>")
 
 -- Usuwa bufor
--- map("n", "<leader>d", "<cmd>BufferDelete<cr>")
 nnoremap("<leader>d", "<cmd>BufferDelete<cr>")
 
 -- Tab to switch buffers in Normal mode
@@ -463,47 +373,33 @@ nnoremap(",P", '"0P')
 -- map("n", "<leader>P", "P")
 
 -- Uruchamia UndotreeToggle
--- map("n", "<leader>u", ":UndotreeToggle<cr>")
 nnoremap("<leader>u", ":UndotreeToggle<cr>")
 
 -- Wyszukiwanie plików w ~/.config/nvim
--- map("n", "<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 nnoremap("<leader>v", "<cmd>lua search_nvim_dotfiles()<cr>")
 
 -- Przeładowuje konfigurację $MYVIMRC
--- map("n", "<leader>sv", ":luafile $MYVIMRC<cr>")
 nnoremap("<leader>sv", ":luafile $MYVIMRC<cr>")
 
 -- Uruchamia skrypt (bieżący plik)
--- map("n", "<leader>sr", ":Write<cr>:!./%<cr>")
 nnoremap("<leader>sr", ":Write<cr>:!./%<cr>")
 
 -- Przeładowuje konfigurajce otwartego pliku
--- map("n", "<leader>sf", ":luafile %<cr>")
 nnoremap("<leader>sf", ":luafile %<cr>")
 
 -- Mendadżer plików NvimTree
--- map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>")
 nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
 
 -- Menadzęr plików CHADtree
 -- map("n", "<leader>n", "<cmd>CHADopen<cr>")
 
 -- Zaznacza cały plik, dodatkowo tworzy znacznik na bieżącej pozycji, `z wraca na miejsce znacznika
--- map("n", "<leader>sa", "mzggVG<c-$>")
 nnoremap("<leader>sa", "mzggVG<c-$>")
 
 -- Make visual yanks place the cursor back where started
--- map("v", "y", "ygv<Esc>")
 xnoremap("y", "ygv<Esc>")
 
 -- Mapowanie znaczników (undo) w trybie INSERT po wprowadzeniu jednego ze znaków , . ! ? ; :
--- map("i", ",", ",<c-g>u")
--- map("i", ".", ".<c-g>u")
--- map("i", "!", "!<c-g>u")
--- map("i", "?", "?<c-g>u")
--- map("i", ";", ";<c-g>u")
--- map("i", ":", ":<c-g>u")
 inoremap(",", ",<c-g>u")
 inoremap(".", ".<c-g>u")
 inoremap("!", "!<c-g>u")
@@ -512,77 +408,55 @@ inoremap(";", ";<c-g>u")
 inoremap(":", ":<c-g>u")
 
 -- `mm` - tworzy znacznik; `mM` - wraca na miejsce znacznika
--- map("n", "mm", "mm") -- tego oczywiście nie trzeba dodatkowo mapować
--- map("n", "mM", "`m")
 nnoremap("mm", "mm") -- tego oczywiście nie trzeba dodatkowo mapować
 nnoremap("mM", "`m")
 
 -- Przechodzi do kolejnej / poprzedniej szukanej pozycji, dodatkowo wyśrodkowuje ekran i otwiera zagnieżdżenia
--- map("n", "n", "nzzzv")
--- map("n", "N", "Nzzzv")
 nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
 
+-- Przechodzi ekran w dół / górę jednocześnie wyśrodkowując stronę i otwierając zagnieżdżenia
 nnoremap("<c-d>", "<c-d>zzzv")
 nnoremap("<c-u>", "<c-u>zzzv")
 
 -- Łączy linie pozostawiając kursor w obecnej pozycji
--- map("n", "J", "mzJ`z")
 nnoremap("J", "mzJ`z")
 
 -- Kopiuje tekst od kursora do końca linii od wersji 0.6 jest to standardowe zachowanie
--- map("n", "Y", "y$")
 nnoremap("Y", "y$")
 
 -- Kopiuje cały plik
--- map("n", "ya", "mzggVGy`z")
 nnoremap("ya", "mzggVGy`z")
 
 -- Kopiuje linie z pominięciem pierwszego wyrazu / znaku bez znaku końca linii
--- map("n", "yh", "0f lv$hy")
 nnoremap("yh", "0f lv$hy")
 
 -- Wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 'textwidth' znaków 'gqap'
--- map("n", "<leader>a", "=ip gqap")
 nnoremap("<leader>a", "=ip gqap")
 
 -- Łatwiejsza inkrementacja i dekremenatacja liczb
--- map("n", "+", "<C-a>", { silent = true })
--- map("v", "+", "<C-a>", { silent = true })
--- map("n", "-", "<C-x>", { silent = true })
--- map("v", "-", "<C-x>", { silent = true })
 nnoremap("+", "<C-a>", { silent = true })
 xnoremap("+", "<C-a>", { silent = true })
 nnoremap("-", "<C-x>", { silent = true })
 xnoremap("-", "<C-x>", { silent = true })
 
 -- Automatyczne zamykanie tagów
--- map("i", ",/", "</<C-X><C-O>")
 inoremap(",/", "</<C-X><C-O>")
 
 -- Rejestry
--- map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
 nnoremap("<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
 
 -- Live Grep
--- map(
--- "n",
--- "<leader>g",
--- '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
--- )
 nnoremap(
   "<leader>g",
   '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
 )
 
 -- Grep String
--- map("n", "<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 nnoremap("<leader>zx", '<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ")})<CR>')
 
 -- Bufory
 -- map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
--- map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
--- map("n", "<leader>B", "<cmd>BufferPick<cr>")
 nnoremap("<leader>b", "<cmd>FzfLua buffers<cr>")
 nnoremap("<leader>B", "<cmd>BufferPick<cr>")
 
@@ -590,12 +464,6 @@ nnoremap("<leader>B", "<cmd>BufferPick<cr>")
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 
 -- Find Files
--- map(
--- "n",
--- "<leader>f",
--- "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>",
--- default_opts
--- )
 nnoremap(
   "<leader>f",
   "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--follow', '-g', '!.git' }})<cr>",
@@ -605,48 +473,36 @@ nnoremap(
 -- Spell Suggest
 -- map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 -- nnoremap("<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
+
+-- zaznacza wyraz pod kursorem i przechodzi do modyfikacji wszystkich znalezionych wyrazów
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- Git Status
--- map(
--- "n",
--- "<leader>i",
--- '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
--- )
 nnoremap(
   "<leader>i",
   '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
 )
 
 -- Tags
--- map("n", "<leader>ta", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 nnoremap("<leader>ta", '<cmd>lua require("telescope.builtin").tags(require("telescope.themes").get_dropdown({}))<cr>')
 
 -- Project
--- map("n", "<leader>p", ":Telescope project<cr>")
 nnoremap("<leader>p", ":Telescope project<cr>")
 
 -- Symbols
--- map("n", "<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 nnoremap("<leader>sy", '<cmd>lua require("telescope.builtin").symbols{ sources = {"emoji", "gitmoji"} }<cr>')
 -- map("n", "<leader>sy", "<cmd>Telescope emoji<cr>")
 
 -- Historia komend :
--- map("n", "q:", "<nop>")
--- map("n", "q:", ":Telescope command_history<cr>")
--- map("n", "q;", ":Telescope command_history<cr>")
--- map("n", "<leader>hc", ":Telescope command_history<cr>")
 nnoremap("q:", "<nop>")
 nnoremap("q:", ":Telescope command_history<cr>")
 nnoremap("q;", ":Telescope command_history<cr>")
 nnoremap("<leader>hc", ":Telescope command_history<cr>")
 
 -- Lista zmapowanych klawiszy
--- map("n", "<leader>m", ":Telescope keymaps<cr>")
 nnoremap("<leader>m", ":Telescope keymaps<cr>")
 
 -- Historia wyszukiwania
--- map("n", "<leader>sh", ":Telescope search_history<cr>")
 nnoremap("<leader>sh", ":Telescope search_history<cr>")
 
 -- Uruchomienie terminala w podziale poziomym
@@ -654,17 +510,13 @@ nnoremap("<leader>sh", ":Telescope search_history<cr>")
 -- terminalu a także poruszać się pomiędzy terminalem a oknem bufora
 -- map("n", "<leader>t", "<cmd>split term://$SHELL<cr>")
 -- map("n", "<leader>tt", "<cmd>split term://$SHELL<cr>")
--- map("n", "<leader>t", '<cmd>ToggleTerm direction="vertical" size=60<cr>')
--- map("n", "<leader>tt", '<cmd>ToggleTerm direction="float" size=60<cr>')
 nnoremap("<leader>t", '<cmd>ToggleTerm direction="vertical" size=60<cr>')
 nnoremap("<leader>tt", '<cmd>ToggleTerm direction="float" size=60<cr>')
 
 -- Wyszukiwanie plików w katalogu dotfiles
--- map("n", "<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 nnoremap("<leader>zz", "<cmd>lua search_dotfiles()<cr>")
 
 -- Uruchamia tryb ZenMode
--- map("n", "<leader>ze", "<cmd>ZenMode<cr>")
 nnoremap("<leader>ze", "<cmd>ZenMode<cr>")
 
 -- Plugin kommentary

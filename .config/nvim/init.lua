@@ -1,4 +1,4 @@
--- Aktualizacja 2022-12-11 13:17:29
+-- Aktualizacja 2022-12-11 14:06:39
 vimrc_version = "2.6"
 --
 --  INFO: <spacja>v - przeszukiwanie katalogu konfiguracyjnego ~/.config/nvim
@@ -38,6 +38,7 @@ require("plugins/nvim-cmp")
 require("plugins/nvim-tree")
 require("plugins/nvim-web-devicons")
 require("plugins/pears")
+require("plugins/smoothcursor-nvim")
 require("plugins/telescope")
 require("plugins/todo-comments")
 require("plugins/toggleterm")

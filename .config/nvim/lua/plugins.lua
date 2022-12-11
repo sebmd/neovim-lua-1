@@ -27,6 +27,10 @@ packer.startup(function(use)
   -- menadżer pluginów
   use("wbthomason/packer.nvim")
 
+  use({
+    "gen740/SmoothCursor.nvim",
+  })
+
   -- COC
   use({ "neoclide/coc.nvim", disable = true })
 

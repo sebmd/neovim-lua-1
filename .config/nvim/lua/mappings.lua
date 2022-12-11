@@ -68,6 +68,12 @@ nnoremap("<leader>z", "<cmd>q!<cr>")
 -- nnoremap("<leader>l", '<cmd>echo resolve(expand("%:p"))<cr>')
 nnoremap("<leader>l", "<cmd>call FileInfo()<cr>")
 
+-- kopiuje nazwę pliku do schowka systemowego
+--[[ nnoremap(
+  "<leader>xl",
+  '<cmd>let @+=resolve(expand("%:p"))<cr><cmd>echo "Skopiowałem nazwę pliku do schowka systemowego."<cr>'
+) ]]
+
 -- Wyjście bez zapisania
 nnoremap("qq", ":qa<cr>")
 
